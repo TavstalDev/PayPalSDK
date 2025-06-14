@@ -9,15 +9,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Config\" />
-      <Folder Include="Constants\" />
-      <Folder Include="Http\" />
       <Folder Include="Interfaces\" />
-      <Folder Include="Models\Common\" />
-      <Folder Include="Models\Orders\" />
       <Folder Include="Models\Payments\" />
       <Folder Include="Services\" />
       <Folder Include="Utils\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>
