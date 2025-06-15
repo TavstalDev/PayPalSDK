@@ -7,7 +7,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// Represents stored credentials used in card payments within the PayPal SDK.
 /// </summary>
 [DataContract]
-public class StoredCredentials
+public class CardStoredCredentials
 {
     /// <summary>
     /// Gets or sets the payment initiator.
@@ -43,13 +43,13 @@ public class StoredCredentials
     public NetworkTransactionReference PrevNetworkTransactionReference { get; set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="StoredCredentials"/> class.
+    /// Initializes a new instance of the <see cref="CardStoredCredentials"/> class.
     /// </summary>
     /// <param name="paymentInitiator">The payment initiator.</param>
     /// <param name="paymentType">The type of payment.</param>
     /// <param name="usage">The usage of the credential.</param>
     /// <param name="prevNetworkTransactionReference">The reference to the previous network transaction.</param>
-    public StoredCredentials(string paymentInitiator, string paymentType, string usage, NetworkTransactionReference prevNetworkTransactionReference)
+    public CardStoredCredentials(string paymentInitiator, string paymentType, string usage, NetworkTransactionReference prevNetworkTransactionReference)
     {
         PaymentInitiator = paymentInitiator;
         PaymentType = paymentType;

@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using Tavstal.PayPalSDK.Models.Common.User;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 
@@ -6,7 +7,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// Represents the attributes of a card payment source in the PayPal SDK.
 /// </summary>
 [DataContract]
-public class Attributes
+public class CardAttributes
 {
     /// <summary>
     /// Gets or sets the customer details associated with the card payment source.
@@ -36,12 +37,12 @@ public class Attributes
     public Verification Verification { get; set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Attributes"/> class.
+    /// Initializes a new instance of the <see cref="CardAttributes"/> class.
     /// </summary>
     /// <param name="customer">The customer details associated with the card payment source.</param>
     /// <param name="vault">The vault details associated with the card payment source.</param>
     /// <param name="verification">The verification details associated with the card payment source.</param>
-    public Attributes(Customer customer, Vault vault, Verification verification)
+    public CardAttributes(Customer customer, Vault vault, Verification verification)
     {
         Customer = customer;
         Vault = vault;

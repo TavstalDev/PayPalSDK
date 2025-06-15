@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using Tavstal.PayPalSDK.Models.Common.User;
 
 namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 
