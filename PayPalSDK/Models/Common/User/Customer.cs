@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
-namespace Tavstal.PayPalSDK.Models.Common;
+namespace Tavstal.PayPalSDK.Models.Common.User;
 
 /// <summary>
 /// Represents a customer object in the PayPal SDK.

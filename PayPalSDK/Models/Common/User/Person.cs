@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Tavstal.PayPalSDK.Models.Common;
+namespace Tavstal.PayPalSDK.Models.Common.User;
 
 /// <summary>
 /// Represents a person with a full name.

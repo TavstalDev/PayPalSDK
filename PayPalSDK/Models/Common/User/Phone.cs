@@ -1,7 +1,7 @@
 using System.Runtime.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 
-namespace Tavstal.PayPalSDK.Models.Common;
+namespace Tavstal.PayPalSDK.Models.Common.User;
 
 /// <summary>
 /// Represents a phone object in the PayPal SDK.
