@@ -68,7 +68,7 @@ public class CardSource
     /// This field is optional and represents metadata or extra information.
     /// </remarks>
     [DataMember(Name = "attributes", EmitDefaultValue = false)]
-    public Attributes Attributes { get; set; }
+    public CardAttributes Attributes { get; set; }
 
     /// <summary>
     /// Gets or sets stored credentials for the card source.
@@ -76,8 +76,8 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents saved payment details.
     /// </remarks>
-    [DataMember(Name = "stored_credentials", EmitDefaultValue = false)]
-    public StoredCredentials StoredCredentials { get; set; }
+    [DataMember(Name = "stored_credential", EmitDefaultValue = false)]
+    public CardStoredCredentials StoredCredential { get; set; }
 
     /// <summary>
     /// Gets or sets the vault ID for the card source.
@@ -119,11 +119,11 @@ public class CardSource
     /// <param name="expiry">The card expiry date.</param>
     /// <param name="billingAddress">The billing address associated with the card.</param>
     /// <param name="attributes">Additional attributes for the card source.</param>
-    /// <param name="storedCredentials">Stored credentials for the card source.</param>
+    /// <param name="storedCredential">Stored credentials for the card source.</param>
     /// <param name="vaultId">The vault ID for the card source.</param>
     /// <param name="singleUseToken">The single-use token for the card source.</param>
     /// <param name="networkToken">The network token for the card source.</param>
-    public CardSource(string name, string number, string securityCode, string expiry, Address billingAddress, Attributes attributes, StoredCredentials storedCredentials, string vaultId, string singleUseToken, NetworkToken networkToken)
+    public CardSource(string name, string number, string securityCode, string expiry, Address billingAddress, CardAttributes attributes, CardStoredCredentials storedCredential, string vaultId, string singleUseToken, NetworkToken networkToken)
     {
         Name = name;
         Number = number;
@@ -131,7 +131,7 @@ public class CardSource
         Expiry = expiry;
         BillingAddress = billingAddress;
         Attributes = attributes;
-        StoredCredentials = storedCredentials;
+        StoredCredential = storedCredential;
         VaultId = vaultId;
         SingleUseToken = singleUseToken;
         NetworkToken = networkToken;

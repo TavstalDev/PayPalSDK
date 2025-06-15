@@ -126,6 +126,15 @@ public class PaymentSource
     /// </remarks>
     [DataMember(Name = "apple_pay", EmitDefaultValue = false)]
     public ApplePaySource ApplePay { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the Google Pay payment source.
+    /// </summary>
+    /// <remarks>
+    /// This field is optional and represents payment details using Google Pay.
+    /// </remarks>
+    [DataMember(Name = "google_pay", EmitDefaultValue = false)]
+    public GooglePaySource GooglePay { get; set; }
 
     /// <summary>
     /// Gets or sets the Venmo payment source.
@@ -152,8 +161,9 @@ public class PaymentSource
     /// <param name="sofort">The Sofort payment source.</param>
     /// <param name="trustuly">The Trustuly payment source.</param>
     /// <param name="applePay">The Apple Pay payment source.</param>
+    /// <param name="googlePay">The Google Pay payment source.</param>
     /// <param name="venmo">The Venmo payment source.</param>
-    public PaymentSource(CardSource cardSource, TokenSource token, PayPalSource payPal, BanContactSource banContact, BlikSource blik, EpsSource eps, GiroPaySource giroPay, IdealSource ideal, MyBankSource myBank, PTwentyFourSource pTwentyFour, SofortSource sofort, TrustulySource trustuly, ApplePaySource applePay, VenmoSource venmo)
+    public PaymentSource(CardSource cardSource, TokenSource token, PayPalSource payPal, BanContactSource banContact, BlikSource blik, EpsSource eps, GiroPaySource giroPay, IdealSource ideal, MyBankSource myBank, PTwentyFourSource pTwentyFour, SofortSource sofort, TrustulySource trustuly, ApplePaySource applePay, GooglePaySource googlePay, VenmoSource venmo)
     {
         CardSource = cardSource;
         Token = token;
@@ -168,6 +178,7 @@ public class PaymentSource
         Sofort = sofort;
         Trustuly = trustuly;
         ApplePay = applePay;
+        GooglePay = googlePay;
         Venmo = venmo;
     }
 }
