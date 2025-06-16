@@ -11,7 +11,7 @@ public class SandboxEnvironment : EnvironmentBase
     /// <param name="clientId">The client ID for the PayPal application.</param>
     /// <param name="clientSecret">The client secret for the PayPal application.</param>
     public SandboxEnvironment(string clientId, string clientSecret)
-        : base(clientId, clientSecret, "https://api.sandbox.paypal.com", "https://www.sandbox.paypal.com")
+        : base("https://api.sandbox.paypal.com", clientId, clientSecret, "https://www.sandbox.paypal.com")
     {
         // Base constructor initializes the environment with sandbox PayPal API and website URLs.
     }

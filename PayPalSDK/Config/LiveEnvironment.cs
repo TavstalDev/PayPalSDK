@@ -11,7 +11,7 @@ public class LiveEnvironment : EnvironmentBase
     /// <param name="clientId">The client ID for the PayPal application.</param>
     /// <param name="clientSecret">The client secret for the PayPal application.</param>
     public LiveEnvironment(string clientId, string clientSecret)
-        : base(clientId, clientSecret, "https://api.paypal.com", "https://www.paypal.com")
+        : base("https://api.paypal.com", clientId, clientSecret, "https://www.paypal.com")
     {
         // Base constructor initializes the environment with live PayPal API and website URLs.
     }
