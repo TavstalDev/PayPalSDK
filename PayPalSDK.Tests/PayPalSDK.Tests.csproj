@@ -10,6 +10,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\PayPalSDK\PayPalSDK.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
