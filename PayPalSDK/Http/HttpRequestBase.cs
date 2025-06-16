@@ -19,7 +19,7 @@ public abstract class HttpRequestBase : HttpRequestMessage
     protected HttpRequestBase(HttpMethod method, string url, Type responseType)
     {
         this.Method = method;
-        this.RequestUri = new Uri(url);
+        this.RequestUri = new Uri(url, UriKind.Relative);
         _responseType = responseType;
     }
 }
