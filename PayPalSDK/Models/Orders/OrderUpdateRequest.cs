@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common;
 
@@ -17,7 +19,10 @@ public class OrderUpdateRequest : HttpRequestBase
     public OrderUpdateRequest(string id, UpdateOperation[] operations) 
         : base(HttpMethod.Patch, $"/v2/checkout/orders/{id}", typeof(OrderBody))
     {
-        Content = JsonContent.Create(operations);
+        Content = JsonContent.Create(operations, options: new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        });
     }
 
     /// <summary>

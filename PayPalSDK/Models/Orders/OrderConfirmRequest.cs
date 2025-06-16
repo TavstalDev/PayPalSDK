@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 
 namespace Tavstal.PayPalSDK.Models.Orders;
@@ -16,7 +18,10 @@ public class OrderConfirmRequest : HttpRequestBase
     public OrderConfirmRequest(string orderId, OrderConfirmRequestBody body) 
         : base(HttpMethod.Post, $"/v2/checkout/orders/{orderId}/confirm-payment-source", typeof(OrderBody))
     {
-        Content = JsonContent.Create(body);
+        Content = JsonContent.Create(body, options: new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        });
     }
 
     /// <summary>
