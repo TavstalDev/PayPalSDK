@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -15,7 +16,7 @@ public class MoneyBreakdown
     /// <remarks>
     /// This field is required and has a maximum length of 3 characters.
     /// </remarks>
-    [DataMember(Name = "currency_code", EmitDefaultValue = false)]
+    [JsonPropertyName("currency_code")]
     [StringLength(3)]
     public required string CurrencyCode { get; set; }
 
@@ -25,7 +26,7 @@ public class MoneyBreakdown
     /// <remarks>
     /// This field is required and has a maximum length of 32 characters.
     /// </remarks>
-    [DataMember(Name = "value", EmitDefaultValue = false)]
+    [JsonPropertyName("value")]
     [StringLength(32)]
     public required string Value { get; set; }
 
@@ -35,19 +36,6 @@ public class MoneyBreakdown
     /// <remarks>
     /// This field is optional and represents the detailed breakdown of the monetary amount.
     /// </remarks>
-    [DataMember(Name = "breakdown", EmitDefaultValue = false)]
-    public Breakdown Breakdown { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MoneyBreakdown"/> class.
-    /// </summary>
-    /// <param name="currencyCode">The three-character ISO-4217 currency code that identifies the currency.</param>
-    /// <param name="value">The value of the amount.</param>
-    /// <param name="breakdown">The breakdown of the amount.</param>
-    public MoneyBreakdown(string currencyCode, string value, Breakdown breakdown)
-    {
-        CurrencyCode = currencyCode;
-        Value = value;
-        Breakdown = breakdown;
-    }
+    [JsonPropertyName("breakdown")]
+    public required Breakdown Breakdown { get; set; }
 }

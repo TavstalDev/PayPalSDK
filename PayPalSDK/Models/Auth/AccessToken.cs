@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Auth;
 
@@ -11,35 +12,26 @@ public class AccessToken
     /// <summary>
     /// The access token string provided by the PayPal API.
     /// </summary>
-    [DataMember(Name = "access_token", EmitDefaultValue = false)]
-    public string Token;
+    [JsonPropertyName("access_token")]
+    public string Token { get; set; }
 
     /// <summary>
     /// The type of the token (e.g., Bearer).
     /// </summary>
-    [DataMember(Name = "token_type", EmitDefaultValue = false)]
-    public string TokenType;
+    [JsonPropertyName("token_type")]
+    public string TokenType { get; set; }
 
     /// <summary>
     /// The duration in seconds until the token expires.
     /// </summary>
-    [DataMember(Name = "expires_in", EmitDefaultValue = false)]
-    public int ExpiresIn;
+    [JsonPropertyName("expires_in")]
+    public int ExpiresIn { get; set; }
 
     /// <summary>
     /// The exact date and time when the token will expire.
     /// </summary>
-    private readonly DateTime _expireDate;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AccessToken"/> class.
-    /// Sets the expiration date based on the current time and the token's lifetime.
-    /// </summary>
-    public AccessToken()
-    {
-        var localDate = DateTime.Now;
-        _expireDate = localDate.AddSeconds(ExpiresIn);
-    }
+    [JsonIgnore]
+    private readonly DateTime _expireDate = DateTime.Now;
 
     /// <summary>
     /// Determines whether the access token has expired.

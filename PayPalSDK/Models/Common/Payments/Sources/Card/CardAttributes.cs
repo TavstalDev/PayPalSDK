@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.User;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
@@ -15,7 +16,7 @@ public class CardAttributes
     /// <remarks>
     /// This field is optional and represents the customer information.
     /// </remarks>
-    [DataMember(Name = "customer", EmitDefaultValue = false)]
+    [JsonPropertyName("customer")]
     public Customer Customer { get; set; }
 
     /// <summary>
@@ -24,7 +25,7 @@ public class CardAttributes
     /// <remarks>
     /// This field is optional and represents the vault information.
     /// </remarks>
-    [DataMember(Name = "vault", EmitDefaultValue = false)]
+    [JsonPropertyName("vault")]
     public Vault Vault { get; set; }
 
     /// <summary>
@@ -33,19 +34,6 @@ public class CardAttributes
     /// <remarks>
     /// This field is optional and represents the verification information.
     /// </remarks>
-    [DataMember(Name = "verification", EmitDefaultValue = false)]
+    [JsonPropertyName("verification")]
     public Verification Verification { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CardAttributes"/> class.
-    /// </summary>
-    /// <param name="customer">The customer details associated with the card payment source.</param>
-    /// <param name="vault">The vault details associated with the card payment source.</param>
-    /// <param name="verification">The verification details associated with the card payment source.</param>
-    public CardAttributes(Customer customer, Vault vault, Verification verification)
-    {
-        Customer = customer;
-        Vault = vault;
-        Verification = verification;
-    }
 }

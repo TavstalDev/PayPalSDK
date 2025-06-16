@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Orders;
 using Tavstal.PayPalSDK.Models.Common.Payments;
@@ -19,7 +20,7 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and represents the order ID.
     /// </remarks>
-    [DataMember(Name = "id", EmitDefaultValue = false)]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
     /// <summary>
@@ -28,7 +29,7 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and specifies how the order should be processed.
     /// </remarks>
-    [DataMember(Name = "processing_instruction", EmitDefaultValue = false)]
+    [JsonPropertyName("processing_instruction")]
     public string ProcessingInstruction { get; set; }
 
     /// <summary>
@@ -37,7 +38,7 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and contains details of the items or services being purchased.
     /// </remarks>
-    [DataMember(Name = "purchase_units", EmitDefaultValue = false)]
+    [JsonPropertyName("purchase_units")]
     public List<PurchaseUnit> PurchaseUnits { get; set; }
 
     /// <summary>
@@ -46,7 +47,7 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and provides hyperlinks related to the order.
     /// </remarks>
-    [DataMember(Name = "links", EmitDefaultValue = false)]
+    [JsonPropertyName("links")]
     public List<Link> Links { get; set; }
 
     /// <summary>
@@ -55,7 +56,7 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and specifies the payment method or source used for the transaction.
     /// </remarks>
-    [DataMember(Name = "payment_source", EmitDefaultValue = false)]
+    [JsonPropertyName("payment_source")]
     public PaymentSource PaymentSource { get; set; }
 
     /// <summary>
@@ -65,7 +66,7 @@ public class OrderBody
     /// This field is optional and specifies the purpose of the order, such as "CAPTURE" or "AUTHORIZE".
     /// </remarks>
     /// <see cref="Tavstal.PayPalSDK.Constants.PayPalIntent"/>
-    [DataMember(Name = "intent", EmitDefaultValue = false)]
+    [JsonPropertyName("intent")]
     public string Intent { get; set; }
 
     /// <summary>
@@ -74,7 +75,7 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and contains information about the payer.
     /// </remarks>
-    [DataMember(Name = "payer", EmitDefaultValue = false)]
+    [JsonPropertyName("payer")]
     public Payer Payer { get; set; }
 
     /// <summary>
@@ -84,7 +85,7 @@ public class OrderBody
     /// This field is optional and represents the current status of the order.
     /// </remarks>
     /// <see cref="Tavstal.PayPalSDK.Constants.OrderStatus"/>
-    [DataMember(Name = "status", EmitDefaultValue = false)]
+    [JsonPropertyName("status")]
     [StringLength(255)]
     [RegularExpression("^[0-9A-Z_]+$")]
     public string Status { get; set; }
@@ -95,7 +96,7 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and must follow the ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).
     /// </remarks>
-    [DataMember(Name = "create_time", EmitDefaultValue = false)]
+    [JsonPropertyName("create_time")]
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
     public string CreateTime { get; set; }
@@ -106,35 +107,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and must follow the ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).
     /// </remarks>
-    [DataMember(Name = "update_time", EmitDefaultValue = false)]
+    [JsonPropertyName("update_time")]
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
     public string UpdateTime { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OrderBody"/> class.
-    /// </summary>
-    /// <param name="id">The unique identifier of the order.</param>
-    /// <param name="processingInstruction">The processing instruction for the order.</param>
-    /// <param name="purchaseUnits">The list of purchase units for the order.</param>
-    /// <param name="links">The list of links associated with the order.</param>
-    /// <param name="paymentSource">The payment source for the order.</param>
-    /// <param name="intent">The intent of the order.</param>
-    /// <param name="payer">The payer details for the order.</param>
-    /// <param name="status">The status of the order.</param>
-    /// <param name="createTime">The creation time of the order.</param>
-    /// <param name="updateTime">The last update time of the order.</param>
-    public OrderBody(string id, string processingInstruction, List<PurchaseUnit> purchaseUnits, List<Link> links, PaymentSource paymentSource, string intent, Payer payer, string status, string createTime, string updateTime)
-    {
-        Id = id;
-        ProcessingInstruction = processingInstruction;
-        PurchaseUnits = purchaseUnits;
-        Links = links;
-        PaymentSource = paymentSource;
-        Intent = intent;
-        Payer = payer;
-        Status = status;
-        CreateTime = createTime;
-        UpdateTime = updateTime;
-    }
 }

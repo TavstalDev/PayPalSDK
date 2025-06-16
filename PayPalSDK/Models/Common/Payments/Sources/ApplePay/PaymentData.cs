@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 
@@ -15,7 +16,7 @@ public class PaymentData
     /// <remarks>
     /// This field is optional and has a maximum length of 2000 characters.
     /// </remarks>
-    [DataMember(Name = "cryptogram", EmitDefaultValue = false)]
+    [JsonPropertyName("cryptogram")]
     [StringLength(2000)]
     public string Cryptogram { get; set; }
 
@@ -25,7 +26,7 @@ public class PaymentData
     /// <remarks>
     /// This field is optional and has a maximum length of 256 characters.
     /// </remarks>
-    [DataMember(Name = "eci_indicator", EmitDefaultValue = false)]
+    [JsonPropertyName("eci_indicator")]
     [StringLength(256)]
     public string EciIndicator { get; set; }
 
@@ -35,7 +36,7 @@ public class PaymentData
     /// <remarks>
     /// This field is optional and has a maximum length of 2000 characters.
     /// </remarks>
-    [DataMember(Name = "emv_data", EmitDefaultValue = false)]
+    [JsonPropertyName("emv_data")]
     [StringLength(2000)]
     public string EmvData { get; set; }
 
@@ -45,22 +46,7 @@ public class PaymentData
     /// <remarks>
     /// This field is optional and has a maximum length of 2000 characters.
     /// </remarks>
-    [DataMember(Name = "pin", EmitDefaultValue = false)]
+    [JsonPropertyName("pin")]
     [StringLength(2000)]
     public string Pin { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="PaymentData"/> class.
-    /// </summary>
-    /// <param name="cryptogram">The cryptogram associated with the Apple Pay payment data.</param>
-    /// <param name="eciIndicator">The ECI (Electronic Commerce Indicator) associated with the Apple Pay payment data.</param>
-    /// <param name="emvData">The EMV (Europay, Mastercard, and Visa) data associated with the Apple Pay payment data.</param>
-    /// <param name="pin">The PIN associated with the Apple Pay payment data.</param>
-    public PaymentData(string cryptogram, string eciIndicator, string emvData, string pin)
-    {
-        Cryptogram = cryptogram;
-        EciIndicator = eciIndicator;
-        EmvData = emvData;
-        Pin = pin;
-    }
 }

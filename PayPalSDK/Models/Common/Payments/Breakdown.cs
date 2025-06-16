@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -14,8 +15,8 @@ public class Breakdown
     /// <remarks>
     /// This field is optional and represents the monetary value of the items.
     /// </remarks>
-    [DataMember(Name = "item_total", EmitDefaultValue = false)]
-    public Money ItemTotal { get; set; }
+    [JsonPropertyName("item_total")]
+    public required Money ItemTotal { get; set; }
 
     /// <summary>
     /// Gets or sets the shipping amount.
@@ -23,7 +24,7 @@ public class Breakdown
     /// <remarks>
     /// This field is optional and represents the monetary value of shipping.
     /// </remarks>
-    [DataMember(Name = "shipping", EmitDefaultValue = false)]
+    [JsonPropertyName("shipping")]
     public Money Shipping { get; set; }
 
     /// <summary>
@@ -32,7 +33,7 @@ public class Breakdown
     /// <remarks>
     /// This field is optional and represents the monetary value of handling.
     /// </remarks>
-    [DataMember(Name = "handling", EmitDefaultValue = false)]
+    [JsonPropertyName("handling")]
     public Money Handling { get; set; }
 
     /// <summary>
@@ -41,7 +42,7 @@ public class Breakdown
     /// <remarks>
     /// This field is optional and represents the monetary value of taxes.
     /// </remarks>
-    [DataMember(Name = "tax_total", EmitDefaultValue = false)]
+    [JsonPropertyName("tax_total")]
     public Money TaxTotal { get; set; }
 
     /// <summary>
@@ -50,7 +51,7 @@ public class Breakdown
     /// <remarks>
     /// This field is optional and represents the monetary value of insurance.
     /// </remarks>
-    [DataMember(Name = "insurance", EmitDefaultValue = false)]
+    [JsonPropertyName("insurance")]
     public Money Insurance { get; set; }
 
     /// <summary>
@@ -59,7 +60,7 @@ public class Breakdown
     /// <remarks>
     /// This field is optional and represents the monetary value of shipping discounts.
     /// </remarks>
-    [DataMember(Name = "shipping_discount", EmitDefaultValue = false)]
+    [JsonPropertyName("shipping_discount")]
     public Money ShippingDiscount { get; set; }
 
     /// <summary>
@@ -68,27 +69,6 @@ public class Breakdown
     /// <remarks>
     /// This field is optional and represents the monetary value of discounts.
     /// </remarks>
-    [DataMember(Name = "discount", EmitDefaultValue = false)]
+    [JsonPropertyName("discount")]
     public Money Discount { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Breakdown"/> class.
-    /// </summary>
-    /// <param name="itemTotal">The total amount for items.</param>
-    /// <param name="shipping">The shipping amount.</param>
-    /// <param name="handling">The handling amount.</param>
-    /// <param name="taxTotal">The total tax amount.</param>
-    /// <param name="insurance">The insurance amount.</param>
-    /// <param name="shippingDiscount">The shipping discount amount.</param>
-    /// <param name="discount">The discount amount.</param>
-    public Breakdown(Money itemTotal, Money shipping, Money handling, Money taxTotal, Money insurance, Money shippingDiscount, Money discount)
-    {
-        ItemTotal = itemTotal;
-        Shipping = shipping;
-        Handling = handling;
-        TaxTotal = taxTotal;
-        Insurance = insurance;
-        ShippingDiscount = shippingDiscount;
-        Discount = discount;
-    }
 }

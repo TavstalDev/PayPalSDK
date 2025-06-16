@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 
@@ -15,7 +16,7 @@ public class PhoneNumber
     /// <remarks>
     /// This field is required and has a maximum length of 3 characters.
     /// </remarks>
-    [DataMember(Name = "country_code", EmitDefaultValue = false)]
+    [JsonPropertyName("country_code")]
     [StringLength(3)]
     public required string CountryCode { get; set; }
 
@@ -25,18 +26,7 @@ public class PhoneNumber
     /// <remarks>
     /// This field is required and has a maximum length of 14 characters.
     /// </remarks>
-    [DataMember(Name = "national_number", EmitDefaultValue = false)]
+    [JsonPropertyName("national_number")]
     [StringLength(14)]
     public required string NationalNumber { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="PhoneNumber"/> class.
-    /// </summary>
-    /// <param name="countryCode">The country code of the phone number.</param>
-    /// <param name="nationalNumber">The national number of the phone number.</param>
-    public PhoneNumber(string countryCode, string nationalNumber)
-    {
-        CountryCode = countryCode;
-        NationalNumber = nationalNumber;
-    }
 }

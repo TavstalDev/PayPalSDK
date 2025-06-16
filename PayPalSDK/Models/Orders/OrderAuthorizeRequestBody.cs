@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
 namespace Tavstal.PayPalSDK.Models.Orders;
@@ -15,15 +16,6 @@ public class OrderAuthorizeRequestBody
     /// <remarks>
     /// This field is optional and specifies the payment method or source used for the transaction.
     /// </remarks>
-    [DataMember(Name = "payment_source", EmitDefaultValue = false)]
+    [JsonPropertyName("payment_source")]
     public PaymentSource PaymentSource { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OrderAuthorizeRequestBody"/> class.
-    /// </summary>
-    /// <param name="paymentSource">The payment source for the order authorization.</param>
-    public OrderAuthorizeRequestBody(PaymentSource paymentSource)
-    {
-        PaymentSource = paymentSource;
-    }
 }

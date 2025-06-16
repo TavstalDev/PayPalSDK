@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.User;
 
@@ -14,15 +15,6 @@ public class Person
     /// <remarks>
     /// This field is optional and will not be emitted if its value is null or default.
     /// </remarks>
-    [DataMember(Name = "full_name", EmitDefaultValue = false)]
+    [JsonPropertyName("full_name")]
     public string FullName { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Person"/> class.
-    /// </summary>
-    /// <param name="fullName">The full name of the person.</param>
-    public Person(string fullName)
-    {
-        FullName = fullName;
-    }
 }

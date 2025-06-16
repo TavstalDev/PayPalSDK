@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
@@ -16,7 +17,7 @@ public class BillingPlan
     /// <remarks>
     /// This field is required and contains a list of billing cycles.
     /// </remarks>
-    [DataMember(Name = "billing_cycles", EmitDefaultValue = false)]
+    [JsonPropertyName("billing_cycles")]
     public required List<BillingCycle> BillingCycles { get; set; }
 
     /// <summary>
@@ -25,7 +26,7 @@ public class BillingPlan
     /// <remarks>
     /// This field is optional and has a maximum length of 127 characters.
     /// </remarks>
-    [DataMember(Name = "name", EmitDefaultValue = false)]
+    [JsonPropertyName("name")]
     [StringLength(127)]
     public string Name { get; set; }
 
@@ -35,19 +36,6 @@ public class BillingPlan
     /// <remarks>
     /// This field is optional and represents the monetary value of the setup fee.
     /// </remarks>
-    [DataMember(Name = "setup_fee", EmitDefaultValue = false)]
+    [JsonPropertyName("setup_fee")]
     public Money SetupFee { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="BillingPlan"/> class.
-    /// </summary>
-    /// <param name="billingCycles">The billing cycles associated with the billing plan.</param>
-    /// <param name="name">The name of the billing plan.</param>
-    /// <param name="setupFee">The setup fee for the billing plan.</param>
-    public BillingPlan(List<BillingCycle> billingCycles, string name, Money setupFee)
-    {
-        BillingCycles = billingCycles;
-        Name = name;
-        SetupFee = setupFee;
-    }
 }

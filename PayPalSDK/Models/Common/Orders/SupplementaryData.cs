@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Orders;
 
@@ -14,7 +15,7 @@ public class SupplementaryData
     /// <remarks>
     /// This field is optional and represents details about the card used in the transaction.
     /// </remarks>
-    [DataMember(Name = "card", EmitDefaultValue = false)]
+    [JsonPropertyName("card")]
     public SupplementaryCard SupplementaryCard { get; set; }
 
     /// <summary>
@@ -23,17 +24,6 @@ public class SupplementaryData
     /// <remarks>
     /// This field is optional and represents risk assessment details for the transaction.
     /// </remarks>
-    [DataMember(Name = "risk", EmitDefaultValue = false)]
+    [JsonPropertyName("risk")]
     public Risk Risk { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SupplementaryData"/> class.
-    /// </summary>
-    /// <param name="supplementaryCard">The card information associated with the supplementary data.</param>
-    /// <param name="risk">The risk information associated with the supplementary data.</param>
-    public SupplementaryData(SupplementaryCard supplementaryCard, Risk risk)
-    {
-        SupplementaryCard = supplementaryCard;
-        Risk = risk;
-    }
 }

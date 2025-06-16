@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 
@@ -15,7 +16,7 @@ public class Address
     /// <remarks>
     /// This field is optional and has a maximum length of 300 characters.
     /// </remarks>
-    [DataMember(Name = "address_line_1", EmitDefaultValue = false)]
+    [JsonPropertyName("address_line_1")]
     [StringLength(300)]
     public string AddressLineOne { get; set; }
 
@@ -25,7 +26,7 @@ public class Address
     /// <remarks>
     /// This field is optional and has a maximum length of 300 characters.
     /// </remarks>
-    [DataMember(Name = "address_line_2", EmitDefaultValue = false)]
+    [JsonPropertyName("address_line_2")]
     [StringLength(300)]
     public string AddressLineTwo { get; set; }
 
@@ -35,7 +36,7 @@ public class Address
     /// <remarks>
     /// This field is optional and has a maximum length of 300 characters.
     /// </remarks>
-    [DataMember(Name = "admin_area_1", EmitDefaultValue = false)]
+    [JsonPropertyName("admin_area_1")]
     [StringLength(300)]
     public string AdminAreaOne { get; set; }
 
@@ -45,7 +46,7 @@ public class Address
     /// <remarks>
     /// This field is optional and has a maximum length of 120 characters.
     /// </remarks>
-    [DataMember(Name = "admin_area_2", EmitDefaultValue = false)]
+    [JsonPropertyName("admin_area_2")]
     [StringLength(120)]
     public string AdminAreaTwo { get; set; }
 
@@ -55,7 +56,7 @@ public class Address
     /// <remarks>
     /// This field is optional and has a maximum length of 60 characters.
     /// </remarks>
-    [DataMember(Name = "postal_code", EmitDefaultValue = false)]
+    [JsonPropertyName("postal_code")]
     [StringLength(60)]
     public string PostalCode { get; set; }
 
@@ -65,27 +66,7 @@ public class Address
     /// <remarks>
     /// This field is required and has a maximum length of 2 characters.
     /// </remarks>
-    [DataMember(Name = "country_code", EmitDefaultValue = false)]
+    [JsonPropertyName("country_code")]
     [StringLength(2)]
     public required string CountryCode { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Address"/> class.
-    /// </summary>
-    /// <param name="addressLineOne">The first line of the address.</param>
-    /// <param name="addressLineTwo">The second line of the address.</param>
-    /// <param name="adminAreaOne">The administrative area (e.g., state or province).</param>
-    /// <param name="adminAreaTwo">The locality or city.</param>
-    /// <param name="postalCode">The postal code.</param>
-    /// <param name="countryCode">The country code in ISO 3166-1 alpha-2 format.</param>
-    public Address(string addressLineOne, string addressLineTwo, string adminAreaOne, string adminAreaTwo,
-        string postalCode, string countryCode)
-    {
-        AddressLineOne = addressLineOne;
-        AddressLineTwo = addressLineTwo;
-        AdminAreaOne = adminAreaOne;
-        AdminAreaTwo = adminAreaTwo;
-        PostalCode = postalCode;
-        CountryCode = countryCode;
-    }
 }

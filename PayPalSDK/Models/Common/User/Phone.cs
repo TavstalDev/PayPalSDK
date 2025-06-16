@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 
 namespace Tavstal.PayPalSDK.Models.Common.User;
@@ -15,7 +16,7 @@ public class Phone
     /// <remarks>
     /// This field is optional and represents the type of phone (e.g., mobile, home, work).
     /// </remarks>
-    [DataMember(Name = "phone_type", EmitDefaultValue = false)]
+    [JsonPropertyName("phone_type")]
     public string PhoneType { get; set; }
 
     /// <summary>
@@ -24,17 +25,6 @@ public class Phone
     /// <remarks>
     /// This field is required and represents the phone number associated with the phone object.
     /// </remarks>
-    [DataMember(Name = "phone_number", EmitDefaultValue = false)]
+    [JsonPropertyName("phone_number")]
     public required PhoneNumber PhoneNumber { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Phone"/> class.
-    /// </summary>
-    /// <param name="phoneType">The type of the phone.</param>
-    /// <param name="phoneNumber">The phone number details.</param>
-    public Phone(string phoneType, PhoneNumber phoneNumber)
-    {
-        PhoneType = phoneType;
-        PhoneNumber = phoneNumber;
-    }
 }

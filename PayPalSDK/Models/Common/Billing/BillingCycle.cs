@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
 
@@ -15,7 +16,7 @@ public class BillingCycle
     /// <remarks>
     /// This field is required and represents the type of tenure for the billing cycle.
     /// </remarks>
-    [DataMember(Name = "tenure_type", EmitDefaultValue = false)]
+    [JsonPropertyName("tenure_type")]
     public required string TenureType { get; set; }
 
     /// <summary>
@@ -24,7 +25,7 @@ public class BillingCycle
     /// <remarks>
     /// This field is optional and defaults to 1.
     /// </remarks>
-    [DataMember(Name = "total_cycles")]
+    [JsonPropertyName("total_cycles")]
     public int TotalCycles { get; set; } = 1;
 
     /// <summary>
@@ -33,7 +34,7 @@ public class BillingCycle
     /// <remarks>
     /// This field is optional and defaults to 1.
     /// </remarks>
-    [DataMember(Name = "sequence")]
+    [JsonPropertyName("sequence")]
     public int Sequence { get; set; } = 1;
 
     /// <summary>
@@ -42,7 +43,7 @@ public class BillingCycle
     /// <remarks>
     /// This field is optional and represents the pricing details for the billing cycle.
     /// </remarks>
-    [DataMember(Name = "pricing_scheme", EmitDefaultValue = false)]
+    [JsonPropertyName("pricing_scheme")]
     public PricingScheme PricingScheme { get; set; }
 
     /// <summary>
@@ -51,25 +52,8 @@ public class BillingCycle
     /// <remarks>
     /// This field is optional and must follow the format YYYY-MM-DD.
     /// </remarks>
-    [DataMember(Name = "start_date", EmitDefaultValue = false)]
+    [JsonPropertyName("start_date")]
     [StringLength(10)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")]
     public string StartDate { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="BillingCycle"/> class.
-    /// </summary>
-    /// <param name="tenureType">The tenure type of the billing cycle.</param>
-    /// <param name="totalCycles">The total number of cycles in the billing cycle.</param>
-    /// <param name="sequence">The sequence number of the billing cycle.</param>
-    /// <param name="pricingScheme">The pricing scheme associated with the billing cycle.</param>
-    /// <param name="startDate">The start date of the billing cycle.</param>
-    public BillingCycle(string tenureType, int totalCycles, int sequence, PricingScheme pricingScheme, string startDate)
-    {
-        TenureType = tenureType;
-        TotalCycles = totalCycles;
-        Sequence = sequence;
-        PricingScheme = pricingScheme;
-        StartDate = startDate;
-    }
 }

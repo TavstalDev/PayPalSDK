@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -17,7 +18,7 @@ public class Item
     /// <remarks>
     /// This field is required and has a maximum length of 127 characters.
     /// </remarks>
-    [DataMember(Name = "name", EmitDefaultValue = false)]
+    [JsonPropertyName("name")]
     [StringLength(127)]
     public required string Name { get; set; }
 
@@ -27,7 +28,7 @@ public class Item
     /// <remarks>
     /// This field is required and has a maximum length of 10 characters.
     /// </remarks>
-    [DataMember(Name = "quantity", EmitDefaultValue = false)]
+    [JsonPropertyName("quantity")]
     [StringLength(10)]
     public required string Quantity { get; set; }
 
@@ -37,7 +38,7 @@ public class Item
     /// <remarks>
     /// This field is optional and has a maximum length of 2048 characters.
     /// </remarks>
-    [DataMember(Name = "description", EmitDefaultValue = false)]
+    [JsonPropertyName("description")]
     [StringLength(2048)]
     public string Description { get; set; }
 
@@ -47,7 +48,7 @@ public class Item
     /// <remarks>
     /// This field is optional and has a maximum length of 127 characters.
     /// </remarks>
-    [DataMember(Name = "sku", EmitDefaultValue = false)]
+    [JsonPropertyName("sku")]
     [StringLength(127)]
     public string Sku { get; set; }
 
@@ -57,7 +58,7 @@ public class Item
     /// <remarks>
     /// This field is optional and has a maximum length of 2048 characters.
     /// </remarks>
-    [DataMember(Name = "url", EmitDefaultValue = false)]
+    [JsonPropertyName("url")]
     [StringLength(2048)]
     public string Url { get; set; }
 
@@ -68,7 +69,7 @@ public class Item
     /// The category corresponds to one of the predefined item categories in <see cref="Tavstal.PayPalSDK.Constants.ItemCategory"/>.
     /// This field is optional and has a maximum length of 20 characters.
     /// </remarks>
-    [DataMember(Name = "category", EmitDefaultValue = false)]
+    [JsonPropertyName("category")]
     [StringLength(20)]
     public string Category { get; set; }
 
@@ -78,7 +79,7 @@ public class Item
     /// <remarks>
     /// This field is optional and has a maximum length of 2048 characters.
     /// </remarks>
-    [DataMember(Name = "image_url", EmitDefaultValue = false)]
+    [JsonPropertyName("image_url")]
     [StringLength(2048)]
     public string ImageUrl { get; set; }
 
@@ -88,7 +89,7 @@ public class Item
     /// <remarks>
     /// This field is required and represents the monetary value of the item.
     /// </remarks>
-    [DataMember(Name = "unit_amount", EmitDefaultValue = false)]
+    [JsonPropertyName("unit_amount")]
     public required Money UnitAmount { get; set; }
 
     /// <summary>
@@ -97,7 +98,7 @@ public class Item
     /// <remarks>
     /// This field is optional and represents the monetary value of the tax.
     /// </remarks>
-    [DataMember(Name = "tax", EmitDefaultValue = false)]
+    [JsonPropertyName("tax")]
     public Money Tax { get; set; }
 
     /// <summary>
@@ -106,7 +107,7 @@ public class Item
     /// <remarks>
     /// This field is optional and represents the UPC details.
     /// </remarks>
-    [DataMember(Name = "upc", EmitDefaultValue = false)]
+    [JsonPropertyName("upc")]
     public UPC UPC { get; set; }
 
     /// <summary>
@@ -115,35 +116,6 @@ public class Item
     /// <remarks>
     /// This field is optional and represents the billing plan details.
     /// </remarks>
-    [DataMember(Name = "billing_plan", EmitDefaultValue = false)]
+    [JsonPropertyName("billing_plan")]
     public BillingPlan BillingPlan { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Item"/> class.
-    /// </summary>
-    /// <param name="name">The name of the item.</param>
-    /// <param name="quantity">The quantity of the item.</param>
-    /// <param name="description">The description of the item.</param>
-    /// <param name="sku">The stock keeping unit (SKU) of the item.</param>
-    /// <param name="url">The URL of the item.</param>
-    /// <param name="category">The category of the item.</param>
-    /// <param name="imageUrl">The image URL of the item.</param>
-    /// <param name="unitAmount">The unit amount of the item.</param>
-    /// <param name="tax">The tax applied to the item.</param>
-    /// <param name="upc">The Universal Product Code (UPC) of the item.</param>
-    /// <param name="billingPlan">The billing plan associated with the item.</param>
-    public Item(string name, string quantity, string description, string sku, string url, string category, string imageUrl, Money unitAmount, Money tax, UPC upc, BillingPlan billingPlan)
-    {
-        Name = name;
-        Quantity = quantity;
-        Description = description;
-        Sku = sku;
-        Url = url;
-        Category = category;
-        ImageUrl = imageUrl;
-        UnitAmount = unitAmount;
-        Tax = tax;
-        UPC = upc;
-        BillingPlan = billingPlan;
-    }
 }

@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -14,7 +15,7 @@ public class PlatformFee
     /// <remarks>
     /// This field is optional and represents the recipient of the platform fee.
     /// </remarks>
-    [DataMember(Name = "payee", EmitDefaultValue = false)]
+    [JsonPropertyName("payee")]
     public Payee Payee { get; set; }
 
     /// <summary>
@@ -23,17 +24,6 @@ public class PlatformFee
     /// <remarks>
     /// This field is required and represents the amount to be charged as a platform fee.
     /// </remarks>
-    [DataMember(Name = "amount", EmitDefaultValue = false)]
+    [JsonPropertyName("amount")]
     public required Money Amount { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="PlatformFee"/> class.
-    /// </summary>
-    /// <param name="payee">The payee associated with the platform fee.</param>
-    /// <param name="amount">The monetary amount of the platform fee.</param>
-    public PlatformFee(Payee payee, Money amount)
-    {
-        Payee = payee;
-        Amount = amount;
-    }
 }

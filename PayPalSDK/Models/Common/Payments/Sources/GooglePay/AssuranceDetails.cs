@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.GooglePay;
 
@@ -14,7 +15,7 @@ public class AssuranceDetails
     /// <remarks>
     /// This field is optional and indicates if the account associated with the payment source has been verified.
     /// </remarks>
-    [DataMember(Name = "account_verified", EmitDefaultValue = false)]
+    [JsonPropertyName("account_verified")]
     public bool AccountVerified { get; set; }
 
     /// <summary>
@@ -23,17 +24,6 @@ public class AssuranceDetails
     /// <remarks>
     /// This field is optional and indicates if the cardholder has been authenticated during the transaction.
     /// </remarks>
-    [DataMember(Name = "card_holder_authenticated", EmitDefaultValue = false)]
+    [JsonPropertyName("card_holder_authenticated")]
     public bool CardHolderAuthenticated { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AssuranceDetails"/> class.
-    /// </summary>
-    /// <param name="accountVerified">Indicates whether the account is verified.</param>
-    /// <param name="cardHolderAuthenticated">Indicates whether the cardholder is authenticated.</param>
-    public AssuranceDetails(bool accountVerified, bool cardHolderAuthenticated)
-    {
-        AccountVerified = accountVerified;
-        CardHolderAuthenticated = cardHolderAuthenticated;
-    }
 }

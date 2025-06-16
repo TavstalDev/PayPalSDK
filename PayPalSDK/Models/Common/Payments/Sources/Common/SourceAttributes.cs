@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.User;
 
@@ -16,7 +17,7 @@ public class SourceAttributes
     /// <remarks>
     /// This field is optional and represents the customer information.
     /// </remarks>
-    [DataMember(Name = "customer", EmitDefaultValue = false)]
+    [JsonPropertyName("customer")]
     public Customer Customer { get; set; }
 
     /// <summary>
@@ -25,18 +26,6 @@ public class SourceAttributes
     /// <remarks>
     /// This field is optional and represents the vault information.
     /// </remarks>
-    [DataMember(Name = "vault", EmitDefaultValue = false)]
+    [JsonPropertyName("vault")]
     public Vault Vault { get; set; }
-
-    
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SourceAttributes"/> class.
-    /// </summary>
-    /// <param name="customer">The customer details associated with the card payment source.</param>
-    /// <param name="vault">The vault details associated with the card payment source.</param>
-    public SourceAttributes(Customer customer, Vault vault)
-    {
-        Customer = customer;
-        Vault = vault;
-    }
 }

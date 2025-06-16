@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 
@@ -15,7 +16,7 @@ public class AppleDecryptedToken
     /// <remarks>
     /// This field is optional and has a maximum length of 2000 characters.
     /// </remarks>
-    [DataMember(Name = "device_manufacturer_id", EmitDefaultValue = false)]
+    [JsonPropertyName("device_manufacturer_id")]
     [StringLength(2000)]
     public string DeviceManufacturerId { get; set; }
 
@@ -25,7 +26,7 @@ public class AppleDecryptedToken
     /// <remarks>
     /// This field is optional and has a maximum length of 16 characters.
     /// </remarks>
-    [DataMember(Name = "payment_data_type", EmitDefaultValue = false)]
+    [JsonPropertyName("payment_data_type")]
     [StringLength(16)]
     public string PaymentDataType { get; set; }
 
@@ -35,7 +36,7 @@ public class AppleDecryptedToken
     /// <remarks>
     /// This field is optional and represents the monetary value of the transaction.
     /// </remarks>
-    [DataMember(Name = "transaction_amount", EmitDefaultValue = false)]
+    [JsonPropertyName("transaction_amount")]
     public Money TransactionAmount { get; set; }
 
     /// <summary>
@@ -44,7 +45,7 @@ public class AppleDecryptedToken
     /// <remarks>
     /// This field is required and represents the card details used in the transaction.
     /// </remarks>
-    [DataMember(Name = "tokenized_card", EmitDefaultValue = false)]
+    [JsonPropertyName("tokenized_card")]
     public required TokenizedCard TokenizedCard { get; set; }
 
     /// <summary>
@@ -53,23 +54,6 @@ public class AppleDecryptedToken
     /// <remarks>
     /// This field is optional and contains additional payment-related information.
     /// </remarks>
-    [DataMember(Name = "payment_data", EmitDefaultValue = false)]
+    [JsonPropertyName("payment_data")]
     public PaymentData PaymentData { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AppleDecryptedToken"/> class.
-    /// </summary>
-    /// <param name="deviceManufacturerId">The device manufacturer ID associated with the decrypted token.</param>
-    /// <param name="paymentDataType">The type of payment data associated with the decrypted token.</param>
-    /// <param name="transactionAmount">The transaction amount associated with the decrypted token.</param>
-    /// <param name="tokenizedCard">The tokenized card associated with the decrypted token.</param>
-    /// <param name="paymentData">The payment data associated with the decrypted token.</param>
-    public AppleDecryptedToken(string deviceManufacturerId, string paymentDataType, Money transactionAmount, TokenizedCard tokenizedCard, PaymentData paymentData)
-    {
-        DeviceManufacturerId = deviceManufacturerId;
-        PaymentDataType = paymentDataType;
-        TransactionAmount = transactionAmount;
-        TokenizedCard = tokenizedCard;
-        PaymentData = paymentData;
-    }
 }

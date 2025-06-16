@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
@@ -16,7 +17,7 @@ public class TrustulySource
     /// <remarks>
     /// This field is required and has a maximum length of 300 characters.
     /// </remarks>
-    [DataMember(Name = "name")]
+    [JsonPropertyName("name")]
     [StringLength(300)]
     public required string Name { get; set; }
 
@@ -26,7 +27,7 @@ public class TrustulySource
     /// <remarks>
     /// This field is required and must be a valid two-letter country code or "C2".
     /// </remarks>
-    [DataMember(Name = "country_code")]
+    [JsonPropertyName("country_code")]
     [StringLength(2)]
     [RegularExpression("^([A-Z]{2}|C2)$")]
     public required string CountryCode { get; set; }
@@ -37,7 +38,7 @@ public class TrustulySource
     /// <remarks>
     /// This field is required and must be a valid email address with a maximum length of 254 characters.
     /// </remarks>
-    [DataMember(Name = "email")]
+    [JsonPropertyName("email")]
     [StringLength(254)]
     [RegularExpression("^(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$")]
     public required string Email { get; set; }
@@ -48,21 +49,6 @@ public class TrustulySource
     /// <remarks>
     /// This field is optional and provides additional configuration for the payment experience.
     /// </remarks>
-    [DataMember(Name = "experience_context", EmitDefaultValue = false)]
+    [JsonPropertyName("experience_context")]
     public ExperienceContext ExperienceContext { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="TrustulySource"/> class.
-    /// </summary>
-    /// <param name="name">The name associated with the Trustuly payment source.</param>
-    /// <param name="countryCode">The country code associated with the Trustuly payment source.</param>
-    /// <param name="email">The email address associated with the Trustuly payment source.</param>
-    /// <param name="experienceContext">The experience context for the payment source.</param>
-    public TrustulySource(string name, string countryCode, string email, ExperienceContext experienceContext)
-    {
-        Name = name;
-        CountryCode = countryCode;
-        Email = email;
-        ExperienceContext = experienceContext;
-    }
 }

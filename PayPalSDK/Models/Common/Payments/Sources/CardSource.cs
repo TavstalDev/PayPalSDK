@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 
@@ -17,7 +18,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and has a maximum length of 300 characters.
     /// </remarks>
-    [DataMember(Name = "name", EmitDefaultValue = false)]
+    [JsonPropertyName("name")]
     [StringLength(300)]
     public string Name { get; set; }
 
@@ -27,7 +28,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and has a maximum length of 19 characters.
     /// </remarks>
-    [DataMember(Name = "number", EmitDefaultValue = false)]
+    [JsonPropertyName("number")]
     [StringLength(19)]
     public string Number { get; set; }
 
@@ -37,7 +38,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and has a maximum length of 4 characters.
     /// </remarks>
-    [DataMember(Name = "security_code", EmitDefaultValue = false)]
+    [JsonPropertyName("security_code")]
     [StringLength(4)]
     public string SecurityCode { get; set; }
 
@@ -47,7 +48,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and must match the regular expression ^[0-9]{4}-(0[1-9]|1[0-2])$.
     /// </remarks>
-    [DataMember(Name = "expiry", EmitDefaultValue = false)]
+    [JsonPropertyName("expiry")]
     [StringLength(7)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])$")]
     public string Expiry { get; set; }
@@ -58,7 +59,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents the address details for billing.
     /// </remarks>
-    [DataMember(Name = "billing_address", EmitDefaultValue = false)]
+    [JsonPropertyName("billing_address")]
     public Address BillingAddress { get; set; }
 
     /// <summary>
@@ -67,7 +68,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents metadata or extra information.
     /// </remarks>
-    [DataMember(Name = "attributes", EmitDefaultValue = false)]
+    [JsonPropertyName("attributes")]
     public CardAttributes Attributes { get; set; }
 
     /// <summary>
@@ -76,7 +77,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents saved payment details.
     /// </remarks>
-    [DataMember(Name = "stored_credential", EmitDefaultValue = false)]
+    [JsonPropertyName("stored_credential")]
     public CardStoredCredentials StoredCredential { get; set; }
 
     /// <summary>
@@ -85,7 +86,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional, has a maximum length of 255 characters, and must match the regular expression ^[0-9a-zA-Z_-]+$.
     /// </remarks>
-    [DataMember(Name = "vault_id", EmitDefaultValue = false)]
+    [JsonPropertyName("vault_id")]
     [StringLength(255)]
     [RegularExpression("^[0-9a-zA-Z_-]+$")]
     public string VaultId { get; set; }
@@ -96,7 +97,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional, has a maximum length of 255 characters, and must match the regular expression ^[0-9a-zA-Z_-]+$.
     /// </remarks>
-    [DataMember(Name = "single_use_token", EmitDefaultValue = false)]
+    [JsonPropertyName("single_use_token")]
     [StringLength(255)]
     [RegularExpression("^[0-9a-zA-Z_-]+$")]
     public string SingleUseToken { get; set; }
@@ -107,33 +108,6 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents tokenized payment details.
     /// </remarks>
-    [DataMember(Name = "network_token", EmitDefaultValue = false)]
+    [JsonPropertyName("network_token")]
     public NetworkToken NetworkToken { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CardSource"/> class.
-    /// </summary>
-    /// <param name="name">The card holder's name.</param>
-    /// <param name="number">The card number.</param>
-    /// <param name="securityCode">The card security code (CVV).</param>
-    /// <param name="expiry">The card expiry date.</param>
-    /// <param name="billingAddress">The billing address associated with the card.</param>
-    /// <param name="attributes">Additional attributes for the card source.</param>
-    /// <param name="storedCredential">Stored credentials for the card source.</param>
-    /// <param name="vaultId">The vault ID for the card source.</param>
-    /// <param name="singleUseToken">The single-use token for the card source.</param>
-    /// <param name="networkToken">The network token for the card source.</param>
-    public CardSource(string name, string number, string securityCode, string expiry, Address billingAddress, CardAttributes attributes, CardStoredCredentials storedCredential, string vaultId, string singleUseToken, NetworkToken networkToken)
-    {
-        Name = name;
-        Number = number;
-        SecurityCode = securityCode;
-        Expiry = expiry;
-        BillingAddress = billingAddress;
-        Attributes = attributes;
-        StoredCredential = storedCredential;
-        VaultId = vaultId;
-        SingleUseToken = singleUseToken;
-        NetworkToken = networkToken;
-    }
 }

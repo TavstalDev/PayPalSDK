@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
 namespace Tavstal.PayPalSDK.Models.Common.Addressing;
@@ -16,7 +17,7 @@ public class ShippingOption
     /// <remarks>
     /// This field is required and has a maximum length of 127 characters.
     /// </remarks>
-    [DataMember(Name = "id", EmitDefaultValue = false)]
+    [JsonPropertyName("id")]
     [StringLength(127)]
     public required string Id { get; set; }
 
@@ -26,7 +27,7 @@ public class ShippingOption
     /// <remarks>
     /// This field is required and has a maximum length of 127 characters.
     /// </remarks>
-    [DataMember(Name = "label", EmitDefaultValue = false)]
+    [JsonPropertyName("label")]
     [StringLength(127)]
     public required string Label { get; set; }
 
@@ -36,7 +37,7 @@ public class ShippingOption
     /// <remarks>
     /// This field is required and represents the selection status of the shipping option.
     /// </remarks>
-    [DataMember(Name = "selected", EmitDefaultValue = false)]
+    [JsonPropertyName("selected")]
     public required bool Selected { get; set; }
 
     /// <summary>
@@ -46,7 +47,7 @@ public class ShippingOption
     /// This property corresponds to one of the predefined shipping types in <see cref="Tavstal.PayPalSDK.Constants.ShippingType"/>.
     /// It is optional and will not be emitted if its value is null or default.
     /// </remarks>
-    [DataMember(Name = "type", EmitDefaultValue = false)]
+    [JsonPropertyName("type")]
     public string Type { get; set; }
 
     /// <summary>
@@ -55,23 +56,6 @@ public class ShippingOption
     /// <remarks>
     /// This field is optional and represents the cost or value of the shipping option.
     /// </remarks>
-    [DataMember(Name = "amount", EmitDefaultValue = false)]
+    [JsonPropertyName("amount")]
     public Amount Amount { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ShippingOption"/> class.
-    /// </summary>
-    /// <param name="id">The unique identifier for the shipping option.</param>
-    /// <param name="label">The label or name of the shipping option.</param>
-    /// <param name="selected">The selection status of the shipping option.</param>
-    /// <param name="type">The type of shipping.</param>
-    /// <param name="amount">The amount associated with the shipping option.</param>
-    public ShippingOption(string id, string label, bool selected, string type, Amount amount)
-    {
-        Id = id;
-        Label = label;
-        Selected = selected;
-        Type = type;
-        Amount = amount;
-    }
 }
