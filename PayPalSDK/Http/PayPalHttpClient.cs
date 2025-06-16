@@ -1,7 +1,7 @@
 using System.Net.Http.Headers;
-using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Config;
 using Tavstal.PayPalSDK.Models.Auth;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Tavstal.PayPalSDK.Http;
 
@@ -30,9 +30,9 @@ public class PayPalHttpClient
         {
             AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
         });
+
         _httpClient.BaseAddress = new Uri(_environment.BaseUrl);
         _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-        _httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
         _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
         _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent.GetUserAgentHeader());
     }
@@ -52,7 +52,6 @@ public class PayPalHttpClient
             {
                 _accessToken = await FetchAccessTokenAsync();
             }
-
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
         }
 
@@ -76,10 +75,10 @@ public class PayPalHttpClient
 
             // Deserializes the response into an access token or refresh token.
             var json = await response.Content.ReadAsStringAsync();
-            var accessToken = JsonConvert.DeserializeObject<AccessToken>(json);
+            var accessToken = JsonSerializer.Deserialize<AccessToken>(json);
             if (accessToken == null)
             {
-                var refreshToken = JsonConvert.DeserializeObject<RefreshToken>(json);
+                var refreshToken = JsonSerializer.Deserialize<RefreshToken>(json);
                 if (refreshToken != null)
                     return refreshToken.ToAccessToken();
 
