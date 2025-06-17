@@ -1,32 +1,33 @@
 using System.Net.Http.Json;
+using System.Text.Json;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Orders;
 
-namespace Tavstal.PayPalSDK.Tests;
+namespace Tavstal.PayPalSDK.Tests.Orders;
 
 /// <summary>
-/// Represents an example for refunding a PayPal order using the PayPal SDK.
+/// Represents an example for retrieving PayPal order details using the PayPal SDK.
 /// </summary>
-public class RefundOrderExample
+public class GetOrderExample
 {
     private readonly PayPalHttpClient _client; // The PayPal HTTP client used to send requests.
     private readonly string _currencyCode; // The currency code for the order.
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="RefundOrderExample"/> class.
+    /// Initializes a new instance of the <see cref="GetOrderExample"/> class.
     /// </summary>
     /// <param name="client">The PayPal HTTP client used to send requests.</param>
     /// <param name="currencyCode">The currency code for the order.</param>
-    public RefundOrderExample(PayPalHttpClient client, string currencyCode)
+    public GetOrderExample(PayPalHttpClient client, string currencyCode)
     {
         _client = client;
         _currencyCode = currencyCode;
     }
 
     /// <summary>
-    /// Executes the process of refunding a PayPal order.
+    /// Executes the process of retrieving PayPal order details.
     /// </summary>
-    /// <param name="orderId">The ID of the order to refund.</param>
+    /// <param name="orderId">The ID of the order to retrieve details for.</param>
     /// <returns>
     /// A task that represents the asynchronous operation.
     /// The task result contains a boolean indicating success or failure.
@@ -45,16 +46,12 @@ public class RefundOrderExample
             {
                 Console.WriteLine($"Order details retrieved successfully: {orderResponse.Id}");
 
-                // Find the refund link in the order response.
-                var refundLink = orderResponse.Links.Find(x => x.Rel == "refund");
-                if (refundLink == null)
-                {
-                    Console.WriteLine("No refund link found in the order response.");
-                    return false;
-                }
-
-                // Log the refund link, typically used to initiate the refund process.
-                Console.WriteLine("Refund link found: " + refundLink.Href);
+                // Log the response body in a formatted JSON string.
+                Console.WriteLine($"Body: \n" + JsonSerializer.Serialize(orderResponse,
+                    new JsonSerializerOptions
+                    {
+                        WriteIndented = true
+                    }));
                 return true;
             }
 
