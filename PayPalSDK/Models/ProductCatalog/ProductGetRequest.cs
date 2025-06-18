@@ -5,7 +5,7 @@ namespace Tavstal.PayPalSDK.Models.ProductCatalog;
 /// <summary>
 /// Represents a request to retrieve a specific product from the product catalog.
 /// </summary>
-public class ProductGetRequest : HttpRequestBase
+public class ProductGetRequest : HttpRequestBase<ProductBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ProductGetRequest"/> class.
@@ -13,7 +13,7 @@ public class ProductGetRequest : HttpRequestBase
     /// <param name="productId">The unique identifier of the product to retrieve.</param>
     public ProductGetRequest(string productId)
         :
-        base(HttpMethod.Get, $"/v1/catalogs/products/{productId}", typeof(ProductBody))
+        base(HttpMethod.Get, $"/v1/catalogs/products/{productId}")
     {
         // No body is needed for this GET request
     }

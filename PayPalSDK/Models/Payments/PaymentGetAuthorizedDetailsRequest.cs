@@ -5,7 +5,7 @@ namespace Tavstal.PayPalSDK.Models.Payments;
 /// <summary>
 /// Represents a request to retrieve authorized payment details from PayPal.
 /// </summary>
-public class PaymentGetAuthorizedDetailsRequest : HttpRequestBase
+public class PaymentGetAuthorizedDetailsRequest : HttpRequestBase<AuthorizedPaymentBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="PaymentGetAuthorizedDetailsRequest"/> class.
@@ -15,7 +15,7 @@ public class PaymentGetAuthorizedDetailsRequest : HttpRequestBase
     /// </param>
     public PaymentGetAuthorizedDetailsRequest(string authorizationId)
         :
-        base(HttpMethod.Get, $"/v2/payments/authorizations/{authorizationId}", typeof(AuthorizedPaymentBody))
+        base(HttpMethod.Get, $"/v2/payments/authorizations/{authorizationId}")
     {
         // No additional initialization required
     }

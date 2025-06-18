@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Models.Payments;
 /// <summary>
 /// Represents a request to reauthorize a payment authorization.
 /// </summary>
-public class PaymentReauthorizeRequest : HttpRequestBase
+public class PaymentReauthorizeRequest : HttpRequestBase<CapturedPaymentBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="PaymentReauthorizeRequest"/> class.
@@ -17,7 +17,7 @@ public class PaymentReauthorizeRequest : HttpRequestBase
     /// <param name="body">The body of the payment reauthorization request containing reauthorization details. Optional.</param>
     public PaymentReauthorizeRequest(string authorizationId, PaymentReauthorizeRequest? body = null)
         :
-        base(HttpMethod.Post, $"/v2/payments/authorizations/{authorizationId}/reauthorize", typeof(CapturedPaymentBody))
+        base(HttpMethod.Post, $"/v2/payments/authorizations/{authorizationId}/reauthorize")
     {
         if (body == null)
             return;

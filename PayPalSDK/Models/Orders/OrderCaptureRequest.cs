@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Models.Orders;
 /// <summary>
 /// Represents a request to capture an order within the PayPal SDK.
 /// </summary>
-public class OrderCaptureRequest : HttpRequestBase
+public class OrderCaptureRequest : HttpRequestBase<OrderBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="OrderCaptureRequest"/> class.
@@ -16,7 +16,7 @@ public class OrderCaptureRequest : HttpRequestBase
     /// <param name="orderId">The unique identifier of the order to be captured.</param>
     /// <param name="body">The request body containing payment source details for the capture.</param>
     public OrderCaptureRequest(string orderId, OrderCaptureRequestBody body) 
-        : base(HttpMethod.Post, $"/v2/checkout/orders/{orderId}/capture", typeof(OrderBody))
+        : base(HttpMethod.Post, $"/v2/checkout/orders/{orderId}/capture")
     {
         Content = JsonContent.Create(body, options: new JsonSerializerOptions
         {

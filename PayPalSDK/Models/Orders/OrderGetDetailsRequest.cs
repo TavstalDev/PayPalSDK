@@ -5,14 +5,14 @@ namespace Tavstal.PayPalSDK.Models.Orders;
 /// <summary>
 /// Represents a request to retrieve the details of an order within the PayPal SDK.
 /// </summary>
-public class OrderGetDetailsRequest : HttpRequestBase
+public class OrderGetDetailsRequest : HttpRequestBase<OrderBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="OrderGetDetailsRequest"/> class.
     /// </summary>
     /// <param name="orderId">The unique identifier of the order whose details are to be retrieved.</param>
     public OrderGetDetailsRequest(string orderId) 
-        : base(HttpMethod.Get, $"/v2/checkout/orders/{orderId}", typeof(OrderBody))
+        : base(HttpMethod.Get, $"/v2/checkout/orders/{orderId}")
     {
         // No body for GET request
     }

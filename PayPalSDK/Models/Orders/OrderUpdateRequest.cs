@@ -9,7 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Orders;
 /// <summary>
 /// Represents a request to update an order within the PayPal SDK.
 /// </summary>
-public class OrderUpdateRequest : HttpRequestBase
+public class OrderUpdateRequest : HttpRequestBase<OrderBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="OrderUpdateRequest"/> class.
@@ -17,7 +17,7 @@ public class OrderUpdateRequest : HttpRequestBase
     /// <param name="id">The unique identifier of the order to be updated.</param>
     /// <param name="operations">An array of update operations to be applied to the order.</param>
     public OrderUpdateRequest(string id, UpdateOperation[] operations) 
-        : base(HttpMethod.Patch, $"/v2/checkout/orders/{id}", typeof(OrderBody))
+        : base(HttpMethod.Patch, $"/v2/checkout/orders/{id}")
     {
         Content = JsonContent.Create(operations, options: new JsonSerializerOptions
         {

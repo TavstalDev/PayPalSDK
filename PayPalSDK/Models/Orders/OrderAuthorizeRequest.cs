@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Models.Orders;
 /// <summary>
 /// Represents a request to authorize an order within the PayPal SDK.
 /// </summary>
-public class OrderAuthorizeRequest : HttpRequestBase
+public class OrderAuthorizeRequest : HttpRequestBase<OrderBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="OrderAuthorizeRequest"/> class.
@@ -16,7 +16,7 @@ public class OrderAuthorizeRequest : HttpRequestBase
     /// <param name="orderId">The unique identifier of the order to be authorized.</param>
     /// <param name="body">The request body containing payment source details for the authorization.</param>
     public OrderAuthorizeRequest(string orderId, OrderAuthorizeRequestBody body) 
-        : base(HttpMethod.Post, $"/v2/checkout/orders/{orderId}/authorize", typeof(OrderBody))
+        : base(HttpMethod.Post, $"/v2/checkout/orders/{orderId}/authorize")
     {
         Content = JsonContent.Create(body, options: new JsonSerializerOptions
         {

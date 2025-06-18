@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Models.Payments;
 /// <summary>
 /// Represents a request to capture a payment authorization.
 /// </summary>
-public class PaymentCaptureRequest : HttpRequestBase
+public class PaymentCaptureRequest : HttpRequestBase<CapturedPaymentBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="PaymentCaptureRequest"/> class.
@@ -17,7 +17,7 @@ public class PaymentCaptureRequest : HttpRequestBase
     /// <param name="body">The body of the payment capture request containing capture details.</param>
     public PaymentCaptureRequest(string authorizationId, PaymentCaptureRequestBody body)
         :
-        base(HttpMethod.Post, $"/v2/payments/authorizations/{authorizationId}/capture", typeof(CapturedPaymentBody))
+        base(HttpMethod.Post, $"/v2/payments/authorizations/{authorizationId}/capture")
     {
         // Sets the content of the HTTP request using the provided body and JSON serialization options.
         Content = JsonContent.Create(body, options: new JsonSerializerOptions

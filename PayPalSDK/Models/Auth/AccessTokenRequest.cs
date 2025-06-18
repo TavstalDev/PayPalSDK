@@ -7,7 +7,7 @@ namespace Tavstal.PayPalSDK.Models.Auth;
 /// <summary>
 /// Represents a request to obtain an access token from the PayPal API.
 /// </summary>
-public class AccessTokenRequest : HttpRequestBase
+public class AccessTokenRequest : HttpRequestBase<AccessToken>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="AccessTokenRequest"/> class.
@@ -16,7 +16,7 @@ public class AccessTokenRequest : HttpRequestBase
     /// <param name="refreshToken">An optional refresh token for obtaining a new access token.</param>
     public AccessTokenRequest(EnvironmentBase environment, string? refreshToken = null)
         :
-        base(HttpMethod.Post, "/v1/oauth2/token", typeof(AccessToken))
+        base(HttpMethod.Post, "/v1/oauth2/token")
     {
         // Sets the Authorization header using the environment's authorization string.
         Headers.Authorization = new AuthenticationHeaderValue("Basic", environment.AuthorizationString());
