@@ -35,7 +35,7 @@ public class BillingCycle
     /// This field is optional and defaults to 1.
     /// </remarks>
     [JsonPropertyName("sequence")]
-    public int Sequence { get; set; } = 1;
+    public required int Sequence { get; set; } = 1;
 
     /// <summary>
     /// Gets or sets the pricing scheme associated with the billing cycle.
@@ -56,4 +56,13 @@ public class BillingCycle
     [StringLength(10)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")]
     public string StartDate { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the frequency of the billing cycle.
+    /// </summary>
+    /// <remarks>
+    /// This field is required and represents the frequency details for the billing cycle.
+    /// </remarks>
+    [JsonPropertyName("frequency")]
+    public required BillingFrequency Frequency { get; set; }
 }
