@@ -57,5 +57,5 @@ public class ShippingOption
     /// This field is optional and represents the cost or value of the shipping option.
     /// </remarks>
     [JsonPropertyName("amount")]
-    public Amount Amount { get; set; }
+    public Money Amount { get; set; }
 }
