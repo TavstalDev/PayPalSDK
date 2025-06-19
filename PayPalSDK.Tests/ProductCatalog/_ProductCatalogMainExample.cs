@@ -1,4 +1,6 @@
+using Tavstal.PayPalSDK.Constants;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.ProductCatalog;
 
 namespace Tavstal.PayPalSDK.Tests.ProductCatalog;
@@ -74,16 +76,74 @@ public static class _ProductCatalogMainExample
                 case 2:
                 {
                     // List Product
+                    var request = new ProductListRequest();
+                    var response = await client.SendAsync(request);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Error: " + response.ReasonPhrase);
+                        break;
+                    }
+                    
+                    var result = await request.GetResponseBodyAsync(response);
+                    if (result == null || !result.Products.Any())
+                    {
+                        Console.WriteLine("No products found.");
+                        break;
+                    }
+                    Console.WriteLine("Product List:");
+                    foreach (var product in result.Products)
+                    {
+                        Console.WriteLine($"ID: {product.Id}, Name: {product.Name}");
+                    }
                     break;
                 }
                 case 3:
                 {
                     // Create Product
+                    var request = new ProductCreateRequest(new ProductBody()
+                    {
+                        Name = "Test Product",
+                        Type = ProductType.DIGITAL
+                    });
+                    var response = await client.SendAsync(request);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Error: " + response.ReasonPhrase);
+                        break;
+                    }
+                    
+                    var result = await request.GetResponseBodyAsync(response);
+                    if (result == null)
+                    {
+                        Console.WriteLine("Failed to get response body.");
+                        break;
+                    }
+                    
+                    Console.WriteLine("Product Created Successfully:");
+                    Console.WriteLine($"ID: {result.Id}");
+                    Console.WriteLine($"Name: {result.Name}");
+                    Console.WriteLine($"Description: {result.Description}");
                     break;
                 }
                 case 4:
                 {
                     // Update Product
+                    var request = new ProductUpdateRequest("PROD-1234567890", new List<UpdateOperation>
+                    {
+                        new UpdateOperation()
+                        {
+                            From = "/name",
+                            Op = "REPLACE",
+                            Value = "Updated Product Name"
+                        }
+                    });
+                    var response = await client.SendAsync(request);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Error: " + response.ReasonPhrase);
+                        break;
+                    }
+                    Console.WriteLine("Product Updated Successfully");
                     break;
                 }
             }
