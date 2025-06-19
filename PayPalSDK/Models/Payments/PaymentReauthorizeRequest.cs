@@ -15,7 +15,7 @@ public class PaymentReauthorizeRequest : HttpRequestBase<CapturedPaymentBody>
     /// </summary>
     /// <param name="authorizationId">The unique identifier of the payment authorization to be reauthorized.</param>
     /// <param name="body">The body of the payment reauthorization request containing reauthorization details. Optional.</param>
-    public PaymentReauthorizeRequest(string authorizationId, PaymentReauthorizeRequest? body = null)
+    public PaymentReauthorizeRequest(string authorizationId, PaymentReauthorizeRequestBody? body = null)
         :
         base(HttpMethod.Post, $"/v2/payments/authorizations/{authorizationId}/reauthorize")
     {
