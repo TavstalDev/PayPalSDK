@@ -82,29 +82,29 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 - [x] Authentication (Access Token Retrieval)
 - [x] Orders API (Create, Capture, Get, Authorize)
 
+#### Payments
+- [x] Support for Capturing Authorized Payments
+- [x] Refunds (Full/Partial)
+- [x] Get Payment Details
+
+#### Subscriptions
+- [x] Create and Manage Product Plans
+- [x] Create and Manage Subscriptions
+- [x] Subscription Cancellation / Suspension
+- [x] Get Subscription Details
+
+#### Invoicing
+- [x] Create & Send Invoices
+- [x] Get Invoice Status
+- [x] Cancel / Remind Invoices
+
+#### Webhooks
+- [x] Register Webhooks
+- [x] Handle Common Webhook Events (Order Completed, Subscription Renewed, Payment Refunded)
+
 ---
 
 ### In Progress / Next Up
-
-#### Payments
-- [ ] Support for Capturing Authorized Payments
-- [ ] Refunds (Full/Partial)
-- [ ] Get Payment Details
-
-#### Subscriptions
-- [ ] Create and Manage Product Plans
-- [ ] Create and Manage Subscriptions
-- [ ] Subscription Cancellation / Suspension
-- [ ] Get Subscription Details
-
-#### Invoicing
-- [ ] Create & Send Invoices
-- [ ] Get Invoice Status
-- [ ] Cancel / Remind Invoices
-
-#### Webhooks
-- [ ] Register Webhooks
-- [ ] Handle Common Webhook Events (Order Completed, Subscription Renewed, Payment Refunded)
 
 ### Testing
 - [ ] Expand Test Coverage to Subscriptions and Payments
