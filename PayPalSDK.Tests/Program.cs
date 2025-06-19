@@ -3,6 +3,10 @@ using Newtonsoft.Json.Linq;
 using Tavstal.PayPalSDK.Config;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Tests.Orders;
+using Tavstal.PayPalSDK.Tests.Payments;
+using Tavstal.PayPalSDK.Tests.ProductCatalog;
+using Tavstal.PayPalSDK.Tests.Subscriptions;
+using Tavstal.PayPalSDK.Tests.Webhooks;
 
 namespace Tavstal.PayPalSDK.Tests;
 
@@ -18,6 +22,12 @@ class Program
     static async Task Main(string[] args)
     {
         // 0. Read secrets
+        if (!File.Exists("../../../secrets.json"))
+        {
+            Console.WriteLine("Please create secrets.json file in the root of the project with ClientId, ClientSecret and CurrencyCode.");
+            return;
+        }
+        
         byte[] fileBytes = await File.ReadAllBytesAsync("../../../secrets.json");
         string rawFileJSON = Encoding.UTF8.GetString(fileBytes);
         JObject secrets = JObject.Parse(rawFileJSON);
@@ -49,12 +59,14 @@ class Program
         while (active)
         {
             // Display menu options
+            Console.WriteLine("# MAIN MENU #");
             Console.WriteLine("Please select an option:");
-            Console.WriteLine("1. Create Order");
-            Console.WriteLine("2. Complete Order");
-            Console.WriteLine("3. Get Order");
-            Console.WriteLine("4. Refund Order");
-            Console.WriteLine("Or press Escape to exit.");
+            Console.WriteLine("1. Orders");
+            Console.WriteLine("2. Payments");
+            Console.WriteLine("3. Product Catalog");
+            Console.WriteLine("4. Subscriptions");
+            Console.WriteLine("5. Webhooks");
+            Console.WriteLine("0. Exit.");
             string? input = Console.ReadLine();
 
             // Validate user input
@@ -67,67 +79,45 @@ class Program
             // Handle menu selection
             switch (inputInt)
             {
+                case 0:
+                {
+                    // Exit
+                    active = false;
+                    continue;
+                }
                 case 1:
                 {
-                    // Create Order
-                    var createOrderExample = new CreateOrderExample(client, currencyCode);
-                    await createOrderExample.DoAsync();
+                    Console.Clear();
+                    await _OrderMainExample.PlayAsync(client, currencyCode);
                     break;
                 }
                 case 2:
                 {
-                    // Complete Order
-                    var completeOrderExample = new CompleteOrderExample(client, currencyCode);
-                    Console.WriteLine("Please provide Order ID to complete:");
-                    string? orderId = Console.ReadLine();
-                    if (string.IsNullOrEmpty(orderId))
-                    {
-                        Console.WriteLine("Order ID cannot be empty.");
-                        continue;
-                    }
-
-                    await completeOrderExample.DoAsync(orderId);
+                    Console.Clear();
+                    await _PaymentMainExample.PlayAsync(client, currencyCode);
                     break;
                 }
                 case 3:
                 {
-                    // Get Order
-                    var getOrderExample = new GetOrderExample(client, currencyCode);
-                    Console.WriteLine("Please provide Order ID to get details:");
-                    string? orderId = Console.ReadLine();
-                    if (string.IsNullOrEmpty(orderId))
-                    {
-                        Console.WriteLine("Order ID cannot be empty.");
-                        continue;
-                    }
-
-                    await getOrderExample.DoAsync(orderId);
+                    Console.Clear();
+                    await _ProductCatalogMainExample.PlayAsync(client,currencyCode);
                     break;
                 }
                 case 4:
                 {
-                    // Refund Order
-                    var refundOrderExample = new RefundOrderExample(client, currencyCode);
-                    Console.WriteLine("Please provide Order ID to refund:");
-                    string? orderId = Console.ReadLine();
-                    if (string.IsNullOrEmpty(orderId))
-                    {
-                        Console.WriteLine("Order ID cannot be empty.");
-                        continue;
-                    }
-
-                    await refundOrderExample.DoAsync(orderId);
+                    Console.Clear();
+                    await _SubscriptionMainExample.PlayAsync(client,currencyCode);
+                    break;
+                }
+                case 5:
+                {
+                    Console.Clear();
+                    await _WebhookMainExample.PlayAsync(client, currencyCode);
                     break;
                 }
             }
-
-            // Wait for user input before continuing
-            Console.WriteLine("Press any key to continue.");
-            var key = Console.ReadKey();
-            if (key.Key == ConsoleKey.Escape)
-                active = false;
-            else
-                Console.Clear();
+            
+            Console.Clear();
         }
     }
 }
