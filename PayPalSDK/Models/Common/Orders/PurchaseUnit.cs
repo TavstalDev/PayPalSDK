@@ -115,4 +115,13 @@ public class PurchaseUnit
     /// </remarks>
     [JsonPropertyName("supplementary_data")]
     public SupplementaryData SupplementaryData { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the payments information for the purchase unit.
+    /// </summary>
+    /// <remarks>
+    /// This field is optional and represents the details of payments associated with the purchase unit.
+    /// </remarks>
+    [JsonPropertyName("payments")]
+    public PaymentsUnit Payments { get; set; }
 }
