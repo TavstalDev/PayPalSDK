@@ -1,5 +1,11 @@
 # PayPalSDK
 
+[![License: MIT](https://img.shields.io/github/license/TavstalDev/PayPalSDK)](LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/TavstalDev/PayPalSDK)](https://github.com/TavstalDev/PayPalSDK/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/TavstalDev/PayPalSDK)](https://github.com/TavstalDev/PayPalSDK/commits/main)
+[![GitHub Stars](https://img.shields.io/github/stars/TavstalDev/PayPalSDK?style=social)](https://github.com/TavstalDev/PayPalSDK/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/TavstalDev/PayPalSDK?style=social)](https://github.com/TavstalDev/PayPalSDK/network/members)
+
 A C# SDK for interacting with the PayPal API, designed to simplify integration and provide a clear, type-safe interface for common PayPal operations.
 
 ## Features
@@ -48,24 +54,29 @@ Make sure the credentials are valid for the PayPal environment you're testing ag
 
 This SDK includes an interactive console application for testing PayPal functionality:
 
-- Located in: `PayPalSDK.Examples/Program.cs`
+- Located in: `PayPalSDK.Tests/Program.cs`
 - Run with:  
   ```bash
-  dotnet run --project PayPalSDK.Examples
+  dotnet run --project PayPalSDK.Tests
   ```
 
 You can choose from the following examples in the menu:
 
-| Example                 | Description                                |
-|-------------------------|--------------------------------------------|
-| `CreateOrderExample`    | Demonstrates creating a new PayPal order.  |
-| `CompleteOrderExample`  | Captures and completes an existing order.  |
-| `GetOrderExample`       | Fetches the details of a specific order.   |
-| `RefundOrderExample`    | Demonstrates refunding a captured order.   |
+```
+# MAIN MENU #
+Please select an option:
+
+1. Orders           # Create, capture, retrieve, or refund PayPal orders.
+2. Payments         # Handle authorized payments and perform direct captures/refunds.
+3. Product Catalog  # Manage product listings and billing plans (used in subscriptions).
+4. Subscriptions    # Create, suspend, cancel, or fetch subscription info.
+5. Webhooks         # Register and simulate webhook event handling (e.g. payment completed).
+0. Exit             # Exit the interactive test runner.
+```
 
 > 🧭 The example runner does not require any HTTP listener or web server — it works purely via console interaction using PayPal's REST APIs.
 
-To explore more, check out the code in the [`PayPalSDK.Examples`](./PayPalSDK.Examples) directory.
+To explore more, check out the code in the [`PayPalSDK.Tests`](./PayPalSDK.Tests) directory.
 
 
 ## Resources
