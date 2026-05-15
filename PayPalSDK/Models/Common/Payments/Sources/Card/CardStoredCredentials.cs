@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// Represents stored credentials used in card payments within the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class CardStoredCredentials
 {
     /// <summary>
@@ -35,11 +37,11 @@ public class CardStoredCredentials
     [JsonPropertyName("usage")]
     [StringLength(255)]
     [RegularExpression("^[0-9A-Z_]+$")]
-    public string Usage { get; set; }
+    public string? Usage { get; set; }
 
     /// <summary>
     /// Gets or sets the reference to the previous network transaction.
     /// </summary>
     [JsonPropertyName("previous_network_transaction_reference")]
-    public NetworkTransactionReference PrevNetworkTransactionReference { get; set; }
+    public NetworkTransactionReference? PrevNetworkTransactionReference { get; set; }
 }

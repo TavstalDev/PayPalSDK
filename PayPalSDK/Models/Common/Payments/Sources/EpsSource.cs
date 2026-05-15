@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// Represents an EPS payment source within the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class EpsSource
 {
     /// <summary>
@@ -39,5 +41,5 @@ public class EpsSource
     /// This field is optional and provides additional configuration for the payment experience.
     /// </remarks>
     [JsonPropertyName("experience_context")]
-    public ExperienceContext ExperienceContext { get; set; }
+    public ExperienceContext? ExperienceContext { get; set; }
 }

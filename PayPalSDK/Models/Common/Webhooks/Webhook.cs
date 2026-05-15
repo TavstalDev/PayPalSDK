@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Webhooks;
@@ -5,6 +7,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Webhooks;
 /// <summary>
 /// Represents a webhook event in the PayPal SDK.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Webhook
 {
     /// <summary>
@@ -17,17 +21,17 @@ public class Webhook
     /// Gets or sets the description of the webhook event.
     /// </summary>
     [JsonPropertyName("description")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
     
     /// <summary>
     /// Gets or sets the status of the webhook event.
     /// </summary>
     [JsonPropertyName("status")]
-    public string Status { get; set; }
+    public string? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the list of resource versions associated with the webhook event.
     /// </summary>
     [JsonPropertyName("resource_versions")]
-    public List<string> ResourceVersions { get; set; }
+    public List<string>? ResourceVersions { get; set; }
 }

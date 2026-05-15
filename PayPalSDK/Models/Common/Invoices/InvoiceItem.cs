@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -7,6 +9,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents an item in an invoice.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceItem
 {
     /// <summary>
@@ -27,7 +31,7 @@ public class InvoiceItem
     /// </remarks>
     [JsonPropertyName("description")]
     [StringLength(1000)]
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     /// <summary>
     /// Gets or sets the quantity of the invoice item.
@@ -49,7 +53,7 @@ public class InvoiceItem
     /// Gets or sets the tax information for the invoice item.
     /// </summary>
     [JsonPropertyName("tax")]
-    public Tax Tax { get; set; }
+    public Tax? Tax { get; set; }
 
     /// <summary>
     /// Gets or sets the date of the invoice item.
@@ -60,17 +64,17 @@ public class InvoiceItem
     [JsonPropertyName("item_date")]
     [StringLength(10)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")]
-    public string ItemDate { get; set; }
+    public string? ItemDate { get; set; }
 
     /// <summary>
     /// Gets or sets the discount applied to the invoice item.
     /// </summary>
     [JsonPropertyName("discount")]
-    public Discount Discount { get; set; }
+    public Discount? Discount { get; set; }
 
     /// <summary>
     /// Gets or sets the unit of measure for the invoice item.
     /// </summary>
     [JsonPropertyName("unit_of_measure")]
-    public string UnitOfMeasure { get; set; }
+    public string? UnitOfMeasure { get; set; }
 }

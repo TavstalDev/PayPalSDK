@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
@@ -5,6 +7,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents the partial payment options for an invoice, including whether partial payments are allowed and the minimum amount due.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PartialPayment
 {
     /// <summary>
@@ -17,5 +21,5 @@ public class PartialPayment
     /// Gets or sets the minimum amount due for a partial payment.
     /// </summary>
     [JsonPropertyName("minimum_amount_due")]
-    public Money MinimalAmountDue { get; set; }
+    public Money? MinimalAmountDue { get; set; }
 }

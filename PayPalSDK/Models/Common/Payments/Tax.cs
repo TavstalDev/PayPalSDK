@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
@@ -6,6 +8,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents tax information for a payment.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Tax
 {
     /// <summary>
@@ -26,7 +30,7 @@ public class Tax
     /// </remarks>
     [JsonPropertyName("tax_note")]
     [StringLength(40)]
-    public string TaxNote { get; set; }
+    public string? TaxNote { get; set; }
 
     /// <summary>
     /// Gets or sets the percentage value of the tax.

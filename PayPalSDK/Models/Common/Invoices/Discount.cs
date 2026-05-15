@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -7,6 +9,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents a discount applied to an invoice.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Discount
 {
     /// <summary>
@@ -17,11 +21,11 @@ public class Discount
     /// </remarks>
     [JsonPropertyName("percent")]
     [RegularExpression("^((-?[0-9]+)|(-?([0-9]+)?[.][0-9]+))$")]
-    public string Percent { get; set; }
+    public string? Percent { get; set; }
 
     /// <summary>
     /// Gets or sets the monetary amount of the discount.
     /// </summary>
     [JsonPropertyName("amount")]
-    public Money Amount { get; set; }
+    public Money? Amount { get; set; }
 }

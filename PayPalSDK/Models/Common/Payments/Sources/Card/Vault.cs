@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// Represents a vault configuration in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Vault
 {
     /// <summary>
@@ -19,5 +21,5 @@ public class Vault
     [JsonPropertyName("store_in_vault")]
     [StringLength(255)]
     [RegularExpression("^[0-9A-Z_]+$")]
-    public string StoreInVault { get; set; }
+    public string? StoreInVault { get; set; }
 }

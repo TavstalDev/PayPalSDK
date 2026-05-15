@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
@@ -6,6 +8,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents the details of the last payment made.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class LastPayment
 {
     /// <summary>
@@ -15,7 +19,7 @@ public class LastPayment
     /// The status must match one of the values defined in <see cref="Tavstal.PayPalSDK.Constants.PaymentStatus"/>.
     /// </remarks>
     [JsonPropertyName("status")]
-    public string Status { get; set; }
+    public string? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the amount of the last payment.

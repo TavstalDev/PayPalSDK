@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// Represents a phone object in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Phone
 {
     /// <summary>
@@ -17,7 +19,7 @@ public class Phone
     /// This field is optional and represents the type of phone (e.g., mobile, home, work).
     /// </remarks>
     [JsonPropertyName("phone_type")]
-    public string PhoneType { get; set; }
+    public string? PhoneType { get; set; }
 
     /// <summary>
     /// Gets or sets the phone number details.

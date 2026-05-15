@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// Represents a BanContact payment source within the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class BanContactSource
 {
     /// <summary>
@@ -35,5 +37,5 @@ public class BanContactSource
     /// <summary>
     /// Gets or sets the experience context for configuring the BanContact payment experience.
     /// </summary>
-    public ExperienceContext ExperienceContext { get; set; }
+    public ExperienceContext? ExperienceContext { get; set; }
 }

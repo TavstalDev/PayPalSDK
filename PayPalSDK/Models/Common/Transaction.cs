@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.User;
@@ -8,13 +10,15 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a transaction in the PayPal SDK.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Transaction
 {
     /// <summary>
     /// Gets or sets the status of the transaction.
     /// </summary>
     [JsonPropertyName("status")]
-    public string Status { get; set; }
+    public string? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the unique identifier of the transaction.
@@ -33,7 +37,7 @@ public class Transaction
     /// Gets or sets the name information of the payer.
     /// </summary>
     [JsonPropertyName("payer_name")]
-    public NameInfo PayerName { get; set; }
+    public NameInfo? PayerName { get; set; }
 
     /// <summary>
     /// Gets or sets the email address of the payer.
@@ -41,7 +45,7 @@ public class Transaction
     [JsonPropertyName("payer_email")]
     [StringLength(254)]
     [RegularExpression("^.+@[^\"\\-].+$")]
-    public string PayerEmail { get; set; }
+    public string? PayerEmail { get; set; }
 
     /// <summary>
     /// Gets or sets the timestamp of the transaction in ISO 8601 format.

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// Represents a billing plan in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class BillingPlan
 {
     /// <summary>
@@ -28,7 +30,7 @@ public class BillingPlan
     /// </remarks>
     [JsonPropertyName("name")]
     [StringLength(127)]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the setup fee for the billing plan.
@@ -37,5 +39,5 @@ public class BillingPlan
     /// This field is optional and represents the monetary value of the setup fee.
     /// </remarks>
     [JsonPropertyName("setup_fee")]
-    public Money SetupFee { get; set; }
+    public Money? SetupFee { get; set; }
 }

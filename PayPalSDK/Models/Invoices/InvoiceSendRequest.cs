@@ -2,6 +2,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// Represents a verification object in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Verification
 {
     /// <summary>
@@ -19,5 +21,5 @@ public class Verification
     /// </remarks>
     [JsonPropertyName("amount")]
     [StringLength(255)]
-    public string Method { get; set; }
+    public string? Method { get; set; }
 }

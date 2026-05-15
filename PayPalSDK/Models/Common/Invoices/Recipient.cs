@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Billing;
@@ -7,6 +9,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents the recipient information for an invoice.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Recipient
 {
     /// <summary>
@@ -16,7 +20,7 @@ public class Recipient
     /// This includes details such as the business name, contact information, and address.
     /// </remarks>
     [JsonPropertyName("billing_info")]
-    public BusinessBillingInfo BillingInfo { get; set; }
+    public BusinessBillingInfo? BillingInfo { get; set; }
 
     /// <summary>
     /// Gets or sets the shipping information of the recipient.
@@ -25,5 +29,5 @@ public class Recipient
     /// This includes details such as the shipping address and recipient name.
     /// </remarks>
     [JsonPropertyName("shipping_info")]
-    public ShippingInfo ShippingInfo { get; set; }
+    public ShippingInfo? ShippingInfo { get; set; }
 }

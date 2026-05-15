@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 /// Represents a tokenized card used in Apple Pay transactions within the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class TokenizedCard
 {
     /// <summary>
@@ -19,7 +21,7 @@ public class TokenizedCard
     /// </remarks>
     [JsonPropertyName("name")]
     [StringLength(300)]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the card number associated with the tokenized card.
@@ -29,7 +31,7 @@ public class TokenizedCard
     /// </remarks>
     [JsonPropertyName("number")]
     [StringLength(19)]
-    public string Number { get; set; }
+    public string? Number { get; set; }
 
     /// <summary>
     /// Gets or sets the expiry date of the tokenized card.
@@ -40,7 +42,7 @@ public class TokenizedCard
     [JsonPropertyName("expiry")]
     [StringLength(7)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])$")]
-    public string Expiry { get; set; }
+    public string? Expiry { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the tokenized card.
@@ -51,7 +53,7 @@ public class TokenizedCard
     [JsonPropertyName("type")]
     [StringLength(255)]
     [RegularExpression("^[A-Z_]+$")]
-    public string Type { get; set; }
+    public string? Type { get; set; }
 
     /// <summary>
     /// Gets or sets the brand of the tokenized card.
@@ -62,7 +64,7 @@ public class TokenizedCard
     [JsonPropertyName("brand")]
     [StringLength(255)]
     [RegularExpression("^[A-Z_]+$")]
-    public string Brand { get; set; }
+    public string? Brand { get; set; }
 
     /// <summary>
     /// Gets or sets the billing address associated with the tokenized card.
@@ -71,5 +73,5 @@ public class TokenizedCard
     /// This field is optional and represents the billing address details.
     /// </remarks>
     [JsonPropertyName("billing_address")]
-    public Address BillingAddress { get; set; }
+    public Address? BillingAddress { get; set; }
 }

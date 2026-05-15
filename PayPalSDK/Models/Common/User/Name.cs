@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// Represents a name object in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Name
 {
     /// <summary>
@@ -18,7 +20,7 @@ public class Name
     /// </remarks>
     [JsonPropertyName("given_name")]
     [StringLength(140)]
-    public string GivenName { get; set; }
+    public string? GivenName { get; set; }
 
     /// <summary>
     /// Gets or sets the surname.
@@ -28,5 +30,5 @@ public class Name
     /// </remarks>
     [JsonPropertyName("surname")]
     [StringLength(140)]
-    public string Surname { get; set; }
+    public string? Surname { get; set; }
 }

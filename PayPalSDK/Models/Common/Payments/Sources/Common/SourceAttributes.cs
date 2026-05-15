@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Common;
 /// Represents the attributes of a card payment source in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SourceAttributes
 {
     /// <summary>
@@ -18,7 +20,7 @@ public class SourceAttributes
     /// This field is optional and represents the customer information.
     /// </remarks>
     [JsonPropertyName("customer")]
-    public Customer Customer { get; set; }
+    public Customer? Customer { get; set; }
 
     /// <summary>
     /// Gets or sets the vault details associated with the card payment source.
@@ -27,5 +29,5 @@ public class SourceAttributes
     /// This field is optional and represents the vault information.
     /// </remarks>
     [JsonPropertyName("vault")]
-    public Vault Vault { get; set; }
+    public Vault? Vault { get; set; }
 }

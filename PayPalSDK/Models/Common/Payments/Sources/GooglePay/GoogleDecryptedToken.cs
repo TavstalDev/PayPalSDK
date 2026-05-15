@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.GooglePay;
 /// Represents a decrypted token for Google Pay payment sources within the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class GoogleDecryptedToken
 {
     /// <summary>
@@ -18,7 +20,7 @@ public class GoogleDecryptedToken
     /// </remarks>
     [JsonPropertyName("message_id")]
     [StringLength(250)]
-    public string MessageId { get; set; }
+    public string? MessageId { get; set; }
 
     /// <summary>
     /// Gets or sets the expiration timestamp of the message.
@@ -28,7 +30,7 @@ public class GoogleDecryptedToken
     /// </remarks>
     [JsonPropertyName("message_expiration")]
     [StringLength(13)]
-    public string MessageExpiration { get; set; }
+    public string? MessageExpiration { get; set; }
 
     /// <summary>
     /// Gets or sets the payment method used in the transaction.
@@ -58,7 +60,7 @@ public class GoogleDecryptedToken
     /// </remarks>
     [JsonPropertyName("cryptogram")]
     [StringLength(2000)]
-    public string Cryptogram { get; set; }
+    public string? Cryptogram { get; set; }
 
     /// <summary>
     /// Gets or sets the ECI (Electronic Commerce Indicator) value for the transaction.
@@ -68,7 +70,7 @@ public class GoogleDecryptedToken
     /// </remarks>
     [JsonPropertyName("eci_indicator")]
     [StringLength(256)]
-    public string EciIndicator { get; set; }
+    public string? EciIndicator { get; set; }
 
     /// <summary>
     /// Gets or sets the card details associated with the transaction.

@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -7,6 +9,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
 /// <summary>
 /// Represents Level 2 data for a PayPal order.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class LevelTwo
 {
     /// <summary>
@@ -17,7 +21,7 @@ public class LevelTwo
     /// </remarks>
     [JsonPropertyName("invoice_id")]
     [StringLength(127)]
-    public string InvoiceId { get; set; }
+    public string? InvoiceId { get; set; }
 
     /// <summary>
     /// Gets or sets the total tax amount for the transaction.
@@ -26,5 +30,5 @@ public class LevelTwo
     /// This property represents the monetary value of the tax applied to the transaction.
     /// </remarks>
     [JsonPropertyName("tax_total")]
-    public Money TaxTotal { get; set; }
+    public Money? TaxTotal { get; set; }
 }

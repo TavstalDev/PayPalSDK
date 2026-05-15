@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 /// Represents payment data for Apple Pay transactions within the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PaymentData
 {
     /// <summary>
@@ -18,7 +20,7 @@ public class PaymentData
     /// </remarks>
     [JsonPropertyName("cryptogram")]
     [StringLength(2000)]
-    public string Cryptogram { get; set; }
+    public string? Cryptogram { get; set; }
 
     /// <summary>
     /// Gets or sets the ECI (Electronic Commerce Indicator) associated with the Apple Pay payment data.
@@ -28,7 +30,7 @@ public class PaymentData
     /// </remarks>
     [JsonPropertyName("eci_indicator")]
     [StringLength(256)]
-    public string EciIndicator { get; set; }
+    public string? EciIndicator { get; set; }
 
     /// <summary>
     /// Gets or sets the EMV (Europay, Mastercard, and Visa) data associated with the Apple Pay payment data.
@@ -38,7 +40,7 @@ public class PaymentData
     /// </remarks>
     [JsonPropertyName("emv_data")]
     [StringLength(2000)]
-    public string EmvData { get; set; }
+    public string? EmvData { get; set; }
 
     /// <summary>
     /// Gets or sets the PIN associated with the Apple Pay payment data.
@@ -48,5 +50,5 @@ public class PaymentData
     /// </remarks>
     [JsonPropertyName("pin")]
     [StringLength(2000)]
-    public string Pin { get; set; }
+    public string? Pin { get; set; }
 }

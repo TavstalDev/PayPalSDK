@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions;
 

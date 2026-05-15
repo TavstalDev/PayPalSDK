@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// Represents a network token object in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class NetworkToken
 {
     /// <summary>
@@ -28,7 +30,7 @@ public class NetworkToken
     /// </remarks>
     [JsonPropertyName("cryptogram")]
     [StringLength(32)]
-    public string Cryptogram { get; set; }
+    public string? Cryptogram { get; set; }
 
     /// <summary>
     /// Gets or sets the token requestor ID.
@@ -38,7 +40,7 @@ public class NetworkToken
     /// </remarks>
     [JsonPropertyName("token_requestor_id")]
     [StringLength(11)]
-    public string TokenRequestorId { get; set; }
+    public string? TokenRequestorId { get; set; }
 
     /// <summary>
     /// Gets or sets the expiry date of the network token.
@@ -61,5 +63,5 @@ public class NetworkToken
     [JsonPropertyName("eci_flag")]
     [StringLength(255)]
     [RegularExpression("^[0-9A-Z_]+$")]
-    public string EciFlag { get; set; }
+    public string? EciFlag { get; set; }
 }

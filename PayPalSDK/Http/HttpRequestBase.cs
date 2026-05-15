@@ -14,8 +14,8 @@ public abstract class HttpRequestBase : HttpRequestMessage
     /// <param name="url">The URL to which the request will be sent.</param>
     protected HttpRequestBase(HttpMethod method, string url)
     {
-        this.Method = method;
-        this.RequestUri = new Uri(url, UriKind.Relative);
+        Method = method;
+        RequestUri = new Uri(url, UriKind.Relative);
     }
 }
 

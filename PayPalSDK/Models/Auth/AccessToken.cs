@@ -13,29 +13,29 @@ public class AccessToken
     /// The access token string provided by the PayPal API.
     /// </summary>
     [JsonPropertyName("access_token")]
-    public string Token { get; set; }
+    public required string Token { get; init; }
 
     /// <summary>
     /// The type of the token (e.g., Bearer).
     /// </summary>
     [JsonPropertyName("token_type")]
-    public string TokenType { get; set; }
+    public required string TokenType { get; init; }
 
     /// <summary>
     /// The duration in seconds until the token expires.
     /// </summary>
     [JsonPropertyName("expires_in")]
-    public int ExpiresIn { get; set; }
+    public required int ExpiresIn { get; init; }
 
     /// <summary>
-    /// The exact date and time when the token will expire.
+    /// Gets the date and time when the access token was created.
     /// </summary>
-    [JsonIgnore]
-    private readonly DateTime _expireDate = DateTime.Now;
+    [JsonIgnore] 
+    public DateTime CreatedAt { get; } = DateTime.Now;
 
     /// <summary>
     /// Determines whether the access token has expired.
     /// </summary>
     /// <returns><c>true</c> if the token has expired; otherwise, <c>false</c>.</returns>
-    public bool IsExpired() => DateTime.Now >= _expireDate;
+    public bool IsExpired() => DateTime.Now >= CreatedAt.AddSeconds(ExpiresIn);
 }

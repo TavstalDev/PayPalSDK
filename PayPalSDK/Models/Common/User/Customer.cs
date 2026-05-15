@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// Represents a customer object in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Customer
 {
     /// <summary>
@@ -19,7 +21,7 @@ public class Customer
     [JsonPropertyName("id")]
     [StringLength(22)]
     [RegularExpression("^[0-9a-zA-Z_-]+$")]
-    public string Id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// Gets or sets the email address of the customer.
@@ -30,7 +32,7 @@ public class Customer
     [JsonPropertyName("email_address")]
     [StringLength(254)]
     [RegularExpression("(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")]
-    public string EmailAddress { get; set; }
+    public string? EmailAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the phone details of the customer.
@@ -39,7 +41,7 @@ public class Customer
     /// This field is optional and represents the customer's phone information.
     /// </remarks>
     [JsonPropertyName("phone")]
-    public Phone Phone { get; set; }
+    public Phone? Phone { get; set; }
 
     /// <summary>
     /// Gets or sets the name details of the customer.
@@ -48,7 +50,7 @@ public class Customer
     /// This field is optional and represents the customer's name information.
     /// </remarks>
     [JsonPropertyName("name")]
-    public Name Name { get; set; }
+    public Name? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the merchant-specific customer identifier.
@@ -58,5 +60,5 @@ public class Customer
     /// </remarks>
     [JsonPropertyName("merchant_customer_id")]
     [StringLength(64)]
-    public string MerchantCustomerId { get; set; }
+    public string? MerchantCustomerId { get; set; }
 }

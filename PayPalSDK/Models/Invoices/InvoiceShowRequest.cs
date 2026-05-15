@@ -1,4 +1,5 @@
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 

@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 
@@ -7,6 +9,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// <summary>
 /// Represents a subscriber's card information used for billing purposes.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SubscriberCard
 {
     /// <summary>
@@ -17,7 +21,7 @@ public class SubscriberCard
     /// </remarks>
     [JsonPropertyName("name")]
     [StringLength(300)]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the card number.
@@ -33,7 +37,7 @@ public class SubscriberCard
     /// Gets or sets the security code of the card.
     /// </summary>
     [JsonPropertyName("security_code")]
-    public string SecurityCode { get; set; }
+    public string? SecurityCode { get; set; }
 
     /// <summary>
     /// Gets or sets the expiry date of the card.
@@ -50,5 +54,5 @@ public class SubscriberCard
     /// Gets or sets the billing address associated with the card.
     /// </summary>
     [JsonPropertyName("billing_address")]
-    public Address BillingAddress { get; set; }
+    public Address? BillingAddress { get; set; }
 }

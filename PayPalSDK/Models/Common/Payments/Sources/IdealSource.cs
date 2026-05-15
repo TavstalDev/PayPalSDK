@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// Represents an iDEAL payment source within the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class IdealSource
 {
     /// <summary>
@@ -41,7 +43,7 @@ public class IdealSource
     [JsonPropertyName("bic")]
     [StringLength(11)]
     [RegularExpression("^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$")]
-    public string Bic { get; set; }
+    public string? Bic { get; set; }
 
     /// <summary>
     /// Gets or sets the experience context for configuring the iDEAL payment experience.
@@ -50,5 +52,5 @@ public class IdealSource
     /// This field is optional and provides additional configuration for the payment experience.
     /// </remarks>
     [JsonPropertyName("experience_context")]
-    public ExperienceContext ExperienceContext { get; set; }
+    public ExperienceContext? ExperienceContext { get; set; }
 }

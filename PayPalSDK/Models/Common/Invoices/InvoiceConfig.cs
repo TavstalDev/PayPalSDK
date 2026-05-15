@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -7,6 +9,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents the configuration options for an invoice, including tax calculation, tipping, partial payments, and template selection.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceConfig
 {
     /// <summary>
@@ -31,7 +35,7 @@ public class InvoiceConfig
     /// Gets or sets the partial payment options for the invoice.
     /// </summary>
     [JsonPropertyName("partial_payment")]
-    public PartialPayment PartialPayment { get; set; }
+    public PartialPayment? PartialPayment { get; set; }
 
     /// <summary>
     /// Gets or sets the template ID used for the invoice.
@@ -41,5 +45,5 @@ public class InvoiceConfig
     /// </remarks>
     [JsonPropertyName("template_id")]
     [StringLength(30)]
-    public string TemplateId { get; set; }
+    public string? TemplateId { get; set; }
 }

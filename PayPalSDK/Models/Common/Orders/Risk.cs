@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
 
@@ -6,6 +8,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// <summary>
 /// Represents risk-related information for a PayPal order.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Risk
 {
     /// <summary>
@@ -16,5 +20,5 @@ public class Risk
     /// which may be used for evaluating potential risks.
     /// </remarks>
     [JsonPropertyName("customer")]
-    public SupplementaryCustomer Customer { get; set; }
+    public SupplementaryCustomer? Customer { get; set; }
 }

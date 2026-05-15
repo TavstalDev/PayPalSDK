@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
@@ -6,6 +8,8 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// <summary>
 /// Represents the execution details of a billing cycle.
 /// </summary>
+[DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class CycleExecution
 {
     /// <summary>

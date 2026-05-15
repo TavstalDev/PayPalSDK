@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
@@ -9,6 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// Represents a pricing scheme in the PayPal SDK.
 /// </summary>
 [DataContract]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PricingScheme
 {
     /// <summary>
@@ -29,7 +31,7 @@ public class PricingScheme
     /// This field is optional and represents the monetary value of the price.
     /// </remarks>
     [JsonPropertyName("price")]
-    public Money Price { get; set; }
+    public Money? Price { get; set; }
 
     /// <summary>
     /// Gets or sets the reload threshold amount for the pricing scheme.
@@ -38,5 +40,5 @@ public class PricingScheme
     /// This field is optional and represents the monetary value of the reload threshold amount.
     /// </remarks>
     [JsonPropertyName("reload_threshold_amount")]
-    public Money ReloadThresholdAmount { get; set; }
+    public Money? ReloadThresholdAmount { get; set; }
 }
