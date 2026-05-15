@@ -10,7 +10,7 @@ using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Models.Orders;
 using Tavstal.PayPalSDK.Models.Orders.Bodies;
 
-namespace Tavstal.PayPalSDK.Tests.Orders;
+namespace Tavstal.PayPalSDK.Example.Orders;
 
 /// <summary>
 /// Represents an example for creating a PayPal order using the PayPal SDK.

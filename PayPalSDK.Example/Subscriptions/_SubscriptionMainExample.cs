@@ -1,8 +1,8 @@
 using Tavstal.PayPalSDK.Http;
 
-namespace Tavstal.PayPalSDK.Tests.Webhooks;
+namespace Tavstal.PayPalSDK.Example.Subscriptions;
 
-public class _WebhookMainExample
+public class _SubscriptionMainExample
 {
     public static async Task PlayAsync(PayPalHttpClient client, string currencyCode)
     {
@@ -10,7 +10,7 @@ public class _WebhookMainExample
         while (active)
         {
             // Display menu options
-            Console.WriteLine("# WEBHOOKS #");
+            Console.WriteLine("# SUBSCRIPTIONS #");
             Console.WriteLine("Please select an option:");
             Console.WriteLine("1.");
             Console.WriteLine("0. Go back.");

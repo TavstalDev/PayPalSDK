@@ -2,7 +2,7 @@ using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Payments;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 
-namespace Tavstal.PayPalSDK.Tests.Payments;
+namespace Tavstal.PayPalSDK.Example.Payments;
 
 public static class _PaymentMainExample
 {

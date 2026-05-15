@@ -1,6 +1,6 @@
 using Tavstal.PayPalSDK.Http;
 
-namespace Tavstal.PayPalSDK.Tests.Orders;
+namespace Tavstal.PayPalSDK.Example.Orders;
 
 /// <summary>
 /// Provides an example for interacting with PayPal orders.

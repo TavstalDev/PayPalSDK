@@ -1,14 +1,14 @@
 ﻿using System.Text;
 using Newtonsoft.Json.Linq;
 using Tavstal.PayPalSDK.Config;
+using Tavstal.PayPalSDK.Example.Orders;
+using Tavstal.PayPalSDK.Example.Payments;
+using Tavstal.PayPalSDK.Example.ProductCatalog;
+using Tavstal.PayPalSDK.Example.Subscriptions;
+using Tavstal.PayPalSDK.Example.Webhooks;
 using Tavstal.PayPalSDK.Http;
-using Tavstal.PayPalSDK.Tests.Orders;
-using Tavstal.PayPalSDK.Tests.Payments;
-using Tavstal.PayPalSDK.Tests.ProductCatalog;
-using Tavstal.PayPalSDK.Tests.Subscriptions;
-using Tavstal.PayPalSDK.Tests.Webhooks;
 
-namespace Tavstal.PayPalSDK.Tests;
+namespace Tavstal.PayPalSDK.Example;
 
 /// <summary>
 /// Represents the main program for interacting with the PayPal SDK.

@@ -3,7 +3,7 @@ using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Orders;
 using Tavstal.PayPalSDK.Models.Orders.Bodies;
 
-namespace Tavstal.PayPalSDK.Tests.Orders;
+namespace Tavstal.PayPalSDK.Example.Orders;
 
 /// <summary>
 /// Represents an example for refunding a PayPal order using the PayPal SDK.

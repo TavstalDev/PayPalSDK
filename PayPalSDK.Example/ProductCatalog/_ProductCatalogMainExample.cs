@@ -4,7 +4,7 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.ProductCatalog;
 using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 
-namespace Tavstal.PayPalSDK.Tests.ProductCatalog;
+namespace Tavstal.PayPalSDK.Example.ProductCatalog;
 
 public static class _ProductCatalogMainExample
 {
