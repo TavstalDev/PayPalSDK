@@ -11,6 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.4"/>
+        <PackageReference Include="FluentAssertions" Version="6.12.1"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
         <PackageReference Include="xunit" Version="2.9.3"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4"/>
@@ -18,10 +19,30 @@
 
     <ItemGroup>
         <Using Include="Xunit"/>
+        <Using Include="FluentAssertions"/>
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\PayPalSDK\PayPalSDK.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Tests\Payments\" />
+      <Folder Include="Tests\ProductCatalog\" />
+      <Folder Include="Tests\Subscriptions\" />
+      <Folder Include="Tests\Webhooks\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\Responses\authResponse.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\Responses\createOrderResponse.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\Requests\createOrderRequest.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
