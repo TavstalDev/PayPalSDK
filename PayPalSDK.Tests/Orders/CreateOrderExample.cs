@@ -8,6 +8,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Models.Orders;
+using Tavstal.PayPalSDK.Models.Orders.Bodies;
 
 namespace Tavstal.PayPalSDK.Tests.Orders;
 

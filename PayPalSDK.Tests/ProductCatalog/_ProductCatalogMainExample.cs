@@ -2,6 +2,7 @@ using Tavstal.PayPalSDK.Constants;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.ProductCatalog;
+using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 
 namespace Tavstal.PayPalSDK.Tests.ProductCatalog;
 

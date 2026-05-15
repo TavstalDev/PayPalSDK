@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Orders;
+using Tavstal.PayPalSDK.Models.Orders.Bodies;
 
 namespace Tavstal.PayPalSDK.Tests.Orders;
 
