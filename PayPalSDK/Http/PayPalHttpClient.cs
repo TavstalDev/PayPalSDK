@@ -38,6 +38,30 @@ public class PayPalHttpClient
     }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="PayPalHttpClient"/> using a provided <see cref="HttpClient"/>.
+    /// This constructor is useful for tests where a custom HttpMessageHandler is required.
+    /// </summary>
+    /// <param name="environment">The environment configuration.</param>
+    /// <param name="httpClient">The pre-configured HttpClient to use.</param>
+    /// <param name="refreshToken">Optional refresh token.</param>
+    public PayPalHttpClient(EnvironmentBase environment, HttpClient httpClient, string? refreshToken = null)
+    {
+        _environment = environment;
+        _refreshToken = refreshToken;
+        _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+
+        // Ensure BaseAddress and some default headers exist when not already set on the supplied HttpClient.
+        if (_httpClient.BaseAddress == null)
+            _httpClient.BaseAddress = new Uri(_environment.BaseUrl);
+
+        if (!_httpClient.DefaultRequestHeaders.Contains("Accept"))
+            _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+
+        if (!_httpClient.DefaultRequestHeaders.UserAgent.Any())
+            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent.GetUserAgentHeader());
+    }
+
+    /// <summary>
     /// Sends an asynchronous HTTP request to the PayPal API.
     /// Automatically adds an Authorization header if not already present.
     /// </summary>
