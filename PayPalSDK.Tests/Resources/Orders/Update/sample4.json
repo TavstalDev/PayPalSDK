@@ -1,0 +1,26 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T",
+  "statusCode": 400,
+  "request": [],
+  "response": {
+    "name": "INVALID_REQUEST",
+    "details": [
+      {
+        "field": "/purchase_units/@reference_id=='Reference ID 2'/shipping/address",
+        "value": "x",
+        "location": "body",
+        "issue": "INVALID_PARAMETER_SYNTAX",
+        "description": "The value of a field does not conform to the expected format."
+      }
+    ],
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "f087ef02ffdb6",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/api/orders/v2/#error-INVALID_PARAMETER_SYNTAX",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

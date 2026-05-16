@@ -1,0 +1,50 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T",
+  "statusCode": 422,
+  "request": [
+    {
+      "op": "add",
+      "path": "/payer",
+      "value": {
+        "name": {
+          "given_name": "TestFirst",
+          "surname": "TestLast"
+        },
+        "email_address": "payee@example.com",
+        "phone": {
+          "phone_number": {
+            "national_number": "19876543210"
+          }
+        },
+        "address": {
+          "address_line_1": "2211 North First Street",
+          "address_line_2": "Floor 6",
+          "admin_area_2": "San Jose",
+          "admin_area_1": "CA",
+          "postal_code": "95126",
+          "country_code": "US"
+        }
+      }
+    }
+  ],
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+      {
+        "field": "/payer",
+        "issue": "PAYER_PATCH_NOT_ALLOWED",
+        "description": "Payer path patch is not allowed after payer has approved the order.",
+        "location": "body"
+      }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "90957fca61718",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/api/orders/v2/#error-PAYER_PATCH_NOT_ALLOWED",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

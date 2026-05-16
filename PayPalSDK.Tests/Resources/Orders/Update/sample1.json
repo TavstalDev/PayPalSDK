@@ -1,0 +1,19 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T",
+  "statusCode": 204,
+  "request": [
+    {
+      "op": "replace",
+      "path": "/purchase_units/@reference_id=='PUHF'/shipping/address",
+      "value": {
+        "address_line_1": "2211 N First Street",
+        "address_line_2": "Building 17",
+        "admin_area_2": "San Jose",
+        "admin_area_1": "CA",
+        "postal_code": "95131",
+        "country_code": "US"
+      }
+    }
+  ],
+  "response": {}
+}
