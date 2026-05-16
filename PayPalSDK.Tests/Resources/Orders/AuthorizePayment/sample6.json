@@ -1,0 +1,29 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/authorize",
+  "statusCode": 422,
+  "request": {
+    "payment_source": {
+      "card": {
+        "vault_id": "8cg02452we902502k"
+      }
+    }
+  },
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+      {
+        "issue": "PAYMENT_DENIED",
+        "description": "PayPal has declined to process this transaction."
+      }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "eb476257836d9",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/orders/v2/#error-PAYMENT_DENIED",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

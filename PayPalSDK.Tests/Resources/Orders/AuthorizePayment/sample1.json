@@ -1,0 +1,80 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/authorize",
+  "statusCode": 201,
+  "request": {},
+  "response": {
+    "id": "5O190127TN364715T",
+    "payment_source": {
+      "paypal": {
+        "name": {
+          "given_name": "John",
+          "surname": "Doe"
+        },
+        "email_address": "customer@example.com",
+        "account_id": "QYR5Z8XDVJNXQ"
+      }
+    },
+    "purchase_units": [
+      {
+        "reference_id": "d9f80740-38f0-11e8-b467-0ed5f89f718b",
+        "payments": {
+          "authorizations": [
+            {
+              "id": "3C679366HH908993F",
+              "status": "CREATED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "100.00"
+              },
+              "seller_protection": {
+                "status": "ELIGIBLE",
+                "dispute_categories": [
+                  "ITEM_NOT_RECEIVED",
+                  "UNAUTHORIZED_TRANSACTION"
+                ]
+              },
+              "expiration_time": "2021-10-08T23:37:39Z",
+              "links": [
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/authorizations/5O190127TN364715T",
+                  "rel": "self",
+                  "method": "GET"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/authorizations/5O190127TN364715T/capture",
+                  "rel": "capture",
+                  "method": "POST"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/authorizations/5O190127TN364715T/void",
+                  "rel": "void",
+                  "method": "POST"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/checkout/orders/5O190127TN364715T",
+                  "rel": "up",
+                  "method": "GET"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "payer": {
+      "name": {
+        "given_name": "John",
+        "surname": "Doe"
+      },
+      "email_address": "customer@example.com",
+      "payer_id": "QYR5Z8XDVJNXQ"
+    },
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v2/checkout/orders/5O190127TN364715T",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  }
+}
