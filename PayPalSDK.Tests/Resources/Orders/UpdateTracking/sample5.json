@@ -1,0 +1,16 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/trackers/8MC585209K746392H443844607820",
+  "statusCode": 404,
+  "request": [
+    {
+      "op": "add",
+      "path": "/notify_payer",
+      "value": true
+    }
+  ],
+  "response": {
+    "name": "RESOURCE_NOT_FOUND",
+    "debug_id": "b1d1f06c7246c",
+    "message": "The specified resource does not exist."
+  }
+}

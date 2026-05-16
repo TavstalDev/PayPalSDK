@@ -1,0 +1,25 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/trackers/8MC585209K746392H443844607820",
+  "statusCode": 400,
+  "request": [],
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "2f541ace12987",
+    "details": [
+      {
+        "field": "/notify_payer",
+        "issue": "INVALID_PARAMETER_VALUE",
+        "description": "The value of a field is invalid.",
+        "location": "body"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/orders/v2/#error-INVALID_PARAMETER_VALUE",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

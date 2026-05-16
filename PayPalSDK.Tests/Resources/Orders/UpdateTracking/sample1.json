@@ -1,0 +1,12 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/trackers/8MC585209K746392H443844607820",
+  "statusCode": 204,
+  "request": [
+    {
+      "op": "replace",
+      "path": "/status",
+      "value": "CANCELLED"
+    }
+  ],
+  "response": {}
+}

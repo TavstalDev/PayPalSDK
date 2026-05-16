@@ -1,0 +1,55 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/trackers/8MC585209K746392H443844607820",
+  "statusCode": 422,
+  "request": [
+    {
+      "op": "replace",
+      "path": "items",
+      "value": [
+        {
+          "name": "T-Shirt",
+          "sku": "sku01",
+          "quantity": "1",
+          "upc": {
+            "type": "UPC-A",
+            "code": "upc001"
+          },
+          "image_url": "https://www.example.com/example1.jpg",
+          "url": "https://www.example.com/example"
+        },
+        {
+          "name": "NeoPhone",
+          "sku": "sku02",
+          "quantity": "2",
+          "upc": {
+            "type": "UPC-A",
+            "code": "upc002"
+          },
+          "image_url": "https://www.example.com/example2.jpg",
+          "url": "https://www.example.com/example"
+        }
+      ]
+    }
+  ],
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "3178dbf457625",
+    "details": [
+      {
+        "field": "path",
+        "value": "/status",
+        "location": "body",
+        "issue": "CANNOT_PATCH_CANCELLED_TRACKER",
+        "description": "Cancelled trackers cannot be modified."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/orders/v2/#error-NOT_PATCHABLE",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}
