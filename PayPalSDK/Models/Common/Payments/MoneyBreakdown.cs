@@ -37,5 +37,5 @@ public class MoneyBreakdown
     /// This field is optional and represents the detailed breakdown of the monetary amount.
     /// </remarks>
     [JsonPropertyName("breakdown")]
-    public required Breakdown Breakdown { get; set; }
+    public Breakdown? Breakdown { get; set; }
 }
