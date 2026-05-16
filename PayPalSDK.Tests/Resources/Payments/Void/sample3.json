@@ -1,0 +1,10 @@
+{
+  "endpoint": "v2/payments/authorizations/5C908745JK343851U/void",
+  "statusCode": 403,
+  "request": {},
+  "response": {
+    "name": "NOT_AUTHORIZED",
+    "debug_id": "b1d1f06c7246c",
+    "message": "Authorization failed due to insufficient permissions."
+  }
+}

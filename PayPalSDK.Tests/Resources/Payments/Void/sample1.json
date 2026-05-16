@@ -1,0 +1,31 @@
+{
+  "endpoint": "v2/payments/authorizations/5C908745JK343851U/void",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "id": "5C908745JK343851U",
+    "status": "VOIDED",
+    "amount": {
+      "currency_code": "USD",
+      "value": "100.00"
+    },
+    "invoice_id": "OrderInvoice-10_10_2024_12_06_00_pm",
+    "seller_protection": {
+      "status": "ELIGIBLE",
+      "dispute_categories": [
+        "ITEM_NOT_RECEIVED",
+        "UNAUTHORIZED_TRANSACTION"
+      ]
+    },
+    "expiration_time": "2024-11-08T09:06:03-08:00",
+    "create_time": "2024-10-10T10:06:03-07:00",
+    "update_time": "2024-10-10T10:06:19-07:00",
+    "links": [
+      {
+        "href": "https://api.paypal.com/v2/payments/authorizations/5C908745JK343851U",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  }
+}
