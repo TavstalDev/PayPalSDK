@@ -2,8 +2,6 @@ using System.Net;
 using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Common;
-using Tavstal.PayPalSDK.Models.Orders;
-using Tavstal.PayPalSDK.Models.Orders.Bodies;
 using Tavstal.PayPalSDK.Models.Payments;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
