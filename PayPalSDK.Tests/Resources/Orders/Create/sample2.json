@@ -1,0 +1,132 @@
+{
+  "endpoint": "v2/checkout/orders",
+  "statusCode": 201,
+  "request": {
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+        }
+      }
+    ],
+    "payment_source": {
+      "paypal": {
+        "vault_id": "2w915838hr181240m"
+      }
+    }
+  },
+  "response": {
+    "id": "8K832279M55989614",
+    "payment_source": {
+      "paypal": {
+        "email_address": "buyer@paypal.com",
+        "account_id": "XQHSN372NGSP2",
+        "account_status": "UNVERIFIED",
+        "name": {
+          "given_name": "Tom",
+          "surname": "Business"
+        },
+        "phone_number": {
+          "national_number": "8127081430"
+        },
+        "address": {
+          "country_code": "US"
+        }
+      }
+    },
+    "purchase_units": [
+      {
+        "reference_id": "default",
+        "amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+        },
+        "payee": {
+          "email_address": "seller@paypal.com",
+          "merchant_id": "Q7C9N6S4YRQXG"
+        },
+        "shipping": {
+          "name": {
+            "full_name": "Tom Business"
+          },
+          "address": {
+            "address_line_1": "123 Fake St.",
+            "admin_area_2": "Baton Rouge",
+            "admin_area_1": "LA",
+            "postal_code": "70802",
+            "country_code": "US"
+          }
+        },
+        "payments": {
+          "authorizations": [
+            {
+              "status": "CREATED",
+              "id": "7X550106NA4440028",
+              "amount": {
+                "currency_code": "USD",
+                "value": "100.00"
+              },
+              "seller_protection": {
+                "status": "ELIGIBLE",
+                "dispute_categories": [
+                  "UNAUTHORIZED_TRANSACTION"
+                ]
+              },
+              "expiration_time": "2024-06-05T18:46:54Z",
+              "links": [
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/authorizations/7X550106NA4440028",
+                  "rel": "self",
+                  "method": "GET"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/authorizations/7X550106NA4440028/capture",
+                  "rel": "capture",
+                  "method": "POST"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/authorizations/7X550106NA4440028/void",
+                  "rel": "void",
+                  "method": "POST"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/checkout/orders/8K832279M55989614",
+                  "rel": "up",
+                  "method": "GET"
+                }
+              ],
+              "create_time": "2024-05-07T18:46:54Z",
+              "update_time": "2024-05-07T18:46:54Z"
+            }
+          ]
+        }
+      }
+    ],
+    "payer": {
+      "name": {
+        "given_name": "Tom",
+        "surname": "Business"
+      },
+      "email_address": "buyer@paypal.com",
+      "payer_id": "XQHSN372NGSP2",
+      "phone": {
+        "phone_number": {
+          "national_number": "8127081430"
+        }
+      },
+      "address": {
+        "country_code": "US"
+      }
+    },
+    "create_time": "2024-05-07T18:46:15Z",
+    "update_time": "2024-05-07T18:46:54Z",
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v2/checkout/orders/8K832279M55989614",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  }
+}

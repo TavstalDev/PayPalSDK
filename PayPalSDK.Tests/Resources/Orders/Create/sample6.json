@@ -1,0 +1,46 @@
+{
+  "endpoint": "v2/checkout/orders",
+  "statusCode": 422,
+  "request": {
+    "payment_source": {
+      "paypal": {
+        "experience_context": {
+          "return_url": "https://www.example.com/returnURL",
+          "cancel_url": "https://www.example.com/cancelURL",
+          "shipping_preference": "SET_PROVIDED_ADDRESS"
+        }
+      }
+    },
+    "purchase_units": [
+      {
+        "reference_id": "PUHF",
+        "amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+        },
+        "shipping": {
+          "type": "PICKUP_FROM_PERSON"
+        }
+      }
+    ]
+  },
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+      {
+        "field": "/purchase_units/@reference_id=='PUHF'/shipping/address",
+        "issue": "MISSING_SHIPPING_ADDRESS",
+        "description": "The shipping address is required when `shipping_preference=SET_PROVIDED_ADDRESS`."
+      }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "f200264a4e02a",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/api/rest/reference/orders/v2/errors/#MISSING_SHIPPING_ADDRESS",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

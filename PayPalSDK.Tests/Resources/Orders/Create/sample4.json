@@ -1,0 +1,77 @@
+{
+  "endpoint": "v2/checkout/orders",
+  "statusCode": 201,
+  "request": {
+    "purchase_units": [
+      {
+        "reference_id": "PUHF",
+        "amount": {
+          "currency_code": "USD",
+          "value": "50.00"
+        },
+        "payee": {
+          "email_address": "merchant@example.com"
+        },
+        "shipping": {
+          "address": {
+            "address_line_1": "123 Townsend St",
+            "address_line_2": "Floor 6",
+            "admin_area_2": "San Francisco",
+            "admin_area_1": "CA",
+            "postal_code": "94107",
+            "country_code": "US"
+          },
+          "type": "PICKUP_IN_STORE"
+        }
+      }
+    ]
+  },
+  "response": {
+    "id": "4SP74185RW2405200",
+    "purchase_units": [
+      {
+        "reference_id": "PUHF",
+        "amount": {
+          "currency_code": "USD",
+          "value": "50.00"
+        },
+        "payee": {
+          "email_address": "merchant@example.com"
+        },
+        "shipping": {
+          "address": {
+            "address_line_1": "123 Townsend St",
+            "address_line_2": "Floor 6",
+            "admin_area_2": "San Francisco",
+            "admin_area_1": "CA",
+            "postal_code": "94107",
+            "country_code": "US"
+          },
+          "type": "PICKUP_IN_STORE"
+        }
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v2/checkout/orders/4SP74185RW2405200",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://www.paypal.com/checkoutnow?token=4SP74185RW2405200",
+        "rel": "approve",
+        "method": "GET"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/checkout/orders/4SP74185RW2405200",
+        "rel": "edit",
+        "method": "PATCH"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/checkout/orders/4SP74185RW2405200/authorize",
+        "rel": "authorize",
+        "method": "POST"
+      }
+    ]
+  }
+}
