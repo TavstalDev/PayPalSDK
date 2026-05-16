@@ -117,6 +117,22 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 
 ### In Progress / Next Up
 
+### Payment Method Tokens
+- [ ] Implement Create, List, Retrieve, Delete Payment Method Tokens
+- [ ] Implement Create and Retrieve setup tokens
+
+### Add Tracking
+- [ ] Implement tracking endpoints 
+
+### Currency Exchange Rates
+- [ ] Implement currency exchange rate retrieval endpoint
+
+### Disputes
+- [ ] Implement dispute endpoints 
+
+### Invoices
+- [ ] Implement invoice endpoints
+
 ### Testing
 - [ ] Expand Test Coverage to Subscriptions and Payments
 - [ ] Add Mock Server / Sandbox Utilities
