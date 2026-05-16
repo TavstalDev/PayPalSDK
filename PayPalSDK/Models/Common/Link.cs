@@ -33,8 +33,13 @@ public class Link
     /// Gets or sets the HTTP method to be used with the link.
     /// </summary>
     /// <remarks>
-    /// This field is required and specifies the HTTP method (e.g., GET, POST) for the link.
+    /// This field is optional and specifies the HTTP method (e.g., GET, POST) for the link.
     /// </remarks>
     [JsonPropertyName("method")]
-    public required string Method { get; set; }
+    public string? Method { get; set; }
+    
+    public override string ToString()
+    {
+        return $"Link: [Href: {Href}, Rel: {Rel}, Method: {Method}]";
+    }
 }
