@@ -1,0 +1,53 @@
+{
+  "endpoint": "v2/payments/captures/0K35355239430361V/refund",
+  "statusCode": 201,
+  "request": {
+    "amount": {
+      "value": "1.00",
+      "currency_code": "USD"
+    },
+    "invoice_id": "RefundInvoice-123",
+    "custom_id": "RefundCustom-123"
+  },
+  "response": {
+    "id": "58K15806CS993444T",
+    "amount": {
+      "currency_code": "USD",
+      "value": "89.00"
+    },
+    "seller_payable_breakdown": {
+      "gross_amount": {
+        "currency_code": "USD",
+        "value": "89.00"
+      },
+      "paypal_fee": {
+        "currency_code": "USD",
+        "value": "0.00"
+      },
+      "net_amount": {
+        "currency_code": "USD",
+        "value": "89.00"
+      },
+      "total_refunded_amount": {
+        "currency_code": "USD",
+        "value": "100.00"
+      }
+    },
+    "invoice_id": "OrderInvoice-10_10_2024_12_58_20_pm",
+    "status": "COMPLETED",
+    "create_time": "2024-10-14T15:03:29-07:00",
+    "update_time": "2024-10-14T15:03:29-07:00",
+    "links": [
+      {
+        "href": "https://api.msmaster.qa.paypal.com/v2/payments/refunds/58K15806CS993444T",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api.msmaster.qa.paypal.com/v2/payments/captures/7TK53561YB803214S",
+        "rel": "up",
+        "method": "GET"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "endpoint": "v2/payments/captures/0K35355239430361V/refund",
+  "statusCode": 400,
+  "request": {
+    "amount": {
+      "value": "1.00",
+      "currency_code": "USD"
+    },
+    "invoice_id": "RefundInvoice-123",
+    "custom_id": "RefundCustom-123"
+  },
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema",
+    "debug_id": "78916e688cf7f",
+    "details": [
+      {
+        "issue": "INVALID_STRING_LENGTH",
+        "field": "/invoice_id",
+        "value": "Fm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinqFm67fYiinq",
+        "description": "The value of a field is either too short or too long.",
+        "location": "body"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/payments/v2/#error-INVALID_STRING_LENGTH",
+        "rel": "information_link"
+      }
+    ]
+  }
+}

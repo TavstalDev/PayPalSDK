@@ -1,0 +1,23 @@
+{
+  "endpoint": "v2/payments/captures/0K35355239430361V/refund",
+  "statusCode": 422,
+  "request": {
+    "amount": {
+      "value": "1.00",
+      "currency_code": "USD"
+    },
+    "invoice_id": "RefundInvoice-123",
+    "custom_id": "RefundCustom-123"
+  },
+  "response": {
+    "name": "UNPROCCESSABLE_ENTITY",
+    "message": "The requested action could not be completed, is semantically incorrect, or failed business validation.",
+    "debug_id": "90bff07028f7f",
+    "details": [
+      {
+        "issue": "REFUND_AMOUNT_EXCEEDED",
+        "description": "The refund amount must be less than or equal to the capture amount that has not yet been refunded."
+      }
+    ]
+  }
+}

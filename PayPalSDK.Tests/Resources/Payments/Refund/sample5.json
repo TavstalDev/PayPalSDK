@@ -1,0 +1,17 @@
+{
+  "endpoint": "v2/payments/captures/0K35355239430361V/refund",
+  "statusCode": 403,
+  "request": {
+    "amount": {
+      "value": "1.00",
+      "currency_code": "USD"
+    },
+    "invoice_id": "RefundInvoice-123",
+    "custom_id": "RefundCustom-123"
+  },
+  "response": {
+    "name": "NOT_AUTHORIZED",
+    "debug_id": "b1d1f06c7246c",
+    "message": "Authorization failed due to insufficient permissions."
+  }
+}
