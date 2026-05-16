@@ -1,0 +1,31 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/confirm-payment-source",
+  "statusCode": 422,
+  "request": {
+    "payment_source": {
+      "paypal": {
+        "vault_id": "8kk845"
+      }
+    }
+  },
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+      {
+        "field": "/payment_source/paypal/vault_id",
+        "location": "body",
+        "issue": "MISMATCHED_VAULT_ID_TO_PAYMENT_SOURCE",
+        "description": "The vault_id does not match the payment_source provided. Please verify that the vault_id token used refers to the matching payment_source and try again. For example, a PayPal token cannot be passed in the vault_id field in the payment_source.card object."
+      }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "90957fca61718",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/orders/v2/#error-MISMATCHED_VAULT_ID_TO_PAYMENT_SOURCE",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

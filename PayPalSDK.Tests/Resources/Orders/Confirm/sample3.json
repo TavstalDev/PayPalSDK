@@ -1,0 +1,10 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/confirm-payment-source",
+  "statusCode": 403,
+  "request": {},
+  "response": {
+    "name": "NOT_AUTHORIZED",
+    "debug_id": "b1d1f06c7246c",
+    "message": "Authorization failed due to insufficient permissions."
+  }
+}
