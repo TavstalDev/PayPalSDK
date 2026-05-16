@@ -1,0 +1,110 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/capture",
+  "statusCode": 201,
+  "request": {},
+  "response": {
+    "id": "5O190127TN364715T",
+    "payment_source": {
+      "paypal": {
+        "attributes": {
+          "vault": {
+            "id": "m6yd4yw",
+            "status": "CREATED"
+          }
+        }
+      }
+    },
+    "purchase_units": [
+      {
+        "reference_id": "refernece_id_1001",
+        "shipping": {
+          "name": {
+            "full_name": "William Chris"
+          },
+          "address": {
+            "address_line_1": "500 Hillside Street",
+            "address_line_2": "#100",
+            "admin_area_2": "San Jose",
+            "admin_area_1": "CA",
+            "postal_code": "95131",
+            "country_code": "US"
+          }
+        },
+        "payments": {
+          "captures": [
+            {
+              "id": "54986457XR262021N",
+              "status": "COMPLETED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "31.01"
+              },
+              "final_capture": true,
+              "seller_protection": {
+                "status": "ELIGIBLE",
+                "dispute_categories": [
+                  "ITEM_NOT_RECEIVED",
+                  "UNAUTHORIZED_TRANSACTION"
+                ]
+              },
+              "seller_receivable_breakdown": {
+                "gross_amount": {
+                  "currency_code": "USD",
+                  "value": "31.01"
+                },
+                "platform_fees": [
+                  {
+                    "amount": {
+                      "currency_code": "USD",
+                      "value": "10.01"
+                    },
+                    "payee": {
+                      "merchant_id": "J8NCBBULP5JH2"
+                    }
+                  }
+                ],
+                "net_amount": {
+                  "currency_code": "USD",
+                  "value": "21.00"
+                }
+              },
+              "invoice_id": "invoice_id_380358551C5240203",
+              "custom_id": "custom_id_1001",
+              "links": [
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/captures/54986457XR262021N",
+                  "rel": "self",
+                  "method": "GET"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/payments/captures/54986457XR262021N/refund",
+                  "rel": "refund",
+                  "method": "POST"
+                },
+                {
+                  "href": "https://api-m.paypal.com/v2/checkout/orders/12645781RH9888226",
+                  "rel": "up",
+                  "method": "GET"
+                }
+              ],
+              "create_time": "2020-06-08T23:11:34Z",
+              "update_time": "2020-06-08T23:11:34Z"
+            }
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v2/checkout/orders/5O190127TN364715T",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/vault/payment-tokens/m6yd4yw",
+        "rel": "payment-token",
+        "method": "GET"
+      }
+    ]
+  }
+}

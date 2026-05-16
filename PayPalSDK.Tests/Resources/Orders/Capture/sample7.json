@@ -1,0 +1,24 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/capture",
+  "statusCode": 422,
+  "request": {},
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+      {
+        "location": "body",
+        "issue": "ACTION_DOES_NOT_MATCH_INTENT",
+        "description": "The order was created with an intent of `AUTHORIZE`. To complete authorization, use `/v2/checkout/orders/{order_id}/authorize`. Or, alternately create an order with an intent of `CAPTURE`."
+      }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "90957fca61718",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/api/orders/v2/#error-ACTION_DOES_NOT_MATCH_INTENT",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}
