@@ -1,0 +1,25 @@
+{
+  "endpoint": "v2/payments/authorizations/2GG279541U471931P/capture",
+  "statusCode": 409,
+  "request": {
+    "amount": {
+      "value": "10.99",
+      "currency_code": "USD"
+    },
+    "invoice_id": "INVOICE-123",
+    "final_capture": true,
+    "note_to_payer": "If the ordered color is not available, we will substitute with a different color free of charge.",
+    "soft_descriptor": "Bob's Custom Sweaters"
+  },
+  "response": {
+    "name": "RESOURCE_CONFLICT",
+    "debug_id": "b1d1f06c7246c",
+    "message": "The server has detected a conflict while processing this request.",
+    "details": [
+      {
+        "issue": "PREVIOUS_REQUEST_IN_PROGRESS",
+        "description": "A previous request on this resource is currently in progress. Please wait for some time and try again. It is best to space out the initial and the subsequent request(s) to avoid receiving this error."
+      }
+    ]
+  }
+}

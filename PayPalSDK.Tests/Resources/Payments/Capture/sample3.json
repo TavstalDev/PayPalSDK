@@ -1,0 +1,27 @@
+{
+  "endpoint": "v2/payments/authorizations/2GG279541U471931P/capture",
+  "statusCode": 400,
+  "request": {
+    "amount": {
+      "value": "10.99",
+      "currency_code": "USD"
+    },
+    "invoice_id": "INVOICE-123",
+    "final_capture": true,
+    "note_to_payer": "If the ordered color is not available, we will substitute with a different color free of charge.",
+    "soft_descriptor": "Bob's Custom Sweaters"
+  },
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "90bff07028f7f",
+    "details": [
+      {
+        "field": "/invoice_id",
+        "value": "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ_this_invoice_is_too_long",
+        "issue": "INVALID_STRING_MAX_LENGTH",
+        "description": "The value of a field is too long."
+      }
+    ]
+  }
+}

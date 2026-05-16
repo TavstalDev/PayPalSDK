@@ -1,0 +1,35 @@
+{
+  "endpoint": "v2/payments/authorizations/2GG279541U471931P/capture",
+  "statusCode": 201,
+  "request": {
+    "amount": {
+      "value": "10.99",
+      "currency_code": "USD"
+    },
+    "invoice_id": "INVOICE-123",
+    "final_capture": true,
+    "note_to_payer": "If the ordered color is not available, we will substitute with a different color free of charge.",
+    "soft_descriptor": "Bob's Custom Sweaters"
+  },
+  "response": {
+    "id": "2GG279541U471931P",
+    "status": "COMPLETED",
+    "links": [
+      {
+        "rel": "self",
+        "method": "GET",
+        "href": "https://api-m.paypal.com/v2/payments/captures/2GG279541U471931P"
+      },
+      {
+        "rel": "refund",
+        "method": "POST",
+        "href": "https://api-m.paypal.com/v2/payments/captures/2GG279541U471931P/refund"
+      },
+      {
+        "rel": "up",
+        "method": "GET",
+        "href": "https://api-m.paypal.com/v2/payments/authorizations/0VF52814937998046"
+      }
+    ]
+  }
+}

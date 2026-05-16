@@ -1,0 +1,28 @@
+{
+  "endpoint": "v2/payments/authorizations/2GG279541U471931P/capture",
+  "statusCode": 422,
+  "request": {
+    "amount": {
+      "value": "10.99",
+      "currency_code": "USD"
+    },
+    "invoice_id": "INVOICE-123",
+    "final_capture": true,
+    "note_to_payer": "If the ordered color is not available, we will substitute with a different color free of charge.",
+    "soft_descriptor": "Bob's Custom Sweaters"
+  },
+  "response": {
+    "name": "UNPROCCESSABLE_ENTITY",
+    "message": "The requested action could not be completed, is semantically incorrect, or failed business validation.",
+    "debug_id": "90bff07028f7f",
+    "details": [
+      {
+        "field": "/amount/value",
+        "value": "10.99",
+        "issue": "MAX_CAPTURE_AMOUNT_EXCEEDED",
+        "description": "Capture amount specified exceeded allowable limit. You can only capture up to the original authorization amount.",
+        "location": "body"
+      }
+    ]
+  }
+}

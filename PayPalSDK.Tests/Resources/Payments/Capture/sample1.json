@@ -1,0 +1,63 @@
+{
+  "endpoint": "v2/payments/authorizations/2GG279541U471931P/capture",
+  "statusCode": 200,
+  "request": {
+    "amount": {
+      "value": "1.00",
+      "currency_code": "USD"
+    },
+    "invoice_id": "CaptureInvoice-10142024",
+    "final_capture": false
+  },
+  "response": {
+    "id": "23T524207X938445J",
+    "amount": {
+      "currency_code": "USD",
+      "value": "100.00"
+    },
+    "final_capture": false,
+    "seller_protection": {
+      "status": "ELIGIBLE",
+      "dispute_categories": [
+        "ITEM_NOT_RECEIVED",
+        "UNAUTHORIZED_TRANSACTION"
+      ]
+    },
+    "seller_receivable_breakdown": {
+      "gross_amount": {
+        "currency_code": "USD",
+        "value": "1.00"
+      },
+      "paypal_fee": {
+        "currency_code": "USD",
+        "value": "0.52"
+      },
+      "net_amount": {
+        "currency_code": "USD",
+        "value": "0.48"
+      },
+      "exchange_rate": {}
+    },
+    "invoice_id": "OrderInvoice-10_10_2024_12_58_20_pm",
+    "status": "COMPLETED",
+    "create_time": "2024-10-14T21:29:26Z",
+    "update_time": "2024-10-14T21:29:26Z",
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v2/payments/captures/23T524207X938445J",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/payments/captures/23T524207X938445J/refund",
+        "rel": "refund",
+        "method": "POST"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/payments/authorizations/6DR965477U7140544",
+        "rel": "up",
+        "method": "GET"
+      }
+    ]
+  }
+}
