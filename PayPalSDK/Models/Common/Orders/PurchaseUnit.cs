@@ -75,10 +75,10 @@ public class PurchaseUnit
     /// Gets or sets the monetary breakdown of the purchase unit.
     /// </summary>
     /// <remarks>
-    /// This field is required and represents the amount details for the purchase unit.
+    /// This field is optional and represents the amount details for the purchase unit.
     /// </remarks>
     [JsonPropertyName("amount")]
-    public required MoneyBreakdown Amount { get; set; }
+    public MoneyBreakdown? Amount { get; set; }
 
     /// <summary>
     /// Gets or sets the payee information for the purchase unit.
