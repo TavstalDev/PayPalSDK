@@ -31,6 +31,16 @@ public class Address
     public string? AddressLineTwo { get; set; }
 
     /// <summary>
+    /// Gets or sets the third line of the address.
+    /// </summary>
+    /// <remarks>
+    /// This field is optional and has a maximum length of 100 characters.
+    /// </remarks>
+    [JsonPropertyName("address_line_3")]
+    [StringLength(100)]
+    public string? AddressLineThree { get; set; }
+    
+    /// <summary>
     /// Gets or sets the administrative area (e.g., state or province).
     /// </summary>
     /// <remarks>
@@ -49,6 +59,26 @@ public class Address
     [JsonPropertyName("admin_area_2")]
     [StringLength(120)]
     public string? AdminAreaTwo { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the third administrative area line of the address.
+    /// </summary>
+    /// <remarks>
+    /// This field is optional and has a maximum length of 100 characters.
+    /// </remarks>
+    [JsonPropertyName("admin_area_3")]
+    [StringLength(100)]
+    public string? AdminAreaThree { get; set; }
+
+    /// <summary>
+    /// Gets or sets the fourth administrative area line of the address.
+    /// </summary>
+    /// <remarks>
+    /// This field is optional and has a maximum length of 100 characters.
+    /// </remarks>
+    [JsonPropertyName("admin_area_4")]
+    [StringLength(100)]
+    public string? AdminAreaFour { get; set; }
 
     /// <summary>
     /// Gets or sets the postal code.
@@ -69,4 +99,15 @@ public class Address
     [JsonPropertyName("country_code")]
     [StringLength(2)]
     public required string CountryCode { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the structured address details.
+    /// </summary>
+    /// <remarks>
+    /// This field is optional and contains more granular address components such as street number,
+    /// street name, building name, and sub-building information. It is used to represent detailed
+    /// address formatting when a single address line is not sufficient.
+    /// </remarks>
+    [JsonPropertyName("address_details")]
+    public AddressDetails? AddressDetails { get; set; }
 }

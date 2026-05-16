@@ -16,11 +16,11 @@ public class PhoneNumber
     /// Gets or sets the country code of the phone number in ISO 3166-1 alpha-2 format.
     /// </summary>
     /// <remarks>
-    /// This field is required and has a maximum length of 3 characters.
+    /// This field is optional and has a maximum length of 3 characters.
     /// </remarks>
     [JsonPropertyName("country_code")]
     [StringLength(3)]
-    public required string CountryCode { get; set; }
+    public string? CountryCode { get; set; }
 
     /// <summary>
     /// Gets or sets the national number of the phone number.
