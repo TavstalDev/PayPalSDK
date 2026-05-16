@@ -1,0 +1,50 @@
+{
+  "endpoint": "v2/payments/find-eligible-methods",
+  "statusCode": 422,
+  "request": {
+    "customer": {
+      "country_code": "US",
+      "channel": {
+        "browser_type": "SAFARI",
+        "device_type": "MOBILE",
+        "client_os": "IOS"
+      }
+    },
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+        }
+      }
+    ],
+    "preferences": {
+      "payment_source_constraint": {
+        "constraint_type": "EXCLUDE",
+        "payment_sources": [
+          "PAYPAL"
+        ]
+      }
+    }
+  },
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "90bff07028f7f",
+    "details": [
+      {
+        "field": "/purchase_units/amount/currency_code",
+        "value": "III",
+        "issue": "INVALID_CURRENCY_CODE",
+        "description": "Currency code is invalid. Please refer https://developer.paypal.com/docs/integration/direct/rest/currency-codes/ for list of supported currency codes."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/payments/v2/#errors",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

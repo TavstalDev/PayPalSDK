@@ -1,10 +1,6 @@
 {
   "endpoint": "",
   "statusCode": 200,
-  "request": {
-    
-  },
-  "response": {
-    
-  }
+  "request": {},
+  "response": {}
 }

@@ -1,0 +1,52 @@
+{
+  "endpoint": "v2/payments/find-eligible-methods",
+  "statusCode": 400,
+  "request": {
+    "customer": {
+      "country_code": "US",
+      "channel": {
+        "browser_type": "SAFARI",
+        "device_type": "MOBILE",
+        "client_os": "IOS"
+      }
+    },
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+        }
+      }
+    ],
+    "preferences": {
+      "payment_source_constraint": {
+        "constraint_type": "EXCLUDE",
+        "payment_sources": [
+          "PAYPAL"
+        ]
+      }
+    }
+  },
+  "response": {
+    "name": "INVALID_REQUEST",
+    "debug_id": "b1d1f06c7246c",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema",
+    "details": [
+      {
+        "field": "/customer/country_code",
+        "value": "USA",
+        "location": "body",
+        "issue": "INVALID_STRING_LENGTH",
+        "description": "The value of a field is either too short or too long."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/payments/v2/#errors",
+        "rel": "information_link",
+        "method": "GET",
+        "encType": "application/json"
+      }
+    ]
+  }
+}

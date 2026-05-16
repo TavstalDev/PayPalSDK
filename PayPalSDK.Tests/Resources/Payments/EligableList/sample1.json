@@ -1,0 +1,37 @@
+{
+  "endpoint": "v2/payments/find-eligible-methods",
+  "statusCode": 200,
+  "request": {
+    "customer": {
+      "country_code": "US",
+      "channel": {
+        "browser_type": "SAFARI",
+        "device_type": "MOBILE",
+        "client_os": "IOS"
+      }
+    },
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+        }
+      }
+    ],
+    "preferences": {
+      "payment_source_constraint": {
+        "constraint_type": "EXCLUDE",
+        "payment_sources": [
+          "PAYPAL"
+        ]
+      }
+    }
+  },
+  "response": {
+    "eligible_methods": {
+      "venmo": {
+        "can_be_vaulted": true
+      }
+    }
+  }
+}
