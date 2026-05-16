@@ -1,0 +1,25 @@
+{
+  "endpoint": "v2/checkout/orders/order-update-callback",
+  "statusCode": 200,
+  "request": {
+    "id": "8HFTASDATTV",
+    "shipping_address": {
+      "country_code": "US",
+      "admin_area_1": "TX",
+      "admin_area_2": "Dallas",
+      "postal_code": "75001"
+    },
+    "purchase_units": [
+      {
+        "reference_id": "d9f80740-38f0-11e8-b467-0ed5f89f718b",
+        "amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+        }
+      }
+    ]
+  },
+  "response": {
+    "id": "8HFTASDATTV"
+  }
+}
