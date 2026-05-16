@@ -18,4 +18,15 @@ public class PaymentGetRefundDetailsRequest : HttpRequestBase<RefundPaymentBody>
     {
         // No additional content is needed for a GET request
     }
+    
+    /// <summary>
+    /// Adds the PayPal Partner Attribution ID header to the request.
+    /// </summary>
+    /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
+    /// <returns>The current instance of <see cref="PaymentGetRefundDetailsRequest"/> for method chaining.</returns>
+    public PaymentGetRefundDetailsRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    {
+        Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
+        return this;
+    }
 }

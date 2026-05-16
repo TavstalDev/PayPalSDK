@@ -18,4 +18,15 @@ public class PaymentVoidRequest : HttpRequestBase<AuthorizedPaymentBody>
     {
         // No body is required for voiding an authorization, so no content is set.
     }
+    
+    /// <summary>
+    /// Adds the PayPal Partner Attribution ID header to the request.
+    /// </summary>
+    /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
+    /// <returns>The current instance of <see cref="PaymentVoidRequest"/> for method chaining.</returns>
+    public PaymentVoidRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    {
+        Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
+        return this;
+    }
 }

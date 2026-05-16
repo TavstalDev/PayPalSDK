@@ -29,4 +29,15 @@ public class PaymentReauthorizeRequest : HttpRequestBase<CapturedPaymentBody>
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         });
     }
+    
+    /// <summary>
+    /// Adds the PayPal Partner Attribution ID header to the request.
+    /// </summary>
+    /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
+    /// <returns>The current instance of <see cref="PaymentReauthorizeRequest"/> for method chaining.</returns>
+    public PaymentReauthorizeRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    {
+        Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
+        return this;
+    }
 }

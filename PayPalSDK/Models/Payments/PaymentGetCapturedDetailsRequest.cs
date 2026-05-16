@@ -18,4 +18,15 @@ public class PaymentGetCapturedDetailsRequest : HttpRequestBase<CapturedPaymentB
     {
         // No additional content is needed for a GET request
     }
+    
+    /// <summary>
+    /// Adds the PayPal Partner Attribution ID header to the request.
+    /// </summary>
+    /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
+    /// <returns>The current instance of <see cref="PaymentGetCapturedDetailsRequest"/> for method chaining.</returns>
+    public PaymentGetCapturedDetailsRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    {
+        Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
+        return this;
+    }
 }
