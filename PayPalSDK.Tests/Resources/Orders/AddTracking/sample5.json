@@ -1,0 +1,27 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/track",
+  "statusCode": 422,
+  "request": {
+    "name": "NOT_AUTHORIZED",
+    "debug_id": "b1d1f06c7246c",
+    "message": "Authorization failed due to insufficient permissions."
+  },
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "360ee42996992",
+    "details": [
+      {
+        "issue": "CAPTURE_STATUS_NOT_VALID",
+        "description": "Invalid capture status. Tracker information can only be added to captures in `COMPLETED` state."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/api/orders/v2/#error-CAPTURE_STATUS_NOT_VALID",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

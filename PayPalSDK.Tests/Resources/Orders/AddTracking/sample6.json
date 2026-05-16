@@ -1,0 +1,27 @@
+{
+  "endpoint": "v2/checkout/orders/5O190127TN364715T/track",
+  "statusCode": 500,
+  "request": {
+    "capture_id": "8MC585209K746392H",
+    "tracking_number": "443844607820",
+    "notify_payer": false,
+    "items": [
+      {
+        "name": "T-Shirt",
+        "sku": "sku01",
+        "quantity": "1",
+        "upc": {
+          "type": "UPC-A",
+          "code": "012345678901"
+        },
+        "image_url": "https://www.example.com/example.jpg",
+        "url": "https://www.example.com/example"
+      }
+    ]
+  },
+  "response": {
+    "name": "INTERNAL_SERVER_ERROR",
+    "debug_id": "b1d1f06c7246c",
+    "message": "An internal server error has occurred."
+  }
+}
