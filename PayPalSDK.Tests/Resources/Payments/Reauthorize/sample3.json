@@ -1,0 +1,24 @@
+{
+  "endpoint": "v2/payments/authorizations/8AA831015G517922L/reauthorize",
+  "statusCode": 400,
+  "request": {
+    "amount": {
+      "value": "10.99",
+      "currency_code": "USD"
+    }
+  },
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "90bff07028f7f",
+    "details": [
+      {
+        "field": "/amount/value",
+        "value": "123456789012345678901234567890123",
+        "issue": "INVALID_STRING_MAX_LENGTH",
+        "description": "the value of a field is too long.",
+        "location": "body"
+      }
+    ]
+  }
+}

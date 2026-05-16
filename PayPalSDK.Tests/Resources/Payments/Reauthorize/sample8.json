@@ -1,0 +1,15 @@
+{
+  "endpoint": "v2/payments/authorizations/8AA831015G517922L/reauthorize",
+  "statusCode": 500,
+  "request": {
+    "amount": {
+      "value": "10.99",
+      "currency_code": "USD"
+    }
+  },
+  "response": {
+    "name": "INTERNAL_SERVER_ERROR",
+    "debug_id": "b1d1f06c7246c",
+    "message": "An internal server error has occurred."
+  }
+}
