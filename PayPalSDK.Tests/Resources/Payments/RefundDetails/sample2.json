@@ -1,0 +1,10 @@
+{
+  "endpoint": "v2/payments/refunds/1JU08902781691411",
+  "statusCode": 401,
+  "request": {},
+  "response": {
+    "name": "AUTHENTICATION_FAILURE",
+    "debug_id": "b1d1f06c7246c",
+    "message": "Authentication failed due to missing Authorization header, or invalid authentication credentials."
+  }
+}

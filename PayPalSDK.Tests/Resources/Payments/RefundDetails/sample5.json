@@ -1,0 +1,10 @@
+{
+  "endpoint": "v2/payments/refunds/1JU08902781691411",
+  "statusCode": 500,
+  "request": {},
+  "response": {
+    "name": "INTERNAL_SERVER_ERROR",
+    "debug_id": "b1d1f06c7246c",
+    "message": "An internal server error has occurred."
+  }
+}
