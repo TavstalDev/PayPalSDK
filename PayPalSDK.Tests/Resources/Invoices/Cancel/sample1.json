@@ -1,0 +1,12 @@
+{
+  "endpoint": "v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5/cancel",
+  "statusCode": 204,
+  "request": {
+    "send_to_invoicer": true,
+    "send_to_recipient": true,
+    "additional_recipients": [
+      "user@example.com"
+    ]
+  },
+  "response": {}
+}
