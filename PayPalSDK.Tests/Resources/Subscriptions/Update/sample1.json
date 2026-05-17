@@ -1,0 +1,51 @@
+{
+  "endpoint": "v1/billing/subscriptions/I-BW452GLLEP1G",
+  "statusCode": 204,
+  "request": [
+    {
+      "op": "replace",
+      "path": "/plan/billing_cycles/@sequence==1/pricing_scheme/fixed_price",
+      "value": {
+        "currency_code": "USD",
+        "value": "50.00"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/plan/billing_cycles/@sequence==2/pricing_scheme/tiers",
+      "value": [
+        {
+          "starting_quantity": "1",
+          "ending_quantity": "1000",
+          "amount": {
+            "value": "500",
+            "currency_code": "USD"
+          }
+        },
+        {
+          "starting_quantity": "1001",
+          "amount": {
+            "value": "2000",
+            "currency_code": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/plan/payment_preferences/auto_bill_outstanding",
+      "value": true
+    },
+    {
+      "op": "replace",
+      "path": "/plan/payment_preferences/payment_failure_threshold",
+      "value": 1
+    },
+    {
+      "op": "replace",
+      "path": "/plan/taxes/percentage",
+      "value": "10"
+    }
+  ],
+  "response": {}
+}
