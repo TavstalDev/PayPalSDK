@@ -1,0 +1,10 @@
+{
+  "endpoint": "v2/invoicing/generate-next-invoice-number",
+  "statusCode": 200,
+  "request": {
+    "fetch_id": true
+  },
+  "response": {
+    "invoice_id": "INV2-Z56S-5LLA-Q52L-CPZ5"
+  }
+}
