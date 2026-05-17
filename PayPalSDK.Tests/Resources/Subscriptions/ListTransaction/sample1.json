@@ -1,0 +1,64 @@
+{
+  "endpoint": "v1/billing/subscriptions/I-BW452GLLEP1G/transactions?start_time=2018-01-21T07:50:20.940Z&end_time=2018-08-21T07:50:20.940Z",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "transactions": [
+      {
+        "id": "TRFGHNJKOIIOJKL",
+        "status": "COMPLETED",
+        "payer_email": "customer@example.com",
+        "payer_name": {
+          "given_name": "John",
+          "surname": "Doe"
+        },
+        "amount_with_breakdown": {
+          "gross_amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "fee_amount": {
+            "currency_code": "USD",
+            "value": "1.00"
+          },
+          "net_amount": {
+            "currency_code": "USD",
+            "value": "9.00"
+          }
+        },
+        "time": "2018-03-16T07:40:20.940Z"
+      },
+      {
+        "id": "VDFG45345FFGS",
+        "status": "COMPLETED",
+        "payer_email": "customer2@example.com",
+        "payer_name": {
+          "given_name": "Jhonny",
+          "surname": "Cat"
+        },
+        "amount_with_breakdown": {
+          "gross_amount": {
+            "currency_code": "USD",
+            "value": "15.00"
+          },
+          "fee_amount": {
+            "currency_code": "USD",
+            "value": "1.00"
+          },
+          "net_amount": {
+            "currency_code": "USD",
+            "value": "14.00"
+          }
+        },
+        "time": "2018-08-21T07:50:20.940Z"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/transactions?start_time=2018-01-21T07:50:20.940Z&end_time=2018-08-21T07:50:20.940Z",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  }
+}
