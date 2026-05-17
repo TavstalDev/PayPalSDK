@@ -1,0 +1,12 @@
+{
+  "endpoint": "v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5/remind",
+  "statusCode": 204,
+  "request": {
+    "send_to_invoicer": true,
+    "additional_recipients": [
+      "customer-a@example.com",
+      "customer@example.com"
+    ]
+  },
+  "response": {}
+}
