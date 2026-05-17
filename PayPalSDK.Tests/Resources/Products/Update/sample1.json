@@ -1,0 +1,12 @@
+{
+  "endpoint": "v1/catalogs/products/72255d4849af8ed6e0df1173",
+  "statusCode": 204,
+  "request": [
+    {
+      "op": "replace",
+      "path": "/description",
+      "value": "Premium video streaming service"
+    }
+  ],
+  "response": {}
+}
