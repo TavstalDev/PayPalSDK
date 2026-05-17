@@ -6,6 +6,7 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
+using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
@@ -154,5 +155,5 @@ public class SubscriptionBody
     /// Gets or sets the details of the subscription plan.
     /// </summary>
     [JsonPropertyName("plan")]
-    public PlanBody? Plan { get; set; }
+    public SubscriptionPlanBody? Plan { get; set; }
 }

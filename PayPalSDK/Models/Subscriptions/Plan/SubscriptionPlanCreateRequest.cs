@@ -2,20 +2,20 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
-using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
+using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
-namespace Tavstal.PayPalSDK.Models.Subscriptions;
+namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan;
 
 /// <summary>
 /// Represents a request to create a subscription plan in the PayPal SDK.
 /// </summary>
-public class PlanCreateRequest : HttpRequestBase<PlanBody>
+public class SubscriptionPlanCreateRequest : HttpRequestBase<SubscriptionPlanBody>
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="PlanCreateRequest"/> class.
+    /// Initializes a new instance of the <see cref="SubscriptionPlanCreateRequest"/> class.
     /// </summary>
     /// <param name="body">The request body containing the details of the subscription plan to be created.</param>
-    public PlanCreateRequest(PlanCreateRequestBody body)
+    public SubscriptionPlanCreateRequest(SubscriptionPlanCreateRequestBody body)
         :
         base(HttpMethod.Post, $"/v1/billing/plans")
     {

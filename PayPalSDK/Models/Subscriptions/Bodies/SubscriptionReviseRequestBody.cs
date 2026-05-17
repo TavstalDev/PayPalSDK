@@ -14,7 +14,7 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 /// </summary>
 [DataContract]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class ReviseRequestBody
+public class SubscriptionReviseRequestBody
 {
     /// <summary>
     /// Gets or sets the unique identifier of the subscription plan.

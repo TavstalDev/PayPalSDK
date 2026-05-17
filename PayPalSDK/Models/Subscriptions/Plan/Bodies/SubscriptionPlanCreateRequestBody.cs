@@ -6,14 +6,14 @@ using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
 
-namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
+namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
 /// <summary>
 /// Represents the request body for creating a subscription plan in the PayPal SDK.
 /// </summary>
 [DataContract]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class PlanCreateRequestBody
+public class SubscriptionPlanCreateRequestBody
 {
     /// <summary>
     /// Gets or sets the product ID associated with the plan.

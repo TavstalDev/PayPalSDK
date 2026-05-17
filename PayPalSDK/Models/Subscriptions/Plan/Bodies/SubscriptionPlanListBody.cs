@@ -3,20 +3,20 @@ using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 
-namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
+namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
 /// <summary>
 /// Represents the body of a response containing a list of subscription plans.
 /// </summary>
 [DataContract]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class PlanListBody
+public class SubscriptionPlanListBody
 {
     /// <summary>
     /// Gets or sets the list of subscription plans.
     /// </summary>
     [JsonPropertyName("plans")]
-    public List<PlanBody>? Plans { get; set; }
+    public List<SubscriptionPlanBody>? Plans { get; set; }
 
     /// <summary>
     /// Gets or sets the total number of items in the response.

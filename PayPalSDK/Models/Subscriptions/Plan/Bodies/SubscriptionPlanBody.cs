@@ -7,14 +7,14 @@ using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
 
-namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
+namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
 /// <summary>
 /// Represents the body of a subscription plan in the PayPal SDK.
 /// </summary>
 [DataContract]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class PlanBody
+public class SubscriptionPlanBody
 {
     /// <summary>
     /// Gets or sets the unique identifier of the plan.
