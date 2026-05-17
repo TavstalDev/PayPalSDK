@@ -1,0 +1,246 @@
+{
+  "endpoint": "v1/billing/subscriptions?customer_ids=kmHnwzGFRA",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "subscriptions": [
+      {
+        "status": "ACTIVE",
+        "status_change_note": "Items back in stock",
+        "status_update_time": "2025-07-30T22:10:24Z",
+        "id": "I-EXAU4TK3PGT8",
+        "plan_id": "P-0JM77213960387536NCFE5AQ",
+        "start_time": "2025-07-30T17:10:25Z",
+        "quantity": "1",
+        "shipping_amount": {
+          "currency_code": "USD",
+          "value": "0.0"
+        },
+        "subscriber": {
+          "email_address": "foobuyer@example.com",
+          "name": {
+            "given_name": "Sanity",
+            "surname": "Test"
+          },
+          "tenant": "PAYPAL",
+          "shipping_address": {
+            "name": {
+              "given_name": "Mit",
+              "surname": "Token Sanity"
+            },
+            "address": {
+              "address_line_1": "2211 N First Street",
+              "address_line_2": "Building 10",
+              "admin_area_2": "San Jose",
+              "admin_area_1": "CA",
+              "postal_code": "95131",
+              "country_code": "US"
+            }
+          },
+          "payment_source": {
+            "card": {
+              "name": "John Doe",
+              "last_digits": "1026",
+              "brand": "VISA",
+              "attributes": {
+                "vault": {
+                  "id": "93a92571rv649072p",
+                  "customer": {
+                    "id": "CEhQvabkXs"
+                  }
+                }
+              },
+              "expiry": "2026-02"
+            }
+          }
+        },
+        "billing_info": {
+          "outstanding_balance": {
+            "currency_code": "USD",
+            "value": "0.0"
+          },
+          "cycle_executions": [
+            {
+              "tenure_type": "TRIAL",
+              "sequence": 1,
+              "cycles_completed": 1,
+              "cycles_remaining": 0,
+              "current_pricing_scheme_version": 1,
+              "total_cycles": 1
+            },
+            {
+              "tenure_type": "REGULAR",
+              "sequence": 2,
+              "cycles_completed": 0,
+              "cycles_remaining": 100,
+              "current_pricing_scheme_version": 1,
+              "total_cycles": 100
+            }
+          ],
+          "last_payment": {
+            "amount": {
+              "currency_code": "USD",
+              "value": "5.0"
+            },
+            "time": "2025-07-30T17:10:32Z"
+          },
+          "next_billing_time": "2025-07-31T10:00:00Z",
+          "final_payment_time": "2025-11-07T10:00:00Z",
+          "failed_payments_count": 0
+        },
+        "create_time": "2025-07-30T17:10:28Z",
+        "update_time": "2025-07-30T22:10:24Z",
+        "plan_overridden": false,
+        "links": [
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-EXAU4TK3PGT8/cancel",
+            "rel": "cancel",
+            "method": "POST"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-EXAU4TK3PGT8",
+            "rel": "edit",
+            "method": "PATCH"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-EXAU4TK3PGT8",
+            "rel": "self",
+            "method": "GET"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-EXAU4TK3PGT8/suspend",
+            "rel": "suspend",
+            "method": "POST"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-EXAU4TK3PGT8/capture",
+            "rel": "capture",
+            "method": "POST"
+          }
+        ]
+      },
+      {
+        "status": "ACTIVE",
+        "status_change_note": "Items back in stock",
+        "status_update_time": "2025-07-30T22:10:24Z",
+        "id": "I-BW452GLLEP1G",
+        "plan_id": "P-5ML4271244454362WXNWU5NQ",
+        "start_time": "2025-07-30T17:10:25Z",
+        "quantity": "1",
+        "shipping_amount": {
+          "currency_code": "USD",
+          "value": "0.0"
+        },
+        "subscriber": {
+          "email_address": "foobuyer@example.com",
+          "name": {
+            "given_name": "Sanity",
+            "surname": "Test"
+          },
+          "tenant": "PAYPAL",
+          "shipping_address": {
+            "name": {
+              "given_name": "Mit",
+              "surname": "Token Sanity"
+            },
+            "address": {
+              "address_line_1": "2211 N First Street",
+              "address_line_2": "Building 10",
+              "admin_area_2": "San Jose",
+              "admin_area_1": "CA",
+              "postal_code": "95131",
+              "country_code": "US"
+            }
+          },
+          "payment_source": {
+            "card": {
+              "name": "John Doe",
+              "last_digits": "1026",
+              "brand": "VISA",
+              "attributes": {
+                "vault": {
+                  "id": "93a92571rv649072p",
+                  "customer": {
+                    "id": "CEhQvabkXs"
+                  }
+                }
+              },
+              "expiry": "2026-02"
+            }
+          }
+        },
+        "billing_info": {
+          "outstanding_balance": {
+            "currency_code": "USD",
+            "value": "0.0"
+          },
+          "cycle_executions": [
+            {
+              "tenure_type": "TRIAL",
+              "sequence": 1,
+              "cycles_completed": 1,
+              "cycles_remaining": 0,
+              "current_pricing_scheme_version": 1,
+              "total_cycles": 1
+            },
+            {
+              "tenure_type": "REGULAR",
+              "sequence": 2,
+              "cycles_completed": 0,
+              "cycles_remaining": 100,
+              "current_pricing_scheme_version": 1,
+              "total_cycles": 100
+            }
+          ],
+          "last_payment": {
+            "amount": {
+              "currency_code": "USD",
+              "value": "5.0"
+            },
+            "time": "2025-07-30T17:10:32Z"
+          },
+          "next_billing_time": "2025-07-31T10:00:00Z",
+          "final_payment_time": "2025-11-07T10:00:00Z",
+          "failed_payments_count": 0
+        },
+        "create_time": "2025-07-30T17:10:28Z",
+        "update_time": "2025-07-30T22:10:24Z",
+        "plan_overridden": false,
+        "links": [
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/cancel",
+            "rel": "cancel",
+            "method": "POST"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G",
+            "rel": "edit",
+            "method": "PATCH"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G",
+            "rel": "self",
+            "method": "GET"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/suspend",
+            "rel": "suspend",
+            "method": "POST"
+          },
+          {
+            "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/capture",
+            "rel": "capture",
+            "method": "POST"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v1/billing/subscriptions?page_size=10&page=1&customer_ids=kmHnwzGFRA",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  }
+}
