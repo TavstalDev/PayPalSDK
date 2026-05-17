@@ -23,7 +23,7 @@ public class Resource
     
     public HttpResponseMessage Responder(HttpRequestMessage request)
     {
-        var path = request.RequestUri?.AbsolutePath ?? string.Empty;
+        var path = request.RequestUri?.PathAndQuery.TrimStart('/') ?? string.Empty;
         
         if (path.Contains(AuthResource.Endpoint))
         {
