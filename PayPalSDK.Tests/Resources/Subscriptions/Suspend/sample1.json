@@ -1,0 +1,8 @@
+{
+  "endpoint": "v1/billing/subscriptions/I-BW452GLLEP1G/suspend",
+  "statusCode": 204,
+  "request": {
+    "reason": "Item out of stock"
+  },
+  "response": {}
+}
