@@ -28,5 +28,5 @@ public class Phone
     /// This field is required and represents the phone number associated with the phone object.
     /// </remarks>
     [JsonPropertyName("phone_number")]
-    public required PhoneNumber PhoneNumber { get; set; }
+    public PhoneNumber? PhoneNumber { get; set; }
 }

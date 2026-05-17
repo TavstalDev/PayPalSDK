@@ -18,7 +18,7 @@ public class Money
     /// </remarks>
     [JsonPropertyName("currency_code")]
     [StringLength(3)]
-    public required string CurrencyCode { get; set; }
+    public string? CurrencyCode { get; set; }
 
     /// <summary>
     /// Gets or sets the monetary value as a string.
@@ -28,5 +28,5 @@ public class Money
     /// </remarks>
     [JsonPropertyName("value")]
     [StringLength(32)]
-    public required string Value { get; set; }
+    public string? Value { get; set; }
 }
