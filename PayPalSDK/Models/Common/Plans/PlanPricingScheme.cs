@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
-using Tavstal.PayPalSDK.Models.Common.Billing;
 
 namespace Tavstal.PayPalSDK.Models.Common.Plans;
 
@@ -22,5 +21,5 @@ public class PlanPricingScheme
     /// Gets or sets the pricing scheme details for the subscription plan.
     /// </summary>
     [JsonPropertyName("pricing_scheme")]
-    public required PricingScheme PricingScheme { get; set; }
+    public required PlanPricingSchemeData PricingScheme { get; set; }
 }
