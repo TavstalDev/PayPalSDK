@@ -1,0 +1,12 @@
+{
+  "endpoint": "v2/invoicing/invoices/INV2-EHNV-LJ5S-A7DZ-V6NJ/send",
+  "statusCode": 202,
+  "request": {
+    "send_to_invoicer": true
+  },
+  "response": {
+    "href": "https://api-m.paypal.com/invoice/p#INV2-Z56S-5LLA-Q52L-CPZ5",
+    "rel": "payer-view",
+    "method": "GET"
+  }
+}
