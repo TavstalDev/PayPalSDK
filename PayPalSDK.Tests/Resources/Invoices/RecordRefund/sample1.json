@@ -1,0 +1,15 @@
+{
+  "endpoint": "v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5/refunds",
+  "statusCode": 200,
+  "request": {
+    "method": "BANK_TRANSFER",
+    "refund_date": "2018-05-21",
+    "amount": {
+      "currency_code": "USD",
+      "value": "5.00"
+    }
+  },
+  "response": {
+    "refund_id": "EXTR-2LG703375E477444T"
+  }
+}
