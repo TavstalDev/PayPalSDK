@@ -36,7 +36,7 @@ cd PayPalSDK
 
 ### Configuration
 
-To run the test suite in `PayPalSDK.Tests`, rename the `empty_secrets.json` file to `secrets.json`, then populate it with your PayPal API credentials:
+To run the test suite in `PayPalSDK.Example`, rename the `empty_secrets.json` file to `secrets.json`, then populate it with your PayPal API credentials:
 
 ```json
 {
@@ -54,10 +54,10 @@ Make sure the credentials are valid for the PayPal environment you're testing ag
 
 This SDK includes an interactive console application for testing PayPal functionality:
 
-- Located in: `PayPalSDK.Tests/Program.cs`
+- Located in: `PayPalSDK.Example/Program.cs`
 - Run with:  
   ```bash
-  dotnet run --project PayPalSDK.Tests
+  dotnet run --project PayPalSDK.Example
   ```
 
 You can choose from the following examples in the menu:
@@ -76,7 +76,7 @@ Please select an option:
 
 > 🧭 The example runner does not require any HTTP listener or web server — it works purely via console interaction using PayPal's REST APIs.
 
-To explore more, check out the code in the [`PayPalSDK.Tests`](./PayPalSDK.Tests) directory.
+To explore more, check out the code in the [`PayPalSDK.Example`](./PayPalSDK.Example) directory.
 
 
 ## Resources
@@ -97,21 +97,25 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 - [x] Support for Capturing Authorized Payments
 - [x] Refunds (Full/Partial)
 - [x] Get Payment Details
+- [x] Implement tests
 
 #### Subscriptions
 - [x] Create and Manage Product Plans
 - [x] Create and Manage Subscriptions
 - [x] Subscription Cancellation / Suspension
 - [x] Get Subscription Details
+- [x] Implement tests
 
 #### Invoicing
 - [x] Create & Send Invoices
 - [x] Get Invoice Status
 - [x] Cancel / Remind Invoices
+- [ ] Implement tests
 
 #### Webhooks
 - [x] Register Webhooks
 - [x] Handle Common Webhook Events (Order Completed, Subscription Renewed, Payment Refunded)
+- [x] Implement tests
 
 ---
 
@@ -120,22 +124,21 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 ### Payment Method Tokens
 - [ ] Implement Create, List, Retrieve, Delete Payment Method Tokens
 - [ ] Implement Create and Retrieve setup tokens
+- [ ] Implement tests
 
 ### Add Tracking
 - [ ] Implement tracking endpoints 
+- [ ] Implement tests
 
 ### Currency Exchange Rates
 - [ ] Implement currency exchange rate retrieval endpoint
+- [ ] Implement tests
 
 ### Disputes
 - [ ] Implement dispute endpoints 
+- [ ] Implement tests
 
-### Invoices
-- [ ] Implement invoice endpoints
-
-### Testing
-- [ ] Expand Test Coverage to Subscriptions and Payments
-- [ ] Add Mock Server / Sandbox Utilities
+### Misc
 - [ ] Add CI pipeline (e.g., GitHub Actions)
 
 ---
