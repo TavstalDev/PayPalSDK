@@ -1,0 +1,8 @@
+{
+  "endpoint": "v1/billing/subscriptions/I-BW452GLLEP1G/cancel",
+  "statusCode": 204,
+  "request": {
+    "reason": "Not satisfied with the service"
+  },
+  "response": {}
+}
