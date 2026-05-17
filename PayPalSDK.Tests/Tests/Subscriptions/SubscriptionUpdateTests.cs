@@ -1,9 +1,7 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Subscriptions;
-using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
 using Xunit.Abstractions;
 
