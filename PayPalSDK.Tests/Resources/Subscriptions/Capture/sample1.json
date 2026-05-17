@@ -1,0 +1,13 @@
+{
+  "endpoint": "v1/billing/subscriptions/I-BW452GLLEP1G/capture",
+  "statusCode": 202,
+  "request": {
+    "note": "Charging as the balance reached the limit",
+    "capture_type": "OUTSTANDING_BALANCE",
+    "amount": {
+      "currency_code": "USD",
+      "value": "100"
+    }
+  },
+  "response": {}
+}
