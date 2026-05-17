@@ -1,0 +1,345 @@
+{
+  "endpoint": "v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "id": "INV2-Z56S-5LLA-Q52L-CPZ5",
+    "status": "DRAFT",
+    "detail": {
+      "reference": "deal-ref",
+      "invoice_date": "2025-01-15",
+      "currency_code": "USD",
+      "note": "Thank you for your business.",
+      "term": "No refunds after 30 days.",
+      "memo": "This is a long contract",
+      "payment_term": {
+        "term_type": "NET_10",
+        "due_date": "2025-01-25"
+      },
+      "order_details": "Order #12345 placed on January 10, 2025.",
+      "project_details": "Website redesign project for client XYZ Corp.",
+      "service_details": "Consulting services provided from Jan-Mar 2025.",
+      "cancellation_policy": "Services may be cancelled with 14-day notice.",
+      "payment_terms": "Payment due within 10 days of invoice date.",
+      "return_policy": "All sales are final. No returns accepted after 30 days.",
+      "service_agreement": "Services provided as per agreement dated Jan 1, 2025.",
+      "tip_presets": [
+        {
+          "percent": "15"
+        },
+        {
+          "percent": "20"
+        },
+        {
+          "percent": "25"
+        }
+      ],
+      "metadata": {
+        "create_time": "2025-01-15T08:00:20Z",
+        "recipient_view_url": "https://www.paypal.com/invoice/p/#Z56S5LLAQ52LCPZ5",
+        "invoicer_view_url": "https://www.paypal.com/invoice/details/INV2-Z56S-5LLA-Q52L-CPZ5"
+      }
+    },
+    "invoicer": {
+      "name": {
+        "given_name": "David",
+        "surname": "Larusso"
+      },
+      "address": {
+        "address_line_1": "1234 First Street",
+        "address_line_2": "337673 Hillside Court",
+        "admin_area_2": "Anytown",
+        "admin_area_1": "CA",
+        "postal_code": "98765",
+        "country_code": "US"
+      },
+      "email_address": "merchant@example.com",
+      "phones": [
+        {
+          "country_code": "001",
+          "national_number": "4085551234",
+          "phone_type": "MOBILE"
+        }
+      ],
+      "website": "https://example.com",
+      "tax_id": "ABcNkWSfb5ICTt73nD3QON1fnnpgNKBy-Jb5SeuGj185MNNw6g",
+      "logo_url": "https://example.com/logo.PNG",
+      "additional_notes": "2-4"
+    },
+    "primary_recipients": [
+      {
+        "billing_info": {
+          "name": {
+            "given_name": "Stephanie",
+            "surname": "Meyers"
+          },
+          "address": {
+            "address_line_1": "1234 Main Street",
+            "admin_area_2": "Anytown",
+            "admin_area_1": "CA",
+            "postal_code": "98765",
+            "country_code": "US"
+          },
+          "email_address": "bill-me@example.com",
+          "phones": [
+            {
+              "country_code": "001",
+              "national_number": "4884551234",
+              "phone_type": "HOME"
+            }
+          ],
+          "additional_info_value": "add-info"
+        },
+        "shipping_info": {
+          "name": {
+            "given_name": "Stephanie",
+            "surname": "Meyers"
+          },
+          "address": {
+            "address_line_1": "1234 Main Street",
+            "admin_area_2": "Anytown",
+            "admin_area_1": "CA",
+            "postal_code": "98765",
+            "country_code": "US"
+          }
+        }
+      }
+    ],
+    "items": [
+      {
+        "name": "Yoga Mat",
+        "description": "Elastic mat to practice yoga.",
+        "quantity": "1",
+        "unit_amount": {
+          "currency_code": "USD",
+          "value": "50.00"
+        },
+        "tax": {
+          "name": "Sales Tax",
+          "percent": "7.25",
+          "tax_note": "Reduced tax rate",
+          "amount": {
+            "currency_code": "USD",
+            "value": "3.27"
+          }
+        },
+        "discount": {
+          "percent": "5",
+          "amount": {
+            "currency_code": "USD",
+            "value": "2.5"
+          }
+        },
+        "unit_of_measure": "QUANTITY"
+      },
+      {
+        "name": "Yoga T Shirt",
+        "quantity": "1",
+        "unit_amount": {
+          "currency_code": "USD",
+          "value": "10.00"
+        },
+        "tax": {
+          "name": "Sales Tax",
+          "percent": "7.25",
+          "amount": {
+            "currency_code": "USD",
+            "value": "0.34"
+          }
+        },
+        "discount": {
+          "amount": {
+            "currency_code": "USD",
+            "value": "5.00"
+          }
+        },
+        "unit_of_measure": "QUANTITY"
+      }
+    ],
+    "configuration": {
+      "partial_payment": {
+        "allow_partial_payment": true,
+        "minimum_amount_due": {
+          "currency_code": "USD",
+          "value": "20.00"
+        }
+      },
+      "allow_tip": true,
+      "allow_only_pay_by_bank": true,
+      "tax_calculated_after_discount": true,
+      "tax_inclusive": false,
+      "show_additional_item_fields": false,
+      "template_id": "TEMP-19V05281TU309413B",
+      "has_conditional_rule": true,
+      "theme": {
+        "primary_color": "#4A90D9"
+      }
+    },
+    "amount": {
+      "currency_code": "USD",
+      "value": "74.21",
+      "breakdown": {
+        "item_total": {
+          "currency_code": "USD",
+          "value": "60.00"
+        },
+        "custom": {
+          "label": "Packing Charges",
+          "amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          }
+        },
+        "shipping": {
+          "amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "tax": {
+            "name": "Sales Tax",
+            "percent": "7.25",
+            "amount": {
+              "currency_code": "USD",
+              "value": "0.73"
+            }
+          }
+        },
+        "discount": {
+          "item_discount": {
+            "currency_code": "USD",
+            "value": "-7.50"
+          },
+          "invoice_discount": {
+            "percent": "5",
+            "amount": {
+              "currency_code": "USD",
+              "value": "-2.63"
+            }
+          }
+        },
+        "tax_total": {
+          "currency_code": "USD",
+          "value": "4.34"
+        }
+      }
+    },
+    "due_amount": {
+      "currency_code": "USD",
+      "value": "74.21"
+    },
+    "settings": {
+      "invoice_item_settings": [
+        {
+          "field_name": "ITEM_DESCRIPTION",
+          "display_preference": {
+            "hidden": false
+          }
+        },
+        {
+          "field_name": "ITEM_DATE",
+          "display_preference": {
+            "hidden": true
+          }
+        },
+        {
+          "field_name": "ITEM_TAX",
+          "display_preference": {
+            "hidden": false
+          }
+        },
+        {
+          "field_name": "ITEM_DISCOUNT",
+          "display_preference": {
+            "hidden": true
+          }
+        }
+      ],
+      "invoice_additional_settings": [
+        {
+          "field_name": "ATTACHMENT",
+          "display_preference": {
+            "hidden": false
+          }
+        },
+        {
+          "field_name": "MEMO",
+          "display_preference": {
+            "hidden": true
+          }
+        },
+        {
+          "field_name": "REFERENCE",
+          "display_preference": {
+            "hidden": false
+          }
+        }
+      ],
+      "invoice_policy_and_agreement_settings": [
+        {
+          "field_name": "PAYMENT_TERMS",
+          "display_preference": {
+            "hidden": false
+          }
+        },
+        {
+          "field_name": "TERMS_AND_CONDITIONS",
+          "display_preference": {
+            "hidden": false
+          }
+        }
+      ],
+      "invoice_details_settings": [
+        {
+          "field_name": "ORDER_DETAILS",
+          "display_preference": {
+            "hidden": true
+          }
+        },
+        {
+          "field_name": "PROJECT_DETAILS",
+          "display_preference": {
+            "hidden": false
+          }
+        },
+        {
+          "field_name": "SERVICE_DETAILS",
+          "display_preference": {
+            "hidden": false
+          }
+        }
+      ]
+    },
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5/send",
+        "rel": "send",
+        "method": "POST"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5",
+        "rel": "replace",
+        "method": "PUT"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5",
+        "rel": "delete",
+        "method": "DELETE"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5/payments",
+        "rel": "record-payment",
+        "method": "POST"
+      },
+      {
+        "href": "https://api-m.paypal.com/v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5/generate-qr-code",
+        "rel": "qr-code",
+        "method": "POST"
+      }
+    ]
+  }
+}
