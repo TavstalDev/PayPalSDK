@@ -23,7 +23,7 @@ public class PaymentDetailsTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadFromJsonAsync<AuthorizedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Common.Plans;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions;
@@ -7,7 +8,7 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions;
 /// <summary>
 /// Represents a request to list subscription transactions.
 /// </summary>
-public class SubscriptionListTransactionRequest : HttpRequestBase<SubscriptionListTransactionRequestBody>
+public class SubscriptionListTransactionRequest : HttpRequestBase<SubscriptionListTransactionResponse>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SubscriptionListTransactionRequest"/> class.

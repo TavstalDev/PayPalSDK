@@ -10,7 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Orders;
 /// <summary>
 /// Represents a request to update an order within the PayPal SDK.
 /// </summary>
-public class OrderUpdateRequest : HttpRequestBase<OrderBody>
+public class OrderUpdateRequest : HttpRequestBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="OrderUpdateRequest"/> class.

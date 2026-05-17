@@ -10,7 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Orders;
 /// <summary>
 /// Represents an HTTP PATCH request to update an existing shipment tracker for a PayPal order.
 /// </summary>
-public class OrderUpdateTrackingRequest : HttpRequestBase<OrderBody>
+public class OrderUpdateTrackingRequest : HttpRequestBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="OrderUpdateTrackingRequest"/> class.

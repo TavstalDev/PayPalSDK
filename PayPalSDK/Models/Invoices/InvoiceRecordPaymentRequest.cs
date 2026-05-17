@@ -9,7 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Invoices;
 /// <summary>
 /// Represents an HTTP request to record a payment for an invoice.
 /// </summary>
-public class InvoiceRecordPaymentRequest: HttpRequestBase<InvoiceListBody>
+public class InvoiceRecordPaymentRequest: HttpRequestBase<InvoiceRecordPaymentBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InvoiceRecordPaymentRequest"/> class.

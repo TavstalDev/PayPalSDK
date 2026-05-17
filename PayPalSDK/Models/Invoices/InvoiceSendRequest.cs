@@ -2,6 +2,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
@@ -9,7 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Invoices;
 /// <summary>
 /// Represents an HTTP request to send a PayPal invoice using the specified invoice ID and request body.
 /// </summary>
-public class InvoiceSendRequest : HttpRequestBase
+public class InvoiceSendRequest : HttpRequestBase<Link>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InvoiceSendRequest"/> class.

@@ -1,4 +1,5 @@
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Common.Plans;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions;
@@ -6,7 +7,7 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions;
 /// <summary>
 /// Represents an HTTP request to retrieve a list of subscriptions from the PayPal Billing API.
 /// </summary>
-public class SubscriptionListRequest : HttpRequestBase<SubscriptionBody>
+public class SubscriptionListRequest : HttpRequestBase<SubscriptionListResponse>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SubscriptionListRequest"/> class.

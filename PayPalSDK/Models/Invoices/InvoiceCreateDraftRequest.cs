@@ -9,7 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Invoices;
 /// <summary>
 /// Represents a request to create a draft invoice.
 /// </summary>
-public class InvoiceCreateDraftRequest : HttpRequestBase
+public class InvoiceCreateDraftRequest : HttpRequestBase<InvoiceBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InvoiceCreateDraftRequest"/> class.

@@ -2,6 +2,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Payments;
@@ -9,7 +10,7 @@ namespace Tavstal.PayPalSDK.Models.Payments;
 /// <summary>
 /// Represents an HTTP request to retrieve the eligible payment methods for a given payment context.
 /// </summary>
-public class PaymentFindEligibleMethodsRequest : HttpRequestBase<AuthorizedPaymentBody>
+public class PaymentFindEligibleMethodsRequest : HttpRequestBase<EligibleMethodResponse>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="PaymentFindEligibleMethodsRequest"/> class.

@@ -9,7 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Invoices;
 /// <summary>
 /// Represents an HTTP request to search invoices in the PayPal Invoicing API.
 /// </summary>
-public class InvoiceSearchRequest: HttpRequestBase<InvoiceListBody>
+public class InvoiceSearchRequest: HttpRequestBase<InvoiceSearchBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InvoiceSearchRequest"/> class.

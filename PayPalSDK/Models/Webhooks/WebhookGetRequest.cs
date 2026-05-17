@@ -1,12 +1,13 @@
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common.Webhooks;
+using Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Webhooks;
 
 /// <summary>
 /// Represents an HTTP request for retrieving a specific webhook in the PayPal SDK.
 /// </summary>
-public class WebhookGetRequest : HttpRequestBase<Webhook>
+public class WebhookGetRequest : HttpRequestBase<WebhookBody>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="WebhookGetRequest"/> class.

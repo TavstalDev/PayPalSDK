@@ -30,7 +30,7 @@ public class ReauthorizePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadFromJsonAsync<AuthorizedPaymentBody>();
+        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -55,7 +55,7 @@ public class ReauthorizePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var objectResponse = await response.Content.ReadFromJsonAsync<AuthorizedPaymentBody>();
+        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);

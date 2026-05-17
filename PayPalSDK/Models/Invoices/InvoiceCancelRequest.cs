@@ -9,7 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Invoices;
 /// <summary>
 /// Represents an HTTP request to cancel an invoice in the PayPal Invoicing API.
 /// </summary>
-public class InvoiceCancelRequest : HttpRequestBase<InvoiceListBody>
+public class InvoiceCancelRequest : HttpRequestBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InvoiceCancelRequest"/> class.
