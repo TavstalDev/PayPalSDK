@@ -14,7 +14,7 @@ public class CapturedPaymentDetailsTests : TestBase
         "Resources/Payments/CaptureDetails/sample3.json", "Resources/Payments/CaptureDetails/sample4.json", "Resources/Payments/CaptureDetails/sample5.json"]) { }
     
 
-    [Fact(DisplayName = "Sample 1 - 200 - Shows details for a captured payment, by ID.\n")]
+    [Fact(DisplayName = "Sample 1 - 200 - Shows details for a captured payment, by ID.")]
     public async Task CapturedPaymentDetails_Sample1()
     {
         var resource = _resources[0];
@@ -26,8 +26,8 @@ public class CapturedPaymentDetailsTests : TestBase
         var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Order ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Order Status: " + objectResponse.Status);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
+        _testOutputHelper.WriteLine("Status: " + objectResponse.Status);
         objectResponse.Links.Should().NotBeNull();
         _testOutputHelper.WriteLine("Links: ");
         foreach (var link in objectResponse.Links!)
@@ -35,7 +35,7 @@ public class CapturedPaymentDetailsTests : TestBase
     }
     
     [Fact(DisplayName = "Sample 2 - 401 - Example for unauthorized request.")]
-    public async Task CapturedPaymentDetails_Sample21()
+    public async Task CapturedPaymentDetails_Sample2()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

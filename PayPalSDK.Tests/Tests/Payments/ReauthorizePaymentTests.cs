@@ -33,8 +33,8 @@ public class ReauthorizePaymentTests : TestBase
         var objectResponse = await response.Content.ReadFromJsonAsync<AuthorizedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Order ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Order Status: " + objectResponse.Status);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
+        _testOutputHelper.WriteLine("Status: " + objectResponse.Status);
         objectResponse.Links.Should().NotBeNull();
         _testOutputHelper.WriteLine("Links: ");
         foreach (var link in objectResponse.Links!)
@@ -58,8 +58,8 @@ public class ReauthorizePaymentTests : TestBase
         var objectResponse = await response.Content.ReadFromJsonAsync<AuthorizedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Order ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Order Status: " + objectResponse.Status);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
+        _testOutputHelper.WriteLine("Status: " + objectResponse.Status);
         objectResponse.Links.Should().NotBeNull();
         _testOutputHelper.WriteLine("Links: ");
         foreach (var link in objectResponse.Links!)
