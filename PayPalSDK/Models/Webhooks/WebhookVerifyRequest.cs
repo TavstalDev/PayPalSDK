@@ -14,7 +14,7 @@ public class WebhookVerifyRequest : HttpRequestBase<WebhookVerifyResponseBody>
     /// <param name="body">
     /// The request body containing the data required to verify the webhook signature.
     /// </param>
-    public WebhookVerifyRequest(WebhokVerifyRequestBody body)
+    public WebhookVerifyRequest(WebhookVerifyRequestBody body)
         : base(HttpMethod.Post, $"/v1/notifications/verify-webhook-signature")
     {
         // Sets the content of the HTTP request using the provided body and JSON serialization options.

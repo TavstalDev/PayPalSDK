@@ -11,7 +11,7 @@ namespace Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 /// </summary>
 [DataContract]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class WebhokVerifyRequestBody
+public class WebhookVerifyRequestBody
 {
     /// <summary>
     /// Gets or sets the algorithm used for authentication.
