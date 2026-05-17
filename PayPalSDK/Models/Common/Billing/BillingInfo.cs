@@ -28,7 +28,7 @@ public class BillingInfo
     /// This value represents the total number of payment failures for the billing plan.
     /// </remarks>
     [JsonPropertyName("failed_payment_count")]
-    public required int FailedPaymentCount { get; set; }
+    public int FailedPaymentCount { get; set; }
 
     /// <summary>
     /// Gets or sets the outstanding balance for the billing plan.
@@ -37,7 +37,7 @@ public class BillingInfo
     /// The balance is represented as a <see cref="Money"/> object.
     /// </remarks>
     [JsonPropertyName("outstanding_balance")]
-    public required Money OutstandingBalance { get; set; }
+    public Money? OutstandingBalance { get; set; }
 
     /// <summary>
     /// Gets or sets the details of the last payment made.

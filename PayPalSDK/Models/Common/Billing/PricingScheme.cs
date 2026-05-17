@@ -22,7 +22,7 @@ public class PricingScheme
     /// </remarks>
     [JsonPropertyName("pricing_model")]
     [StringLength(24)]
-    public required string PricingModel { get; set; }
+    public string? PricingModel { get; set; }
 
     /// <summary>
     /// Gets or sets the price associated with the pricing scheme.

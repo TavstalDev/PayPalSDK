@@ -31,7 +31,7 @@ public class SubscriberCard
     /// </remarks>
     [JsonPropertyName("number")]
     [StringLength(19)]
-    public required string Number { get; set; }
+    public string? Number { get; set; }
 
     /// <summary>
     /// Gets or sets the security code of the card.
@@ -48,7 +48,7 @@ public class SubscriberCard
     [JsonPropertyName("expiry")]
     [StringLength(7)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])$")]
-    public required string Expiry { get; set; }
+    public string? Expiry { get; set; }
 
     /// <summary>
     /// Gets or sets the billing address associated with the card.
