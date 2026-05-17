@@ -1,0 +1,15 @@
+{
+  "endpoint": "v2/invoicing/invoices/INV2-Z56S-5LLA-Q52L-CPZ5/payments",
+  "statusCode": 200,
+  "request": {
+    "method": "BANK_TRANSFER",
+    "payment_date": "2018-05-01",
+    "amount": {
+      "currency_code": "USD",
+      "value": "10.00"
+    }
+  },
+  "response": {
+    "payment_id": "EXTR-86F38350LX4353815"
+  }
+}
