@@ -1,0 +1,17 @@
+{
+  "endpoint": "v1/billing/plans/P-7GL4271244454362WXNWU5NQ",
+  "statusCode": 204,
+  "request": [
+    {
+      "op": "replace",
+      "path": "/payment_preferences/payment_failure_threshold",
+      "value": 7
+    },
+    {
+      "op": "replace",
+      "path": "/name",
+      "value": "Updated Video Streaming Service Plan"
+    }
+  ],
+  "response": {}
+}
