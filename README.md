@@ -110,7 +110,7 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 - [x] Create & Send Invoices
 - [x] Get Invoice Status
 - [x] Cancel / Remind Invoices
-- [ ] Implement tests
+- [x] Implement tests
 
 #### Webhooks
 - [x] Register Webhooks
