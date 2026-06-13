@@ -1,5 +1,4 @@
 using Tavstal.PayPalSDK.Http;
-using Tavstal.PayPalSDK.Models.Common.Webhooks;
 using Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Webhooks;

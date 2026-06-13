@@ -1,6 +1,5 @@
 using System.Net;
 using System.Net.Http.Json;
-using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Invoices;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;

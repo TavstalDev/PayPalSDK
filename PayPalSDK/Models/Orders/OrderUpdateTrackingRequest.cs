@@ -3,7 +3,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common;
-using Tavstal.PayPalSDK.Models.Orders.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Orders;
 
@@ -18,7 +17,7 @@ public class OrderUpdateTrackingRequest : HttpRequestBase
     /// <param name="orderId">The unique identifier of the PayPal order containing the tracker to be updated.</param>
     /// <param name="trackerId">The unique identifier of the specific tracker/shipment to be updated within the order.</param>
     /// <param name="operations">An array of <see cref="UpdateOperation"/> objects that define the changes to apply to the tracker using JSON Patch operations.</param>
-    public OrderUpdateTrackingRequest(string orderId, string trackerId, UpdateOperation[] operations) 
+    public OrderUpdateTrackingRequest(string orderId, string trackerId, List<UpdateOperation> operations) 
         : base(HttpMethod.Patch, $"/v2/checkout/orders/{orderId}/trackers/{trackerId}")
     {
         Content = JsonContent.Create(operations, options: new JsonSerializerOptions

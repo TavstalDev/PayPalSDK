@@ -3,7 +3,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common;
-using Tavstal.PayPalSDK.Models.Orders.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Orders;
 
@@ -17,7 +16,7 @@ public class OrderUpdateRequest : HttpRequestBase
     /// </summary>
     /// <param name="id">The unique identifier of the order to be updated.</param>
     /// <param name="operations">An array of update operations to be applied to the order.</param>
-    public OrderUpdateRequest(string id, UpdateOperation[] operations) 
+    public OrderUpdateRequest(string id, List<UpdateOperation> operations) 
         : base(HttpMethod.Patch, $"/v2/checkout/orders/{id}")
     {
         Content = JsonContent.Create(operations, options: new JsonSerializerOptions

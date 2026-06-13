@@ -21,7 +21,7 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
@@ -39,7 +39,7 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
@@ -57,7 +57,7 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
@@ -93,7 +93,7 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
