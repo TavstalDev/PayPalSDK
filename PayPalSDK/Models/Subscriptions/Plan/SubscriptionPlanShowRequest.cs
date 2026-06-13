@@ -13,7 +13,6 @@ public class SubscriptionPlanShowRequest : HttpRequestBase<SubscriptionPlanBody>
     /// </summary>
     /// <param name="planId">The unique identifier of the subscription plan to retrieve.</param>
     public SubscriptionPlanShowRequest(string planId)
-        : base(HttpMethod.Get, $"/v1/billing/plans/{planId}")
-    {
-    }
+        : base(HttpMethod.Get, $"/v1/billing/plans/{planId}") 
+    { }
 }

@@ -4,8 +4,22 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        
         <RootNamespace>Tavstal.PayPalSDK</RootNamespace>
         <AssemblyName>Tavstal.PayPalSDK</AssemblyName>
+        <AssemblyTitle>PayPalSDK</AssemblyTitle>
+        <ApplicationId>PayPalSDK</ApplicationId>
+        <Description>A modern PayPal SDK for .NET, designed to simplify payment integration.</Description>
+        <Company>Tavstal</Company>
+        <Product>PayPalSDK</Product>
+        <Guid>84CE83F4-C74C-4F49-B476-E9F366E4E7EF</Guid>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <Version>1.0.0</Version>
+
+        <IsAotCompatible>true</IsAotCompatible>
+        <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+        <EnableAotAnalyzer>true</EnableAotAnalyzer>
     </PropertyGroup>
 
     <ItemGroup>

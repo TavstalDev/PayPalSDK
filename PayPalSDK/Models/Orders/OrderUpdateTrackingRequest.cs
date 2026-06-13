@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Orders;
 
@@ -20,10 +19,7 @@ public class OrderUpdateTrackingRequest : HttpRequestBase
     public OrderUpdateTrackingRequest(string orderId, string trackerId, List<UpdateOperation> operations) 
         : base(HttpMethod.Patch, $"/v2/checkout/orders/{orderId}/trackers/{trackerId}")
     {
-        Content = JsonContent.Create(operations, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(operations, PayPalSDKJsonContext.Default.ListUpdateOperation);
     }
 
     /// <summary>

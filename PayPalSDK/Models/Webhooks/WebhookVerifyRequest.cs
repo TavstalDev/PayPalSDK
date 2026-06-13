@@ -1,5 +1,7 @@
+using System.Net.Http.Json;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Webhooks.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Webhooks;
 
@@ -18,9 +20,6 @@ public class WebhookVerifyRequest : HttpRequestBase<WebhookVerifyResponseBody>
         : base(HttpMethod.Post, $"/v1/notifications/verify-webhook-signature")
     {
         // Sets the content of the HTTP request using the provided body and JSON serialization options.
-        Content = System.Net.Http.Json.JsonContent.Create(body, options: new System.Text.Json.JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.WebhookVerifyRequestBody);
     }
 }

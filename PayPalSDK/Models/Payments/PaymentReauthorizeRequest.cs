@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Payments;
 
@@ -24,10 +23,7 @@ public class PaymentReauthorizeRequest : HttpRequestBase<CapturedPaymentBody>
             return;
 
         // Sets the content of the HTTP request using the provided body and JSON serialization options.
-        Content = JsonContent.Create(body, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.PaymentReauthorizeRequestBody);
     }
     
     /// <summary>

@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan;
 
@@ -20,9 +19,6 @@ public class SubscriptionPlanCreateRequest : HttpRequestBase<SubscriptionPlanBod
         base(HttpMethod.Post, $"/v1/billing/plans")
     {
         // Sets the content of the HTTP request using the provided body and JSON serialization options.
-        Content = JsonContent.Create(body, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.SubscriptionPlanCreateRequestBody);
     }
 }

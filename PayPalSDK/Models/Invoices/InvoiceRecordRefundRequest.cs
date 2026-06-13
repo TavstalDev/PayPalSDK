@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 
@@ -18,9 +17,6 @@ public class InvoiceRecordRefundRequest : HttpRequestBase<InvoiceRecordRefundBod
     /// <param name="body">The refund details to submit to the API.</param>
     public InvoiceRecordRefundRequest(string invoiceId, InvoiceRecordRefundRequestBody body) : base(HttpMethod.Post, $"v2/invoicing/invoices/{invoiceId}/refunds")
     {
-        Content = JsonContent.Create(body, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.InvoiceRecordRefundRequestBody);
     }
 }

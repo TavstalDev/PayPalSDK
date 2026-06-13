@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 
@@ -20,9 +19,6 @@ public class InvoiceGenerateNumberRequest : HttpRequestBase<InvoiceGenerateNumbe
         Content = JsonContent.Create(new InvoiceGenerateNumberRequestBody
         {
             FetchId = fetchId
-        }, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        }, PayPalSDKJsonContext.Default.InvoiceGenerateNumberRequestBody);
     }
 }

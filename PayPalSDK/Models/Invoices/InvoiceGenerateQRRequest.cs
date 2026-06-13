@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 
@@ -26,9 +25,6 @@ public class InvoiceGenerateQRRequest : HttpRequestBase
             Action = action,
             Width = width,
             Height = height
-        }, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        }, PayPalSDKJsonContext.Default.InvoiceGenerateQRRequestBody);
     }
 }

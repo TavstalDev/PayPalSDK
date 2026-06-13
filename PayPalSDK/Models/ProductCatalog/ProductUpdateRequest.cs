@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.ProductCatalog;
 
@@ -21,9 +20,6 @@ public class ProductUpdateRequest : HttpRequestBase
         base (HttpMethod.Patch, $"/v1/catalogs/products/{productId}")
     {
         // Sets the content of the HTTP request using the provided body and JSON serialization options.
-        Content = JsonContent.Create(body, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.ListUpdateOperation);
     }
 }
