@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Orders;
 using Tavstal.PayPalSDK.Models.Orders.Bodies;
@@ -28,7 +27,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadFromJsonAsync<OrderBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -49,7 +48,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadFromJsonAsync<OrderBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -70,7 +69,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadFromJsonAsync<OrderBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -91,7 +90,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadFromJsonAsync<OrderBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -112,7 +111,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadFromJsonAsync<OrderBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);

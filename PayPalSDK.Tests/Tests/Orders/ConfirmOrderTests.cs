@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Orders;
@@ -29,7 +28,7 @@ public class ConfirmOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadFromJsonAsync<OrderBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -51,7 +50,7 @@ public class ConfirmOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var orderResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -69,7 +68,7 @@ public class ConfirmOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var orderResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -108,7 +107,7 @@ public class ConfirmOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var orderResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -126,7 +125,7 @@ public class ConfirmOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var orderResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);

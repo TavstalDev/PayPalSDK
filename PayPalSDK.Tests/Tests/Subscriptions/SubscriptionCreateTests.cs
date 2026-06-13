@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Subscriptions;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
@@ -26,7 +25,7 @@ public class SubscriptionCreateTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var objectResponse = await response.Content.ReadFromJsonAsync<SubscriptionBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<SubscriptionBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);

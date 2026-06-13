@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Payments;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
@@ -29,7 +28,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -50,7 +49,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -71,7 +70,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -92,7 +91,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -113,7 +112,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -134,7 +133,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -155,7 +154,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Conflict);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -176,7 +175,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -197,7 +196,7 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var objectResponse = await response.Content.ReadFromJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);

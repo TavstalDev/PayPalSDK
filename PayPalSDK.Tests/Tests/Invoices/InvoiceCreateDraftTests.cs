@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Invoices;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
@@ -27,7 +26,7 @@ public class InvoiceCreateDraftTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var orderResponse = await response.Content.ReadFromJsonAsync<InvoiceBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<InvoiceBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + orderResponse!.Id);

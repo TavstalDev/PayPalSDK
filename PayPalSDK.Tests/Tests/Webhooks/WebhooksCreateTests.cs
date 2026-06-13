@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Webhooks;
 using Tavstal.PayPalSDK.Models.Webhooks.Bodies;
@@ -26,7 +25,7 @@ public class WebhooksCreateTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var objectResponse = await response.Content.ReadFromJsonAsync<WebhookBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<WebhookBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
