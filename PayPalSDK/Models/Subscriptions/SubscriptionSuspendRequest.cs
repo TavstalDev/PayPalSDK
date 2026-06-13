@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Subscriptions.Json;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions;
 
@@ -25,9 +26,9 @@ public class SubscriptionSuspendRequest : HttpRequestBase
         base(HttpMethod.Post, $"/v1/billing/subscriptions/{id}/suspend")
     {
         // Sets the content of the HTTP request using the provided reason and JSON serialization options.
-        Content = JsonContent.Create(new
+        Content = JsonContent.Create(new SubscriptionReason
             {
-                reason
+                Reason = reason
             },
             options: new JsonSerializerOptions
             {
