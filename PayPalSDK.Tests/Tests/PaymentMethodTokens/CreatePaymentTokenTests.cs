@@ -29,10 +29,10 @@ public class CreatePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var orderResponse = await request.GetResponseBodyAsync(response);
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await request.GetResponseBodyAsync(response);
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + orderResponse!.Id);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
     }
     
     [Fact(DisplayName = "Sample 2 - 200 - Create Payment Token - Card with Full Request - Idempotent")]
@@ -49,10 +49,10 @@ public class CreatePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await request.GetResponseBodyAsync(response);
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await request.GetResponseBodyAsync(response);
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + orderResponse!.Id);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
     }
     
     [Fact(DisplayName = "Sample 3 - 400 - Create Payment Token - 400 Invalid Request Error - Empty Request Body")]
@@ -66,11 +66,11 @@ public class CreatePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 4 - 403 - Create Payment Token - 403 Forbidden Error - Merchant Not Onboarded to Vault")]
@@ -87,11 +87,11 @@ public class CreatePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 5 - 404 - Create Payment Token - 404 Not Found Error - Setup Token Does Not Exist")]
@@ -107,11 +107,11 @@ public class CreatePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 6 - 422 - Create Payment Token - 422 Unprocessable Entity Error - Inactive Billing Agreement")]
@@ -127,11 +127,11 @@ public class CreatePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableContent);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 7 - 500 - Create Payment Token - 500 Internal Server Error")]
@@ -147,10 +147,10 @@ public class CreatePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
 }

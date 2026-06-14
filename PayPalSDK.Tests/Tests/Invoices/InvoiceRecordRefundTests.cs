@@ -26,9 +26,9 @@ public class InvoiceRecordRefundTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<InvoiceRecordRefundBody>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<InvoiceRecordRefundBody>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + orderResponse!.RefundId);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.RefundId);
     }
 }

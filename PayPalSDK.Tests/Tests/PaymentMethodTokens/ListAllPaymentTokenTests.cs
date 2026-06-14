@@ -22,10 +22,10 @@ public class ListAllPaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await request.GetResponseBodyAsync(response);
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await request.GetResponseBodyAsync(response);
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Total Items: " + orderResponse!.PaymentTokens!.Count);
+        _testOutputHelper.WriteLine("Total Items: " + objectResponse!.PaymentTokens!.Count);
     }
     
     [Fact(DisplayName = "Sample 2 - 200 - List Payment Tokens - Retrieve All Tokens for Customer Id - No Tokens Found")]
@@ -38,10 +38,10 @@ public class ListAllPaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await request.GetResponseBodyAsync(response);
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await request.GetResponseBodyAsync(response);
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Total Items: " + orderResponse!.PaymentTokens!.Count);
+        _testOutputHelper.WriteLine("Total Items: " + objectResponse!.PaymentTokens!.Count);
     }
     
     [Fact(DisplayName = "Sample 3 - 400 - Get Customer Setup Tokens - 400 Bad Request Error - Bad Customer Id")]
@@ -54,11 +54,11 @@ public class ListAllPaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 4 - 403 - Get Customer Payment Tokens - 403 Forbidden Error - No Permission to Query Customer Id")]
@@ -71,11 +71,11 @@ public class ListAllPaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 5 - 500 - Get Customer Payment Tokens - 500 Internal Server Error")]
@@ -88,10 +88,10 @@ public class ListAllPaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
 }

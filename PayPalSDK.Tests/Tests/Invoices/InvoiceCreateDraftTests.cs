@@ -26,10 +26,10 @@ public class InvoiceCreateDraftTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var orderResponse = await response.Content.ReadJsonAsync<InvoiceBody>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<InvoiceBody>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + orderResponse!.Id);
-        _testOutputHelper.WriteLine("Status: " + orderResponse.Status);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
+        _testOutputHelper.WriteLine("Status: " + objectResponse.Status);
     }
 }
