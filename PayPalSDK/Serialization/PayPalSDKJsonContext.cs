@@ -19,6 +19,7 @@ using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Models.Common.Webhooks;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 using Tavstal.PayPalSDK.Models.Orders.Bodies;
+using Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
@@ -398,4 +399,9 @@ namespace Tavstal.PayPalSDK.Serialization;
 [JsonSerializable(typeof(List<WebhookVerifyRequestBody>))]
 [JsonSerializable(typeof(WebhookVerifyResponseBody))]
 [JsonSerializable(typeof(List<WebhookVerifyResponseBody>))]
+
+[JsonSerializable(typeof(PaymentToken))]
+[JsonSerializable(typeof(PaymentTokenSetup))]
+[JsonSerializable(typeof(PaymentTokenCreateRequestBody))]
+[JsonSerializable(typeof(PaymentTokenListAllResponseBody))]
 public partial class PayPalSDKJsonContext : JsonSerializerContext;
