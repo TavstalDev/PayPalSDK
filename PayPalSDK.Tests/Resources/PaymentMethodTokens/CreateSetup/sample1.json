@@ -1,0 +1,63 @@
+{
+  "endpoint": "v3/vault/setup-tokens",
+  "statusCode": 201,
+  "request": {
+    "customer": {
+      "id": "BygeLlrpZF",
+      "merchant_customer_id": "customer@merchant.com"
+    },
+    "payment_source": {
+      "card": {
+        "number": "4111111111111111",
+        "expiry": "2027-02",
+        "name": "John Doe",
+        "security_code": "321",
+        "billing_address": {
+          "address_line_1": "2211 N First Street",
+          "address_line_2": "17.3.160",
+          "admin_area_1": "CA",
+          "admin_area_2": "San Jose",
+          "postal_code": "95131",
+          "country_code": "US"
+        }
+      }
+    }
+  },
+  "response": {
+    "id": "5C991763VB2781612",
+    "customer": {
+      "id": "BygeLlrpZF",
+      "merchant_customer_id": "customer@merchant.com"
+    },
+    "status": "APPROVED",
+    "payment_source": {
+      "card": {
+        "last_digits": "1111",
+        "expiry": "2027-02",
+        "name": "John Doe",
+        "billing_address": {
+          "address_line_1": "2211 N First Street",
+          "address_line_2": "17.3.160",
+          "admin_area_1": "CA",
+          "admin_area_2": "San Jose",
+          "postal_code": "95131",
+          "country_code": "US"
+        }
+      }
+    },
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://api-m.paypal.com/v3/vault/setup-tokens/5C991763VB2781612",
+        "method": "GET",
+        "encType": "application/json"
+      },
+      {
+        "rel": "confirm",
+        "href": "https://api-m.paypal.com/v3/vault/payment-token",
+        "method": "POST",
+        "encType": "application/json"
+      }
+    ]
+  }
+}

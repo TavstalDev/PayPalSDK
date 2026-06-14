@@ -1,0 +1,24 @@
+{
+  "endpoint": "v3/vault/payment-tokens",
+  "statusCode": 400,
+  "request": {},
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "7fbdef68dd057",
+    "details": [
+      {
+        "field": "/payment_source",
+        "issue": "MISSING_REQUIRED_PARAMETER",
+        "description": "A required parameter is missing.",
+        "location": "body"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_PAYMENT_SOURCE",
+        "rel": "information_link"
+      }
+    ]
+  }
+}

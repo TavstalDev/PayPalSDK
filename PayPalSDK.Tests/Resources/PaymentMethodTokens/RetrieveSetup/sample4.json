@@ -1,0 +1,17 @@
+{
+  "endpoint": "v3/vault/setup-tokens/5C991763VB2781612",
+  "statusCode": 404,
+  "request": {},
+  "response": {
+    "name": "INVALID_RESOURCE_ID",
+    "message": "The specified resource does not exist.",
+    "debug_id": "360ee42996992",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_RESOURCE_ID",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "endpoint": "v3/vault/payment-tokens",
+  "statusCode": 500,
+  "request": {
+    "customer": {
+      "id": "BygeLlrpZF",
+      "merchant_customer_id": "customer@merchant.com"
+    },
+    "payment_source": {
+      "card": {
+        "number": "4111111111111111",
+        "expiry": "2027-02",
+        "name": "John Doe",
+        "billing_address": {
+          "address_line_1": "2211 N First Street",
+          "address_line_2": "17.3.160",
+          "admin_area_1": "CA",
+          "admin_area_2": "San Jose",
+          "postal_code": "95131",
+          "country_code": "US"
+        }
+      }
+    }
+  },
+  "response": {
+    "name": "INTERNAL_SERVER_ERROR",
+    "message": "An internal server error has occurred.",
+    "debug_id": "360ee42996992",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/api/limited-release/payment-tokens/v3/#error-INTERNAL_SERVER_ERROR",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

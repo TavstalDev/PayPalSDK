@@ -1,0 +1,66 @@
+{
+  "endpoint": "v3/vault/setup-tokens/5C991763VB2781612",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "id": "5C991763VB2771612",
+    "customer": {
+      "id": "BygeLlrpZF",
+      "merchant_customer_id": "customer@merchant.com"
+    },
+    "status": "APPROVED",
+    "payment_source": {
+      "card": {
+        "brand": "VISA",
+        "last_digits": "1111",
+        "verification_status": "VERIFIED",
+        "network_transaction_reference": {
+          "id": "20286098380002303",
+          "date": "1020",
+          "network": "VISA",
+          "time": "2020-10-20T22:44:41.000Z"
+        },
+        "verification": {
+          "amount": {
+            "value": "0.00",
+            "currency_code": "USD"
+          },
+          "processor_response": {
+            "avs_code": "M",
+            "cvv_code": "P"
+          },
+          "three_d_secure": {
+            "type": "THREE_DS_AUTHENTICATION",
+            "eci_flag": "FULLY_AUTHENTICATED_TRANSACTION",
+            "card_brand": "VISA",
+            "enrolled": "Y",
+            "pares_status": "Y",
+            "three_ds_version": "2",
+            "authentication_type": "DYNAMIC",
+            "three_ds_server_transaction_id": "3d-secure-txn-id"
+          }
+        },
+        "authentication_result": {
+          "three_d_secure": {
+            "authentication_status": "Y",
+            "enrollment_status": "Y"
+          }
+        }
+      }
+    },
+    "links": [
+      {
+        "href": "https://api-m.paypal.com/v3/vault/payment-token",
+        "rel": "confirm",
+        "method": "POST",
+        "encType": "application/json"
+      },
+      {
+        "href": "https://api-m.paypal.com/v3/vault/setup-tokens/5C991763VB2771612",
+        "rel": "self",
+        "method": "GET",
+        "encType": "application/json"
+      }
+    ]
+  }
+}

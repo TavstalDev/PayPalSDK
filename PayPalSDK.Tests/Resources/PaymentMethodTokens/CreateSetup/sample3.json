@@ -1,0 +1,46 @@
+{
+  "endpoint": "v3/vault/setup-tokens",
+  "statusCode": 400,
+  "request": {
+    "customer": {
+      "id": "BygeLlrpZF@",
+      "merchant_customer_id": "customer@merchant.com"
+    },
+    "payment_source": {
+      "card": {
+        "number": "4111111111111111",
+        "expiry": "2027-02",
+        "name": "John Doe",
+        "security_code": "321",
+        "billing_address": {
+          "address_line_1": "2211 N First Street",
+          "address_line_2": "17.3.160",
+          "admin_area_1": "CA",
+          "admin_area_2": "San Jose",
+          "postal_code": "95131",
+          "country_code": "US"
+        }
+      }
+    }
+  },
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "88e12519fe0a7",
+    "details": [
+      {
+        "field": "/customer/id",
+        "value": "BygeLlrpZF@",
+        "location": "body",
+        "issue": "INVALID_PARAMETER_SYNTAX",
+        "description": "The value of a field does not conform to the expected format."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_PARAMETER_SYNTAX",
+        "rel": "information_link"
+      }
+    ]
+  }
+}

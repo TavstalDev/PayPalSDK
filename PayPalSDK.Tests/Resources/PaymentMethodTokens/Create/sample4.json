@@ -1,0 +1,39 @@
+{
+  "endpoint": "v3/vault/payment-tokens",
+  "statusCode": 403,
+  "request": {
+    "payment_source": {
+      "card": {
+        "number": "4111111111111111",
+        "expiry": "2027-02",
+        "name": "John Doe",
+        "billing_address": {
+          "address_line_1": "2211 N First Street",
+          "address_line_2": "17.3.160",
+          "admin_area_1": "CA",
+          "admin_area_2": "San Jose",
+          "postal_code": "95131",
+          "country_code": "US"
+        }
+      }
+    }
+  },
+  "response": {
+    "name": "NOT_AUTHORIZED",
+    "message": "Authorization failed due to insufficient permissions.",
+    "debug_id": "bb7c4ed5a627c",
+    "details": [
+      {
+        "issue": "NOT_ENABLED_TO_VAULT_PAYMENT_SOURCE",
+        "description": "The API caller or the merchant on whose behalf the API call is initiated is not allowed to vault the given source. Please contact PayPal customer support for assistance."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-FORBIDDEN",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

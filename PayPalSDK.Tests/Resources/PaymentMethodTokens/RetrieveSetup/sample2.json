@@ -1,0 +1,26 @@
+{
+  "endpoint": "v3/vault/setup-tokens/5C991763VB2781612",
+  "statusCode": 400,
+  "request": {},
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "360ee42996992",
+    "details": [
+      {
+        "field": "id",
+        "value": "5C991763VB2781612$",
+        "location": "path",
+        "issue": "INVALID_PARAMETER_SYNTAX",
+        "description": "The value of a field does not conform to the expected format."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_PARAMETER_SYNTAX",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

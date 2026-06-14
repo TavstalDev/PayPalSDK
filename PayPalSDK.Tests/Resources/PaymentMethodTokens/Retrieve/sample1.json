@@ -1,0 +1,43 @@
+{
+  "endpoint": "v3/vault/payment-tokens/8kk8451t",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "id": "8kk8451t",
+    "customer": {
+      "id": "BygeLlrpZF",
+      "merchant_customer_id": "customer@merchant.com"
+    },
+    "payment_source": {
+      "card": {
+        "last_digits": "1111",
+        "expiry": "2027-02",
+        "brand": "VISA",
+        "name": "John Doe",
+        "billing_address": {
+          "id": "kk",
+          "address_line_1": "2211 N First Street",
+          "address_line_2": "17.3.160",
+          "admin_area_2": "San Jose",
+          "admin_area_1": "CA",
+          "postal_code": "95131",
+          "country_code": "US"
+        }
+      }
+    },
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://api-m.paypal.com/v3/vault/payment-tokens/8kk8451t",
+        "method": "GET",
+        "encType": "application/json"
+      },
+      {
+        "rel": "delete",
+        "href": "https://api-m.paypal.com/v3/vault/payment-tokens/8kk8451t",
+        "method": "DELETE",
+        "encType": "application/json"
+      }
+    ]
+  }
+}
