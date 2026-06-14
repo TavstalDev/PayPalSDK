@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 
@@ -23,9 +22,6 @@ public class InvoiceUpdateRequest : HttpRequestBase<InvoiceBody>
         base(HttpMethod.Put, $"/v2/invoicing/invoices/{invoiceId}?send_to_recipient={sendToRecipient.ToString().ToLower()}&send_to_invoicer={sendToInvoicer.ToString().ToLower()}")
     {
         // Sets the content of the HTTP request using the provided body and JSON serialization options.
-        Content = JsonContent.Create(body, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.InvoiceUpdateRequestBody);
     }
 }

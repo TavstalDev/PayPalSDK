@@ -1,9 +1,8 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Payments;
 
@@ -20,10 +19,7 @@ public class PaymentFindEligibleMethodsRequest : HttpRequestBase<EligibleMethodR
         :
         base(HttpMethod.Post, $"/v2/payments/find-eligible-methods")
     {
-        Content = JsonContent.Create(body, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.PaymentFindEligibleMethodsRequestBody);
     }
     
     /// <summary>

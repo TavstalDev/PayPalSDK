@@ -1,8 +1,7 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 
@@ -18,9 +17,6 @@ public class InvoiceCancelRequest : HttpRequestBase
     /// <param name="body">The cancellation options and recipient settings for the request.</param>
     public InvoiceCancelRequest(string invoiceId, InvoiceCancelRequestBody body) : base(HttpMethod.Post, $"/v2/invoicing/invoices/{invoiceId}/cancel")
     {
-        Content = JsonContent.Create(body, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.InvoiceCancelRequestBody);
     }
 }

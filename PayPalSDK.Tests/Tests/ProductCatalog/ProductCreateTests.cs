@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.ProductCatalog;
 using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
@@ -26,7 +25,7 @@ public class ProductCreateTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var objectResponse = await response.Content.ReadFromJsonAsync<ProductBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ProductBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);

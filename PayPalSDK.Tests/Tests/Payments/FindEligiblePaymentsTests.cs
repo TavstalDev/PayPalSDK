@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
@@ -30,7 +29,7 @@ public class FindEligiblePaymentsTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadFromJsonAsync<EligibleMethodResponse>();
+        var objectResponse = await response.Content.ReadJsonAsync<EligibleMethodResponse>();
         objectResponse.Should().NotBeNull();
 
         _testOutputHelper.WriteLine("Eligible Payment Methods: " + objectResponse?.EligibleMethods?.Venmo?.CanBeVaulted);
@@ -50,7 +49,7 @@ public class FindEligiblePaymentsTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var objectResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -71,7 +70,7 @@ public class FindEligiblePaymentsTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
-        var objectResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -92,7 +91,7 @@ public class FindEligiblePaymentsTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var objectResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -113,7 +112,7 @@ public class FindEligiblePaymentsTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var objectResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -134,7 +133,7 @@ public class FindEligiblePaymentsTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var objectResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);

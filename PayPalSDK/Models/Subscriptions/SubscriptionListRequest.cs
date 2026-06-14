@@ -1,6 +1,5 @@
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Models.Common.Plans;
-using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions;
 

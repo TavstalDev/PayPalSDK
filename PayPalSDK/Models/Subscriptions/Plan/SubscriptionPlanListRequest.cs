@@ -20,6 +20,5 @@ public class SubscriptionPlanListRequest : HttpRequestBase<SubscriptionPlanListB
             HttpMethod.Get, 
             $"/v1/billing/plans?page_size={pageSize}&page={page}&total_required={totalRequired}{(productId != null ? $"&product_id={productId}" : "")}"
         )
-    {
-    }
+    { }
 }

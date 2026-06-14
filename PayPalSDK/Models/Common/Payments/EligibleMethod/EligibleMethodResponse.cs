@@ -19,5 +19,5 @@ public class EligibleMethodResponse
     /// Gets or sets a collection of payment tokens that can be used for future transactions.
     /// </summary>
     [JsonPropertyName("payment_tokens")]
-    public List<PaymentToken>? PaymentTokens { get; set; }
+    public List<EligiblePaymentToken>? PaymentTokens { get; set; }
 }

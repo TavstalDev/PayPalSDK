@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Orders;
@@ -21,7 +20,7 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
@@ -39,7 +38,7 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
@@ -57,7 +56,7 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
@@ -79,7 +78,7 @@ public class UpdateOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var orderResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -93,14 +92,14 @@ public class UpdateOrderTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
         
         resource.JsonRequest.Should().NotBeNull();
-        UpdateOperation[]? operations = JsonConvert.DeserializeObject<UpdateOperation[]>(resource.JsonRequest!);
+        List<UpdateOperation>? operations = JsonConvert.DeserializeObject<List<UpdateOperation>>(resource.JsonRequest!);
         operations.Should().NotBeNull();
         
         var request = new OrderUpdateRequest("5O190127TN364715T", operations!);
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var orderResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);

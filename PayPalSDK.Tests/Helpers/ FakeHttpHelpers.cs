@@ -1,5 +1,8 @@
+using System.Net.Http.Json;
+using System.Text.Json.Serialization.Metadata;
 using Tavstal.PayPalSDK.Config;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Serialization;
 using Tavstal.PayPalSDK.Tests.Mocks;
 
 namespace Tavstal.PayPalSDK.Tests.Helpers;
@@ -33,5 +36,22 @@ public static class FakeHttpHelpers
         };
         var clientWithInjectedHttp = new PayPalHttpClient(env, httpClient);
         return clientWithInjectedHttp;
+    }
+    
+    /// <summary>
+    /// Reads and deserializes the HTTP content using the SDK's source-generated JSON context.
+    /// </summary>
+    /// <typeparam name="T">The type to deserialize the response body into.</typeparam>
+    /// <param name="content">The HTTP content containing JSON payload data.</param>
+    /// <returns>A task that produces the deserialized instance of <typeparamref name="T"/>.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when <typeparamref name="T"/> is not registered in <see cref="PayPalSDKJsonContext"/>.
+    /// </exception>
+    public static Task<T?> ReadJsonAsync<T>(this HttpContent content)
+    {
+        var typeInfo = (JsonTypeInfo<T>?)PayPalSDKJsonContext.Default.GetTypeInfo(typeof(T));
+        if (typeInfo == null)
+            throw new InvalidOperationException($"Type {typeof(T).Name} is not registered in the provided JsonSerializerContext.");
+        return content.ReadFromJsonAsync(typeInfo);
     }
 }

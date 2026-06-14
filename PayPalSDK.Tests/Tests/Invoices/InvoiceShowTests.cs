@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Tavstal.PayPalSDK.Models.Invoices;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
@@ -22,7 +21,7 @@ public class InvoiceShowTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadFromJsonAsync<InvoiceBody>();
+        var orderResponse = await response.Content.ReadJsonAsync<InvoiceBody>();
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + orderResponse!.Id);

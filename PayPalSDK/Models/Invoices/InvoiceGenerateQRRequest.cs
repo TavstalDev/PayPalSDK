@@ -1,14 +1,14 @@
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Models.Invoices.Bodies;
+using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Invoices;
 
 /// <summary>
 /// Represents an HTTP request to generate a QR code for an invoice.
 /// </summary>
-public class InvoiceGenerateQRRequest: HttpRequestBase
+public class InvoiceGenerateQRRequest : HttpRequestBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InvoiceGenerateQRRequest"/> class.
@@ -20,14 +20,11 @@ public class InvoiceGenerateQRRequest: HttpRequestBase
     public InvoiceGenerateQRRequest(string invoiceId, string action = "pay", int width = 500, int height = 500) : base(HttpMethod.Post, 
         $"/v2/invoicing/invoices/{invoiceId}/generate-qr-code")
     {
-        Content = JsonContent.Create(new
+        Content = JsonContent.Create(new InvoiceGenerateQRRequestBody
         {
-            action,
-            width,
-            height
-        }, options: new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+            Action = action,
+            Width = width,
+            Height = height
+        }, PayPalSDKJsonContext.Default.InvoiceGenerateQRRequestBody);
     }
 }

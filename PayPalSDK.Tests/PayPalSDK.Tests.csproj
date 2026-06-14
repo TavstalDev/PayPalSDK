@@ -7,6 +7,11 @@
         <IsPackable>false</IsPackable>
         <RootNamespace>Tavstal.PayPalSDK.Tests</RootNamespace>
         <AssemblyName>Tavstal.PayPalSDK.Tests</AssemblyName>
+      
+
+      <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
+      <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+      <EnableAotAnalyzer>true</EnableAotAnalyzer>
     </PropertyGroup>
 
     <ItemGroup>

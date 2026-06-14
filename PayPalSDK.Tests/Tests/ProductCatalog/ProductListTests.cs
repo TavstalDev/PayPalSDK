@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Tavstal.PayPalSDK.Models.ProductCatalog;
 using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
@@ -23,7 +22,7 @@ public class ProductListTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadFromJsonAsync<ProductListBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ProductListBody>();
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Total Items: " + objectResponse!.TotalItems);
