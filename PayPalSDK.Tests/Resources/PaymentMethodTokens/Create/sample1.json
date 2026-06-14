@@ -1,0 +1,68 @@
+{
+  "endpoint": "v3/vault/payment-tokens",
+  "statusCode": 201,
+  "request": {
+    "payment_source": {
+      "token": {
+        "id": "4BD1763VB2781894",
+        "type": "SETUP_TOKEN"
+      }
+    }
+  },
+  "response": {
+    "id": "8kk8451t",
+    "customer": {
+      "id": "BygeLlrpZF",
+      "merchant_customer_id": "customer@merchant.com"
+    },
+    "payment_source": {
+      "paypal": {
+        "description": "Description for PayPal to be shown to PayPal payer",
+        "email_address": "john.doe@example.com",
+        "account_id": "VYYFH3WJ4JPJQ",
+        "shipping": {
+          "name": {
+            "full_name": "John Doe"
+          },
+          "address": {
+            "address_line_1": "2211 N First Street",
+            "address_line_2": "17.3.160",
+            "admin_area_2": "San Jose",
+            "admin_area_1": "CA",
+            "postal_code": "95131",
+            "country_code": "US"
+          }
+        },
+        "usage_pattern": "IMMEDIATE",
+        "usage_type": "MERCHANT",
+        "customer_type": "CONSUMER",
+        "name": {
+          "given_name": "John",
+          "surname": "Doe"
+        },
+        "address": {
+          "address_line_1": "2211 N First Street",
+          "address_line_2": "17.3.160",
+          "admin_area_2": "San Jose",
+          "admin_area_1": "CA",
+          "postal_code": "95131",
+          "country_code": "US"
+        }
+      }
+    },
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://api-m.paypal.com/v3/vault/payment-tokens/8kk8451t",
+        "method": "GET",
+        "encType": "application/json"
+      },
+      {
+        "rel": "delete",
+        "href": "https://api-m.paypal.com/v3/vault/payment-tokens/8kk8451t",
+        "method": "DELETE",
+        "encType": "application/json"
+      }
+    ]
+  }
+}

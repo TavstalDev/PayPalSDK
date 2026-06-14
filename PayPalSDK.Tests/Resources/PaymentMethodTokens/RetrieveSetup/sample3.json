@@ -1,0 +1,23 @@
+{
+  "endpoint": "v3/vault/setup-tokens/5C991763VB2781612",
+  "statusCode": 403,
+  "request": {},
+  "response": {
+    "name": "NOT_AUTHORIZED",
+    "message": "Authorization failed due to insufficient permissions.",
+    "debug_id": "360ee42996992",
+    "details": [
+      {
+        "issue": "PERMISSION_DENIED",
+        "description": "You do not have permission to access or perform operations on this resource."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-PERMISSION_DENIED",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

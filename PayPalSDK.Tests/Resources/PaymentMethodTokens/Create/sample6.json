@@ -1,0 +1,30 @@
+{
+  "endpoint": "v3/vault/payment-tokens",
+  "statusCode": 422,
+  "request": {
+    "payment_source": {
+      "token": {
+        "type": "BILLING_AGREEMENT",
+        "id": "B-2V417070AM3092219"
+      }
+    }
+  },
+  "response": {
+    "name": "UNPROCESSABLE_ENTITY",
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "cab9ca88238f9",
+    "details": [
+      {
+        "issue": "INACTIVE_BILLING_AGREEMENT",
+        "description": "The billing agreement is not in active state and can't be vaulted or used for purchase."
+      }
+    ],
+    "links": [
+      {
+        "href": "https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-UNPROCESSABLE_ENTITY",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

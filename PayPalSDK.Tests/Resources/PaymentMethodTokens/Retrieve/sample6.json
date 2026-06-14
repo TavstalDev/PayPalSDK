@@ -1,0 +1,17 @@
+{
+  "endpoint": "v3/vault/payment-tokens/8kk8451t",
+  "statusCode": 500,
+  "request": {},
+  "response": {
+    "name": "INTERNAL_SERVER_ERROR",
+    "message": "An internal server error has occurred.",
+    "debug_id": "360ee42996992",
+    "links": [
+      {
+        "href": "https://developer.paypal.com/api/limited-release/payment-tokens/v3/#error-INTERNAL_SERVER_ERROR",
+        "rel": "information_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

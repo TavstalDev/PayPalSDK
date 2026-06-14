@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
+using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Http;
@@ -20,6 +21,24 @@ public abstract class HttpRequestBase : HttpRequestMessage
         Method = method;
         RequestUri = new Uri(url, UriKind.Relative);
     }
+
+    /// <summary>
+    /// Asynchronously deserializes an error response from an HTTP response message.
+    /// </summary>
+    /// <param name="response">
+    /// The <see cref="HttpResponseMessage"/> from which the error response will be extracted and deserialized.
+    /// The response content should contain a JSON representation of an error response.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task"/> that represents the asynchronous operation. The task result contains
+    /// the deserialized <see cref="ErrorResponse"/> object, or <c>null</c> if the response content
+    /// is empty or cannot be deserialized.
+    /// </returns>
+    /// <exception cref="System.Net.Http.HttpRequestException">
+    /// Thrown when an error occurs during the HTTP content reading operation.
+    /// </exception>
+    public async Task<ErrorResponse?> GetErrorResponseAsync(HttpResponseMessage response) => 
+        await response.Content.ReadFromJsonAsync(PayPalSDKJsonContext.Default.ErrorResponse);
 }
 
 /// <summary>

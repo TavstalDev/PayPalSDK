@@ -1,0 +1,20 @@
+{
+  "endpoint": "v3/vault/payment-tokens?customer_id=BygeLlrpZF",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "customer": {
+      "id": "BygeLlrpZF",
+      "merchant_customer_id": "cust10491@merchant.com"
+    },
+    "payment_tokens": [],
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://api-m.paypal.com/v3/vault/payment-tokens?customer_id=BygeLlrpZF&total_required=false",
+        "method": "GET",
+        "encType": "application/json"
+      }
+    ]
+  }
+}
