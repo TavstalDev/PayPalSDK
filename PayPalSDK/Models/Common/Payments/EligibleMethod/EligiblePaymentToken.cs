@@ -9,7 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 /// </summary>
 [DataContract]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class PaymentToken
+public class EligiblePaymentToken
 {
     /// <summary>
     /// Gets or sets the unique identifier for this payment token.
