@@ -21,9 +21,9 @@ public class InvoiceGenerateNumberTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<InvoiceGenerateNumberBody>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<InvoiceGenerateNumberBody>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + orderResponse!.InvoiceId);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.InvoiceId);
     }
 }

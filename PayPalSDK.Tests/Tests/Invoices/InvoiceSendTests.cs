@@ -27,9 +27,9 @@ public class InvoiceSendTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Accepted);
-        var orderResponse = await response.Content.ReadJsonAsync<Link>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<Link>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Url: " + orderResponse!.Href);
+        _testOutputHelper.WriteLine("Url: " + objectResponse!.Href);
     }
 }

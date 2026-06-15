@@ -13,8 +13,6 @@ public class CreatePaymentTokenSetupTests : TestBase
     public CreatePaymentTokenSetupTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper, ["Resources/PaymentMethodTokens/CreateSetup/sample1.json", "Resources/PaymentMethodTokens/CreateSetup/sample2.json", 
         "Resources/PaymentMethodTokens/CreateSetup/sample3.json", "Resources/PaymentMethodTokens/CreateSetup/sample4.json", 
         "Resources/PaymentMethodTokens/CreateSetup/sample5.json", "Resources/PaymentMethodTokens/CreateSetup/sample6.json"]) { }
-    
-    // TODO: Finish samples
 
     [Fact(DisplayName = "Sample 1 - 201 - Create Setup Token - Card with Full Request")]
     public async Task CreatePaymentTokenSetup_Sample1()
@@ -69,12 +67,12 @@ public class CreatePaymentTokenSetupTests : TestBase
         var request = new PaymentTokenSetupCreateRequest(body!);
 
         var response = await client.SendAsync(request);
-        response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 4 - 422 - Create Setup Token - 422 Unprocessable Entity - Invalid security code for card")]
@@ -90,15 +88,15 @@ public class CreatePaymentTokenSetupTests : TestBase
         var request = new PaymentTokenSetupCreateRequest(body!);
 
         var response = await client.SendAsync(request);
-        response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
-    [Fact(DisplayName = "Sample 5 - 422 - Create Setup Token - 422 Unprocessable Entity Error - Invalid Merchant Customer Id\"")]
+    [Fact(DisplayName = "Sample 5 - 422 - Create Setup Token - 422 Unprocessable Entity Error - Invalid Merchant Customer I")]
     public async Task CreatePaymentTokenSetup_Sample5()
     {
         var resource = _resources[4];
@@ -112,14 +110,14 @@ public class CreatePaymentTokenSetupTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
-    [Fact(DisplayName = "")]
+    [Fact(DisplayName = "Sample 6 - 500 - Create Setup Token - 500 Internal Server Error")]
     public async Task CreatePaymentTokenSetup_Sample6()
     {
         var resource = _resources[5];
@@ -132,11 +130,11 @@ public class CreatePaymentTokenSetupTests : TestBase
         var request = new PaymentTokenSetupCreateRequest(body!);
 
         var response = await client.SendAsync(request);
-        response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
 }

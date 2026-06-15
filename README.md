@@ -117,14 +117,14 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 - [x] Handle Common Webhook Events (Order Completed, Subscription Renewed, Payment Refunded)
 - [x] Implement tests
 
+### Payment Method Tokens
+- [x] Implement Create, List, Retrieve, Delete Payment Method Tokens
+- [x] Implement Create and Retrieve setup tokens
+- [x] Implement tests
+
 ---
 
 ### In Progress / Next Up
-
-### Payment Method Tokens
-- [ ] Implement Create, List, Retrieve, Delete Payment Method Tokens
-- [ ] Implement Create and Retrieve setup tokens
-- [ ] Implement tests
 
 ### Add Tracking
 - [ ] Implement tracking endpoints 

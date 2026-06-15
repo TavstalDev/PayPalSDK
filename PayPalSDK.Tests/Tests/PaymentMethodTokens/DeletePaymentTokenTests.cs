@@ -35,11 +35,11 @@ public class DeletePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 3 - 403 - Delete Payment Token - 403 Forbidden Error - No Permission for the Payment Token")]
@@ -52,11 +52,11 @@ public class DeletePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 4 - 500 - Delete Payment Token - 500 Internal Server Error")]
@@ -69,10 +69,10 @@ public class DeletePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
-        _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
 }

@@ -26,9 +26,9 @@ public class InvoiceRecordPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<InvoiceRecordPaymentBody>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<InvoiceRecordPaymentBody>();
+        objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + orderResponse!.PaymentId);
+        _testOutputHelper.WriteLine("ID: " + objectResponse!.PaymentId);
     }
 }

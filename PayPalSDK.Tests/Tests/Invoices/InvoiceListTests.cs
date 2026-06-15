@@ -21,10 +21,10 @@ public class InvoiceListTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<InvoiceListBody>();
-        orderResponse.Should().NotBeNull();
+        var objectResponse = await response.Content.ReadJsonAsync<InvoiceListBody>();
+        objectResponse.Should().NotBeNull();
         
-        foreach (var invoice in orderResponse!.Items!)
+        foreach (var invoice in objectResponse!.Items!)
             _testOutputHelper.WriteLine($"Invoice ID: {invoice.Id}, Status: {invoice.Status}");
     }
 }
