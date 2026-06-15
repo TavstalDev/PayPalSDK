@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using Tavstal.PayPalSDK.Models.Common.Plans;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
 
@@ -46,7 +47,7 @@ public class BillingCycle
     /// This field is optional and represents the pricing details for the billing cycle.
     /// </remarks>
     [JsonPropertyName("pricing_scheme")]
-    public PricingScheme? PricingScheme { get; set; }
+    public PlanPricingSchemeData? PricingScheme { get; set; }
 
     /// <summary>
     /// Gets or sets the start date of the billing cycle.
