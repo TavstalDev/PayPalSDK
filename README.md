@@ -1,10 +1,12 @@
 # PayPalSDK
 
-[![License: MIT](https://img.shields.io/github/license/TavstalDev/PayPalSDK)](LICENSE)
-[![GitHub Issues](https://img.shields.io/github/issues/TavstalDev/PayPalSDK)](https://github.com/TavstalDev/PayPalSDK/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/TavstalDev/PayPalSDK)](https://github.com/TavstalDev/PayPalSDK/commits/main)
-[![GitHub Stars](https://img.shields.io/github/stars/TavstalDev/PayPalSDK?style=social)](https://github.com/TavstalDev/PayPalSDK/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/TavstalDev/PayPalSDK?style=social)](https://github.com/TavstalDev/PayPalSDK/network/members)
+![Release (latest by date)](https://img.shields.io/github/v/release/TavstalDev/PayPalSDK?style=plastic-square)
+![Workflow Status](https://img.shields.io/github/actions/workflow/status/TavstalDev/PayPalSDK/release.yml?branch=stable&label=build&style=plastic-square)
+![License](https://img.shields.io/github/license/TavstalDev/PayPalSDK?style=plastic-square)
+![Downloads](https://img.shields.io/github/downloads/TavstalDev/PayPalSDK/total?style=plastic-square)
+![Stars](https://img.shields.io/github/stars/TavstalDev/PayPalSDK?style=plastic-square)
+![Issues](https://img.shields.io/github/issues/TavstalDev/PayPalSDK?style=plastic-square)
+![Forks](https://img.shields.io/github/forks/TavstalDev/PayPalSDK?style=plastic-square)
 
 A C# SDK for interacting with the PayPal API, designed to simplify integration and provide a clear, type-safe interface for common PayPal operations.
 
@@ -142,6 +144,14 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 - [ ] Add CI pipeline (e.g., GitHub Actions)
 
 ---
+
+## License
+
+This project is licensed under the GNU General Public License v3.0. See the `LICENSE` file for more details.
+
+## Contact
+
+For issues or feature requests, please use the [GitHub issue tracker](https://github.com/TavstalDev/PayPalSDK/issues).
 
 ## Disclaimer
 
