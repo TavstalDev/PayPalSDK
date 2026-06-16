@@ -122,16 +122,16 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 - [x] Implement Create and Retrieve setup tokens
 - [x] Implement tests
 
+### Currency Exchange Rates
+- [x] Implement currency exchange rate retrieval endpoint
+- [x] Implement tests
+
 ---
 
 ### In Progress / Next Up
 
 ### Add Tracking
 - [ ] Implement tracking endpoints 
-- [ ] Implement tests
-
-### Currency Exchange Rates
-- [ ] Implement currency exchange rate retrieval endpoint
 - [ ] Implement tests
 
 ### Disputes
