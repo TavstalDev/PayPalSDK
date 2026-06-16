@@ -26,6 +26,7 @@ using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 using Tavstal.PayPalSDK.Models.Subscriptions.Json;
 using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
+using Tavstal.PayPalSDK.Models.Tracking.Bodies;
 using Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 
 namespace Tavstal.PayPalSDK.Serialization;
@@ -407,4 +408,8 @@ namespace Tavstal.PayPalSDK.Serialization;
 [JsonSerializable(typeof(PaymentTokenListAllResponseBody))]
 [JsonSerializable(typeof(CurrencyExchangeCreateRequestBody))]
 [JsonSerializable(typeof(CurrencyExchangeCreateResponseBody))]
+[JsonSerializable(typeof(TrackingAddRequestBody))]
+[JsonSerializable(typeof(TrackingAddResponseBody))]
+[JsonSerializable(typeof(Tracker))]
+[JsonSerializable(typeof(TrackerInformation))]
 public partial class PayPalSDKJsonContext : JsonSerializerContext;
