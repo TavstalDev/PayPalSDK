@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.User;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Common.Orders;
 
@@ -118,4 +119,19 @@ public class PaymentAuthorization
     /// </remarks>
     [JsonPropertyName("processor_response")]
     public ProcessorResponse? ProcessorResponse { get; set; }
+    
+    /// <summary>
+    /// Gets the parsed <see cref="DateTime"/> representation of <see cref="ExpirationTime"/>, if valid.
+    /// </summary>
+    public DateTime? ExpirationAsDateTime => DateTimeHelper.FromISO8601(ExpirationTime);
+
+    /// <summary>
+    /// Gets the parsed <see cref="DateTime"/> representation of <see cref="CreateTime"/>, if valid.
+    /// </summary>
+    public DateTime? CreateAsDateTime => DateTimeHelper.FromISO8601(CreateTime);
+
+    /// <summary>
+    /// Gets the parsed <see cref="DateTime"/> representation of <see cref="UpdateTime"/>, if valid.
+    /// </summary>
+    public DateTime? UpdateAsDateTime => DateTimeHelper.FromISO8601(UpdateTime);
 }

@@ -6,6 +6,7 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.User;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 
@@ -110,4 +111,14 @@ public class AuthorizedPaymentBody
     /// </summary>
     [JsonPropertyName("payee")]
     public Payee? Payee { get; set; }
+    
+    /// <summary>
+    /// Gets the parsed <see cref="DateTime"/> representation of <see cref="ExpirationTime"/>, if valid.
+    /// </summary>
+    public DateTime? ExpirationTimeAsDateTime => DateTimeHelper.FromISO8601(ExpirationTime);
+    
+    /// <summary>
+    /// Gets the parsed <see cref="DateTime"/> representation of <see cref="UpdateTime"/>, if valid.
+    /// </summary>
+    public DateTime? CreateTimeAsDateTime => DateTimeHelper.FromISO8601(CreateTime);
 }

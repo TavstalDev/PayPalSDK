@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Common.Webhooks;
 
@@ -73,4 +74,9 @@ public class WebhookEventBody
     /// </remarks>
     [JsonPropertyName("links")]
     public List<Link>? Links { get; set; }
+    
+    /// <summary>
+    /// Gets the creation time of the webhook event as a nullable DateTime object.
+    /// </summary>
+    public DateTime? CreateTimeAsDateTime => DateTimeHelper.FromISO8601(CreateTime);
 }

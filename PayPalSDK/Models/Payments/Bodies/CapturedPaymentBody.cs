@@ -6,6 +6,7 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.User;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 
@@ -128,4 +129,14 @@ public class CapturedPaymentBody
     /// </summary>
     [JsonPropertyName("payee")]
     public Payee? Payee { get; set; }
+    
+    /// <summary>
+    /// Gets the creation time as a nullable DateTime object.
+    /// </summary>
+    public DateTime? CreateTimeAsDateTime => DateTimeHelper.FromISO8601(CreateTime);
+    
+    /// <summary>
+    /// Gets the last update time as a nullable DateTime object.
+    /// </summary>
+    public DateTime? UpdateTimeAsDateTime => DateTimeHelper.FromISO8601(UpdateTime);
 }
