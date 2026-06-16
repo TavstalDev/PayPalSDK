@@ -28,6 +28,7 @@ public abstract class HttpRequestBase : HttpRequestMessage
     /// The <see cref="HttpResponseMessage"/> from which the error response will be extracted and deserialized.
     /// The response content should contain a JSON representation of an error response.
     /// </param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken"/> that can be used to cancel the asynchronous operation.</param>
     /// <returns>
     /// A <see cref="Task"/> that represents the asynchronous operation. The task result contains
     /// the deserialized <see cref="ErrorResponse"/> object, or <c>null</c> if the response content
@@ -36,8 +37,8 @@ public abstract class HttpRequestBase : HttpRequestMessage
     /// <exception cref="System.Net.Http.HttpRequestException">
     /// Thrown when an error occurs during the HTTP content reading operation.
     /// </exception>
-    public async Task<ErrorResponse?> GetErrorResponseAsync(HttpResponseMessage response) => 
-        await response.Content.ReadFromJsonAsync(PayPalSDKJsonContext.Default.ErrorResponse);
+    public async Task<ErrorResponse?> GetErrorResponseAsync(HttpResponseMessage response, CancellationToken cancellationToken = default) => 
+        await response.Content.ReadFromJsonAsync(PayPalSDKJsonContext.Default.ErrorResponse, cancellationToken: cancellationToken);
 }
 
 /// <summary>
@@ -59,6 +60,7 @@ public abstract class HttpRequestBase<T> : HttpRequestBase where T : class
     /// the SDK's source-generated <see cref="PayPalSDKJsonContext"/>.
     /// </summary>
     /// <param name="response">The HTTP response message whose content will be deserialized.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
     /// <returns>
     /// A task that resolves to the deserialized instance of <typeparamref name="T"/>,
     /// or <c>null</c> if the content is empty.
@@ -66,12 +68,12 @@ public abstract class HttpRequestBase<T> : HttpRequestBase where T : class
     /// <exception cref="InvalidOperationException">
     /// Thrown when <typeparamref name="T"/> is not registered in <see cref="PayPalSDKJsonContext"/>.
     /// </exception>
-    public async Task<T?> GetResponseBodyAsync(HttpResponseMessage response)
+    public async Task<T?> GetResponseBodyAsync(HttpResponseMessage response, CancellationToken cancellationToken = default)
     {
         var typeInfo = (JsonTypeInfo<T>?)PayPalSDKJsonContext.Default.GetTypeInfo(typeof(T));
         if (typeInfo == null)
             throw new InvalidOperationException($"Type {typeof(T).Name} is not registered in the provided JsonSerializerContext.");
-        return await response.Content.ReadFromJsonAsync(typeInfo);
+        return await response.Content.ReadFromJsonAsync(typeInfo, cancellationToken: cancellationToken);
     }
     
     
@@ -84,9 +86,11 @@ public abstract class HttpRequestBase<T> : HttpRequestBase where T : class
     /// The <see cref="JsonTypeInfo{T}"/> that controls deserialization. Use this overload when
     /// you need to supply a type info from a context other than <see cref="PayPalSDKJsonContext"/>.
     /// </param>
+    /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
     /// <returns>
     /// A task that resolves to the deserialized instance of <typeparamref name="T"/>,
     /// or <c>null</c> if the content is empty.
     /// </returns>
-    public async Task<T?> GetResponseBodyAsync(HttpResponseMessage response, JsonTypeInfo<T> jsonTypeInfo) => await response.Content.ReadFromJsonAsync(jsonTypeInfo);
+    public async Task<T?> GetResponseBodyAsync(HttpResponseMessage response, JsonTypeInfo<T> jsonTypeInfo, CancellationToken cancellationToken = default) => 
+        await response.Content.ReadFromJsonAsync(jsonTypeInfo, cancellationToken: cancellationToken);
 }
