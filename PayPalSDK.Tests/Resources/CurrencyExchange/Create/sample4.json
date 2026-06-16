@@ -1,0 +1,18 @@
+{
+  "endpoint": "v2/pricing/quote-exchange-rates",
+  "statusCode": 500,
+  "request": {
+    "quote_items": [
+      {
+        "base_currency": "USD",
+        "base_amount": "10.00",
+        "quote_currency": "INR"
+      }
+    ]
+  },
+  "response": {
+    "name": "INTERNAL_SERVER_ERROR",
+    "debugId": "b1d1f06c7246c",
+    "message": "An internal server error has occurred."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "endpoint": "v2/pricing/quote-exchange-rates",
+  "statusCode": 403,
+  "request": {
+    "quote_items": [
+      {
+        "base_currency": "USD",
+        "base_amount": "10.00",
+        "quote_currency": "INR"
+      }
+    ]
+  },
+  "response": {
+    "name": "NOT_AUTHORIZED",
+    "message": "Authorization failed due to insufficient permissions.",
+    "debug_id": "970e6a10938c5",
+    "details": [
+      {
+        "issue": "PERMISSION_DENIED",
+        "description": "You do not have permission to access or perform operations on this resource.",
+        "field": "/Authorization",
+        "location": "header",
+        "value": "Bearer access_token6V7rbVwmlM1gFZKW_8QtzWXqpcwQ6T5vhEGYNJDAAdn3paCgRpdeMdVYmWzgbKSsECednupJ3Zx5Xd-g"
+      }
+    ]
+  }
+}
