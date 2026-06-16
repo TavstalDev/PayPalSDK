@@ -1,0 +1,34 @@
+{
+  "endpoint": "v1/shipping/trackers?transaction_id=8MC585209K746392H&account_id=TELFDNSFY96RY",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "transaction_id": "8MC585209K746392H",
+    "tracking_number": "443844607820",
+    "status": "SHIPPED",
+    "carrier": "FEDEX",
+    "shipment_direction": "FORWARD",
+    "shipment_uploader": "PARTNER",
+    "links": [
+      {
+        "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/8MC585209K746392H-443844607820",
+        "rel": "self"
+      },
+      {
+        "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/8MC585209K746392H-443844607820",
+        "rel": "replace",
+        "method": "PUT"
+      },
+      {
+        "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/8MC585209K746392H-443844607820",
+        "rel": "edit",
+        "method": "PATCH"
+      },
+      {
+        "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers-batch",
+        "rel": "create",
+        "method": "POST"
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "endpoint": "v1/shipping/trackers",
+  "statusCode": 201,
+  "request": {
+    "trackers": [
+      {
+        "account_id": "TELFDNSFY96RY",
+        "transaction_id": "5VC048998N237502P",
+        "status": "SHIPPED",
+        "tracking_number": "672314721",
+        "carrier": "OTHER",
+        "carrier_name_other": "Toll Priority",
+        "notify_buyer": false,
+        "tracking_url": "http://yjcx.chinapost.com.cn/",
+        "links": []
+      },
+      {
+        "account_id": "TELFDNSFY96RY",
+        "transaction_id": "5VC048998N237502P",
+        "status": "SHIPPED",
+        "tracking_number": "672314722",
+        "carrier": "OTHER",
+        "carrier_name_other": "Toll Priority",
+        "notify_buyer": false,
+        "tracking_url": "http://yjcx.chinapost.com.cn/",
+        "links": []
+      }
+    ]
+  },
+  "response": {
+    "tracker_identifiers": [
+      {
+        "transaction_id": "5VC048998N237502P",
+        "tracking_number": "672314721",
+        "links": [
+          {
+            "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/5VC048998N237502P-672314721",
+            "rel": "self",
+            "method": "GET"
+          },
+          {
+            "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/5VC048998N237502P-672314721",
+            "rel": "replace",
+            "method": "PUT"
+          },
+          {
+            "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/5VC048998N237502P-672314721",
+            "rel": "edit",
+            "method": "PATCH"
+          }
+        ]
+      },
+      {
+        "transaction_id": "5VC048998N237502P",
+        "tracking_number": "672314722",
+        "links": [
+          {
+            "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/5VC048998N237502P-672314722",
+            "rel": "self",
+            "method": "GET"
+          },
+          {
+            "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/5VC048998N237502P-672314722",
+            "rel": "replace",
+            "method": "PUT"
+          },
+          {
+            "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers/5VC048998N237502P-672314722",
+            "rel": "edit",
+            "method": "PATCH"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api-m.sandbox.paypal.com/v1/shipping/trackers",
+        "rel": "self",
+        "method": "POST"
+      }
+    ]
+  }
+}
