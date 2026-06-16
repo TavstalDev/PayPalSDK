@@ -126,13 +126,13 @@ The following roadmap outlines prioritized features to implement in the PayPalSD
 - [x] Implement currency exchange rate retrieval endpoint
 - [x] Implement tests
 
+### Add Tracking
+- [x] Implement tracking endpoints
+- [x] Implement tests
+
 ---
 
 ### In Progress / Next Up
-
-### Add Tracking
-- [ ] Implement tracking endpoints 
-- [ ] Implement tests
 
 ### Disputes
 - [ ] Implement dispute endpoints 
