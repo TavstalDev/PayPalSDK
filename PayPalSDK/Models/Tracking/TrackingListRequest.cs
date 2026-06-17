@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using Tavstal.PayPalSDK.Http;
-using Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
 using Tavstal.PayPalSDK.Models.Tracking.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Tracking;

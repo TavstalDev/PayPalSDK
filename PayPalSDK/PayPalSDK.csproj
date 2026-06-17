@@ -23,6 +23,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Models\PaymentLinks\" />
       <Folder Include="Services\" />
     </ItemGroup>
 

@@ -1,6 +1,5 @@
 using System.Net.Http.Json;
 using Tavstal.PayPalSDK.Http;
-using Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
 using Tavstal.PayPalSDK.Models.Tracking.Bodies;
 using Tavstal.PayPalSDK.Serialization;
 
