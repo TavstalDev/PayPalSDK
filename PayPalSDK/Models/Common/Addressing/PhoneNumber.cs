@@ -31,4 +31,11 @@ public class PhoneNumber
     [JsonPropertyName("national_number")]
     [StringLength(14)]
     public required string NationalNumber { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the extension number of the phone number.
+    /// </summary>
+    [JsonPropertyName("extension_number")]
+    [StringLength(15)]
+    public string? ExtensionNumber { get; set; }
 }
