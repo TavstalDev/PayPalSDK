@@ -71,11 +71,11 @@ jobs:
         
       # Step 7: Pack the NuGet package
       - name: Pack NuGet Package
-          run: |
-            dotnet pack ${{ env.CSPROJ_PATH }}
-            --configuration Release
-            --no-build
-            --output ./nupkg
+        run: |
+          dotnet pack ${{ env.CSPROJ_PATH }}
+          --configuration Release
+          --no-build
+          --output ./nupkg
         shell: powershell
       
       # Step 8: Get the latest tag
