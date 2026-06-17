@@ -216,12 +216,12 @@ This document tracks the completeness of this SDK against the official PayPal RE
 ---
 
 ## Transaction Search
-| Feature / Endpoint              | PayPal API Reference                    |    Status    | Notes |
-|:--------------------------------|:----------------------------------------|:------------:| :--- |
-| List Transactions               | `/v1/reporting/transactions`            |  🟡 Planned  | |
-| List All Balances               | `/v1/reporting/balances`                |  🟡 Planned  | |
-| List All Balance & Net Activity | `/v1/reporting/get-balance-net-summary` |  🔴 Not Supported  | |
-| List All Daily Summary          | `/v1/reporting/get-daily-summary`       |  🔴 Not Supported  | |
+| Feature / Endpoint              | PayPal API Reference                    |      Status      | Notes |
+|:--------------------------------|:----------------------------------------|:----------------:| :--- |
+| List Transactions               | `/v1/reporting/transactions`            |   🟢 Supported   | |
+| List All Balances               | `/v1/reporting/balances`                |   🟢 Supported   | |
+| List All Balance & Net Activity | `/v1/reporting/get-balance-net-summary` | 🔴 Not Supported | |
+| List All Daily Summary          | `/v1/reporting/get-daily-summary`       | 🔴 Not Supported | |
 
 ---
 
