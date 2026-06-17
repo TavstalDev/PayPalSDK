@@ -218,8 +218,8 @@ This document tracks the completeness of this SDK against the official PayPal RE
 ## Transaction Search
 | Feature / Endpoint              | PayPal API Reference                    |    Status    | Notes |
 |:--------------------------------|:----------------------------------------|:------------:| :--- |
-| List Transactions               | `/v1/reporting/transactions`            |  🔴 Not Supported  | |
-| List All Balances               | `/v1/reporting/balances`                |  🔴 Not Supported  | |
+| List Transactions               | `/v1/reporting/transactions`            |  🟡 Planned  | |
+| List All Balances               | `/v1/reporting/balances`                |  🟡 Planned  | |
 | List All Balance & Net Activity | `/v1/reporting/get-balance-net-summary` |  🔴 Not Supported  | |
 | List All Daily Summary          | `/v1/reporting/get-daily-summary`       |  🔴 Not Supported  | |
 
@@ -250,8 +250,8 @@ This document tracks the completeness of this SDK against the official PayPal RE
 ## Payment Links and Buttons
 | Feature / Endpoint        | PayPal API Reference                  |    Status    | Notes |
 |:--------------------------|:--------------------------------------|:------------:| :--- |
-| Creates Payment Resource  | `/v1/checkout/payment-resources`      |  🔴 Not Supported  | |
-| List Payment Resources    | `/v1/checkout/payment-resources`      |  🔴 Not Supported  | |
-| Retrieve Payment Resource | `/v1/checkout/payment-resources/{id}` |  🔴 Not Supported  | |
-| Replace Payment Resource  | `/v1/checkout/payment-resources/{id}` |  🔴 Not Supported  | |
-| Delete payment resource   | `/v1/checkout/payment-resources/{id}` |  🔴 Not Supported  | |
+| Creates Payment Resource  | `/v1/checkout/payment-resources`      |  🟡 Planned  | |
+| List Payment Resources    | `/v1/checkout/payment-resources`      |  🟡 Planned  | |
+| Retrieve Payment Resource | `/v1/checkout/payment-resources/{id}` |  🟡 Planned  | |
+| Replace Payment Resource  | `/v1/checkout/payment-resources/{id}` |  🟡 Planned  | |
+| Delete payment resource   | `/v1/checkout/payment-resources/{id}` |  🟡 Planned  | |
