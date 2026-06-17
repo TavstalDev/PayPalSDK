@@ -72,9 +72,9 @@ jobs:
       # Step 7: Pack the NuGet package
       - name: Pack NuGet Package
         run: |
-          dotnet pack ${{ env.CSPROJ_PATH }}
-          --configuration Release
-          --no-build
+          dotnet pack ${{ env.CSPROJ_PATH }} `
+          --configuration Release `
+          --no-build `
           --output ./nupkg
         shell: powershell
       
