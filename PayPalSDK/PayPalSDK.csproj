@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         
         <RootNamespace>Tavstal.PayPalSDK</RootNamespace>
-        <AssemblyName>Tavstal.PayPalSDK</AssemblyName>
+        <AssemblyName>PayPalSDK</AssemblyName>
         <AssemblyTitle>PayPalSDK</AssemblyTitle>
         <ApplicationId>PayPalSDK</ApplicationId>
         <Description>A modern PayPal SDK for .NET, designed to simplify payment integration.</Description>
