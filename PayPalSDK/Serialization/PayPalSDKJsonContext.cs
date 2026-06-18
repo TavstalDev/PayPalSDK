@@ -18,6 +18,7 @@ using Tavstal.PayPalSDK.Models.Common.Plans;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Models.Common.Webhooks;
 using Tavstal.PayPalSDK.Models.CurrencyExchange.Bodies;
+using Tavstal.PayPalSDK.Models.Disputes.Bodies;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 using Tavstal.PayPalSDK.Models.Orders.Bodies;
 using Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
@@ -415,4 +416,16 @@ namespace Tavstal.PayPalSDK.Serialization;
 [JsonSerializable(typeof(TrackerInformation))]
 [JsonSerializable(typeof(TransactionListResponseBody))]
 [JsonSerializable(typeof(TransactionListBalanceResponseBody))]
+[JsonSerializable(typeof(DisputeSendMessageRequestBody))]
+[JsonSerializable(typeof(LinksResponseBody))]
+[JsonSerializable(typeof(DisputeSettleRequestBody))]
+[JsonSerializable(typeof(DisputeMakeOfferRequestBody))]
+[JsonSerializable(typeof(DisputeUpdateStatusRequestBody))]
+[JsonSerializable(typeof(DisputeProvideEvidenceRequestBody))]
+[JsonSerializable(typeof(DisputeAcknowledgeReturnRequestBody))]
+[JsonSerializable(typeof(DisputeAppealRequestBody))]
+[JsonSerializable(typeof(DisputeDenyOfferRequestBody))]
+[JsonSerializable(typeof(DisputeEscalateRequestBody))]
+[JsonSerializable(typeof(DisputeProvideSupportRequestBody))]
+[JsonSerializable(typeof(DisputeAcceptOfferRequestBody))]
 public partial class PayPalSDKJsonContext : JsonSerializerContext;
