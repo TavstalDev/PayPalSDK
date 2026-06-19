@@ -89,21 +89,21 @@ This document tracks the completeness of this SDK against the official PayPal RE
 ## Disputes
 | Feature / Endpoint                         | PayPal API Reference                                 |    Status    | Notes          |
 |:-------------------------------------------|:-----------------------------------------------------|:------------:|:---------------|
-| Send Message About Dispute To Other Party  | `/v1/customer/disputes/{id}/send-message`            |  🟡 Planned  |                |
-| Settle Dispute                             | `/v1/customer/disputes/{id}/adjudicate`              |  🟡 Planned  | Sandbox only.  |
-| Make Offer To Resolve Dispute              | `/v1/customer/disputes/{id}/make-offer`              |  🟡 Planned  |                |
-| Update dispute status                      | `/v1/customer/disputes/{id}/require-evidence`        |  🟡 Planned  | Sandbox only.  |
-| Accept Claim                               | `/v1/customer/disputes/{id}/accept-claim`            |  🟡 Planned  |                |
-| Provide Evidence                           | `/v1/customer/disputes/{id}/provide-evidence`        |  🟡 Planned  |                |
-| Acknowledge Returned Item                  | `/v1/customer/disputes/{id}/acknowledge-return-item` |  🟡 Planned  |                |
-| Show Dispute Details                       | `/v1/customer/disputes/{id}`                         |  🟡 Planned  |                |
-| Partially Update Dispute                   | `/v1/customer/disputes/{id}`                         |  🟡 Planned  |                |
-| List Disputes                              | `/v1/customer/disputes`                              |  🟡 Planned  |                |
-| Appeal Dispute                             | `/v1/customer/disputes/{id}/appeal`                  |  🟡 Planned  |                |
-| Deny Offer To Resolve Dispute              | `/v1/customer/disputes/{id}/deny-offer`              |  🟡 Planned  |                |
-| Escalate Dispute To Claim                  | `/v1/customer/disputes/{id}/escalate`                |  🟡 Planned  |                |
-| Provide Supporting Information For Dispute | `/v1/customer/disputes/{id}/provide-supporting-info` |  🟡 Planned  |                |
-| Accept Offer To Resolve Dispute            | `/v1/customer/disputes/{id}/accept-offer`            |  🟡 Planned  |                |
+| Send Message About Dispute To Other Party  | `/v1/customer/disputes/{id}/send-message`            |  🟢 Supported  |                |
+| Settle Dispute                             | `/v1/customer/disputes/{id}/adjudicate`              |  🟢 Supported  | Sandbox only.  |
+| Make Offer To Resolve Dispute              | `/v1/customer/disputes/{id}/make-offer`              |  🟢 Supported  |                |
+| Update dispute status                      | `/v1/customer/disputes/{id}/require-evidence`        |  🟢 Supported  | Sandbox only.  |
+| Accept Claim                               | `/v1/customer/disputes/{id}/accept-claim`            |  🟢 Supported  |                |
+| Provide Evidence                           | `/v1/customer/disputes/{id}/provide-evidence`        |  🟢 Supported  |                |
+| Acknowledge Returned Item                  | `/v1/customer/disputes/{id}/acknowledge-return-item` |  🟢 Supported  |                |
+| Show Dispute Details                       | `/v1/customer/disputes/{id}`                         |  🟢 Supported  |                |
+| Partially Update Dispute                   | `/v1/customer/disputes/{id}`                         |  🟢 Supported  |                |
+| List Disputes                              | `/v1/customer/disputes`                              |  🟢 Supported  |                |
+| Appeal Dispute                             | `/v1/customer/disputes/{id}/appeal`                  |  🟢 Supported  |                |
+| Deny Offer To Resolve Dispute              | `/v1/customer/disputes/{id}/deny-offer`              |  🟢 Supported  |                |
+| Escalate Dispute To Claim                  | `/v1/customer/disputes/{id}/escalate`                |  🟢 Supported  |                |
+| Provide Supporting Information For Dispute | `/v1/customer/disputes/{id}/provide-supporting-info` |  🟢 Supported  |                |
+| Accept Offer To Resolve Dispute            | `/v1/customer/disputes/{id}/accept-offer`            |  🟢 Supported  |                |
 
 ---
 
