@@ -1,0 +1,18 @@
+{
+  "endpoint": "v1/customer/disputes/PP-D-27803",
+  "statusCode": 204,
+  "request": [
+    {
+      "op": "add",
+      "path": "/partner_actions/-",
+      "value": {
+        "id": "AMX-22345",
+        "name": "DENY_DISPUTE",
+        "create_time": "2018-01-12T10:41:35.000Z",
+        "reason": "TRANSACTION_MATCHES_BUYER_SPENDING_PATTERN",
+        "status": "PENDING"
+      }
+    }
+  ],
+  "response": {}
+}

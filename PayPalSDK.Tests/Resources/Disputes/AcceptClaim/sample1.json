@@ -1,0 +1,36 @@
+{
+  "endpoint": "v1/customer/disputes/PP-D-27803/accept-claim",
+  "statusCode": 200,
+  "request": {
+    "note": "full refund with item return.",
+    "return_shipping_address": {
+      "address_line_1": "14,Kimberly st",
+      "address_line_2": "Open Road North",
+      "country_code": "US",
+      "admin_area_1": "Gotham City",
+      "admin_area_2": "Gotham",
+      "postal_code": "124566"
+    },
+    "return_shipment_info": [
+      {
+        "shipment_label": {
+          "id": "10-006-01-001-96571189-0702-49ce-a866-faad20e29731",
+          "name": "file1.pdf"
+        },
+        "tracking_info": {
+          "carrier_name": "FEDEX",
+          "tracking_number": "122533485"
+        }
+      }
+    ]
+  },
+  "response": {
+    "links": [
+      {
+        "rel": "self",
+        "method": "GET",
+        "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-D-27803"
+      }
+    ]
+  }
+}
