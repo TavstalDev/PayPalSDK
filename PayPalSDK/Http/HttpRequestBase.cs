@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Serialization;
@@ -37,8 +38,19 @@ public abstract class HttpRequestBase : HttpRequestMessage
     /// <exception cref="System.Net.Http.HttpRequestException">
     /// Thrown when an error occurs during the HTTP content reading operation.
     /// </exception>
-    public async Task<ErrorResponse?> GetErrorResponseAsync(HttpResponseMessage response, CancellationToken cancellationToken = default) => 
-        await response.Content.ReadFromJsonAsync(PayPalSDKJsonContext.Default.ErrorResponse, cancellationToken: cancellationToken);
+    public async Task<ErrorResponse?> GetErrorResponseAsync(HttpResponseMessage response,
+        CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await response.Content.ReadFromJsonAsync(PayPalSDKJsonContext.Default.ErrorResponse,
+                cancellationToken: cancellationToken);
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
+    }
 }
 
 /// <summary>
