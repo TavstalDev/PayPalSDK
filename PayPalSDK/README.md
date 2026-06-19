@@ -137,8 +137,10 @@ Full documentation is available on the [GitHub repository](https://github.com/Ta
 
 ## License
 
-This project is licensed under the **GNU General Public License v3.0**.  
+This project is licensed under the **MIT License**.  
 See the [LICENSE](https://github.com/TavstalDev/PayPalSDK/blob/stable/LICENSE) file for more details.
+
+Attribution is appreciated but not required. If you use this SDK, please consider mentioning `TavstalDev/PayPalSDK` in your documentation.
 
 ## Issues & Support
 

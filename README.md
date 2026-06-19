@@ -36,7 +36,9 @@ A C# SDK for interacting with the PayPal API, designed to simplify integration a
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0. See the `LICENSE` file for more details.
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+Attribution is appreciated but not required. If you use this SDK, please consider mentioning `TavstalDev/PayPalSDK` in your documentation.
 
 ## Contact
 
