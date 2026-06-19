@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 
-public class GrossAsset
+[DataContract]
+public class Asset
 {
     [JsonPropertyName("asset_symbol")]
     [StringLength(10)]

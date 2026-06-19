@@ -45,7 +45,7 @@ public class DisputedTransaction
     public Money? GrossAmount { get; set; }
     
     [JsonPropertyName("gross_asset")]
-    public GrossAsset? GrossAsset { get; set; }
+    public Asset? GrossAsset { get; set; }
     
     [JsonPropertyName("buyer")]
     public Buyer? Buyer { get; set; }

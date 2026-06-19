@@ -62,7 +62,7 @@ public class DisputeDetails
     public Money? DisputeAmount { get; set; }
     
     [JsonPropertyName("dispute_asset")]
-    public GrossAsset? DisputeAsset { get; set; }
+    public Asset? DisputeAsset { get; set; }
     
     // TODO: Add fee_policy, It is an object but I can't find what should be in it.
     /*[JsonPropertyName("fee_policy")]

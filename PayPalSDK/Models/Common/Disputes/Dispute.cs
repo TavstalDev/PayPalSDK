@@ -44,7 +44,7 @@ public class Dispute
     public Money? Money { get; set; }
     
     [JsonPropertyName("dispute_asset")]
-    public GrossAsset? DisputeAsset { get; set; }
+    public Asset? DisputeAsset { get; set; }
     
     [JsonPropertyName("dispute_life_cycle_stage")]
     [StringLength(255)]

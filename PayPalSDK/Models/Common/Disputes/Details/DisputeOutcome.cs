@@ -22,5 +22,5 @@ public class DisputeOutcome
    public Money? AmountRefunded { get; set; }
    
    [JsonPropertyName("asset_refunded")]
-   public GrossAsset? AssetRefunded { get; set; }
+   public Asset? AssetRefunded { get; set; }
 }

@@ -21,7 +21,7 @@ public class DisputeFundMovement
     public Money? Amount { get; set; }
     
     [JsonPropertyName("asset")]
-    public GrossAsset? Asset { get; set; }
+    public Asset? Asset { get; set; }
     
     [JsonPropertyName("initiated_time")]
     [StringLength(64, MinimumLength = 20)]
