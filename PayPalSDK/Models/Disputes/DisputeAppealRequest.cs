@@ -7,8 +7,21 @@ using Tavstal.PayPalSDK.Serialization;
 
 namespace Tavstal.PayPalSDK.Models.Disputes;
 
+/// <summary>
+/// Represents a request to appeal the resolution of an existing customer dispute.
+/// </summary>
 public class DisputeAppealRequest : HttpRequestBase<LinksResponseBody>
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DisputeAppealRequest"/> class.
+    /// </summary>
+    /// <param name="id">
+    /// The unique dispute identifier used to build the request route.
+    /// Maximum length is 255 characters.
+    /// </param>
+    /// <param name="body">
+    /// The request payload containing the details and rationale for the appeal.
+    /// </param>
     public DisputeAppealRequest([StringLength(255)] string id, DisputeAppealRequestBody body)
         : base(HttpMethod.Post,  $"/v1/customer/disputes/{id}/appeal")
     {
