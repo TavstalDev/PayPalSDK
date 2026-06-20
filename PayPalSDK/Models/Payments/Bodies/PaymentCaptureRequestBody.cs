@@ -18,7 +18,7 @@ public class PaymentCaptureRequestBody
     /// </summary>
     [JsonPropertyName("invoice_id")]
     [StringLength(127)]
-    public string? InvoicdeId { get; set; }
+    public string? InvoiceId { get; set; }
 
     /// <summary>
     /// A note provided to the payer for the payment capture.

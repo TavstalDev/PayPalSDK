@@ -23,7 +23,7 @@ public class ReceiveUpdaterOrderTests : TestBase
         var body = JsonConvert.DeserializeObject<OrderUpdateCallbackRequestBody>(resource.JsonRequest!);
         body.Should().NotBeNull();
         
-        var request = new OrderUpdateCallback(body!);
+        var request = new OrderReceiveUpdateCallback(body!);
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -44,7 +44,7 @@ public class ReceiveUpdaterOrderTests : TestBase
         var body = JsonConvert.DeserializeObject<OrderUpdateCallbackRequestBody>(resource.JsonRequest!);
         body.Should().NotBeNull();
         
-        var request = new OrderUpdateCallback(body!);
+        var request = new OrderReceiveUpdateCallback(body!);
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -65,7 +65,7 @@ public class ReceiveUpdaterOrderTests : TestBase
         var body = JsonConvert.DeserializeObject<OrderUpdateCallbackRequestBody>(resource.JsonRequest!);
         body.Should().NotBeNull();
         
-        var request = new OrderUpdateCallback(body!);
+        var request = new OrderReceiveUpdateCallback(body!);
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -86,7 +86,7 @@ public class ReceiveUpdaterOrderTests : TestBase
         var body = JsonConvert.DeserializeObject<OrderUpdateCallbackRequestBody>(resource.JsonRequest!);
         body.Should().NotBeNull();
         
-        var request = new OrderUpdateCallback(body!);
+        var request = new OrderReceiveUpdateCallback(body!);
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -107,7 +107,7 @@ public class ReceiveUpdaterOrderTests : TestBase
         var body = JsonConvert.DeserializeObject<OrderUpdateCallbackRequestBody>(resource.JsonRequest!);
         body.Should().NotBeNull();
         
-        var request = new OrderUpdateCallback(body!);
+        var request = new OrderReceiveUpdateCallback(body!);
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
