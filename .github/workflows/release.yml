@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write  # Grant write permissions to contents
+  id-token: write
 
 
 env:
@@ -164,3 +165,11 @@ jobs:
           asset_path: ${{ env.NUPKG_PATH }}
           asset_name: ${{ env.NUPKG_ASSET }}
           asset_content_type: application/octet-stream
+      
+      # Step 13: Trusted Publishing (OIDC) publish
+      - name: Publish to NuGet.org
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          dotnet nuget push ./nupkg/*.nupkg \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
