@@ -65,12 +65,13 @@ This page is an index of practical, task-focused examples for `PayPalSDK`.
 
 ## Other API Areas
 
-| Document | Description |
-|---|---|
-| [Product Catalog](examples/product-catalog.md) | Create/list/show/update catalog products |
-| [Currency Exchange](examples/currency-exchange.md) | Quote exchange rates |
-| [Disputes](examples/disputes.md) | Dispute messaging and resolution actions |
+| Document | Description                                       |
+|---|---------------------------------------------------|
+| [Product Catalog](examples/product-catalog.md) | Create/list/show/update catalog products          |
+| [Currency Exchange](examples/currency-exchange.md) | Quote exchange rates                              |
+| [Disputes](examples/disputes.md) | Dispute messaging and resolution actions          |
 | [Transaction Search](examples/transaction-search.md) | Reporting endpoints for balances and transactions |
+| [PaymentResources](examples/payment-resources.md) | Payment links and buttons.                        |
 
 ---
 
