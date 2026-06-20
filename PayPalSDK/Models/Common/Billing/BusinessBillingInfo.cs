@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
+using Tavstal.PayPalSDK.Models.Common.Invoices;
 using Tavstal.PayPalSDK.Models.Common.User;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
@@ -40,7 +41,7 @@ public class BusinessBillingInfo
     /// Gets or sets the list of phone numbers associated with the business.
     /// </summary>
     [JsonPropertyName("phones")]
-    public List<Phone>? Phones { get; set; }
+    public List<InvoicePhone>? Phones { get; set; }
 
     /// <summary>
     /// Gets or sets additional information about the business.

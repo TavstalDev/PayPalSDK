@@ -40,7 +40,7 @@ public class Invoicer
     /// Gets or sets the list of phone numbers associated with the invoicer.
     /// </summary>
     [JsonPropertyName("phones")]
-    public List<Phone>? Phones { get; set; }
+    public List<InvoicePhone>? Phones { get; set; }
 
     /// <summary>
     /// Gets or sets the website URL of the invoicer.
@@ -61,6 +61,16 @@ public class Invoicer
     [JsonPropertyName("tax_id")]
     [StringLength(100)]
     public string? TaxId { get; set; }
+    
+    /// <summary>
+    /// Gets or sets additional notes provided by the invoicer.
+    /// </summary>
+    /// <remarks>
+    /// The additional notes must not exceed 400 characters.
+    /// </remarks>
+    [JsonPropertyName("additional_notes")]
+    [StringLength(400)]
+    public string? AdditionalNotes { get; set; }
 
     /// <summary>
     /// Gets or sets additional notes for the invoicer.

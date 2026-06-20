@@ -36,7 +36,37 @@ public class InvoiceConfig
     /// </summary>
     [JsonPropertyName("partial_payment")]
     public PartialPayment? PartialPayment { get; set; }
+    
+    /// <summary>
+    /// Gets or sets a value indicating whether conditional rules are enabled for the invoice configuration.
+    /// </summary>
+    [JsonPropertyName("has_conditional_rule")]
+    public bool HasConditionalRule { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether invoice items are saved for future reuse.
+    /// </summary>
+    [JsonPropertyName("save_item_for_future")]
+    public bool SaveItemForFuture { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether additional item fields are displayed in the invoice.
+    /// </summary>
+    [JsonPropertyName("show_additional_item_fields")]
+    public bool ShowAdditionalItemFields { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating the preferred discount mode behavior for the invoice.
+    /// </summary>
+    [JsonPropertyName("discount_mode_preference")]
+    public bool DiscountModePreference { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual theme configuration applied to the invoice.
+    /// </summary>
+    [JsonPropertyName("theme")]
+    public InvoiceTheme? Theme { get; set; }
+    
     /// <summary>
     /// Gets or sets the template ID used for the invoice.
     /// </summary>
