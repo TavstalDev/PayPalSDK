@@ -15,10 +15,11 @@ public class OrderAuthorizeRequest : HttpRequestBase<OrderBody>
     /// </summary>
     /// <param name="orderId">The unique identifier of the order to be authorized.</param>
     /// <param name="body">The request body containing payment source details for the authorization.</param>
-    public OrderAuthorizeRequest(string orderId, OrderAuthorizeRequestBody body) 
+    public OrderAuthorizeRequest(string orderId, OrderAuthorizeRequestBody? body = null) 
         : base(HttpMethod.Post, $"/v2/checkout/orders/{orderId}/authorize")
     {
-        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.OrderAuthorizeRequestBody);
+        if (body != null)
+            Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.OrderAuthorizeRequestBody);
     }
 
     /// <summary>
