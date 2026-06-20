@@ -248,10 +248,10 @@ This document tracks the completeness of this SDK against the official PayPal RE
 ---
 
 ## Payment Links and Buttons
-| Feature / Endpoint        | PayPal API Reference                  |    Status    | Notes |
-|:--------------------------|:--------------------------------------|:------------:| :--- |
-| Creates Payment Resource  | `/v1/checkout/payment-resources`      |  🟡 Planned  | |
-| List Payment Resources    | `/v1/checkout/payment-resources`      |  🟡 Planned  | |
-| Retrieve Payment Resource | `/v1/checkout/payment-resources/{id}` |  🟡 Planned  | |
-| Replace Payment Resource  | `/v1/checkout/payment-resources/{id}` |  🟡 Planned  | |
-| Delete payment resource   | `/v1/checkout/payment-resources/{id}` |  🟡 Planned  | |
+| Feature / Endpoint        | PayPal API Reference                  |     Status     | Notes |
+|:--------------------------|:--------------------------------------|:--------------:| :--- |
+| Creates Payment Resource  | `/v1/checkout/payment-resources`      |  🟢 Supported  | |
+| List Payment Resources    | `/v1/checkout/payment-resources`      |  🟢 Supported  | |
+| Retrieve Payment Resource | `/v1/checkout/payment-resources/{id}` |  🟢 Supported  | |
+| Replace Payment Resource  | `/v1/checkout/payment-resources/{id}` |  🟢 Supported  | |
+| Delete payment resource   | `/v1/checkout/payment-resources/{id}` |  🟢 Supported  | |

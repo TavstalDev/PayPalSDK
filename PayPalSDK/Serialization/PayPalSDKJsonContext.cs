@@ -11,6 +11,9 @@ using Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandize;
 using Tavstal.PayPalSDK.Models.Common.Invoices;
 using Tavstal.PayPalSDK.Models.Common.Orders;
 using Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
+using Tavstal.PayPalSDK.Models.Common.PaymentResources;
+using Tavstal.PayPalSDK.Models.Common.PaymentResources.CodeSnippet;
+using Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources;
@@ -28,6 +31,7 @@ using Tavstal.PayPalSDK.Models.Disputes.Bodies;
 using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 using Tavstal.PayPalSDK.Models.Orders.Bodies;
 using Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
+using Tavstal.PayPalSDK.Models.PaymentResources.Bodies;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
@@ -103,6 +107,10 @@ namespace Tavstal.PayPalSDK.Serialization;
 [JsonSerializable(typeof(List<CardStoredCredentials>))]
 [JsonSerializable(typeof(CheckoutOption))]
 [JsonSerializable(typeof(List<CheckoutOption>))]
+[JsonSerializable(typeof(CodeSnippetSingle))]
+[JsonSerializable(typeof(List<CodeSnippetSingle>))]
+[JsonSerializable(typeof(CodeSnippetStacked))]
+[JsonSerializable(typeof(List<CodeSnippetStacked>))]
 [JsonSerializable(typeof(CreditNotProcessed))]
 [JsonSerializable(typeof(List<CreditNotProcessed>))]
 [JsonSerializable(typeof(CurrencyExchangeCreateRequestBody))]
@@ -115,6 +123,8 @@ namespace Tavstal.PayPalSDK.Serialization;
 [JsonSerializable(typeof(List<CurrencyExchangeQuoteRate>))]
 [JsonSerializable(typeof(Customer))]
 [JsonSerializable(typeof(List<Customer>))]
+[JsonSerializable(typeof(CustomerNote))]
+[JsonSerializable(typeof(List<CustomerNote>))]
 [JsonSerializable(typeof(CycleExecution))]
 [JsonSerializable(typeof(List<CycleExecution>))]
 [JsonSerializable(typeof(DateRange))]
@@ -357,16 +367,40 @@ namespace Tavstal.PayPalSDK.Serialization;
 [JsonSerializable(typeof(List<PaymentCapture>))]
 [JsonSerializable(typeof(PaymentCaptureRequestBody))]
 [JsonSerializable(typeof(List<PaymentCaptureRequestBody>))]
+[JsonSerializable(typeof(PaymentCodeSnippet))]
+[JsonSerializable(typeof(List<PaymentCodeSnippet>))]
 [JsonSerializable(typeof(PaymentData))]
 [JsonSerializable(typeof(List<PaymentData>))]
 [JsonSerializable(typeof(PaymentFindEligibleMethodsRequestBody))]
 [JsonSerializable(typeof(List<PaymentFindEligibleMethodsRequestBody>))]
 [JsonSerializable(typeof(PaymentInstruction))]
 [JsonSerializable(typeof(List<PaymentInstruction>))]
+[JsonSerializable(typeof(PaymentLineItem))]
+[JsonSerializable(typeof(List<PaymentLineItem>))]
+[JsonSerializable(typeof(PaymentLineItemAdjustableQuantity))]
+[JsonSerializable(typeof(List<PaymentLineItemAdjustableQuantity>))]
+[JsonSerializable(typeof(PaymentLineItemTax))]
+[JsonSerializable(typeof(List<PaymentLineItemTax>))]
+[JsonSerializable(typeof(PaymentLineItemVariantDimension))]
+[JsonSerializable(typeof(List<PaymentLineItemVariantDimension>))]
+[JsonSerializable(typeof(PaymentLineItemVariantDimensionOption))]
+[JsonSerializable(typeof(List<PaymentLineItemVariantDimensionOption>))]
+[JsonSerializable(typeof(PaymentLineItemVariants))]
+[JsonSerializable(typeof(List<PaymentLineItemVariants>))]
 [JsonSerializable(typeof(PaymentReauthorizeRequestBody))]
 [JsonSerializable(typeof(List<PaymentReauthorizeRequestBody>))]
 [JsonSerializable(typeof(PaymentRefundRequestBody))]
 [JsonSerializable(typeof(List<PaymentRefundRequestBody>))]
+[JsonSerializable(typeof(PaymentResourceBody))]
+[JsonSerializable(typeof(List<PaymentResourceBody>))]
+[JsonSerializable(typeof(PaymentResourceCreateRequestBody))]
+[JsonSerializable(typeof(List<PaymentResourceCreateRequestBody>))]
+[JsonSerializable(typeof(PaymentResourceListResponseBody))]
+[JsonSerializable(typeof(List<PaymentResourceListResponseBody>))]
+[JsonSerializable(typeof(PaymentResourceReplaceRequestBody))]
+[JsonSerializable(typeof(List<PaymentResourceReplaceRequestBody>))]
+[JsonSerializable(typeof(PaymentShippingItem))]
+[JsonSerializable(typeof(List<PaymentShippingItem>))]
 [JsonSerializable(typeof(PaymentSource))]
 [JsonSerializable(typeof(List<PaymentSource>))]
 [JsonSerializable(typeof(PaymentsUnit))]
