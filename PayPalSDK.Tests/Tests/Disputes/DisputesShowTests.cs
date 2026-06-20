@@ -1,7 +1,5 @@
 using System.Net;
-using Newtonsoft.Json;
 using Tavstal.PayPalSDK.Models.Disputes;
-using Tavstal.PayPalSDK.Models.Disputes.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
 using Xunit.Abstractions;
 
