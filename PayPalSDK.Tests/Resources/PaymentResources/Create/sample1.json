@@ -1,0 +1,60 @@
+{
+  "endpoint": "v1/checkout/payment-resources",
+  "statusCode": 200,
+  "request": {
+    "type": "BUY_NOW",
+    "integration_mode": "LINK",
+    "reusable": "MULTIPLE",
+    "return_url": "https://merchant.example.com/thank-you",
+    "line_items": [
+      {
+        "name": "Wireless Mouse",
+        "unit_amount": {
+          "currency_code": "USD",
+          "value": "39.99"
+        }
+      }
+    ]
+  },
+  "response": {
+    "id": "PLB-X7MNK9P2QR8T",
+    "integration_mode": "LINK",
+    "create_time": "2025-12-01T10:00:00.000Z",
+    "status": "ACTIVE",
+    "payment_link": "https://www.paypal.com/ncp/payment/PLB-X7MNK9P2QR8T",
+    "type": "BUY_NOW",
+    "reusable": "MULTIPLE",
+    "return_url": "https://merchant.example.com/thank-you",
+    "line_items": [
+      {
+        "name": "Wireless Mouse",
+        "unit_amount": {
+          "currency_code": "USD",
+          "value": "39.99"
+        }
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-X7MNK9P2QR8T",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-X7MNK9P2QR8T",
+        "rel": "replace",
+        "method": "PUT"
+      },
+      {
+        "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-X7MNK9P2QR8T",
+        "rel": "delete",
+        "method": "DELETE"
+      },
+      {
+        "href": "https://www.paypal.com/ncp/payment/PLB-X7MNK9P2QR8T",
+        "rel": "payment_link",
+        "method": "GET"
+      }
+    ]
+  }
+}

@@ -6,6 +6,7 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
@@ -132,4 +133,14 @@ public class SubscriptionPlanBody
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
     public string? UpdateTime { get; set; }
+    
+    /// <summary>
+    /// Gets the creation time of the plan as a nullable DateTime object.
+    /// </summary>
+    public DateTime? CreateTimeAsDateTime => DateTimeHelper.FromISO8601(CreateTime);
+    
+    /// <summary>
+    /// Gets the last update time of the plan as a nullable DateTime object.
+    /// </summary>
+    public DateTime? UpdateTimeAsDateTime => DateTimeHelper.FromISO8601(UpdateTime);
 }

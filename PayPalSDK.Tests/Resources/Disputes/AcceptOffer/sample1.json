@@ -1,0 +1,16 @@
+{
+  "endpoint": "v1/customer/disputes/PP-000-000-651-454/accept-offer",
+  "statusCode": 202,
+  "request": {
+    "note": "I am ok with the refund offered."
+  },
+  "response": {
+    "links": [
+      {
+        "href": "https://api-m.sandbox.paypal.com/v1/apis/requests/84880ea1-6d89-4ac2-982e-821cce7db87e",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  }
+}

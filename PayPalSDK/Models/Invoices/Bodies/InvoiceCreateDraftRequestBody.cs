@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Invoices;
-using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 
 namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
@@ -54,7 +53,7 @@ public class InvoiceCreateDraftRequestBody
     /// Gets or sets the total amount breakdown for the invoice.
     /// </summary>
     [JsonPropertyName("amount")]
-    public MoneyBreakdown? Amount { get; set; }
+    public InvoiceAmount? Amount { get; set; }
 
     /// <summary>
     /// Gets or sets the list of authorized payments associated with the invoice.
@@ -67,4 +66,11 @@ public class InvoiceCreateDraftRequestBody
     /// </summary>
     [JsonPropertyName("refunds")]
     public List<RefundPaymentBody>? Refunds { get; set; }
+    
+    /// <summary>
+    /// Gets or sets invoice behavior and presentation settings,
+    /// such as payment terms, reminders, and display preferences.
+    /// </summary>
+    [JsonPropertyName("settings")]
+    public InvoiceSettings? Settings { get; set; }
 }

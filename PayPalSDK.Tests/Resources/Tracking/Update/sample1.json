@@ -1,0 +1,11 @@
+{
+  "endpoint": "v1/shipping/trackers/8MC585209K746392H-443844607820",
+  "statusCode": 204,
+  "request": {
+    "transaction_id": "8MC585209K746392H",
+    "tracking_number": "443844607820",
+    "status": "CANCELLED",
+    "carrier": "FEDEX"
+  },
+  "response": {}
+}

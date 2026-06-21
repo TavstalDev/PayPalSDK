@@ -1,0 +1,91 @@
+{
+  "endpoint": "v1/customer/disputes/PP-D-27803/provide-evidence",
+  "statusCode": 200,
+  "request": {
+    "return_shipping_address": {
+      "address_line_1": "14,Kimberly st",
+      "address_line_2": "Open Road North",
+      "country_code": "US",
+      "admin_area_1": "Gotham City",
+      "admin_area_2": "Gotham",
+      "postal_code": "124566"
+    },
+    "return_shipping_address_info": {
+      "save_to_profile": false,
+      "address": {
+        "address_line_1": "14,Kimberly st",
+        "address_line_2": "Open Road North",
+        "country_code": "US",
+        "admin_area_1": "Gotham City",
+        "admin_area_2": "Gotham",
+        "postal_code": "124566"
+      }
+    }
+  },
+  "response": {
+    "links": [
+      {
+        "href": "string",
+        "rel": "string",
+        "method": "GET",
+        "title": "string",
+        "mediaType": "string",
+        "encType": "application/json",
+        "schema": {
+          "additionalItems": {},
+          "dependencies": {},
+          "items": {},
+          "definitions": {},
+          "patternProperties": {},
+          "properties": {},
+          "allOf": [
+            {}
+          ],
+          "anyOf": [
+            {}
+          ],
+          "oneOf": [
+            {}
+          ],
+          "not": {},
+          "links": [
+            {}
+          ],
+          "fragmentResolution": "string",
+          "media": {
+            "type": "string",
+            "binaryEncoding": "string"
+          },
+          "pathStart": "http://example.com"
+        },
+        "targetSchema": {
+          "additionalItems": {},
+          "dependencies": {},
+          "items": {},
+          "definitions": {},
+          "patternProperties": {},
+          "properties": {},
+          "allOf": [
+            {}
+          ],
+          "anyOf": [
+            {}
+          ],
+          "oneOf": [
+            {}
+          ],
+          "not": {},
+          "links": [
+            {}
+          ],
+          "fragmentResolution": "string",
+          "media": {
+            "type": "string",
+            "binaryEncoding": "string"
+          },
+          "pathStart": "http://example.com"
+        }
+      }
+    ]
+  }
+}

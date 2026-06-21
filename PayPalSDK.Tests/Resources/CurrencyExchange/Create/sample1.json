@@ -1,0 +1,32 @@
+{
+  "endpoint": "v2/pricing/quote-exchange-rates",
+  "statusCode": 200,
+  "request": {
+    "quote_items": [
+      {
+        "base_currency": "USD",
+        "base_amount": "16.80",
+        "quote_currency": "GBP",
+        "markup_percent": "1"
+      }
+    ]
+  },
+  "response": {
+    "exchange_rate_quotes": [
+      {
+        "base_amount": {
+          "currency_code": "USD",
+          "value": "16.80"
+        },
+        "quote_amount": {
+          "currency_code": "GBP",
+          "value": "13.80"
+        },
+        "exchange_rate": "0.80956391984",
+        "expiry_time": "2022-03-10T21:30:00Z",
+        "rate_refresh_time": "2022-03-10T18:30:00Z",
+        "fx_id": "MTFFQy05RjkzLTQ4ODkwMjE5LUEzRTAtREQ4OTc1NEQ1NUUw"
+      }
+    ]
+  }
+}

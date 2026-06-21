@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Invoices;
-using Tavstal.PayPalSDK.Models.Common.Payments;
 
 namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 
@@ -53,5 +52,12 @@ public class InvoiceUpdateRequestBody
     /// Gets or sets the breakdown of the total amount for the invoice.
     /// </summary>
     [JsonPropertyName("amount")]
-    public MoneyBreakdown? Amount { get; set; }
+    public InvoiceAmount? Amount { get; set; }
+    
+    /// <summary>
+    /// Gets or sets invoice behavior and presentation settings,
+    /// such as payment terms, reminders, and display preferences.
+    /// </summary>
+    [JsonPropertyName("settings")]
+    public InvoiceSettings? Settings { get; set; }
 }

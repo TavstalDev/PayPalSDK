@@ -1,0 +1,27 @@
+{
+  "endpoint": "v2/pricing/quote-exchange-rates",
+  "statusCode": 400,
+  "request": {
+    "quote_items": [
+      {
+        "base_currency": "USD",
+        "base_amount": "10.001",
+        "quote_currency": "INR"
+      }
+    ]
+  },
+  "response": {
+    "name": "INVALID_REQUEST",
+    "message": "Request is not well-formed, syntactically incorrect, or violates schema.",
+    "debug_id": "90bff07028f7f",
+    "details": [
+      {
+        "issue": "INVALID_PARAMETER_SYNTAX",
+        "description": "The value of a field does not conform to the expected format.",
+        "field": "/quote_items/0/base_amount",
+        "location": "body",
+        "value": "10.001"
+      }
+    ]
+  }
+}

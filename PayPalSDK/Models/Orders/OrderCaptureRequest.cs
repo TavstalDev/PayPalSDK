@@ -15,10 +15,11 @@ public class OrderCaptureRequest : HttpRequestBase<OrderBody>
     /// </summary>
     /// <param name="orderId">The unique identifier of the order to be captured.</param>
     /// <param name="body">The request body containing payment source details for the capture.</param>
-    public OrderCaptureRequest(string orderId, OrderCaptureRequestBody body) 
+    public OrderCaptureRequest(string orderId, OrderCaptureRequestBody? body = null) 
         : base(HttpMethod.Post, $"/v2/checkout/orders/{orderId}/capture")
     {
-        Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.OrderCaptureRequestBody);
+        if (body != null)
+            Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.OrderCaptureRequestBody);
     }
 
     /// <summary>

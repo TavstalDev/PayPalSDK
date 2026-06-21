@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 
@@ -63,4 +64,14 @@ public class InvoiceRecordPaymentRequestBody
     /// </summary>
     [JsonPropertyName("shipping_info")]
     public ShippingInfo? ShippingInfo { get; set; }
+    
+    /// <summary>
+    /// Gets the payment date and time as a nullable DateTime object.
+    /// </summary>
+    public DateTime? PaymentDateAsDateTime => DateTimeHelper.FromISO8601(PaymentDateTime);
+    
+    /// <summary>
+    /// Gets the payment date as a nullable DateTime object.
+    /// </summary>
+    public DateTime? PaymentDateAsDate => DateTimeHelper.FromISO8601(PaymentDate);
 }

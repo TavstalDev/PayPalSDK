@@ -7,6 +7,7 @@ using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
 using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
@@ -156,4 +157,24 @@ public class SubscriptionBody
     /// </summary>
     [JsonPropertyName("plan")]
     public SubscriptionPlanBody? Plan { get; set; }
+    
+    /// <summary>
+    /// Gets the start time of the subscription as a nullable DateTime object.
+    /// </summary>
+    public DateTime? StartTimeAsDateTime => DateTimeHelper.FromISO8601(StartTime);
+    
+    /// <summary>
+    /// Gets the creation time of the subscription as a nullable DateTime object.
+    /// </summary>
+    public DateTime? CreateTimeAsDateTime => DateTimeHelper.FromISO8601(CreateTime);
+    
+    /// <summary>
+    /// Gets the last update time of the subscription as a nullable DateTime object.
+    /// </summary>
+    public DateTime? UpdateTimeAsDateTime => DateTimeHelper.FromISO8601(UpdateTime);
+    
+    /// <summary>
+    /// Gets the last status update time of the subscription as a nullable DateTime object.
+    /// </summary>
+    public DateTime? StatusUpdateTimeAsDateTime => DateTimeHelper.FromISO8601(StatusUpdateTime);
 }

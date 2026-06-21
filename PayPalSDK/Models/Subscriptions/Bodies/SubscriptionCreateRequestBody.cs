@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
@@ -85,4 +86,9 @@ public class SubscriptionCreateRequestBody
     /// </summary>
     [JsonPropertyName("plan")]
     public SubscriberPlan? Plan { get; set; }
+    
+    /// <summary>
+    /// Gets the start time of the subscription as a nullable DateTime object.
+    /// </summary>
+    public DateTime? StartTimeAsDateTime => DateTimeHelper.FromISO8601(StartTime);
 }

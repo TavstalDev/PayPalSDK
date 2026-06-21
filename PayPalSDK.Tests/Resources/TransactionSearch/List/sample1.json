@@ -1,0 +1,106 @@
+{
+  "endpoint": "v1/reporting/transactions?start_date=2022-04-25T00:00:00-07:00&end_date=2022-05-10T23:59:59:59-07:00&transaction_id=03A84379GE3808324&fields=all",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "transaction_details": [
+      {
+        "transaction_info": {
+          "paypal_account_id": "DR5YHAS5Y2FHN",
+          "transaction_id": "03A84379GE3808324",
+          "transaction_event_code": "T0007",
+          "transaction_initiation_date": "2022-05-02T07:24:52Z",
+          "transaction_updated_date": "2022-05-02T07:24:52Z",
+          "transaction_amount": {
+            "currency_code": "EUR",
+            "value": "105.00"
+          },
+          "fee_amount": {
+            "currency_code": "EUR",
+            "value": "-0.40"
+          },
+          "transaction_status": "S",
+          "transaction_subject": "Description of PU1",
+          "invoice_id": "invoice_id_1651476157",
+          "custom_field": "custom_id_1651476157",
+          "protection_eligibility": "01",
+          "instrument_type": "Direct Debit",
+          "decline_code": "AM04"
+        },
+        "payer_info": {
+          "account_id": "DR5YHAS5Y2FHN",
+          "email_address": "de-1621500028760137@paypal.com",
+          "address_status": "N",
+          "payer_status": "N",
+          "payer_name": {
+            "given_name": "DE",
+            "surname": "SEPA",
+            "alternate_full_name": "DE SEPA"
+          },
+          "country_code": "DE"
+        },
+        "shipping_info": {
+          "name": "DE, SEPA"
+        },
+        "cart_info": {
+          "item_details": [
+            {
+              "item_code": "259483234816",
+              "item_name": "VRLens1",
+              "item_description": "VRLens1",
+              "item_quantity": "1",
+              "item_unit_price": {
+                "currency_code": "EUR",
+                "value": "55.00"
+              },
+              "item_amount": {
+                "currency_code": "EUR",
+                "value": "55.00"
+              },
+              "total_item_amount": {
+                "currency_code": "EUR",
+                "value": "55.00"
+              },
+              "invoice_number": "invoice_id_1651476157"
+            },
+            {
+              "item_code": "259483234816",
+              "item_name": "VRLens2",
+              "item_description": "VRLens2",
+              "item_quantity": "1",
+              "item_unit_price": {
+                "currency_code": "EUR",
+                "value": "50.00"
+              },
+              "item_amount": {
+                "currency_code": "EUR",
+                "value": "50.00"
+              },
+              "total_item_amount": {
+                "currency_code": "EUR",
+                "value": "50.00"
+              },
+              "invoice_number": "invoice_id_1651476157"
+            }
+          ]
+        },
+        "store_info": {},
+        "auction_info": {},
+        "incentive_info": {}
+      }
+    ],
+    "start_date": "2022-04-25T00:00:00Z",
+    "end_date": "2022-05-10T23:59:59Z",
+    "last_refreshed_datetime": "2022-05-19T12:06:56Z",
+    "page": 1,
+    "total_items": 1,
+    "total_pages": 1,
+    "links": [
+      {
+        "href": "https://api-m.sandbox.paypal.com/v1/reporting/transactions?fields=all&transaction_id=03A84379GE3808324&end_date=2022-05-10T23%3A59%3A59Z&start_date=2022-04-25T00%3A00%3A00Z&page_size=100&page=1",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  }
+}

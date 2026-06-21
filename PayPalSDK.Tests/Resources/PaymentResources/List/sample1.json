@@ -1,0 +1,99 @@
+{
+  "endpoint": "v1/checkout/payment-resources?page_size=2",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "resources": [
+      {
+        "id": "PLB-X7MNK9P2QR8T",
+        "integration_mode": "LINK",
+        "create_time": "2025-11-29T13:13:25.832592Z",
+        "status": "ACTIVE",
+        "payment_link": "https://www.paypal.com/ncp/payment/PLB-X7MNK9P2QR8T",
+        "type": "BUY_NOW",
+        "reusable": "MULTIPLE",
+        "line_items": [
+          {
+            "name": "Wireless Mouse",
+            "unit_amount": {
+              "currency_code": "USD",
+              "value": "29.99"
+            }
+          }
+        ],
+        "links": [
+          {
+            "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-X7MNK9P2QR8T",
+            "rel": "self",
+            "method": "GET"
+          },
+          {
+            "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-X7MNK9P2QR8T",
+            "rel": "replace",
+            "method": "PUT"
+          },
+          {
+            "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-X7MNK9P2QR8T",
+            "rel": "delete",
+            "method": "DELETE"
+          },
+          {
+            "href": "https://www.paypal.com/ncp/payment/PLB-X7MNK9P2QR8T",
+            "rel": "payment_link",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "id": "PLB-P2QR8TX7MNK9",
+        "integration_mode": "LINK",
+        "create_time": "2025-11-29T13:13:25.832592Z",
+        "status": "ACTIVE",
+        "payment_link": "https://www.paypal.com/ncp/payment/PLB-P2QR8TX7MNK9",
+        "type": "BUY_NOW",
+        "reusable": "MULTIPLE",
+        "line_items": [
+          {
+            "name": "Wireless Keyboard",
+            "unit_amount": {
+              "currency_code": "USD",
+              "value": "99.99"
+            }
+          }
+        ],
+        "links": [
+          {
+            "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-P2QR8TX7MNK9",
+            "rel": "self",
+            "method": "GET"
+          },
+          {
+            "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-P2QR8TX7MNK9",
+            "rel": "replace",
+            "method": "PUT"
+          },
+          {
+            "href": "https://api.paypal.com/v1/checkout/payment-resources/PLB-P2QR8TX7MNK9",
+            "rel": "delete",
+            "method": "DELETE"
+          },
+          {
+            "href": "https://www.paypal.com/ncp/payment/PLB-P2QR8TX7MNK9",
+            "rel": "payment_link",
+            "method": "GET"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api.paypal.com/v1/checkout/payment-resources?page_size=2",
+        "rel": "self"
+      },
+      {
+        "href": "https://api.paypal.com/v1/checkout/payment-resources?page_token=eyJleGNsdXNpdmVfc3RhcnRfa2V5Ijp7ImlkIjoiUExCLVAyUVI4VFg3TU5LOSJ9LCJwYWdlX3NpemUiOjJ9",
+        "rel": "next"
+      }
+    ]
+  }
+}

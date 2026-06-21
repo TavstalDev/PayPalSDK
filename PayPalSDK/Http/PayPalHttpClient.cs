@@ -21,7 +21,8 @@ public class PayPalHttpClient
     /// </summary>
     /// <param name="environment">The PayPal environment configuration containing base URL and authorization details.</param>
     /// <param name="refreshToken">An optional refresh token for obtaining access tokens.</param>
-    public PayPalHttpClient(EnvironmentBase environment, string? refreshToken = null)
+    /// <param name="applicationName">An optional application name to include in the User-Agent header.</param>
+    public PayPalHttpClient(EnvironmentBase environment, string? refreshToken = null, string? applicationName = null)
     {
         _environment = environment;
         _refreshToken = refreshToken;
@@ -35,7 +36,8 @@ public class PayPalHttpClient
         _httpClient.BaseAddress = new Uri(_environment.BaseUrl);
         _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
         _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
-        _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent.GetUserAgentHeader());
+        var agent = applicationName != null ? UserAgent.GetUserAgentHeader(applicationName) : UserAgent.GetUserAgentHeader();
+        _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
     }
 
     /// <summary>
@@ -45,7 +47,8 @@ public class PayPalHttpClient
     /// <param name="environment">The environment configuration.</param>
     /// <param name="httpClient">The pre-configured HttpClient to use.</param>
     /// <param name="refreshToken">Optional refresh token.</param>
-    public PayPalHttpClient(EnvironmentBase environment, HttpClient httpClient, string? refreshToken = null)
+    /// <param name="applicationName">An optional application name to include in the User-Agent header.</param>
+    public PayPalHttpClient(EnvironmentBase environment, HttpClient httpClient, string? refreshToken = null, string? applicationName = null)
     {
         _environment = environment;
         _refreshToken = refreshToken;
@@ -59,7 +62,10 @@ public class PayPalHttpClient
             _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
         if (!_httpClient.DefaultRequestHeaders.UserAgent.Any())
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent.GetUserAgentHeader());
+        {
+            var agent = applicationName != null ? UserAgent.GetUserAgentHeader(applicationName) : UserAgent.GetUserAgentHeader();
+            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
+        }
     }
 
     /// <summary>
@@ -67,20 +73,21 @@ public class PayPalHttpClient
     /// Automatically adds an Authorization header if not already present.
     /// </summary>
     /// <param name="request">The HTTP request to send.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
     /// <returns>A task representing the asynchronous operation, containing the HTTP response.</returns>
-    public async Task<HttpResponseMessage> SendAsync(HttpRequestBase request)
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default)
     {
         // Adds the Authorization header if missing, fetching a new access token if necessary.
         if (!request.Headers.Contains("Authorization"))
         {
             if (_accessToken == null || _accessToken.IsExpired())
             {
-                _accessToken = await FetchAccessTokenAsync();
+                _accessToken = await FetchAccessTokenAsync(cancellationToken);
             }
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
         }
 
-        return await _httpClient.SendAsync(request);
+        return await _httpClient.SendAsync(request, cancellationToken);
     }
 
     /// <summary>
@@ -88,28 +95,35 @@ public class PayPalHttpClient
     /// Handles both access token and refresh token responses.
     /// </summary>
     /// <returns>A task representing the asynchronous operation, containing the fetched access token.</returns>
+    /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
     /// <exception cref="InvalidOperationException">Thrown if the access token retrieval fails.</exception>
-    private async Task<AccessToken> FetchAccessTokenAsync()
+    private async Task<AccessToken> FetchAccessTokenAsync(CancellationToken cancellationToken = default)
     {
         try
         {
             // Creates a request to obtain an access token.
             var tokenRequest = new AccessTokenRequest(_environment, _refreshToken);
-            using var response = await _httpClient.SendAsync(tokenRequest);
+            using var response = await _httpClient.SendAsync(tokenRequest, cancellationToken);
             response.EnsureSuccessStatusCode();
 
             // Deserializes the response into an access token or refresh token.
-            var json = await response.Content.ReadAsStringAsync();
+            var json = await response.Content.ReadAsStringAsync(cancellationToken);
             var accessToken = JsonSerializer.Deserialize<AccessToken>(json, PayPalSDKJsonContext.Default.AccessToken);
             if (accessToken == null)
             {
-                var refreshToken = JsonSerializer.Deserialize<RefreshToken>(json, PayPalSDKJsonContext.Default.RefreshToken);
+                var refreshToken =
+                    JsonSerializer.Deserialize<RefreshToken>(json, PayPalSDKJsonContext.Default.RefreshToken);
                 if (refreshToken != null)
                     return refreshToken.ToAccessToken();
 
                 throw new InvalidOperationException("Failed to deserialize access token response.");
             }
+
             return accessToken;
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
         }
         catch (Exception ex)
         {

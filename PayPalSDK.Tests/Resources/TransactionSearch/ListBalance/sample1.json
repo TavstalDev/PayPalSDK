@@ -1,0 +1,28 @@
+{
+  "endpoint": "v1/reporting/balances?as_of_time=2021-02-22T00:00:00-07:00&currency_code=ALL",
+  "statusCode": 200,
+  "request": {},
+  "response": {
+    "balances": [
+      {
+        "currency": "USD",
+        "primary": true,
+        "total_balance": {
+          "currency_code": "USD",
+          "value": "300.00"
+        },
+        "available_balance": {
+          "currency_code": "USD",
+          "value": "100.00"
+        },
+        "withheld_balance": {
+          "currency_code": "USD",
+          "value": "200.00"
+        }
+      }
+    ],
+    "account_id": "DV77JV8VP82XE",
+    "as_of_time": "2021-02-22T11:35:58Z",
+    "last_refresh_time": "2021-03-03T16:23:30Z"
+  }
+}

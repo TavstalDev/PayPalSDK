@@ -23,7 +23,7 @@ public class WebhooksListTests : TestBase
         objectResponse.Should().NotBeNull();
         objectResponse!.Webhooks.Should().NotBeNull();
         
-        foreach (var webhook in objectResponse!.Webhooks!)
+        foreach (var webhook in objectResponse.Webhooks!)
         {
             _testOutputHelper.WriteLine("Id: " + webhook.Id);
             _testOutputHelper.WriteLine("Url: " + webhook.Url);

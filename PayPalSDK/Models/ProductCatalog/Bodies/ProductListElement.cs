@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 
@@ -48,4 +49,9 @@ public class ProductListElement
     [StringLength(64)]
     [RegularExpression(@"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
     public string? CreatedTime { get; set; }
+    
+    /// <summary>
+    /// Gets the creation time of the product as a nullable DateTime object.
+    /// </summary>
+    public DateTime? CreatedTimeAsDateTime => DateTimeHelper.FromISO8601(CreatedTime);
 }

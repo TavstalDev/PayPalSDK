@@ -41,4 +41,10 @@ public class Tax
     [JsonPropertyName("percent")]
     [RegularExpression("^((-?[0-9]+)|(-?([0-9]+)?[.][0-9]+))$")]
     public required string Percent { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the amount of tax applied to the payment.
+    /// </summary>
+    [JsonPropertyName("amount")]
+    public Money? Amount { get; set; }
 }

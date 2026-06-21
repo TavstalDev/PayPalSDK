@@ -1,0 +1,16 @@
+{
+  "endpoint": "v1/customer/disputes/PP-000-000-651-454/deny-offer",
+  "statusCode": 200,
+  "request": {
+    "note": "refund offer is very low."
+  },
+  "response": {
+    "links": [
+      {
+        "rel": "self",
+        "method": "GET",
+        "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-000-000-651-454"
+      }
+    ]
+  }
+}

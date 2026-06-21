@@ -1,0 +1,16 @@
+{
+  "endpoint": "v1/customer/disputes/PP-R-TWP-23605903/provide-supporting-info",
+  "statusCode": 200,
+  "request": {
+    "notes": "string"
+  },
+  "response": {
+    "links": [
+      {
+        "rel": "self",
+        "method": "GET",
+        "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-D-27803"
+      }
+    ]
+  }
+}

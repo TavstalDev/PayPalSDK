@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Webhooks;
+using Tavstal.PayPalSDK.Utils;
 
 namespace Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 
@@ -81,4 +82,9 @@ public class WebhookVerifyRequestBody
     /// </remarks>
     [JsonPropertyName("webhook_event")]
     public required WebhookEvent WebhookEvent { get; set; }
+    
+    /// <summary>
+    /// Gets the transmission time as a DateTime object.
+    /// </summary>
+    public DateTime? TransmissionTimeAsDateTime => DateTimeHelper.FromISO8601(TransmissionTime);
 }
