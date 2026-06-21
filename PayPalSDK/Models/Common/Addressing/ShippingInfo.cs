@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 /// Represents shipping information for a transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class ShippingInfo
 {
     /// <summary>

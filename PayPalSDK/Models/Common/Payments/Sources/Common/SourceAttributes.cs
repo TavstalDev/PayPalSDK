@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Common;
 /// Represents the attributes of a card payment source in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SourceAttributes
 {
     /// <summary>

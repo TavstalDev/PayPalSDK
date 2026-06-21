@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// Represents the payment source information for a subscriber.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SubscriberPaymentSource
 {
     /// <summary>

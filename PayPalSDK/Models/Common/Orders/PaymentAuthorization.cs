@@ -12,7 +12,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// Represents the details of a payment authorization, including its status, amount, and related metadata.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PaymentAuthorization
 {
     /// <summary>

@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 /// Represents a decrypted token used in Apple Pay transactions within the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class AppleDecryptedToken
 {
     /// <summary>

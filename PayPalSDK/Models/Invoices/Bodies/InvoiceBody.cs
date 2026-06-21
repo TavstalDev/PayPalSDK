@@ -12,7 +12,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// Represents the full details of a PayPal invoice, including recipients, items, status, configuration, payments, and refunds.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceBody
 {
     /// <summary>

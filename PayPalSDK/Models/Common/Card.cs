@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// Represents a card used in transactions within the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Card
 {
     /// <summary>

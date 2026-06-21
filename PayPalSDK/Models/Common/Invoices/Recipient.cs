@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents the recipient information for an invoice.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Recipient
 {
     /// <summary>

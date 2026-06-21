@@ -12,7 +12,6 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 /// Represents the request body for creating a subscription plan in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SubscriptionPlanCreateRequestBody
 {
     /// <summary>

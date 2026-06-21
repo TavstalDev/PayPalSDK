@@ -11,7 +11,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
 /// Represents a line item in a PayPal order.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class LineItem
 {
     /// <summary>

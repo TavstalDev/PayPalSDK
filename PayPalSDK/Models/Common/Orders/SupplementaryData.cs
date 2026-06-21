@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// Represents supplementary data in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SupplementaryData
 {
     /// <summary>

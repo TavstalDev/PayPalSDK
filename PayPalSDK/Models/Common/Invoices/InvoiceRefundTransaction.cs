@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents a transaction associated with a refund for a PayPal invoice, including refund details, type, date, amount, and method.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceRefundTransaction
 {
     /// <summary>

@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// Represents a customer object in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Customer
 {
     /// <summary>

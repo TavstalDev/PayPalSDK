@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// Represents tax information for payments in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Taxes
 {
     /// <summary>

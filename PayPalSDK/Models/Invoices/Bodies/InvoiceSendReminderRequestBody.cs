@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// Represents the body of a request for sending a reminder for a PayPal invoice.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceSendReminderRequestBody
 {
     /// <summary>

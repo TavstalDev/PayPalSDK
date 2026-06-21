@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// Represents the processor response details for a payment transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class ProcessorResponse
 {
     /// <summary>

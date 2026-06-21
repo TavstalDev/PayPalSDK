@@ -13,7 +13,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// Represents a PayPal payment source within the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PayPalSource
 {
     /// <summary>

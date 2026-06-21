@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// Represents a PTwentyFour payment source within the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PTwentyFourSource
 {
     /// <summary>

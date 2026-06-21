@@ -14,7 +14,6 @@ namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 /// Represents the body of a captured payment transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class CapturedPaymentBody
 {
     /// <summary>
@@ -92,7 +91,7 @@ public class CapturedPaymentBody
     /// Breakdown of the seller receivable details for the payment transaction.
     /// </summary>
     [JsonPropertyName("seller_receivable_breakdown")]
-    public SellerRecievable? SellerReceivableBreakdown { get; set; }
+    public SellerReceivable? SellerReceivableBreakdown { get; set; }
     
     /// <summary>
     /// Processor response details for the payment transaction.

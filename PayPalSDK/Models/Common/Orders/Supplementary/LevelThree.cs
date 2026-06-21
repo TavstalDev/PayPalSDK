@@ -11,7 +11,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
 /// Represents Level 3 data for a PayPal order.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class LevelThree
 {
     /// <summary>

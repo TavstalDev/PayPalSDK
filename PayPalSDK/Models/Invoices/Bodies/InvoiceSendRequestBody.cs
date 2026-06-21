@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// Represents the request body for sending a PayPal invoice, including subject, note, recipient options, and additional recipients.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceSendRequestBody
 {
     /// <summary>

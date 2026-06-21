@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// Represents the request body used to cancel an invoice in the PayPal Invoicing API.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceCancelRequestBody
 {
     /// <summary>

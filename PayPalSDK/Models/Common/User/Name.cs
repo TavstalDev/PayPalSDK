@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// Represents a name object in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Name
 {
     /// <summary>

@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents an item in an invoice.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class InvoiceItem
 {
     /// <summary>

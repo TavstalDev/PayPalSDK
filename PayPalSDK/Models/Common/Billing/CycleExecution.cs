@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// Represents the execution details of a billing cycle.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class CycleExecution
 {
     /// <summary>

@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// Represents a vault configuration in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Vault
 {
     /// <summary>

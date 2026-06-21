@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// Represents a subscription plan for a subscriber.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SubscriberPlan
 {
     /// <summary>

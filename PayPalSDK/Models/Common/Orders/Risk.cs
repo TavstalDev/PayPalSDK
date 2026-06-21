@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// Represents risk-related information for a PayPal order.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Risk
 {
     /// <summary>

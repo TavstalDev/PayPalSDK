@@ -11,7 +11,6 @@ namespace Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 /// Represents the body of a webhook in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class WebhookBody
 {
     /// <summary>

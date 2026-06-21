@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 /// Represents the request body used to find eligible payment methods for a customer.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PaymentFindEligibleMethodsRequestBody
 {
     /// <summary>

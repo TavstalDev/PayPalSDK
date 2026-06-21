@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 /// Represents the body of a response containing a list of subscription plans.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SubscriptionPlanListBody
 {
     /// <summary>

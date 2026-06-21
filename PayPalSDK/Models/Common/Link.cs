@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// Represents a hyperlink object used within the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Link
 {
     /// <summary>

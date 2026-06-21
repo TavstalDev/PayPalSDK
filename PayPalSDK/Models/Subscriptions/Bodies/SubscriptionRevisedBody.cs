@@ -13,7 +13,6 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 /// Represents the revised body of a subscription request.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SubscriptionRevisedBody
 {
     /// <summary>

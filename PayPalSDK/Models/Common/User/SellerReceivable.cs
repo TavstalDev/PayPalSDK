@@ -9,8 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// Represents the seller receivable details in a PayPal transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class SellerRecievable
+public class SellerReceivable
 {
     /// <summary>
     /// A list of platform fees associated with the transaction.

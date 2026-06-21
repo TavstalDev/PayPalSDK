@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// Represents the breakdown of the net amount in a payment transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class NetAmountBreakdown
 {
     /// <summary>

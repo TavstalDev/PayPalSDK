@@ -12,7 +12,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// Represents a transaction in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class Transaction
 {
     /// <summary>

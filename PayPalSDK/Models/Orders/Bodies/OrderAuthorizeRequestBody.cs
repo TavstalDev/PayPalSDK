@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 /// Represents the request body for authorizing an order within the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class OrderAuthorizeRequestBody
 {
     /// <summary>

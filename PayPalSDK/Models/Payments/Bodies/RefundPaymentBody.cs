@@ -13,7 +13,6 @@ namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 /// Represents the body of a refunded payment transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class RefundPaymentBody
 {
     /// <summary>

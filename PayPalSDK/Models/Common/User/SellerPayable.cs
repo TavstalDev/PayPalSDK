@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// Represents the details of the seller's payable amounts in a transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class SellerPayable
 {
     /// <summary>

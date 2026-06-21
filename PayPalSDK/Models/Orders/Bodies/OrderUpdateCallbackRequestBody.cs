@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 /// Represents the payload used to send order update callback information to the PayPal API.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class OrderUpdateCallbackRequestBody
 {
     /// <summary>

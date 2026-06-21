@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// Represents the payment preferences for a plan in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class PlanPaymentPreference
 {
     /// <summary>

@@ -11,7 +11,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// Represents a Blik payment source within the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class BlikSource
 {
     /// <summary>

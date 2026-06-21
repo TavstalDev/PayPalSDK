@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
 /// Represents Level 2 data for a PayPal order.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class LevelTwo
 {
     /// <summary>

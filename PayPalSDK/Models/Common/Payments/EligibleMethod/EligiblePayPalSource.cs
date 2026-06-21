@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 /// Represents a PayPal payment source with customer identification information.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class EligiblePayPalSource
 {
     /// <summary>

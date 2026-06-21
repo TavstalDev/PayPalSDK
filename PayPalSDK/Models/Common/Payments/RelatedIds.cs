@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// Represents related identifiers for a PayPal payment transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class RelatedIds
 {
     /// <summary>

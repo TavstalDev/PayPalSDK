@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// Represents a billing plan in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class BillingPlan
 {
     /// <summary>

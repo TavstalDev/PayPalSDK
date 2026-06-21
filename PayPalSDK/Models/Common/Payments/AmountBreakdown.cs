@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// Represents the breakdown of an amount in a transaction.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class AmountBreakdown
 {
     /// <summary>

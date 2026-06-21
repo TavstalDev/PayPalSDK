@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Webhooks;
 /// Represents the body of a webhook event in the PayPal SDK.
 /// </summary>
 [DataContract]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 public class WebhookEventBody
 {
     /// <summary>
