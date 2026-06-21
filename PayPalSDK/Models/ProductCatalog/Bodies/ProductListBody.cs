@@ -3,8 +3,6 @@ using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 
-// ReSharper disable CollectionNeverUpdated.Global
-
 namespace Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 
 /// <summary>
