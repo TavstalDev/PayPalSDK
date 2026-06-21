@@ -1,6 +1,7 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
+using Tavstal.PayPalSDK.Models.Common.PaymentMethodTokens;
 using Tavstal.PayPalSDK.Models.Common.User;
 
 namespace Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
