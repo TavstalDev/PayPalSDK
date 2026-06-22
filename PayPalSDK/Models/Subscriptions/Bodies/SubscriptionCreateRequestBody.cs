@@ -22,7 +22,7 @@ public class SubscriptionCreateRequestBody
     /// </remarks>
     [JsonPropertyName("plan_id")]
     [StringLength(26)]
-    public required string PlanId { get; set; }
+    public string? PlanId { get; set; }
 
     /// <summary>
     /// Gets or sets the quantity of the subscription plan.
