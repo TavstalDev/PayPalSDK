@@ -1,5 +1,6 @@
 using System.Net.Http.Headers;
 using Tavstal.PayPalSDK.Config;
+using Tavstal.PayPalSDK.Http.Clients;
 using Tavstal.PayPalSDK.Models.Auth;
 using Tavstal.PayPalSDK.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -15,30 +16,66 @@ public class PayPalHttpClient : IDisposable
     private AccessToken? _accessToken;
     private readonly string? _refreshToken;
     private readonly EnvironmentBase _environment;
+    
+    /// <summary>
+    /// Provides operations for retrieving and converting currency exchange rates.
+    /// </summary>
+    public CurrencyExchangeClient CurrencyExchange { get; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="PayPalHttpClient"/> class.
+    /// Provides operations for managing and responding to customer disputes.
     /// </summary>
-    /// <param name="environment">The PayPal environment configuration containing base URL and authorization details.</param>
-    /// <param name="refreshToken">An optional refresh token for obtaining access tokens.</param>
-    /// <param name="applicationName">An optional application name to include in the User-Agent header.</param>
-    public PayPalHttpClient(EnvironmentBase environment, string? refreshToken = null, string? applicationName = null)
-    {
-        _environment = environment;
-        _refreshToken = refreshToken;
+    public DisputesClient Disputes { get; }
 
-        // Configures the HTTP client with automatic decompression and default headers.
-        _httpClient = new HttpClient(new HttpClientHandler
-        {
-            AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
-        });
+    /// <summary>
+    /// Provides operations for creating, sending, and managing invoices.
+    /// </summary>
+    public InvoicesClient Invoces { get; }
 
-        _httpClient.BaseAddress = new Uri(_environment.BaseUrl);
-        _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-        _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
-        var agent = applicationName != null ? UserAgent.GetUserAgentHeader(applicationName) : UserAgent.GetUserAgentHeader();
-        _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
-    }
+    /// <summary>
+    /// Provides operations for creating, capturing, authorizing, and retrieving orders.
+    /// </summary>
+    public OrdersClient Orders { get; }
+
+    /// <summary>
+    /// Provides operations for creating and managing vaulted payment method tokens.
+    /// </summary>
+    public PaymentMethodTokensClient PaymentMethodTokens { get; }
+
+    /// <summary>
+    /// Provides operations for working with payment resources, such as captures, authorizations, and refunds.
+    /// </summary>
+    public PaymentResourcesClient PaymentResources { get; }
+
+    /// <summary>
+    /// Provides operations for creating and managing direct payment transactions.
+    /// </summary>
+    public PaymentsClient Payments { get; }
+
+    /// <summary>
+    /// Provides operations for managing product catalog entries.
+    /// </summary>
+    public ProductCatalogClient ProductCatalog { get; }
+
+    /// <summary>
+    /// Provides operations for creating and managing subscription plans and agreements.
+    /// </summary>
+    public SubscriptionsClient Subscriptions { get; }
+
+    /// <summary>
+    /// Provides operations for creating and updating shipment tracking information.
+    /// </summary>
+    public TrackingClient Tracking { get; }
+
+    /// <summary>
+    /// Provides operations for querying historical transaction activity.
+    /// </summary>
+    public TransactionSearchClient TransactionSearch { get; }
+
+    /// <summary>
+    /// Provides operations for managing webhooks and event subscriptions.
+    /// </summary>
+    public WebhooksClient Webhooks { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="PayPalHttpClient"/> using a provided <see cref="HttpClient"/>.
@@ -66,6 +103,34 @@ public class PayPalHttpClient : IDisposable
             var agent = applicationName != null ? UserAgent.GetUserAgentHeader(applicationName) : UserAgent.GetUserAgentHeader();
             _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
         }
+
+        CurrencyExchange = new CurrencyExchangeClient(this);
+        Disputes = new DisputesClient(this);
+        Invoces = new InvoicesClient(this);
+        Orders = new OrdersClient(this);
+        PaymentMethodTokens = new PaymentMethodTokensClient(this);
+        PaymentResources = new PaymentResourcesClient(this);
+        Payments = new PaymentsClient(this);
+        ProductCatalog = new ProductCatalogClient(this);
+        Subscriptions = new SubscriptionsClient(this);
+        Tracking = new TrackingClient(this);
+        TransactionSearch = new TransactionSearchClient(this);
+        Webhooks = new WebhooksClient(this);
+    }
+    
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PayPalHttpClient"/> class.
+    /// </summary>
+    /// <param name="environment">The PayPal environment configuration containing base URL and authorization details.</param>
+    /// <param name="refreshToken">An optional refresh token for obtaining access tokens.</param>
+    /// <param name="applicationName">An optional application name to include in the User-Agent header.</param>
+    public PayPalHttpClient(EnvironmentBase environment, string? refreshToken = null, string? applicationName = null) : this(environment, 
+        new HttpClient(new HttpClientHandler
+    {
+        AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
+    }), refreshToken, applicationName)
+    {
+        _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
     }
     
     /// <summary>
