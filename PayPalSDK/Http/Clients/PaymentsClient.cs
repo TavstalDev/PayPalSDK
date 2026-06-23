@@ -124,7 +124,7 @@ public class PaymentsClient : ClientBase
     /// A result containing <see cref="CapturedPaymentBody"/> on success,
     /// or an <see cref="ErrorResponse"/> on failure.
     /// </returns>
-    public async Task<Result<CapturedPaymentBody, ErrorResponse>> ReuathorizeAsync(string id, PaymentReauthorizeRequestBody body,
+    public async Task<Result<CapturedPaymentBody, ErrorResponse>> ReauthorizeAsync(string id, PaymentReauthorizeRequestBody body,
         CancellationToken cancellationToken = default)
     {
         var request = new PaymentReauthorizeRequest(id, body);

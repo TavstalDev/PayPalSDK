@@ -30,7 +30,7 @@ public class PayPalHttpClient : IDisposable
     /// <summary>
     /// Provides operations for creating, sending, and managing invoices.
     /// </summary>
-    public InvoicesClient Invoces { get; }
+    public InvoicesClient Invoices { get; }
 
     /// <summary>
     /// Provides operations for creating, capturing, authorizing, and retrieving orders.
@@ -106,7 +106,7 @@ public class PayPalHttpClient : IDisposable
 
         CurrencyExchange = new CurrencyExchangeClient(this);
         Disputes = new DisputesClient(this);
-        Invoces = new InvoicesClient(this);
+        Invoices = new InvoicesClient(this);
         Orders = new OrdersClient(this);
         PaymentMethodTokens = new PaymentMethodTokensClient(this);
         PaymentResources = new PaymentResourcesClient(this);
