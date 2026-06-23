@@ -175,7 +175,7 @@ var orderRequestBody = new OrderCreateRequestBody
             }
         }
     ]
-}; 
+};
 
 // Create the order request and send it using the PayPal client.
 var orderRequest = new OrderCreateRequest(orderRequestBody);
@@ -190,6 +190,26 @@ if (!response.IsSuccessStatusCode)
 
 var orderResponse = await orderRequest.GetResponseBodyAsync(response);
 Console.WriteLine($"Order ID: {orderResponse?.Id}");
+```
+
+### 3. High-Level Pattern (Recommended)
+
+The SDK also provides a higher-level client pattern that wraps the request and error handling into a single call:
+
+```csharp
+using Tavstal.PayPalSDK.Http.Clients;
+
+var result = await client.Orders.CreateAsync(orderRequestBody);
+
+if (result.IsSuccess)
+{
+    Console.WriteLine($"Order ID: {result.Value.Id}");
+    Console.WriteLine($"Order Status: {result.Value.Status}");
+}
+else
+{
+    Console.WriteLine($"Error: {result.Error?.Message}");
+}
 ```
 
 A new order will start with a CREATED status. To finish the payment, the buyer must approve the order through PayPal's checkout page. After that, you can capture the payment.

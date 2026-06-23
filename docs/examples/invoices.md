@@ -227,6 +227,20 @@ Console.WriteLine($"Invoice ID: {invoice?.Id}");
 Console.WriteLine($"Status: {invoice?.Status}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.Invoces.CreateDraftAsync(body);
+> if (result.IsSuccess)
+> {
+>     Console.WriteLine($"Invoice ID: {result.Value.Id}");
+>     Console.WriteLine($"Status: {result.Value.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Show Invoice
 
 Retrieve details about a specific invoice.
@@ -245,6 +259,18 @@ Console.WriteLine($"Invoice ID: {invoice?.Id}");
 Console.WriteLine($"Status: {invoice?.Status}");
 Console.WriteLine($"Amount: {invoice?.Amount?.Value} {invoice?.Amount?.CurrencyCode}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.ShowAsync("INV2-Z56S-5LLA-Q52L-CPZ5");
+> if (result.IsSuccess)
+> {
+>     Console.WriteLine($"Invoice ID: {result.Value.Id}");
+>     Console.WriteLine($"Status: {result.Value.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Send Invoice
 
@@ -266,6 +292,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Invoice sent successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.SendAsync("INV2-Z56S-5LLA-Q52L-CPZ5", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Invoice sent successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## List Invoices
 
@@ -290,6 +325,16 @@ if (invoices?.Items != null)
     }
 }
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.ListAsync();
+> if (result.IsSuccess && result.Value.Items != null)
+>     foreach (var invoice in result.Value.Items)
+>         Console.WriteLine($"Invoice ID: {invoice.Id}, Status: {invoice.Status}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Update Invoice
 
@@ -535,6 +580,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Invoice updated successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.UpdateAsync("INV2-Z56S-5LLA-Q52L-CPZ5", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Invoice updated successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Record Payment
 
 Record a payment for an invoice.
@@ -562,6 +616,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Payment recorded successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.RecordPaymentAsync("INV2-Z56S-5LLA-Q52L-CPZ5", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Payment recorded successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Record Refund
 
@@ -591,6 +654,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Refund recorded successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.RecordRefundAsync("INV2-Z56S-5LLA-Q52L-CPZ5", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Refund recorded successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Send Reminder
 
 Send a payment reminder for an invoice.
@@ -612,6 +684,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Reminder sent successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.SendReminderAsync("INV2-Z56S-5LLA-Q52L-CPZ5", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Reminder sent successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Cancel Invoice
 
@@ -635,6 +716,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Invoice cancelled successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.CancelAsync("INV2-Z56S-5LLA-Q52L-CPZ5", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Invoice cancelled successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Delete Invoice
 
 Delete a draft invoice.
@@ -648,6 +738,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Invoice deleted successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Invoces.DeleteAsync("INV2-Z56S-5LLA-Q52L-CPZ5");
+> if (result.IsSuccess)
+>     Console.WriteLine("Invoice deleted successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Generate Invoice Number
 
@@ -665,6 +764,15 @@ var result = await request.GetResponseBodyAsync(response);
 
 Console.WriteLine($"Generated Invoice Number: {result?.InvoiceNumber}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var genResult = await client.Invoces.GenerateNumberAsync();
+> if (genResult.IsSuccess)
+>     Console.WriteLine($"Generated Invoice Number: {genResult.Value.InvoiceNumber}");
+> else
+>     Console.WriteLine($"Error: {genResult.Error?.Message}");
+> ```
 
 ## Search Invoices
 
@@ -684,3 +792,11 @@ var results = await request.GetResponseBodyAsync(response);
 Console.WriteLine($"Found {results?.Items?.Count} invoices");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var searchResult = await client.Invoces.SearchAsync();
+> if (searchResult.IsSuccess)
+>     Console.WriteLine($"Found {searchResult.Value.Items?.Count} invoices");
+> else
+>     Console.WriteLine($"Error: {searchResult.Error?.Message}");
+> ```

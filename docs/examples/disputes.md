@@ -24,6 +24,20 @@ Console.WriteLine($"Status: {dispute.Status}");
 Console.WriteLine($"Reason: {dispute.Reason}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.Disputes.ShowDetailsAsync("PP-D-4012");
+> if (result.IsSuccess)
+> {
+>     Console.WriteLine($"Dispute ID: {result.Value.DisputeId}");
+>     Console.WriteLine($"Status: {result.Value.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## List Disputes
 
 List all disputes for a given time period with optional filtering.
@@ -56,6 +70,19 @@ foreach (var dispute in disputes?.Items ?? [])
     Console.WriteLine($"Dispute ID: {dispute.DisputeId}, Status: {dispute.Status}");
 }
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Disputes.ListAsync("2023-07-22T01:34:47.000Z");
+> if (result.IsSuccess && result.Value.Items != null)
+> {
+>     Console.WriteLine($"Total Items: {result.Value.Items.Count}");
+>     foreach (var dispute in result.Value.Items)
+>         Console.WriteLine($"Dispute ID: {dispute.DisputeId}, Status: {dispute.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Make Offer
 
@@ -90,6 +117,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("Offer submitted successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var offerResult = await client.Disputes.MakeOfferAsync("PP-R-TWP-23605903", body);
+> if (offerResult.IsSuccess)
+>     Console.WriteLine("Offer submitted successfully");
+> else
+>     Console.WriteLine($"Error: {offerResult.Error?.Message}");
+> ```
+
 ## Accept Claim
 
 Accept a buyer's dispute claim and process a refund.
@@ -122,6 +158,15 @@ var result = await request.GetResponseBodyAsync(response);
 
 Console.WriteLine("Claim accepted successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var acceptResult = await client.Disputes.AcceptClaimAsync("PP-D-27803", body);
+> if (acceptResult.IsSuccess)
+>     Console.WriteLine("Claim accepted successfully");
+> else
+>     Console.WriteLine($"Error: {acceptResult.Error?.Message}");
+> ```
 
 ## Provide Evidence
 
@@ -171,6 +216,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("Evidence submitted successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var evidenceResult = await client.Disputes.ProvideEvidenceAsync("PP-D-27803", body);
+> if (evidenceResult.IsSuccess)
+>     Console.WriteLine("Evidence submitted successfully");
+> else
+>     Console.WriteLine($"Error: {evidenceResult.Error?.Message}");
+> ```
+
 ## Accept Offer
 
 Accept a seller's offer to resolve a dispute.
@@ -197,6 +251,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("Offer accepted successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var acceptOfferResult = await client.Disputes.AcceptOfferAsync("PP-D-27803", body);
+> if (acceptOfferResult.IsSuccess)
+>     Console.WriteLine("Offer accepted successfully");
+> else
+>     Console.WriteLine($"Error: {acceptOfferResult.Error?.Message}");
+> ```
+
 ## Deny Offer
 
 Reject a seller's offer to resolve a dispute.
@@ -219,6 +282,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Offer denied successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var denyResult = await client.Disputes.DenyOfferAsync("PP-D-27803", body);
+> if (denyResult.IsSuccess)
+>     Console.WriteLine("Offer denied successfully");
+> else
+>     Console.WriteLine($"Error: {denyResult.Error?.Message}");
+> ```
 
 ## Send Message
 
@@ -246,6 +318,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("Message sent successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var msgResult = await client.Disputes.SendMessageAsync("PP-D-27803", body);
+> if (msgResult.IsSuccess)
+>     Console.WriteLine("Message sent successfully");
+> else
+>     Console.WriteLine($"Error: {msgResult.Error?.Message}");
+> ```
+
 ## Escalate Dispute
 
 Escalate a dispute to a claim for further investigation.
@@ -272,6 +353,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("Dispute escalated successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var escalateResult = await client.Disputes.EscalateAsync("PP-D-27803", body);
+> if (escalateResult.IsSuccess)
+>     Console.WriteLine("Dispute escalated successfully");
+> else
+>     Console.WriteLine($"Error: {escalateResult.Error?.Message}");
+> ```
+
 ## Appeal Dispute Resolution
 
 Appeal a dispute resolution outcome.
@@ -291,6 +381,15 @@ var result = await request.GetResponseBodyAsync(response);
 
 Console.WriteLine("Appeal submitted successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var appealResult = await client.Disputes.AppealAsync("PP-D-27803");
+> if (appealResult.IsSuccess)
+>     Console.WriteLine("Appeal submitted successfully");
+> else
+>     Console.WriteLine($"Error: {appealResult.Error?.Message}");
+> ```
 
 ## Settle Dispute
 
@@ -344,6 +443,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("Return acknowledged successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var ackResult = await client.Disputes.AcknowledgeReturnAsync("PP-D-27803", body);
+> if (ackResult.IsSuccess)
+>     Console.WriteLine("Return acknowledged successfully");
+> else
+>     Console.WriteLine($"Error: {ackResult.Error?.Message}");
+> ```
+
 ## Provide Supporting Information
 
 Submit additional supporting information for a dispute.
@@ -370,6 +478,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("Supporting information submitted successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var supportResult = await client.Disputes.ProvideSupportAsync("PP-D-27803", body);
+> if (supportResult.IsSuccess)
+>     Console.WriteLine("Supporting information submitted successfully");
+> else
+>     Console.WriteLine($"Error: {supportResult.Error?.Message}");
+> ```
+
 ## Update Dispute Status
 
 Update the dispute status by requiring evidence (sandbox only).
@@ -395,4 +512,3 @@ var result = await request.GetResponseBodyAsync(response);
 
 Console.WriteLine("Dispute status updated successfully");
 ```
-

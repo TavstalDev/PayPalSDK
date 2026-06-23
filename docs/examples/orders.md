@@ -39,6 +39,20 @@ Console.WriteLine($"Order ID: {order!.Id}");
 Console.WriteLine($"Order Status: {order.Status}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.Orders.CreateAsync(body);
+> if (result.IsSuccess)
+> {
+>     Console.WriteLine($"Order ID: {result.Value.Id}");
+>     Console.WriteLine($"Order Status: {result.Value.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Get Order
 
 Retrieve details about a specific order.
@@ -58,6 +72,18 @@ Console.WriteLine($"Status: {order.Status}");
 Console.WriteLine($"Amount: {order.PurchaseUnits?[0].Amount?.Value} {order.PurchaseUnits?[0].Amount?.CurrencyCode}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Orders.GetAsync("3RV7CCHPCMDG8");
+> if (result.IsSuccess)
+> {
+>     Console.WriteLine($"Order ID: {result.Value.Id}");
+>     Console.WriteLine($"Status: {result.Value.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Authorize Payment for Order
 
 Authorize a payment for a specific order.
@@ -75,6 +101,15 @@ var order = await request.GetResponseBodyAsync(response);
 Console.WriteLine($"Authorization successful for order: {order!.Id}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Orders.AuthorizeAsync("3RV7CCHPCMDG8");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Authorization successful for order: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Capture Payment for Order
 
 Capture a previously authorized payment.
@@ -91,6 +126,15 @@ var order = await request.GetResponseBodyAsync(response);
 
 Console.WriteLine($"Payment captured for order: {order!.Id}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Orders.CaptureAsync("3RV7CCHPCMDG8");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Payment captured for order: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Update Order
 
@@ -117,6 +161,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Order updated successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Orders.UpdateAsync("3RV7CCHPCMDG8", updateOperations);
+> if (result.IsSuccess)
+>     Console.WriteLine("Order updated successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Confirm Order
 
@@ -164,6 +217,15 @@ var order = await request.GetResponseBodyAsync(response);
 Console.WriteLine($"Order confirmed: {order!.Id}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Orders.ConfirmAsync("3RV7CCHPCMDG8", body);
+> if (result.IsSuccess)
+>     Console.WriteLine($"Order confirmed: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Add Tracking for Order
 
 Add shipment tracking information for an order.
@@ -204,6 +266,15 @@ var result = await request.GetResponseBodyAsync(response);
 Console.WriteLine("ID: " + result!.Id);
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var addResult = await client.Orders.AddTrackingAsync("3RV7CCHPCMDG8", body);
+> if (addResult.IsSuccess)
+>     Console.WriteLine($"ID: {addResult.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {addResult.Error?.Message}");
+> ```
+
 ## Update Tracking for Order
 
 Update shipment tracking information for an order.
@@ -228,3 +299,12 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Tracking information updated successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var updateResult = await client.Orders.UpdateTrackingAsync("5O190127TN364715T", "8MC585209K746392H443844607820", body);
+> if (updateResult.IsSuccess)
+>     Console.WriteLine("Tracking information updated successfully");
+> else
+>     Console.WriteLine($"Error: {updateResult.Error?.Message}");
+> ```

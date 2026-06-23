@@ -34,6 +34,17 @@ Console.WriteLine("Tracking information added successfully");
 Console.WriteLine($"Tracker IDs: {result?.TrackerIdentifiers?.Count}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.Tracking.AddAsync(body);
+> if (result.IsSuccess)
+>     Console.WriteLine($"Tracker IDs: {result.Value.TrackerIdentifiers?.Count}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## List Tracking
 
 Retrieve tracking information for a transaction.
@@ -53,6 +64,15 @@ var response = await client.SendAsync(request);
 var trackingInfo = await request.GetResponseBodyAsync(response);
 Console.Write($"Carrier: {trackingInfo!.Carrier}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Tracking.ListAsync("ABC123DEF456", "1Z999AA10123456784");
+> if (result.IsSuccess)
+>     Console.Write($"Carrier: {result.Value.Carrier}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Update Tracking
 
@@ -78,3 +98,11 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Tracking information updated successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Tracking.UpdateAsync("tracker-id-123", updatedTracker);
+> if (result.IsSuccess)
+>     Console.WriteLine("Tracking information updated successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```

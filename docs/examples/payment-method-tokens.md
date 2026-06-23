@@ -33,6 +33,17 @@ var token = await request.GetResponseBodyAsync(response);
 Console.WriteLine($"Token ID: {token?.Id}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.PaymentMethodTokens.CreateAsync(body);
+> if (result.IsSuccess)
+>     Console.WriteLine($"Token ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Create Payment Method Token Setup
 
 Create a setup for payment method token.
@@ -61,6 +72,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Token setup created successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.PaymentMethodTokens.CreateSetupAsync(body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Token setup created successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Retrieve Payment Method Token
 
 Retrieve a specific payment method token.
@@ -78,6 +98,15 @@ var token = await request.GetResponseBodyAsync(response);
 Console.WriteLine($"Token ID: {token?.Id}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.PaymentMethodTokens.GetAsync("token-id-123");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Token ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Retrieve Payment Method Token Setup
 
 Retrieve token setup details.
@@ -94,6 +123,15 @@ var setup = await request.GetResponseBodyAsync(response);
 
 Console.WriteLine("Token setup retrieved successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.PaymentMethodTokens.GetSetupAsync("setup-id-123");
+> if (result.IsSuccess)
+>     Console.WriteLine("Token setup retrieved successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## List All Payment Method Tokens
 
@@ -116,6 +154,16 @@ if (tokens?.PaymentTokens != null)
     }
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.PaymentMethodTokens.ListAsync("BygeLlrpZF");
+> if (result.IsSuccess && result.Value.PaymentTokens != null)
+>     foreach (var token in result.Value.PaymentTokens)
+>         Console.WriteLine($"Token ID: {token.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Delete Payment Method Token
 
 Delete a payment method token.
@@ -130,3 +178,11 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Token deleted successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.PaymentMethodTokens.DeleteAsync("token-id-123");
+> if (result.IsSuccess)
+>     Console.WriteLine("Token deleted successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```

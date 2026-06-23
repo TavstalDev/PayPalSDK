@@ -35,6 +35,17 @@ Console.WriteLine($"Invoice ID: {captured?.InvoiceId}");
 Console.WriteLine($"Status: {captured?.Status}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.Payments.CaptureAsync("2GG279541U471931P", body);
+> if (result.IsSuccess)
+>     Console.WriteLine($"Capture ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Refund Payment
 
 Refund a previously captured payment.
@@ -66,6 +77,15 @@ Console.WriteLine($"Refund ID: {refund?.Id}");
 Console.WriteLine($"Status: {refund?.Status}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Payments.RefundPaymentAsync("0K35355239430361V", body);
+> if (result.IsSuccess)
+>     Console.WriteLine($"Refund ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Get Authorized Payment Details
 
 Retrieve detailed information about a captured payment.
@@ -85,6 +105,15 @@ Console.WriteLine($"Amount: {details?.Amount?.Value} {details?.Amount?.CurrencyC
 Console.WriteLine($"Status: {details?.Status}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Payments.GetAuthorizedAsync("0K35355239430361V");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Payment ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Get Captured Payment Details
 
 Retrieve details about a specific capture.
@@ -102,6 +131,15 @@ var capture = await request.GetResponseBodyAsync(response);
 Console.WriteLine($"Capture ID: {capture?.Id}");
 Console.WriteLine($"Invoice ID: {capture?.InvoiceId}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Payments.GetCapturedAsync("0K35355239430361V");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Capture ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Get Refund Details
 
@@ -122,6 +160,15 @@ Console.WriteLine($"Status: {refund?.Status}");
 Console.WriteLine($"Amount: {refund?.Amount?.Value}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Payments.GetRefundAsync("1L897452387439294");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Refund ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Void Payment
 
 Void a previously authorized payment.
@@ -135,6 +182,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Payment voided successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Payments.VoidAsync("2GG279541U471931P");
+> if (result.IsSuccess)
+>     Console.WriteLine("Payment voided successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Reauthorize Payment
 
@@ -164,6 +220,15 @@ var reauth = await request.GetResponseBodyAsync(response);
 
 Console.WriteLine("Payment reauthorized successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Payments.ReuathorizeAsync("2GG279541U471931P", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Payment reauthorized successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Find Eligible Payments
 
@@ -217,3 +282,12 @@ if (eligiblePayments is { PaymentTokens: not null })
         Console.WriteLine($"Payment ID: {payment.Id}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Payments.FindEligibleAsync(body);
+> if (result.IsSuccess && result.Value.PaymentTokens != null)
+>     foreach (var payment in result.Value.PaymentTokens)
+>         Console.WriteLine($"Payment ID: {payment.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```

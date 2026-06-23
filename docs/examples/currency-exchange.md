@@ -38,3 +38,17 @@ foreach (var result in exchangeRate!.ExchangeQuoteRates)
 }
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.CurrencyExchange.CreateAsync(body);
+> if (result.IsSuccess)
+>     foreach (var rate in result.Value.ExchangeQuoteRates)
+>     {
+>         Console.WriteLine($"Base: {rate.BaseAmount.Value} {rate.BaseAmount.CurrencyCode}");
+>         Console.WriteLine($"Quote: {rate.QuoteAmount.Value} {rate.QuoteAmount.CurrencyCode}");
+>     }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```

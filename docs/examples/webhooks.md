@@ -31,6 +31,17 @@ Console.WriteLine($"Webhook ID: {webhook?.Id}");
 Console.WriteLine($"URL: {webhook?.Url}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.Webhooks.CreateAsync(body);
+> if (result.IsSuccess)
+>     Console.WriteLine($"Webhook ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Get Webhook
 
 Retrieve details about a specific webhook.
@@ -48,6 +59,15 @@ var webhook = await request.GetResponseBodyAsync(response);
 Console.WriteLine($"Webhook ID: {webhook?.Id}");
 Console.WriteLine($"URL: {webhook?.Url}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Webhooks.GetAsync("WH-123456789");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Webhook ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## List Webhooks
 
@@ -72,6 +92,16 @@ if (webhooks?.Webhooks != null)
     }
 }
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Webhooks.ListAsync();
+> if (result.IsSuccess && result.Value.Webhooks != null)
+>     foreach (var webhook in result.Value.Webhooks)
+>         Console.WriteLine($"Webhook ID: {webhook.Id}, URL: {webhook.Url}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Update Webhook
 
@@ -99,6 +129,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Webhook updated successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Webhooks.UpdateAsync("WH-123456789", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Webhook updated successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Delete Webhook
 
 Delete a webhook.
@@ -112,6 +151,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Webhook deleted successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Webhooks.DeleteAsync("WH-123456789");
+> if (result.IsSuccess)
+>     Console.WriteLine("Webhook deleted successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Verify Webhook Signature
 
@@ -148,3 +196,14 @@ Console.WriteLine(result?.VerificationStatus == "SUCCESS"
             ? "Webhook signature verified successfully"
             : "Webhook signature verification failed");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var verifyResult = await client.Webhooks.VerifyAsync(body);
+> if (verifyResult.IsSuccess)
+>     Console.WriteLine(verifyResult.Value.VerificationStatus == "SUCCESS"
+>         ? "Webhook signature verified successfully"
+>         : "Webhook signature verification failed");
+> else
+>     Console.WriteLine($"Error: {verifyResult.Error?.Message}");
+> ```

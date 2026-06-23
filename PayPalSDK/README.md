@@ -29,6 +29,7 @@ Or search for `PayPalSDK` in the NuGet Package Manager in your IDE.
 
 ## Quick Start
 
+### 1. Creating The Client
 ```csharp
 using PayPalSDK;
 
@@ -41,7 +42,10 @@ var client = new PayPalHttpClient(
 var client = new PayPalHttpClient(
     new LiveEnvironment("your-client-id-here", "your-client-secret-here") 
 );
+```
 
+### 2. Low-Level Pattern
+```csharp
 var orderRequestBody = new OrderCreateRequestBody
 {
     Intent = PayPalIntent.CAPTURE, // Specifies the intent of the order (e.g., capture payment).
@@ -123,6 +127,26 @@ if (!response.IsSuccessStatusCode)
 
 var orderResponse = await orderRequest.GetResponseBodyAsync(response);
 Console.WriteLine($"Order ID: {orderResponse?.Id}");
+```
+
+### 3. High-Level Pattern (Recommended)
+
+The SDK also provides a higher-level client pattern that wraps the request and error handling into a single call:
+
+```csharp
+using Tavstal.PayPalSDK.Http.Clients;
+
+var result = await client.Orders.CreateAsync(orderRequestBody);
+
+if (result.IsSuccess)
+{
+    Console.WriteLine($"Order ID: {result.Value.Id}");
+    Console.WriteLine($"Order Status: {result.Value.Status}");
+}
+else
+{
+    Console.WriteLine($"Error: {result.Error?.Message}");
+}
 ```
 
 ## Documentation

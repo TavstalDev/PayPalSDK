@@ -30,6 +30,17 @@ Console.WriteLine($"Product ID: {product?.Id}");
 Console.WriteLine($"Name: {product?.Name}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.ProductCatalog.CreateAsync(body);
+> if (result.IsSuccess)
+>     Console.WriteLine($"Product ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Get Product
 
 Retrieve details about a specific product.
@@ -48,6 +59,15 @@ Console.WriteLine($"Product ID: {product?.Id}");
 Console.WriteLine($"Name: {product?.Name}");
 Console.WriteLine($"Type: {product?.Type}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.ProductCatalog.GetAsync("PROD-123456");
+> if (result.IsSuccess)
+>     Console.WriteLine($"Product ID: {result.Value.Id}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## List Products
 
@@ -72,6 +92,16 @@ if (products?.Products != null)
     }
 }
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.ProductCatalog.ListAsync();
+> if (result.IsSuccess && result.Value.Products != null)
+>     foreach (var product in result.Value.Products)
+>         Console.WriteLine($"Product ID: {product.Id}, Name: {product.Name}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Update Product
 
@@ -99,3 +129,11 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Product updated successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.ProductCatalog.UpdateAsync("PROD-123456", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Product updated successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```

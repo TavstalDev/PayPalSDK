@@ -32,6 +32,20 @@ Console.WriteLine($"Subscription ID: {subscription?.Id}");
 Console.WriteLine($"Status: {subscription?.Status}");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> using Tavstal.PayPalSDK.Http.Clients;
+> 
+> var result = await client.Subscriptions.CreateAsync(body);
+> if (result.IsSuccess)
+> {
+>     Console.WriteLine($"Subscription ID: {result.Value.Id}");
+>     Console.WriteLine($"Status: {result.Value.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Show Subscription
 
 Retrieve details about a specific subscription.
@@ -50,6 +64,18 @@ Console.WriteLine($"Subscription ID: {subscription?.Id}");
 Console.WriteLine($"Status: {subscription?.Status}");
 Console.WriteLine($"Plan ID: {subscription?.PlanId}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.GetAsync("I-5GBDL7NLCYDYA");
+> if (result.IsSuccess)
+> {
+>     Console.WriteLine($"Subscription ID: {result.Value.Id}");
+>     Console.WriteLine($"Status: {result.Value.Status}");
+> }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## List Subscriptions
 
@@ -70,6 +96,16 @@ var subscriptions = await request.GetResponseBodyAsync(response);
      foreach (var sub in subscriptions.Subscriptions)
          Console.WriteLine($"Subscription ID: {sub.Id}, Status: {sub.Status}");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.ListAsync();
+> if (result.IsSuccess && result.Value.Subscriptions != null)
+>     foreach (var sub in result.Value.Subscriptions)
+>         Console.WriteLine($"Subscription ID: {sub.Id}, Status: {sub.Status}");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Update Subscription
 
@@ -101,6 +137,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Subscription updated successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.UpdateAsync("I-5GBDL7NLCYDYA", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Subscription updated successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Revise Subscription
 
 Revise the subscription plan and pricing.
@@ -122,6 +167,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Subscription revised successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.ReviseAsync("I-5GBDL7NLCYDYA", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Subscription revised successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Suspend Subscription
 
 Suspend an active subscription.
@@ -136,6 +190,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Subscription suspended successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.SuspendAsync("I-5GBDL7NLCYDYA", "Customer requested suspension");
+> if (result.IsSuccess)
+>     Console.WriteLine("Subscription suspended successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Cancel Subscription
 
@@ -153,6 +216,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Subscription cancelled successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.CancelAsync("I-5GBDL7NLCYDYA", "Customer requested cancellation");
+> if (result.IsSuccess)
+>     Console.WriteLine("Subscription cancelled successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## Activate Subscription
 
 Reactivate a suspended or cancelled subscription.
@@ -167,6 +239,15 @@ var response = await client.SendAsync(request);
 
 Console.WriteLine("Subscription activated successfully");
 ```
+
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.ActivateAsync("I-5GBDL7NLCYDYA", "Customer wants to reactivate");
+> if (result.IsSuccess)
+>     Console.WriteLine("Subscription activated successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
 
 ## Capture Subscription Payment
 
@@ -195,6 +276,15 @@ var response = await client.SendAsync(request);
 Console.WriteLine("Subscription payment captured successfully");
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.CaptureAsync("I-5GBDL7NLCYDYA", body);
+> if (result.IsSuccess)
+>     Console.WriteLine("Subscription payment captured successfully");
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
+
 ## List Subscription Transactions
 
 List transactions for a subscription.
@@ -220,3 +310,16 @@ if (transactions?.Transactions != null)
 }
 ```
 
+> **High-level alternative:**
+> ```csharp
+> var result = await client.Subscriptions.ListTransactionsAsync(
+>     "I-5GBDL7NLCYDYA", "2018-01-21T07:50:20.940Z", "2018-08-21T07:50:20.940Z");
+> if (result.IsSuccess && result.Value.Transactions != null)
+>     foreach (var transaction in result.Value.Transactions)
+>     {
+>         Console.WriteLine($"Transaction ID: {transaction.Id}");
+>         Console.WriteLine($"Amount: {transaction.AmountWithBreakdown?.GrossAmount?.Value}");
+>     }
+> else
+>     Console.WriteLine($"Error: {result.Error?.Message}");
+> ```
