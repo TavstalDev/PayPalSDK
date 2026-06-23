@@ -85,7 +85,7 @@ Example using `appsettings.json`:
 Create a `PayPalClient` instance using your credentials. Pass `true` for the sandbox environment, or `false` for live:
 
 ```csharp
-using PayPalSDK;
+using Tavstal.PayPalSDK;
 
 // Example: Use sandbox for testing
 var client = new PayPalHttpClient(

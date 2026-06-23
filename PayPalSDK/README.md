@@ -31,7 +31,7 @@ Or search for `PayPalSDK` in the NuGet Package Manager in your IDE.
 
 ### 1. Creating The Client
 ```csharp
-using PayPalSDK;
+using Tavstal.PayPalSDK;
 
 // Example: Use sandbox for testing
 var client = new PayPalHttpClient(
@@ -116,7 +116,7 @@ var orderRequestBody = new OrderCreateRequestBody
 
 // Create the order request and send it using the PayPal client.
 var orderRequest = new OrderCreateRequest(orderRequestBody);
-var response = await _client.SendAsync(orderRequest);
+var response = await client.SendAsync(orderRequest);
 
 if (!response.IsSuccessStatusCode)
 {

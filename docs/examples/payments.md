@@ -223,7 +223,7 @@ Console.WriteLine("Payment reauthorized successfully");
 
 > **High-level alternative:**
 > ```csharp
-> var result = await client.Payments.ReuathorizeAsync("2GG279541U471931P", body);
+> var result = await client.Payments.ReauthorizeAsync("2GG279541U471931P", body);
 > if (result.IsSuccess)
 >     Console.WriteLine("Payment reauthorized successfully");
 > else
