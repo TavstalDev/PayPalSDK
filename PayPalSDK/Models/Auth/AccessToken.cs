@@ -37,5 +37,5 @@ public class AccessToken
     /// Determines whether the access token has expired.
     /// </summary>
     /// <returns><c>true</c> if the token has expired; otherwise, <c>false</c>.</returns>
-    public bool IsExpired() => DateTime.UtcNow >= CreatedAt.AddSeconds(ExpiresIn);
+    public bool IsExpired() => DateTime.UtcNow >= CreatedAt.AddSeconds(ExpiresIn - 60);
 }
