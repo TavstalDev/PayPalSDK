@@ -1,4 +1,3 @@
-using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.PaymentMethodTokens;

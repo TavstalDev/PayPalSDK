@@ -1,12 +1,10 @@
 using System.Net;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Tavstal.PayPalSDK.Tests.Models;
 
-[DataContract]
 public class Resource
 {
     [JsonPropertyName("endpoint")]

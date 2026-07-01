@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 
 namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
