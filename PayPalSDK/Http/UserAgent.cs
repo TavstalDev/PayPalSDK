@@ -5,7 +5,7 @@ namespace Tavstal.PayPalSDK.Http;
 /// <summary>
 /// Represents the user agent information for the Tavstal PayPal SDK.
 /// </summary>
-public abstract class UserAgent
+public static class UserAgent
 {
     /// <summary>
     /// Gets the bitness of the operating system (32 or 64-bit).
