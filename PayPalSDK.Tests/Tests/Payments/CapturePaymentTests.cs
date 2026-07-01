@@ -1,4 +1,5 @@
 using System.Net;
+using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Payments;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
@@ -69,11 +70,11 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Invoice ID: " + objectResponse.InvoiceId);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 4 - 401 - Example for unauthorized request.")]
@@ -90,11 +91,11 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
-        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Invoice ID: " + objectResponse.InvoiceId);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 5 - 403 - Example for a forbidden request.")]
@@ -111,11 +112,11 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Invoice ID: " + objectResponse.InvoiceId);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 6 - 404 - Example for a request to a resource that does not exist.")]
@@ -132,11 +133,11 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Invoice ID: " + objectResponse.InvoiceId);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 7 - 409 - This code sample attempts to capture an authorized payment but the request fails because a previous call for the given resource is in progress.\n")]
@@ -153,11 +154,11 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Conflict);
-        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Invoice ID: " + objectResponse.InvoiceId);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 8 - 422 - This code sample attempts to capture an authorized payment but the request fails because the requested amount exceeds the allowable limit.")]
@@ -174,11 +175,11 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Invoice ID: " + objectResponse.InvoiceId);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
     
     [Fact(DisplayName = "Sample 9 - 500 - Example for a request that fails for reasons internal to the server.")]
@@ -195,10 +196,10 @@ public class CapturePaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var objectResponse = await response.Content.ReadJsonAsync<CapturedPaymentBody>();
+        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
-        _testOutputHelper.WriteLine("Invoice ID: " + objectResponse.InvoiceId);
+        _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
+        _testOutputHelper.WriteLine("Error Message: " + objectResponse.Message);
     }
 }
