@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents discount information for an invoice, expressed either as a percentage
 /// or as a fixed monetary amount.
 /// </summary>
-[DataContract]
 public class InvoiceDiscount
 {
     /// <summary>

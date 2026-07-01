@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// <summary>
 /// Represents a network token object in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class NetworkToken
 {
     /// <summary>

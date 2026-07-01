@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents cart-related information for a transaction, including line items,
 /// tax mode, and a merchant-provided PayPal invoice identifier.
 /// </summary>
-[DataContract]
 public class TransactionCartInfo
 {
    /// <summary>

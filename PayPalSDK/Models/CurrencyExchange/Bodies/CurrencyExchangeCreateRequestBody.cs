@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.CurrencyExchange.Bodies;
 /// <summary>
 /// Represents the request body used to create one or more currency exchange quotes.
 /// </summary>
-[DataContract]
 public class CurrencyExchangeCreateRequestBody
 {
     /// <summary>

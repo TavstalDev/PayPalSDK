@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 /// <summary>
 /// Represents a restriction or rule that applies to payment method eligibility.
 /// </summary>
-[DataContract]
 public class EligibleConstraint
 {
     /// <summary>

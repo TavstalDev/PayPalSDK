@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents auction-related details associated with a transaction,
 /// including auction source metadata, buyer identifier, and closing time.
 /// </summary>
-[DataContract]
 public class TransactionAuctionInfo
 {
     /// <summary>

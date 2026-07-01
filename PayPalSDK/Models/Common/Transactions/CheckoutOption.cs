@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents a name/value checkout option associated with a transaction,
 /// as returned by or sent to PayPal transaction-related APIs.
 /// </summary>
-[DataContract]
 public class CheckoutOption
 {
     /// <summary>

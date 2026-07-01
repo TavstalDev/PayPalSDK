@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions;
 /// <summary>
 /// Represents billing-specific dispute extension properties grouped by billing issue type.
 /// </summary>
-[DataContract]
 public class BillingDisputeProperties
 {
     /// <summary>

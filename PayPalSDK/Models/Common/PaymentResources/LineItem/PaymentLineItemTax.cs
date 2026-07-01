@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 /// <summary>
 /// Represents tax information associated with a payment line item.
 /// </summary>
-[DataContract]
 public class PaymentLineItemTax
 {
     /// <summary>

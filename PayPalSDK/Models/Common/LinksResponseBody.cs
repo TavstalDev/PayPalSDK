@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a response body containing a list of links related to a PayPal resource.
 /// </summary>
-[DataContract]
 public class LinksResponseBody
 {
     /// <summary>

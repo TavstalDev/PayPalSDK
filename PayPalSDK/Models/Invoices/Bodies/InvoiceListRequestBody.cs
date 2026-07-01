@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the request body used to filter and list invoices from the PayPal Invoicing API.
 /// </summary>
-[DataContract]
 public class InvoiceListRequestBody
 {
     /// <summary>

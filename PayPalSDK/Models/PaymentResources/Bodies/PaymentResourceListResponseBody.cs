@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.PaymentResources.Bodies;
 /// <summary>
 /// Represents a paginated response containing payment resources.
 /// </summary>
-[DataContract]
 public class PaymentResourceListResponseBody
 {
    /// <summary>

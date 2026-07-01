@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 /// <summary>
 /// Represents the details of an agreed refund in a PayPal dispute.
 /// </summary>
-[DataContract]
 public class AgreedRefundDetails
 {
     /// <summary>

@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 /// <summary>
 /// Represents the details of a canceled recurring billing in a PayPal dispute, including expected refund and cancellation details.
 /// </summary>
-[DataContract]
 public class CanceledRecurringBilling
 {
     /// <summary>

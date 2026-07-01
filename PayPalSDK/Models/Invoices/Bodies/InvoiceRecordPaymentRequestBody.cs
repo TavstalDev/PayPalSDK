@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the request body used to record a payment against an invoice.
 /// </summary>
-[DataContract]
 public class InvoiceRecordPaymentRequestBody
 {
     /// <summary>

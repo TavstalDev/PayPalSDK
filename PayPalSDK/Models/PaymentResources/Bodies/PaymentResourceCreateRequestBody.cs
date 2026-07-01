@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.PaymentResources.Bodies;
 /// <summary>
 /// Represents the request payload used to create a payment resource.
 /// </summary>
-[DataContract]
 public class PaymentResourceCreateRequestBody
 {
     /// <summary>

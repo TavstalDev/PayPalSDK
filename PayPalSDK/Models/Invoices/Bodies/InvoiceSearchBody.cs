@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the result of an invoice search operation.
 /// </summary>
-[DataContract]
 public class InvoiceSearchBody
 {
     /// <summary>

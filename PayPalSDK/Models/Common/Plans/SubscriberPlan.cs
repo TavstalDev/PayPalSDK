@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// <summary>
 /// Represents a subscription plan for a subscriber.
 /// </summary>
-[DataContract]
 public class SubscriberPlan
 {
     /// <summary>

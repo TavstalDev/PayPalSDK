@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// <summary>
 /// Represents tracking information for a shipment in a PayPal dispute.
 /// </summary>
-[DataContract]
 public class TrackingInfo
 {
     /// <summary>

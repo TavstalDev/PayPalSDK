@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents shipping-related information for a transaction, including
 /// recipient details, shipping method, and primary/secondary addresses.
 /// </summary>
-[DataContract]
 public class TransactionShippingInfo
 {
     /// <summary>

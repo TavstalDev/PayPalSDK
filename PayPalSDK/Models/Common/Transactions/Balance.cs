@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents a transaction balance snapshot in a specific currency, including total,
 /// available, and withheld amounts as returned by the PayPal API.
 /// </summary>
-[DataContract]
 public class Balance
 {
     /// <summary>

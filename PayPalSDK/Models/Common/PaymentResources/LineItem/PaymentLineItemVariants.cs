@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 /// <summary>
 /// Represents the variant configuration for a payment line item.
 /// </summary>
-[DataContract]
 public class PaymentLineItemVariants
 {
     /// <summary>

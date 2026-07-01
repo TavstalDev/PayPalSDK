@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// <summary>
 /// Represents a purchase unit in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class PurchaseUnit
 {
     /// <summary>

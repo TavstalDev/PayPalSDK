@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// <summary>
 /// Represents a payer within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class Payer
 {
     /// <summary>

@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// <summary>
 /// Represents evidence information related to a PayPal dispute, including tracking information and refund IDs.
 /// </summary>
-[DataContract]
 public class EvidenceInfo
 {
     /// <summary>

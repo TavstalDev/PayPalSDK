@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// <summary>
 /// Represents a token-based payment source in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class TokenSource
 {
     /// <summary>

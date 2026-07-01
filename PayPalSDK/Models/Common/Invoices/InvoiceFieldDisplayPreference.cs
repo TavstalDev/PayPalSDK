@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents display preferences for a specific invoice field.
 /// </summary>
-[DataContract]
 public class InvoiceFieldDisplayPreference
 {
     /// <summary>

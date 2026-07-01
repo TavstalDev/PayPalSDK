@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandiz
 /// <summary>
 /// Represents the details of a service-related dispute in a PayPal transaction, including description, service start date, notes, sub-reasons, and purchase URL.
 /// </summary>
-[DataContract]
 public class ServiceDetails
 {
     /// <summary>

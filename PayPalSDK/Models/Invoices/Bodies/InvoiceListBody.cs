@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the body of a response containing a list of PayPal invoices.
 /// </summary>
-[DataContract]
 public class InvoiceListBody
 {
     /// <summary>

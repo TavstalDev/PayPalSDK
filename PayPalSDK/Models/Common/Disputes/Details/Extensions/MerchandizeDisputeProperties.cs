@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions;
 /// <summary>
 /// Represents merchandise-related dispute extension properties.
 /// </summary>
-[DataContract]
 public class MerchandizeDisputeProperties
 {
     /// <summary>

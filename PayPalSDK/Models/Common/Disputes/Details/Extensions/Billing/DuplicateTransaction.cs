@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 /// <summary>
 /// Represents the details of a duplicate transaction in a PayPal dispute, including whether a duplicate was received and the original transaction details.
 /// </summary>
-[DataContract]
 public class DuplicateTransaction
 {
     /// <summary>

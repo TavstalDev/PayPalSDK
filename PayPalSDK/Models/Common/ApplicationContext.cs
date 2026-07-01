@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents the application context for a PayPal transaction.
 /// </summary>
-[DataContract]
 public class ApplicationContext
 {
     /// <summary>

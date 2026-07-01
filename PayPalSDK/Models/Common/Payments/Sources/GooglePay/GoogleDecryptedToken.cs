@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.GooglePay;
 /// <summary>
 /// Represents a decrypted token for Google Pay payment sources within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class GoogleDecryptedToken
 {
     /// <summary>

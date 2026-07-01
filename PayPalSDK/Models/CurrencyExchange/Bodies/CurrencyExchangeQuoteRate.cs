@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.CurrencyExchange.Bodies;
 /// Represents a PayPal currency exchange quote rate, including source/target amounts,
 /// identifiers, and timestamp metadata returned by the API.
 /// </summary>
-[DataContract]
 public class CurrencyExchangeQuoteRate
 {
     /// <summary>

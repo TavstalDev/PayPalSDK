@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents the allowed response options in a PayPal dispute, including acknowledgment of return items, acceptance of claims, and making offers.
 /// </summary>
-[DataContract]
 public class DisputeAllowedResponseOptions
 {
     /// <summary>

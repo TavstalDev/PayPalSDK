@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
 /// <summary>
 /// Represents the response body returned when listing payment tokens for a customer.
 /// </summary>
-[DataContract]
 public class PaymentTokenListAllResponseBody
 {
     /// <summary>

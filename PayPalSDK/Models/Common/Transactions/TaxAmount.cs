@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// <summary>
 /// Represents the tax portion of a transaction amount.
 /// </summary>
-[DataContract]
 public class TaxAmount
 {
     /// <summary>

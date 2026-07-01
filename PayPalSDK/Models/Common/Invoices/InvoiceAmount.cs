@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents an invoice amount, including currency, total value,
 /// and optional amount breakdown details.
 /// </summary>
-[DataContract]
 public class InvoiceAmount
 {
     /// <summary>

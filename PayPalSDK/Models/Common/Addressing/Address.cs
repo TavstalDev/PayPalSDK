@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 /// <summary>
 /// Represents an address model used in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class Address
 {
     /// <summary>

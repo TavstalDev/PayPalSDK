@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 /// <summary>
 /// Represents the body of a response containing a list of subscription plans.
 /// </summary>
-[DataContract]
 public class SubscriptionPlanListBody
 {
     /// <summary>

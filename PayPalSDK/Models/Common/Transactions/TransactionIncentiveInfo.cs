@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents incentive-related information for a transaction, including
 /// one or more incentive detail entries returned by the API.
 /// </summary>
-[DataContract]
 public class TransactionIncentiveInfo
 {
     /// <summary>

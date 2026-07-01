@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 /// <summary>
 /// Represents the request payload used to accept a claim in a dispute.
 /// </summary>
-[DataContract]
 public class DisputeAcceptClaimRequestBody
 {
     /// <summary>

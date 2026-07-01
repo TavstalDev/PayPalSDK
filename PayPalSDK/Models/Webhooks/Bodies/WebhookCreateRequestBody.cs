@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 /// <summary>
 /// Represents the body of a request to create a webhook in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class WebhookCreateRequestBody
 {
     /// <summary>

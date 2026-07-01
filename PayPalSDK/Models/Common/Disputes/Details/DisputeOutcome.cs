@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents the outcome of a PayPal dispute, including the outcome code, reason, refunded amount, and refunded asset.
 /// </summary>
-[DataContract]
 public class DisputeOutcome
 {
    /// <summary>

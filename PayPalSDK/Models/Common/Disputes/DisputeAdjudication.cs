@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// <summary>
 /// Represents an adjudication event recorded during a dispute lifecycle.
 /// </summary>
-[DataContract]
 public class DisputeAdjudication
 {
     /// <summary>

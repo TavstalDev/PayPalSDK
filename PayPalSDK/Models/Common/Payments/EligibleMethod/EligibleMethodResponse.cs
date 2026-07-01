@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 /// <summary>
 /// Represents the response containing eligible payment methods and associated payment tokens for a customer.
 /// </summary>
-[DataContract]
 public class EligibleMethodResponse
 {
     /// <summary>

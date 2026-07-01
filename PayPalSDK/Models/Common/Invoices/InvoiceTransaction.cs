@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents a transaction associated with a PayPal invoice, including payment details, type, method, and shipping information.
 /// </summary>
-[DataContract]
 public class InvoiceTransaction
 {
     /// <summary>

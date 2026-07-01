@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents the details of the last payment made.
 /// </summary>
-[DataContract]
 public class LastPayment
 {
     /// <summary>

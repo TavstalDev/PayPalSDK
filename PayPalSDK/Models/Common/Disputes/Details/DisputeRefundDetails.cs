@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents the refund details in a PayPal dispute, including the list of transactions and the allowed refund amount.
 /// </summary>
-[DataContract]
 public class DisputeRefundDetails
 {
     /// <summary>

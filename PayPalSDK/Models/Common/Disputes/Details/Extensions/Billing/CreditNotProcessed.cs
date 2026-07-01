@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 /// <summary>
 /// Represents the details of a credit not processed in a PayPal dispute, including issue type, agreed refund details, expected refund, cancellation details, product details, and service details.
 /// </summary>
-[DataContract]
 public class CreditNotProcessed
 {
     /// <summary>

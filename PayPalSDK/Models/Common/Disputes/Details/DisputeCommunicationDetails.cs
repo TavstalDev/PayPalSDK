@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents the communication details in a PayPal dispute, including notes, email, and the time the communication was posted.
 /// </summary>
-[DataContract]
 public class DisputeCommunicationDetails
 {
     /// <summary>

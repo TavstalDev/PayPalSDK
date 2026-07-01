@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices.Breakdown;
 /// Represents a custom invoice breakdown line, defined by a user-provided label
 /// and an associated monetary amount.
 /// </summary>
-[DataContract]
 public class InvoiceBreakdownCustom
 {
     /// <summary>

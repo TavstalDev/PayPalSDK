@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources;
 /// <summary>
 /// Represents a payment line item, including pricing, shipping, taxes, and quantity options.
 /// </summary>
-[DataContract]
 public class PaymentLineItem
 {
   /// <summary>

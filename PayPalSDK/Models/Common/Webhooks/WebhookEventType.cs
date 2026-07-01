@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Webhooks;
 /// <summary>
 /// Represents a PayPal webhook event type.
 /// </summary>
-[DataContract]
 public class WebhookEventType
 {
     /// <summary>

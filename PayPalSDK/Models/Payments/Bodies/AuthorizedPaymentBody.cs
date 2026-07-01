@@ -12,7 +12,6 @@ namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 /// <summary>
 /// Represents the body of a PayPal payment transaction.
 /// </summary>
-[DataContract]
 public class AuthorizedPaymentBody
 {
     /// <summary>

@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// <summary>
 /// Represents a network transaction reference object in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class NetworkTransactionReference
 {
     /// <summary>

@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandiz
 /// <summary>
 /// Represents the details of a product in a PayPal dispute, including description, product received status, sub-reasons, purchase URL, product received time, expected delivery date, and return details.
 /// </summary>
-[DataContract]
 public class ProductDetails
 {
     /// <summary>

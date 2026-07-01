@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// <summary>
 /// Represents a card payment source in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class CardSource
 {
     /// <summary>

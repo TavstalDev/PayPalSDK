@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// Represents the full details of a PayPal dispute, including participants,
 /// financial data, lifecycle state, evidence, and response options.
 /// </summary>
-[DataContract]
 public class DisputeDetails
 {
     /// <summary>

@@ -7,14 +7,14 @@ namespace Tavstal.PayPalSDK.Models.Auth;
 /// <summary>
 /// Represents a request to obtain an access token from the PayPal API.
 /// </summary>
-public class AccessTokenRequest : HttpRequestBase<AccessToken>
+public class AccessTokenRequestBody : HttpRequestBase<AccessToken>
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="AccessTokenRequest"/> class.
+    /// Initializes a new instance of the <see cref="AccessTokenRequestBody"/> class.
     /// </summary>
     /// <param name="environment">The environment configuration containing authorization details.</param>
     /// <param name="refreshToken">An optional refresh token for obtaining a new access token.</param>
-    public AccessTokenRequest(EnvironmentBase environment, string? refreshToken = null)
+    public AccessTokenRequestBody(EnvironmentBase environment, string? refreshToken = null)
         :
         base(HttpMethod.Post, "/v1/oauth2/token")
     {

@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents supplementary data for a PayPal payment transaction.
 /// </summary>
-[DataContract]
 public class PaymentSupplementaryData
 {
     /// <summary>

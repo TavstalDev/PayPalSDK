@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.User;
 /// <summary>
 /// Represents a person with a full name.
 /// </summary>
-[DataContract]
 public class Person
 {
     /// <summary>

@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// <summary>
 /// Represents the pricing scheme configuration for a subscription plan.
 /// </summary>
-[DataContract]
 public class PlanPricingSchemeData
 {
     /// <summary>

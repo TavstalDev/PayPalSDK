@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources;
 /// <summary>
 /// Represents payment code snippet variants for different display modes.
 /// </summary>
-[DataContract]
 public class PaymentCodeSnippet
 {
     /// <summary>

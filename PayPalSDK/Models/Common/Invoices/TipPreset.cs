@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents a percentage value used in invoice-related models.
 /// </summary>
-[DataContract]
 public class TipPreset
 {
     /// <summary>

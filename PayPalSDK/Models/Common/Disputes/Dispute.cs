@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// <summary>
 /// Represents a dispute summary record returned by the disputes API.
 /// </summary>
-[DataContract]
 public class Dispute
 {
     /// <summary>

@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 /// <summary>
 /// Represents the client/channel information used when determining eligible payment methods.
 /// </summary>
-[DataContract]
 public class EligibleChannel
 {
     /// <summary>

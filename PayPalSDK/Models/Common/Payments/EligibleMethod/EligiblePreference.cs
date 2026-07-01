@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 /// <summary>
 /// Represents user preferences that influence eligible payment method evaluation.
 /// </summary>
-[DataContract]
 public class EligiblePreference
 {
     /// <summary>

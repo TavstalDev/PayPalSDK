@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.CurrencyExchange.Bodies;
 /// Represents a single currency exchange quote item, including base amount,
 /// source/target currencies, optional FX identifier, and optional markup percentage.
 /// </summary>
-[DataContract]
 public class CurrencyExchangeQuoteItem
 {
     /// <summary>

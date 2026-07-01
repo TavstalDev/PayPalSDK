@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources;
 /// <summary>
 /// Represents a customer note definition attached to a payment resource.
 /// </summary>
-[DataContract]
 public class CustomerNote
 {
     /// <summary>

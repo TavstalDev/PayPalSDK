@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a transaction in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class Transaction
 {
     /// <summary>

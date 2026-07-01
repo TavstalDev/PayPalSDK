@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 /// <summary>
 /// Represents the request body for escalating a PayPal dispute.
 /// </summary>
-[DataContract]
 public class DisputeEscalateRequestBody
 {
     /// <summary>

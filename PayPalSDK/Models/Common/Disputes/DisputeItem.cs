@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// <summary>
 /// Represents an item involved in a PayPal dispute, including details such as item ID, name, description, quantity, partner transaction ID, reason for dispute, notes, item type, and the disputed amount.
 /// </summary>
-[DataContract]
 public class DisputeItem
 {
     /// <summary>

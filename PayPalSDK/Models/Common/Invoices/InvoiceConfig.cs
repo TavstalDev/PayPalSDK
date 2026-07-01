@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents the configuration options for an invoice, including tax calculation, tipping, partial payments, and template selection.
 /// </summary>
-[DataContract]
 public class InvoiceConfig
 {
     /// <summary>

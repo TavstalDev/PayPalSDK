@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 /// <summary>
 /// Represents a phone number with a country code and national number.
 /// </summary>
-[DataContract]
 public class PhoneNumber
 {
     /// <summary>

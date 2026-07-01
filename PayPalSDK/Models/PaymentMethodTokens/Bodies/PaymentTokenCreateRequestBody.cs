@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.PaymentMethodTokens.Bodies;
 /// <summary>
 /// Represents the request payload used to create a payment token.
 /// </summary>
-[DataContract]
 public class PaymentTokenCreateRequestBody
 {
     /// <summary>

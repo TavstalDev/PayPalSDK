@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentMethodTokens;
 /// <summary>
 /// Represents a payment token setup returned by the Payment Method Tokens API.
 /// </summary>
-[DataContract]
 public class PaymentTokenSetup
 {
     /// <summary>

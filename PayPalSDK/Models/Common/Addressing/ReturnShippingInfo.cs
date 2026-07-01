@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 /// <summary>
 /// Represents return shipping information associated with a transaction, including whether to save the address to the buyer's profile and the return address details.
 /// </summary>
-[DataContract]
 public class ReturnShippingInfo
 {
     /// <summary>

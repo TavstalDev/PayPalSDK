@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// <summary>
 /// Represents a pricing tier for a subscription plan with quantity-based pricing.
 /// </summary>
-[DataContract]
 public class PlanPricingTier
 {
     /// <summary>

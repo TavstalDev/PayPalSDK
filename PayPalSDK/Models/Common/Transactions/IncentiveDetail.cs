@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents incentive metadata applied to a transaction, such as promotional
 /// program identifiers and the associated incentive amount.
 /// </summary>
-[DataContract]
 public class IncentiveDetail
 {
     /// <summary>

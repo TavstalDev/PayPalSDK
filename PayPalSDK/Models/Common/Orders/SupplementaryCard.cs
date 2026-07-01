@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// <summary>
 /// Represents supplementary card information for a PayPal order.
 /// </summary>
-[DataContract]
 public class SupplementaryCard
 {
     /// <summary>

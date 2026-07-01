@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 /// <summary>
 /// Represents payment data for Apple Pay transactions within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class PaymentData
 {
     /// <summary>

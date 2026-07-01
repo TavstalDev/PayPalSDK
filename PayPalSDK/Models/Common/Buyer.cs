@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a buyer entity involved in a PayPal transaction.
 /// </summary>
-[DataContract]
 public class Buyer
 {
     /// <summary>

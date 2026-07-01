@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 /// <summary>
 /// Represents the adjustable quantity settings for a payment line item.
 /// </summary>
-[DataContract]
 public class PaymentLineItemAdjustableQuantity
 {
     /// <summary>

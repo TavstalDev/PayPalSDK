@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 /// <summary>
 /// Represents the details of an incorrect transaction amount in a PayPal dispute, including the correct transaction amount, asset, and time.
 /// </summary>
-[DataContract]
 public class IncorrectTransactionAmount
 {
     /// <summary>

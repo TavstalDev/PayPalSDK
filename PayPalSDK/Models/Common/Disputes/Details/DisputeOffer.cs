@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// Represents offer information within a dispute, including offer history
 /// and current buyer/seller amounts.
 /// </summary>
-[DataContract]
 public class DisputeOffer
 {
     /// <summary>

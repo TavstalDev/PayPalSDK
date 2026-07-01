@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// <summary>
 /// Represents an evidence document used in PayPal dispute models.
 /// </summary>
-[DataContract]
 public class EvidenceDocument
 {
     /// <summary>

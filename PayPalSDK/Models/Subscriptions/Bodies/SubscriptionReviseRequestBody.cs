@@ -11,7 +11,6 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 /// <summary>
 /// Represents the body of a request to revise a subscription.
 /// </summary>
-[DataContract]
 public class SubscriptionReviseRequestBody
 {
     /// <summary>

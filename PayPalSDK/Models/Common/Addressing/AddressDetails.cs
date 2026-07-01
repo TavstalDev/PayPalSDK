@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 /// <summary>
 /// Represents detailed address components such as street number, street name, and building information.
 /// </summary>
-[DataContract]
 public class AddressDetails
 {
     /// <summary>

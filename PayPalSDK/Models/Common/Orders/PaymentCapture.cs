@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// <summary>
 /// Represents the details of a payment capture, including its metadata, amount, and related information.
 /// </summary>
-[DataContract]
 public class PaymentCapture
 {
     /// <summary>

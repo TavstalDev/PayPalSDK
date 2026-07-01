@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the request body for generating a QR code for an invoice, including the action to be performed and the dimensions of the QR code.
 /// </summary>
-[DataContract]
 public class InvoiceGenerateQRRequestBody
 {
     /// <summary>

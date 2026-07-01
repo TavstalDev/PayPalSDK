@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents display and visibility settings for invoice sections,
 /// grouped by item, additional information, policy/agreement, and details.
 /// </summary>
-[DataContract]
 public class InvoiceSettings
 {
     /// <summary>

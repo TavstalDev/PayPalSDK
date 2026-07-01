@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 /// <summary>
 /// Represents the body of a payment capture request.
 /// </summary>
-[DataContract]
 public class PaymentCaptureRequestBody
 {
     /// <summary>

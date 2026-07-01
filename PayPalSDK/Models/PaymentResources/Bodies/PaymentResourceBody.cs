@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.PaymentResources.Bodies;
 /// Represents a PayPal payment resource, including its identifiers, lifecycle state,
 /// related links, integration details, and associated line items.
 /// </summary>
-[DataContract]
 public class PaymentResourceBody
 {
     /// <summary>

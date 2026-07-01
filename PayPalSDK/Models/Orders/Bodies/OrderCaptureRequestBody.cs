@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 /// <summary>
 /// Represents the request body for capturing an order within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class OrderCaptureRequestBody
 {
     /// <summary>

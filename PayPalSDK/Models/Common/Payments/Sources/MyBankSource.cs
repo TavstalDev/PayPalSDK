@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// <summary>
 /// Represents a MyBank payment source within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class MyBankSource
 {
     /// <summary>

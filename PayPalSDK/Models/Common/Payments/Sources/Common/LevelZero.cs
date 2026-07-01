@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Common;
 /// <summary>
 /// Represents a Level Zero payment source within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class LevelZero
 {
     /// <summary>

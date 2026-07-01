@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 /// <summary>
 /// Represents a tokenized card used in Apple Pay transactions within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class TokenizedCard
 {
     /// <summary>

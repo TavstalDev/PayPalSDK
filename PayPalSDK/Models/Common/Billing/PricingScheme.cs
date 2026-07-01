@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// <summary>
 /// Represents a pricing scheme in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class PricingScheme
 {
     /// <summary>

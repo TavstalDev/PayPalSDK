@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// domain sections such as transaction core data, payer, shipping,
 /// cart, store, auction, and incentive information.
 /// </summary>
-[DataContract]
 public class TransactionDetail
 {
     /// <summary>

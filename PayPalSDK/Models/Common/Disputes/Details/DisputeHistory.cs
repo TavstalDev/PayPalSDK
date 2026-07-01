@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents a historical event in the lifecycle of a dispute.
 /// </summary>
-[DataContract]
 public class DisputeHistory
 {
     /// <summary>

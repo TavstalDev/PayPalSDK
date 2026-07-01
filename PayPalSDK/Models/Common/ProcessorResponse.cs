@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents the processor response details for a payment transaction.
 /// </summary>
-[DataContract]
 public class ProcessorResponse
 {
     /// <summary>

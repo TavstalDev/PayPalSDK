@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Tracking.Bodies;
 /// Represents shipment tracking information associated with a PayPal transaction,
 /// including carrier details, tracking identifiers, shipment metadata, and status.
 /// </summary>
-[DataContract]
 public class Tracker
 {
     /// <summary>

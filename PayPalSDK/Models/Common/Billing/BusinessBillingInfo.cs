@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// <summary>
 /// Represents the billing information for a business.
 /// </summary>
-[DataContract]
 public class BusinessBillingInfo
 {
     /// <summary>

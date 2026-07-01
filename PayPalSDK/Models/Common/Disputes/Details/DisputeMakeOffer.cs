@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents the offer-making details in a PayPal dispute, including the types of offers that can be made.
 /// </summary>
-[DataContract]
 public class DisputeMakeOffer
 {
     /// <summary>

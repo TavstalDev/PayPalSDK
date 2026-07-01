@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 /// <summary>
 /// Represents the details of a payment made by other means in a PayPal dispute, including whether the charge is different from the original and the payment method used.
 /// </summary>
-[DataContract]
 public class PaymentByOtherMeans
 {
     /// <summary>

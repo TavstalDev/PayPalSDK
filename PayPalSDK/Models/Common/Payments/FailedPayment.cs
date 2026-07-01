@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents the details of a failed payment.
 /// </summary>
-[DataContract]
 public class FailedPayment
 {
     /// <summary>

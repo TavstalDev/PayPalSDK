@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.GooglePay;
 /// <summary>
 /// Represents assurance details for a Google Pay payment source within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class AssuranceDetails
 {
     /// <summary>

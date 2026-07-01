@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 /// <summary>
 /// Represents the request body for acknowledging a return in a PayPal dispute.
 /// </summary>
-[DataContract]
 public class DisputeAcknowledgeReturnRequestBody
 {
     /// <summary>

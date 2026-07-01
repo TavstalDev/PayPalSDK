@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 /// <summary>
 /// Represents a non-fiat asset amount used in dispute-related responses.
 /// </summary>
-[DataContract]
 public class Asset
 {
     /// <summary>

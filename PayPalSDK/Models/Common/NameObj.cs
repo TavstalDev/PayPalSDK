@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a name object used in PayPal SDK models.
 /// </summary>
-[DataContract]
 public class NameObj
 {
     /// <summary>

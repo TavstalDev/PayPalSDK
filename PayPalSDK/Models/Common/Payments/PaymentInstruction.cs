@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents payment instructions in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class PaymentInstruction
 {
     /// <summary>

@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a range of monetary values with lower and upper bounds.
 /// </summary>
-[DataContract]
 public class MoneyRange
 {
     /// <summary>

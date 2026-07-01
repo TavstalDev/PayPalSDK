@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// Represents supplemental dispute metadata, including contact history
 /// and extension-specific dispute properties.
 /// </summary>
-[DataContract]
 public class DisputeExtensions
 {
     /// <summary>

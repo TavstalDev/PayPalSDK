@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents a movement of funds associated with a dispute lifecycle event.
 /// </summary>
-[DataContract]
 public class DisputeFundMovement
 {
     /// <summary>

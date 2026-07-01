@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// <summary>
 /// Represents an item in a shipment tracking update sent to the PayPal API.
 /// </summary>
-[DataContract]
 public class TrackingItem
 {
     /// <summary>

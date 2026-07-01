@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the request body used to record a refund against an invoice by refund ID.
 /// </summary>
-[DataContract]
 public class InvoiceRecordRefundBody
 {
     /// <summary>

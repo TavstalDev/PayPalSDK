@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents an update operation for modifying resources in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class UpdateOperation
 {
     /// <summary>

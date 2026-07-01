@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 /// <summary>
 /// Represents a selectable option for a payment line item variant dimension.
 /// </summary>
-[DataContract]
 public class PaymentLineItemVariantDimensionOption
 {
     /// <summary>

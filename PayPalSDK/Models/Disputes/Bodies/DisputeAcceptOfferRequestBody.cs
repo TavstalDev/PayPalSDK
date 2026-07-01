@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 /// <summary>
 /// Represents the request body for accepting an offer in a PayPal dispute.
 /// </summary>
-[DataContract]
 public class DisputeAcceptOfferRequestBody
 {
     /// <summary>

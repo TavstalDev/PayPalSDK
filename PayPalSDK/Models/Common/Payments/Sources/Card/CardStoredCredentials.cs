@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 /// <summary>
 /// Represents stored credentials used in card payments within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class CardStoredCredentials
 {
     /// <summary>

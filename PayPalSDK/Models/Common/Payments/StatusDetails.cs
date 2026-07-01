@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents the details of a payment status, including the reason for the status.
 /// </summary>
-[DataContract]
 public class StatusDetails
 {
     /// <summary>

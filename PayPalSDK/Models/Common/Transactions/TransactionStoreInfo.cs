@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// <summary>
 /// Represents merchant store metadata associated with a transaction.
 /// </summary>
-[DataContract]
 public class TransactionStoreInfo
 {
    /// <summary>

@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents a phone number associated with invoice entities, including country code,
 /// national number, optional extension, and phone type metadata.
 /// </summary>
-[DataContract]
 public class InvoicePhone
 {
     /// <summary>

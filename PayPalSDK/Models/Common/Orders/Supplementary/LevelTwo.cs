@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
 /// <summary>
 /// Represents Level 2 data for a PayPal order.
 /// </summary>
-[DataContract]
 public class LevelTwo
 {
     /// <summary>

@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Billing;
 /// <summary>
 /// Represents the frequency of a billing cycle in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class BillingFrequency
 {
     /// <summary>

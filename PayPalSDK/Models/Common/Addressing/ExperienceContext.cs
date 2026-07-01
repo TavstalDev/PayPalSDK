@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 /// <summary>
 /// Represents the context for configuring the PayPal payment experience.
 /// </summary>
-[DataContract]
 public class ExperienceContext
 {
     /// <summary>

@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents the exchange rate details for a payment transaction.
 /// </summary>
-[DataContract]
 public class ExchangeRate
 {
     /// <summary>

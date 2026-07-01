@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents a monetary breakdown in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class MoneyBreakdown
 {
     /// <summary>

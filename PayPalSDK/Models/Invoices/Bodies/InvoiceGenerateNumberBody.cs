@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the request body used to generate or assign an invoice number.
 /// </summary>
-[DataContract]
 public class InvoiceGenerateNumberBody
 {
     /// <summary>

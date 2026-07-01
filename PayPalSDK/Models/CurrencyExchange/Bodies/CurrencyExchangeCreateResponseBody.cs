@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.CurrencyExchange.Bodies;
 /// <summary>
 /// Represents the response body returned after creating currency exchange rate quotes.
 /// </summary>
-[DataContract]
 public class CurrencyExchangeCreateResponseBody
 {
     /// <summary>

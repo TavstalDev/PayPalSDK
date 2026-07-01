@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents a monetary value with a currency code.
 /// </summary>
-[DataContract]
 public class Money
 {
     /// <summary>

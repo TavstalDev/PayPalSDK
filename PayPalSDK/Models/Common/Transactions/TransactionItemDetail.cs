@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents a single line-item within transaction cart details, including
 /// product metadata, quantity, taxes, checkout options, and amount breakdowns.
 /// </summary>
-[DataContract]
 public class TransactionItemDetail
 {
     /// <summary>

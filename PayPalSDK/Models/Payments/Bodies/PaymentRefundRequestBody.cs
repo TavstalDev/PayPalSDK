@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 /// <summary>
 /// Represents the body of a payment refund request.
 /// </summary>
-[DataContract]
 public class PaymentRefundRequestBody
 {
     /// <summary>

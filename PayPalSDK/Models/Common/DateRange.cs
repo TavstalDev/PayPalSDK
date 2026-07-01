@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a date-time range with a required start and end timestamp.
 /// </summary>
-[DataContract]
 public class DateRange
 {
     /// <summary>

@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Auth;
 /// <summary>
 /// Represents a refresh token response from the PayPal authentication API.
 /// </summary>
-[DataContract]
 public class RefreshToken
 {
     /// <summary>

@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 /// <summary>
 /// Represents the payment sources available to a customer, including PayPal and Venmo.
 /// </summary>
-[DataContract]
 public class EligiblePaymentSource
 {
     /// <summary>

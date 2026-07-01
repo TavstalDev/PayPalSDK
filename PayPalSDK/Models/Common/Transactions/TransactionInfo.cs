@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents core transaction metadata and monetary breakdown values
 /// returned by PayPal transaction reporting APIs.
 /// </summary>
-[DataContract]
 public class TransactionInfo
 {
     /// <summary>

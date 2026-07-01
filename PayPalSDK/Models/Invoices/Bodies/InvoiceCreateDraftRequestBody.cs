@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 /// <summary>
 /// Represents the request body for creating a draft invoice, including recipients, items, details, configuration, and payment information.
 /// </summary>
-[DataContract]
 public class InvoiceCreateDraftRequestBody
 {
     /// <summary>

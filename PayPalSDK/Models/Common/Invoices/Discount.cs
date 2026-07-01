@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents a discount applied to an invoice.
 /// </summary>
-[DataContract]
 public class Discount
 {
     /// <summary>

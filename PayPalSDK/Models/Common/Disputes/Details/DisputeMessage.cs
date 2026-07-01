@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents a message exchanged within a dispute conversation.
 /// </summary>
-[DataContract]
 public class DisputeMessage
 {
     /// <summary>

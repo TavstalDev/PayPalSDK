@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Plans;
 /// <summary>
 /// Represents the response returned by the subscription list endpoint of the PayPal Billing API.
 /// </summary>
-[DataContract]
 public class SubscriptionListResponse
 {
     /// <summary>

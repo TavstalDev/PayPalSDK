@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 /// <summary>
 /// Represents a variant dimension for a payment line item, such as size or color.
 /// </summary>
-[DataContract]
 public class PaymentLineItemVariantDimension
 {
     /// <summary>

@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <remarks>
 /// This model currently supports customization of the invoice primary color.
 /// </remarks>
-[DataContract]
 public class InvoiceTheme
 {
     /// <summary>

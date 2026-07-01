@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Tracking.Bodies;
 /// <summary>
 /// Represents a request body for adding shipment tracking information to a PayPal transaction.
 /// </summary>
-[DataContract]
 public class TrackingAddRequestBody
 {
     /// <summary>

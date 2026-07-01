@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.TransactionSearch.Bodies;
 /// <summary>
 /// Represents the response body for a transaction list query from the PayPal Transaction Search API.
 /// </summary>
-[DataContract]
 public class TransactionListResponseBody
 {
     /// <summary>

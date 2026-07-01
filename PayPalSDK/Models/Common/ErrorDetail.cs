@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a detailed error entry within an error response from the PayPal API.
 /// </summary>
-[DataContract]
 public class ErrorDetail
 {
     /// <summary>

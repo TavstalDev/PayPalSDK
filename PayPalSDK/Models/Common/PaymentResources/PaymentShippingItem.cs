@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources;
 /// <summary>
 /// Represents a shipping item associated with a payment line item.
 /// </summary>
-[DataContract]
 public class PaymentShippingItem
 {
     /// <summary>

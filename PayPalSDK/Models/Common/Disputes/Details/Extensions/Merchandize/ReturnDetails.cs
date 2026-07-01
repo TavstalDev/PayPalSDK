@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandiz
 /// <summary>
 /// Represents the details of a return in a PayPal dispute, including return mode, receipt status, confirmation number, and return time.
 /// </summary>
-[DataContract]
 public class ReturnDetails
 {
     /// <summary>

@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 /// <summary>
 /// Represents the body of a product in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class ProductBody
 {
     /// <summary>

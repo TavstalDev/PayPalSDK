@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a card used in transactions within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class Card
 {
     /// <summary>

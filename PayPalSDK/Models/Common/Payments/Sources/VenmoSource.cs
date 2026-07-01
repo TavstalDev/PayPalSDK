@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 /// <summary>
 /// Represents a Venmo payment source within the PayPal SDK.
 /// </summary>
-[DataContract]
 public class VenmoSource
 {
     /// <summary>

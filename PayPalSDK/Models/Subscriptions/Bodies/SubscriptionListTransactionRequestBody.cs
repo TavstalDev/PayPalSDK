@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 /// <summary>
 /// Represents the request body for listing subscription transactions.
 /// </summary>
-[DataContract]
 public class SubscriptionListTransactionRequestBody
 {
     /// <summary>

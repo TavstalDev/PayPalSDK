@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 /// <summary>
 /// Represents the response body for a list of PayPal disputes.
 /// </summary>
-[DataContract]
 public class DisputeListResponseBody
 {
     /// <summary>

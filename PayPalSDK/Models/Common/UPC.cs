@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common;
 /// <summary>
 /// Represents a Universal Product Code (UPC) with a type and code.
 /// </summary>
-[DataContract]
 public class UPC
 {
     /// <summary>

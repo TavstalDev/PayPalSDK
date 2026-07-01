@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.CodeSnippet;
 /// <summary>
 /// Represents a stacked code snippet configuration used to render payment-related content.
 /// </summary>
-[DataContract]
 public class CodeSnippetStacked
 {
     /// <summary>

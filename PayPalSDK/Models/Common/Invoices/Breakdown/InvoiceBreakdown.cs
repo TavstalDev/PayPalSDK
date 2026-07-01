@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices.Breakdown;
 /// Represents a monetary breakdown for an invoice, including item totals
 /// and applied discounts.
 /// </summary>
-[DataContract]
 public class InvoiceBreakdown
 {
     /// <summary>

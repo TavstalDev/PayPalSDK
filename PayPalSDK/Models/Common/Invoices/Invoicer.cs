@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// <summary>
 /// Represents the invoicer details for an invoice, including business information, contact details, and additional notes.
 /// </summary>
-[DataContract]
 public class Invoicer
 {
     /// <summary>

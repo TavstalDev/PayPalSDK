@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 /// <summary>
 /// Represents a refund transaction associated with a PayPal dispute, including the transaction ID, gross amount, and creation time.
 /// </summary>
-[DataContract]
 public class DisputeRefundTransaction
 {
     /// <summary>

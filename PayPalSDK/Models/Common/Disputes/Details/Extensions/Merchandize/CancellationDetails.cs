@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandiz
 /// <summary>
 /// Represents the details of a cancellation in a PayPal dispute, including cancellation number, status, mode, and date.
 /// </summary>
-[DataContract]
 public class CancellationDetails
 {
     /// <summary>

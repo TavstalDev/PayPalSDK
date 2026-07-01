@@ -6,7 +6,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments;
 /// <summary>
 /// Represents a platform fee in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class PlatformFee
 {
     /// <summary>

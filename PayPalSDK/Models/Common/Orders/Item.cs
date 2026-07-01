@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Orders;
 /// <summary>
 /// Represents an item in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class Item
 {
     /// <summary>

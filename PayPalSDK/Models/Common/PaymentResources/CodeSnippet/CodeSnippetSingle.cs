@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.CodeSnippet;
 /// <summary>
 /// Represents a single code snippet payload containing the snippet body.
 /// </summary>
-[DataContract]
 public class CodeSnippetSingle
 {
     /// <summary>

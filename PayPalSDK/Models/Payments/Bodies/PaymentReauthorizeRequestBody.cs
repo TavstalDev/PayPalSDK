@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 /// <summary>
 /// Represents the body of a payment reauthorization request.
 /// </summary>
-[DataContract]
 public class PaymentReauthorizeRequestBody
 {
     /// <summary>

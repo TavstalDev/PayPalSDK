@@ -9,7 +9,6 @@ namespace Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 /// <summary>
 /// Represents the request body for verifying a webhook signature in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class WebhookVerifyRequestBody
 {
     /// <summary>

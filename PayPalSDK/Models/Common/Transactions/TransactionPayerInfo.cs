@@ -10,7 +10,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 /// Represents payer-related information for a transaction, including account,
 /// contact, identity, country, and address details.
 /// </summary>
-[DataContract]
 public class TransactionPayerInfo
 {
     /// <summary>

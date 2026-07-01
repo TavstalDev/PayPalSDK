@@ -8,7 +8,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices.Breakdown;
 /// Represents shipping-related charges in an invoice breakdown,
 /// including the shipping amount and its tax details.
 /// </summary>
-[DataContract]
 public class InvoiceBreakdownShipping
 {
     /// <summary>

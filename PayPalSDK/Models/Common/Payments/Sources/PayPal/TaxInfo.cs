@@ -7,7 +7,6 @@ namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.PayPal;
 /// <summary>
 /// Represents tax information associated with a payment source in the PayPal SDK.
 /// </summary>
-[DataContract]
 public class TaxInfo
 {
     /// <summary>
