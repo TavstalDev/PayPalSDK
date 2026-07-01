@@ -162,7 +162,7 @@ public class CapturePaymentTests : TestBase
     }
     
     [Fact(DisplayName = "Sample 8 - 422 - This code sample attempts to capture an authorized payment but the request fails because the requested amount exceeds the allowable limit.")]
-    public async Task CapturePayment_Sample81()
+    public async Task CapturePayment_Sample8()
     {
         var resource = _resources[7];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
