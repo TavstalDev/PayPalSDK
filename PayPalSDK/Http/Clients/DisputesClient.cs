@@ -14,7 +14,7 @@ public class DisputesClient : ClientBase
     /// Initializes a new instance of the <see cref="DisputesClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public DisputesClient(PayPalHttpClient client) : base(client) { }
+    public DisputesClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Retrieves detailed information for a specific dispute.

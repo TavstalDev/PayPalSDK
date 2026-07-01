@@ -13,7 +13,7 @@ public class InvoicesClient : ClientBase
     /// Initializes a new instance of the <see cref="InvoicesClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public InvoicesClient(PayPalHttpClient client) : base(client) { }
+    public InvoicesClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Creates a draft invoice.

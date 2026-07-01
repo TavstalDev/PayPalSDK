@@ -14,7 +14,7 @@ public class SubscriptionsClient : ClientBase
     /// Initializes a new instance of the <see cref="SubscriptionsClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public SubscriptionsClient(PayPalHttpClient client) : base(client) { }
+    public SubscriptionsClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Creates a new subscription.

@@ -13,7 +13,7 @@ public class OrdersClient : ClientBase
     /// Initializes a new instance of the <see cref="OrdersClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public OrdersClient(PayPalHttpClient client) : base(client) { }
+    public OrdersClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Creates a new order.

@@ -13,7 +13,7 @@ public class ProductCatalogClient : ClientBase
     /// Initializes a new instance of the <see cref="ProductCatalogClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public ProductCatalogClient(PayPalHttpClient client) : base(client) { }
+    public ProductCatalogClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Creates a new product in the catalog.

@@ -14,7 +14,7 @@ public class TrackingClient : ClientBase
     /// Initializes a new instance of <see cref="TrackingClient"/>.
     /// </summary>
     /// <param name="client">The <see cref="PayPalHttpClient"/> used to send HTTP requests.</param>
-    public TrackingClient(PayPalHttpClient client) : base(client) { }
+    public TrackingClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Adds tracking information for one or more shipments.

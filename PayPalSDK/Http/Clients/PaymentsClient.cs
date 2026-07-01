@@ -14,7 +14,7 @@ public class PaymentsClient : ClientBase
     /// Initializes a new instance of the <see cref="PaymentsClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public PaymentsClient(PayPalHttpClient client) : base(client) { }
+    public PaymentsClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Captures payment for an authorization.

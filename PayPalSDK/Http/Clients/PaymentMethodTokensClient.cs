@@ -14,7 +14,7 @@ public class PaymentMethodTokensClient : ClientBase
     /// Initializes a new instance of the <see cref="PaymentMethodTokensClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public PaymentMethodTokensClient(PayPalHttpClient client) : base(client) { }
+    public PaymentMethodTokensClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Creates a payment method token.

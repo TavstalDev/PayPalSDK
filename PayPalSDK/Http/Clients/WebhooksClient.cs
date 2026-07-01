@@ -15,7 +15,7 @@ public class WebhooksClient : ClientBase
     /// Initializes a new instance of <see cref="WebhooksClient"/>.
     /// </summary>
     /// <param name="client">The <see cref="PayPalHttpClient"/> used to send HTTP requests.</param>
-    public WebhooksClient(PayPalHttpClient client) : base(client) { }
+    public WebhooksClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Creates a new webhook for the configured application.

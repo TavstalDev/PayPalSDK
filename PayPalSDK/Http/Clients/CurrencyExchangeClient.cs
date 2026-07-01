@@ -13,7 +13,7 @@ public class CurrencyExchangeClient : ClientBase
     /// Initializes a new instance of the <see cref="CurrencyExchangeClient"/> class.
     /// </summary>
     /// <param name="client">The shared PayPal HTTP client used to send requests.</param>
-    public CurrencyExchangeClient(PayPalHttpClient client) : base(client) { }
+    public CurrencyExchangeClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Creates a currency exchange quote based on the provided source and target currency details.

@@ -14,7 +14,7 @@ public class TransactionSearchClient : ClientBase
     /// Initializes a new instance of <see cref="TransactionSearchClient"/>.
     /// </summary>
     /// <param name="client">The HTTP client used to communicate with PayPal APIs.</param>
-    public TransactionSearchClient(PayPalHttpClient client) : base(client) { }
+    public TransactionSearchClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>
     /// Retrieves a paginated list of transactions for the given date range with optional filters.
