@@ -10,13 +10,14 @@ namespace Tavstal.PayPalSDK.Http;
 /// <summary>
 /// Represents a PayPal HTTP client for sending requests to the PayPal API.
 /// </summary>
-public class PayPalHttpClient : IDisposable
+public class PayPalHttpClient : IPayPalHttpClient, IDisposable
 {
     private readonly HttpClient _httpClient;
     private AccessToken? _accessToken;
     private readonly string? _refreshToken;
     private readonly EnvironmentBase _environment;
     private readonly SemaphoreSlim _semaphore = new(1, 1);
+    private readonly bool _disposeHttpClient;
     
     /// <summary>
     /// Provides operations for retrieving and converting currency exchange rates.
@@ -132,6 +133,7 @@ public class PayPalHttpClient : IDisposable
     }), refreshToken, applicationName)
     {
         _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+        _disposeHttpClient =  true;
     }
     
     /// <summary>
@@ -139,7 +141,8 @@ public class PayPalHttpClient : IDisposable
     /// </summary>
     public void Dispose()
     {
-        _httpClient.Dispose();
+        if (_disposeHttpClient)
+            _httpClient.Dispose();
     }
 
     /// <summary>
@@ -185,7 +188,7 @@ public class PayPalHttpClient : IDisposable
         try
         {
             // Creates a request to obtain an access token.
-            var tokenRequest = new AccessTokenRequest(_environment, _refreshToken);
+            var tokenRequest = new AccessTokenRequestBody(_environment, _refreshToken);
             using var response = await _httpClient.SendAsync(tokenRequest, cancellationToken);
             response.EnsureSuccessStatusCode();
 
@@ -213,6 +216,4 @@ public class PayPalHttpClient : IDisposable
             throw new InvalidOperationException("Failed to retrieve access token", ex);
         }
     }
-
-    
 }
