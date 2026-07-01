@@ -10,22 +10,22 @@ public class EnvironmentBase
     /// <summary>
     /// The base URL for the PayPal API.
     /// </summary>
-    private readonly string _baseUrl;
+    public string BaseUrl { get; }
 
     /// <summary>
     /// The client ID for the PayPal application.
     /// </summary>
-    private readonly string _clientId;
+    public string ClientId { get; }
 
     /// <summary>
     /// The client secret for the PayPal application.
     /// </summary>
-    private readonly string _clientSecret;
+    public string ClientSecret { get; }
 
     /// <summary>
     /// The web URL for the PayPal website.
     /// </summary>
-    private readonly string _webUrl;
+    public string WebUrl { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="EnvironmentBase"/> class.
@@ -45,26 +45,11 @@ public class EnvironmentBase
         if (string.IsNullOrEmpty(webUrl))
             throw new ArgumentException("Web URL cannot be null or empty.", nameof(webUrl));
         
-        _baseUrl = baseUrl;
-        _clientId = clientId;
-        _clientSecret = clientSecret;
-        _webUrl = webUrl;
+        BaseUrl = baseUrl;
+        ClientId = clientId;
+        ClientSecret = clientSecret;
+        WebUrl = webUrl;
     }
-
-    /// <summary>
-    /// Gets the base URL for the PayPal API.
-    /// </summary>
-    public string BaseUrl => _baseUrl;
-
-    /// <summary>
-    /// Gets the client ID for the PayPal application.
-    /// </summary>
-    public string ClientId => _clientId;
-
-    /// <summary>
-    /// Gets the web URL for the PayPal website.
-    /// </summary>
-    public string WebUrl => _webUrl;
 
     /// <summary>
     /// Generates the authorization string for the PayPal API.
@@ -73,7 +58,7 @@ public class EnvironmentBase
     internal string AuthorizationString()
     {
         return Convert.ToBase64String(
-            Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}")
+            Encoding.UTF8.GetBytes($"{ClientId}:{ClientSecret}")
             );
     }
 }
