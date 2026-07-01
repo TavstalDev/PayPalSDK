@@ -36,6 +36,15 @@ public class EnvironmentBase
     /// <param name="webUrl">The web URL for the PayPal website.</param>
     protected EnvironmentBase(string baseUrl, string clientId, string clientSecret, string webUrl)
     {
+        if (string.IsNullOrEmpty(baseUrl))
+            throw new ArgumentException("Base URL cannot be null or empty.", nameof(baseUrl));
+        if (string.IsNullOrEmpty(clientId))
+            throw new ArgumentException("Client ID cannot be null or empty.", nameof(clientId));
+        if (string.IsNullOrEmpty(clientSecret))
+            throw new ArgumentException("Client secret cannot be null or empty.", nameof(clientSecret));
+        if (string.IsNullOrEmpty(webUrl))
+            throw new ArgumentException("Web URL cannot be null or empty.", nameof(webUrl));
+        
         _baseUrl = baseUrl;
         _clientId = clientId;
         _clientSecret = clientSecret;
