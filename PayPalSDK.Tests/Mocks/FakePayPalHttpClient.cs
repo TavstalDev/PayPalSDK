@@ -1,14 +1,12 @@
-using Tavstal.PayPalSDK.Config;
 using Tavstal.PayPalSDK.Http;
 
 namespace Tavstal.PayPalSDK.Tests.Mocks;
 
-public class FakePayPalHttpClient : PayPalHttpClient
+public class FakePayPalHttpClient : IPayPalHttpClient
 {
     private readonly Func<HttpRequestMessage, HttpResponseMessage> _responder;
     
-    public FakePayPalHttpClient(Func<HttpRequestMessage, HttpResponseMessage> responder) :
-        base(new SandboxEnvironment("fake-client-id", "fake-client-secret"))
+    public FakePayPalHttpClient(Func<HttpRequestMessage, HttpResponseMessage> responder)
     {
         _responder = responder;
     }
@@ -21,9 +19,9 @@ public class FakePayPalHttpClient : PayPalHttpClient
     /// </param>
     /// <returns>A new <see cref="FakePayPalHttpClient"/> instance.</returns>
     public static FakePayPalHttpClient CreateClient(Func<HttpRequestMessage, HttpResponseMessage> responder) =>
-        new FakePayPalHttpClient(responder);
+        new(responder);
 
-    public override Task<HttpResponseMessage> SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default)
+    public Task<HttpResponseMessage> SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(_responder(request));
     }

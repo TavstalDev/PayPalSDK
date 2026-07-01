@@ -20,23 +20,24 @@ public static class FakeHttpHelpers
     /// </param>
     /// <returns>A new <see cref="FakePayPalHttpClient"/> instance.</returns>
     public static FakePayPalHttpClient CreateClient(Func<HttpRequestMessage, HttpResponseMessage> responder) =>
-        new FakePayPalHttpClient(responder);
+        new(responder);
     
     /// <summary>
     /// Reads and deserializes the HTTP content using the SDK's source-generated JSON context.
     /// </summary>
     /// <typeparam name="T">The type to deserialize the response body into.</typeparam>
     /// <param name="content">The HTTP content containing JSON payload data.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
     /// <returns>A task that produces the deserialized instance of <typeparamref name="T"/>.</returns>
     /// <exception cref="InvalidOperationException">
     /// Thrown when <typeparamref name="T"/> is not registered in <see cref="PayPalSDKJsonContext"/>.
     /// </exception>
-    public static Task<T?> ReadJsonAsync<T>(this HttpContent content)
+    public static Task<T?> ReadJsonAsync<T>(this HttpContent content, CancellationToken cancellationToken = default)
     {
         var typeInfo = (JsonTypeInfo<T>?)PayPalSDKJsonContext.Default.GetTypeInfo(typeof(T));
         if (typeInfo == null)
             throw new InvalidOperationException($"Type {typeof(T).Name} is not registered in the provided JsonSerializerContext.");
-        return content.ReadFromJsonAsync(typeInfo);
+        return content.ReadFromJsonAsync(typeInfo, cancellationToken);
     }
     
     /// <summary>
