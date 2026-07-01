@@ -61,7 +61,7 @@ public class EnvironmentBase
     /// Generates the authorization string for the PayPal API.
     /// </summary>
     /// <returns>A Base64-encoded string containing the client ID and client secret.</returns>
-    public string AuthorizationString()
+    internal string AuthorizationString()
     {
         return Convert.ToBase64String(
             Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}")
