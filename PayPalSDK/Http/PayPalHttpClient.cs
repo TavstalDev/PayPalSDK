@@ -16,6 +16,7 @@ public class PayPalHttpClient : IDisposable
     private AccessToken? _accessToken;
     private readonly string? _refreshToken;
     private readonly EnvironmentBase _environment;
+    private readonly SemaphoreSlim _semaphore = new(1, 1);
     
     /// <summary>
     /// Provides operations for retrieving and converting currency exchange rates.
@@ -155,7 +156,16 @@ public class PayPalHttpClient : IDisposable
         {
             if (_accessToken == null || _accessToken.IsExpired())
             {
-                _accessToken = await FetchAccessTokenAsync(cancellationToken);
+                try 
+                {
+                    await _semaphore.WaitAsync(cancellationToken);
+                    if (_accessToken == null || _accessToken.IsExpired()) // Check again
+                        _accessToken = await FetchAccessTokenAsync(cancellationToken);
+                }
+                finally
+                {
+                    _semaphore.Release();
+                }
             }
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
         }
