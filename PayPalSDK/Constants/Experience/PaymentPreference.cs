@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants.Experience;
 /// <summary>
 /// Provides constants for payment preferences in the PayPal SDK.
 /// </summary>
-public class PaymentPreference
+public static class PaymentPreference
 {
     /// <summary>
     /// Represents an unrestricted payment preference.

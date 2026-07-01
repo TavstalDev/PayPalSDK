@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the possible reason codes for a payment failure or issue.
 /// </summary>
-public class PaymentReasonCode
+public static class PaymentReasonCode
 {
     /// <summary>
     /// Indicates that the payment was denied.

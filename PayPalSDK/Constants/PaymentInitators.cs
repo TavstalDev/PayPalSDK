@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constants for payment initiators in the PayPal SDK.
 /// </summary>
-public class PaymentInitators
+public static class PaymentInitators
 {
     /// <summary>
     /// Represents a payment initiated by the customer.

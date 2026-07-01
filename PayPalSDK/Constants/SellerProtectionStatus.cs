@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the possible statuses for seller protection in PayPal transactions.
 /// </summary>
-public class SellerProtectionStatus
+public static class SellerProtectionStatus
 {
     /// <summary>
     /// Indicates that the seller is fully eligible for protection.

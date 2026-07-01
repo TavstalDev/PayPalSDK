@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constants for Electronic Commerce Indicator (ECI) flags in the PayPal SDK.
 /// </summary>
-public class EciFlags
+public static class EciFlags
 {
     /// <summary>
     /// Represents a Mastercard non-3D Secure transaction.

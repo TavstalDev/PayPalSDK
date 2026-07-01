@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the possible statuses for a subscription plan in the PayPal SDK.
 /// </summary>
-public class PlanStatus
+public static class PlanStatus
 {
     /// <summary>
     /// Indicates that the plan has been created but is not yet active.

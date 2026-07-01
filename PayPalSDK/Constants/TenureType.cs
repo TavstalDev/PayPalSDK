@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the types of tenure for a subscription plan.
 /// </summary>
-public class TenureType
+public static class TenureType
 {
     /// <summary>
     /// Indicates a regular tenure type for a subscription plan.

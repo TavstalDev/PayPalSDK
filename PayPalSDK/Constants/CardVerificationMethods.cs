@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constants for card verification methods in the PayPal SDK.
 /// </summary>
-public class CardVerificationMethods
+public static class CardVerificationMethods
 {
     /// <summary>
     /// Represents the Strong Customer Authentication (SCA) method that is always required.

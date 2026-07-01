@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the possible statuses of a payment.
 /// </summary>
-public class PaymentStatus
+public static class PaymentStatus
 {
     /// <summary>
     /// Indicates that the payment has been completed successfully.

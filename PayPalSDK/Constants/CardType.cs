@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the different types of cards supported within the PayPal SDK.
 /// </summary>
-public class CardType
+public static class CardType
 {
     /// <summary>
     /// Represents a credit card type.

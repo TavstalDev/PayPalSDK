@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constants for various card networks supported in the PayPal SDK.
 /// </summary>
-public class CardNetwork
+public static class CardNetwork
 {
     /// <summary>
     /// Represents the Visa card network.

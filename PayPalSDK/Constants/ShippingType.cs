@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the different types of shipping methods available in the PayPal SDK.
 /// </summary>
-public class ShippingType
+public static class ShippingType
 {
     /// <summary>
     /// The payer intends to receive the items at a specified address.

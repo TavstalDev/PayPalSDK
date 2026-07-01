@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants.Experience;
 /// <summary>
 /// Provides constants for shipping preferences in the PayPal SDK.
 /// </summary>
-public class ShippingPreference
+public static class ShippingPreference
 {
     /// <summary>
     /// Represents a preference to retrieve the shipping address from the file.

@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants.Experience;
 /// <summary>
 /// Provides constants for contact preferences in the PayPal SDK.
 /// </summary>
-public class ContactPreference
+public static class ContactPreference
 {
     /// <summary>
     /// Represents a preference where no contact information is provided.

@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the possible statuses of an order within the PayPal SDK.
 /// </summary>
-public class OrderStatus
+public static class OrderStatus
 {
     /// <summary>
     /// Indicates that the order has been created.

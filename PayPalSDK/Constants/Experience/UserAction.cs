@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants.Experience;
 /// <summary>
 /// Provides constants for user actions in the PayPal SDK.
 /// </summary>
-public class UserAction
+public static class UserAction
 {
     /// <summary>
     /// Represents a user action to continue the process.

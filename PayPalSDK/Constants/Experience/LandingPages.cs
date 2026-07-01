@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants.Experience;
 /// <summary>
 /// Provides constants for landing page preferences in the PayPal SDK.
 /// </summary>
-public class LandingPages
+public static class LandingPages
 {
     /// <summary>
     /// Represents a preference to display the login page.

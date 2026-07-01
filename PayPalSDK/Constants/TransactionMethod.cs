@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constants representing various transaction methods for PayPal.
 /// </summary>
-public class TransactionMethod
+public static class TransactionMethod
 {
     /// <summary>
     /// Represents a bank transfer transaction method.

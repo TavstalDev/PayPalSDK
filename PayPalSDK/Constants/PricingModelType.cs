@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents pricing models used in the PayPal SDK.
 /// </summary>
-public class PricingModelType
+public static class PricingModelType
 {
     /// <summary>
     /// Represents a fixed pricing model.

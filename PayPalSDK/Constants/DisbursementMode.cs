@@ -4,7 +4,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents the disbursement modes in the PayPal SDK.
 /// </summary>
-public class DisbursementMode
+public static class DisbursementMode
 {
     /// <summary>
     /// Instant disbursement mode.

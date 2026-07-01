@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// in various applications, such as e-commerce or payment processing.
 /// </summary>
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-public class ProductCategories
+public static class ProductCategories
 {
     /// <summary>
     /// Product category constant for AC_REFRIGERATION_REPAIR.

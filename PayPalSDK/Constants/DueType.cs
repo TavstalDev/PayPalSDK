@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constant values representing different types of due dates for invoices.
 /// </summary>
-public class DueType
+public static class DueType
 {
     /// <summary>
     /// Payment is due upon receipt of the invoice.

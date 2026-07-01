@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constants for credential usage in the PayPal SDK.
 /// </summary>
-public class CredentialUsage
+public static class CredentialUsage
 {
     /// <summary>
     /// Represents the first usage of a credential.

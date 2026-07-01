@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents Universal Product Code (UPC) types used in the PayPal SDK.
 /// </summary>
-public class UPCType
+public static class UPCType
 {
     /// <summary>
     /// Represents the UPC-A type.

@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Provides constants for payment types in the PayPal SDK.
 /// </summary>
-public class PaymentType
+public static class PaymentType
 {
     /// <summary>
     /// Represents a one-time payment.

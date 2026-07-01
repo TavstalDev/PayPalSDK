@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Constants;
 /// <summary>
 /// Represents item categories used in the PayPal SDK.
 /// </summary>
-public class ItemCategory
+public static class ItemCategory
 {
     /// <summary>
     /// Represents digital goods such as software, e-books, or online services.
