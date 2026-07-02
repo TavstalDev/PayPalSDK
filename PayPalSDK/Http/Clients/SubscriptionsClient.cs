@@ -2,13 +2,15 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Plans;
 using Tavstal.PayPalSDK.Models.Subscriptions;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
+using Tavstal.PayPalSDK.Models.Subscriptions.Plan;
+using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
 namespace Tavstal.PayPalSDK.Http.Clients;
 
 /// <summary>
 /// Provides operations for creating, retrieving, updating, and managing PayPal subscriptions.
 /// </summary>
-public class SubscriptionsClient : ClientBase
+public sealed class SubscriptionsClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SubscriptionsClient"/> class.
@@ -190,6 +192,102 @@ public class SubscriptionsClient : ClientBase
         CancellationToken cancellationToken = default)
     {
         var request = new SubscriptionListTransactionRequest(id, startTime, endTime);
+        return await ExecuteAsync(request, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Activates a subscription plan.
+    /// </summary>
+    /// <param name="id">The plan identifier.</param>
+    /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
+    /// <returns>A result containing <see langword="true"/> on success, or an <see cref="ErrorResponse"/> on failure.</returns>
+    public async Task<Result<bool, ErrorResponse>> ActivatePlanAsync(string id,
+        CancellationToken cancellationToken = default)
+    {
+        var request = new SubscriptionPlanActivateRequest(id);
+        return await ExecuteAsync(request, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Creates a new subscription plan.
+    /// </summary>
+    /// <param name="body">The plan creation details.</param>
+    /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
+    /// <returns>A result containing <see cref="SubscriptionPlanBody"/> on success, or an <see cref="ErrorResponse"/> on failure.</returns>
+    public async Task<Result<SubscriptionPlanBody, ErrorResponse>> CreatePlanAsync(SubscriptionPlanCreateRequestBody body,
+        CancellationToken cancellationToken = default)
+    {
+        var request = new SubscriptionPlanCreateRequest(body);
+        return await ExecuteAsync(request, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Deactivates a subscription plan.
+    /// </summary>
+    /// <param name="id">The plan identifier.</param>
+    /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
+    /// <returns>A result containing <see langword="true"/> on success, or an <see cref="ErrorResponse"/> on failure.</returns>
+    public async Task<Result<bool, ErrorResponse>> DeactivatePlanAsync(string id,
+        CancellationToken cancellationToken = default)
+    {
+        var request = new SubscriptionPlanDeactivateRequest(id);
+        return await ExecuteAsync(request, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Lists subscription plans with optional filtering and pagination.
+    /// </summary>
+    /// <param name="productId">Optional product identifier to filter plans.</param>
+    /// <param name="pageSize">The number of items per page.</param>
+    /// <param name="page">The page number to retrieve.</param>
+    /// <param name="totalRequired">Whether to include the total number of items in the response.</param>
+    /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
+    /// <returns>A result containing <see cref="SubscriptionPlanListBody"/> on success, or an <see cref="ErrorResponse"/> on failure.</returns>
+    public async Task<Result<SubscriptionPlanListBody, ErrorResponse>> ListPlanAsync(string? productId = null, int pageSize = 10, int page = 1, bool totalRequired = false,
+        CancellationToken cancellationToken = default)
+    {
+        var request = new SubscriptionPlanListRequest(productId, pageSize, page, totalRequired);
+        return await ExecuteAsync(request, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Updates the pricing of a subscription plan.
+    /// </summary>
+    /// <param name="id">The plan identifier.</param>
+    /// <param name="body">The list of pricing schemes to apply.</param>
+    /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
+    /// <returns>A result containing <see langword="true"/> on success, or an <see cref="ErrorResponse"/> on failure.</returns>
+    public async Task<Result<bool, ErrorResponse>> UpdatePlanPricingAsync(string id, List<PlanPricingScheme> body,
+        CancellationToken cancellationToken = default)
+    {
+        var request = new SubscriptionPlanPricingUpdateRequest(id, body);
+        return await ExecuteAsync(request, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Retrieves the details of a subscription plan.
+    /// </summary>
+    /// <param name="id">The plan identifier.</param>
+    /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
+    /// <returns>A result containing <see cref="SubscriptionPlanBody"/> on success, or an <see cref="ErrorResponse"/> on failure.</returns>
+    public async Task<Result<SubscriptionPlanBody, ErrorResponse>> GetPlanAsync(string id,
+        CancellationToken cancellationToken = default)
+    {
+        var request = new SubscriptionPlanShowRequest(id);
+        return await ExecuteAsync(request, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Updates an existing subscription plan.
+    /// </summary>
+    /// <param name="id">The plan identifier.</param>
+    /// <param name="body">The list of update operations to apply.</param>
+    /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
+    /// <returns>A result containing <see langword="true"/> on success, or an <see cref="ErrorResponse"/> on failure.</returns>
+    public async Task<Result<bool, ErrorResponse>> UpdatePlanAsync(string id, List<UpdateOperation> body,
+        CancellationToken cancellationToken = default)
+    {
+        var request = new SubscriptionPlanUpdateRequest(id, body);
         return await ExecuteAsync(request, cancellationToken);
     }
 }
