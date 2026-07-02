@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Config;
 /// <summary>
 /// Represents the live environment configuration for PayPal API.
 /// </summary>
-public class LiveEnvironment : EnvironmentBase
+public sealed class LiveEnvironment : EnvironmentBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="LiveEnvironment"/> class.

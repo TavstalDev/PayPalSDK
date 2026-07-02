@@ -3,7 +3,7 @@ namespace Tavstal.PayPalSDK.Config;
 /// <summary>
 /// Represents the sandbox environment configuration for PayPal API.
 /// </summary>
-public class SandboxEnvironment : EnvironmentBase
+public sealed class SandboxEnvironment : EnvironmentBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SandboxEnvironment"/> class.

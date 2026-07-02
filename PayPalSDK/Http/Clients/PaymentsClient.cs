@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// <summary>
 /// Provides operations for capturing, refunding, authorizing, and managing payment transactions.
 /// </summary>
-public class PaymentsClient : ClientBase
+public sealed class PaymentsClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="PaymentsClient"/> class.

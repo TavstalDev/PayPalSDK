@@ -9,12 +9,12 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// Provides methods for managing PayPal webhooks, including creation, retrieval,
 /// listing, updates, deletion, and event signature verification.
 /// </summary>
-public class WebhooksClient : ClientBase
+public sealed class WebhooksClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of <see cref="WebhooksClient"/>.
     /// </summary>
-    /// <param name="client">The <see cref="PayPalHttpClient"/> used to send HTTP requests.</param>
+    /// <param name="client">The <see cref="IPayPalHttpClient"/> used to send HTTP requests.</param>
     public WebhooksClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>

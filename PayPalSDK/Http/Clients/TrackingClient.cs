@@ -8,12 +8,12 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// Provides methods for interacting with the PayPal Tracking API,
 /// including adding, listing, and updating shipment trackers.
 /// </summary>
-public class TrackingClient : ClientBase
+public sealed class TrackingClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of <see cref="TrackingClient"/>.
     /// </summary>
-    /// <param name="client">The <see cref="PayPalHttpClient"/> used to send HTTP requests.</param>
+    /// <param name="client">The <see cref="IPayPalHttpClient"/> used to send HTTP requests.</param>
     public TrackingClient(IPayPalHttpClient client) : base(client) { }
 
     /// <summary>

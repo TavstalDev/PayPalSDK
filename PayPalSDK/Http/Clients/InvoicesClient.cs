@@ -7,7 +7,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// <summary>
 /// Provides operations for creating, sending, updating, and managing PayPal invoices.
 /// </summary>
-public class InvoicesClient : ClientBase
+public sealed class InvoicesClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InvoicesClient"/> class.

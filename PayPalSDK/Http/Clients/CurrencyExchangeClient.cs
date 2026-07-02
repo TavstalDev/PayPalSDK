@@ -7,7 +7,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// <summary>
 /// Provides operations for creating currency exchange quotes through the PayPal API.
 /// </summary>
-public class CurrencyExchangeClient : ClientBase
+public sealed class CurrencyExchangeClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="CurrencyExchangeClient"/> class.

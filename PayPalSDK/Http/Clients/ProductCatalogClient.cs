@@ -7,7 +7,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// <summary>
 /// Provides operations for creating, retrieving, listing, and updating products in the catalog.
 /// </summary>
-public class ProductCatalogClient : ClientBase
+public sealed class ProductCatalogClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ProductCatalogClient"/> class.

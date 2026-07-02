@@ -7,7 +7,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// <summary>
 /// Provides operations for creating, retrieving, updating, and progressing PayPal orders.
 /// </summary>
-public class OrdersClient : ClientBase
+public sealed class OrdersClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="OrdersClient"/> class.

@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// <summary>
 /// Provides operations for retrieving and managing PayPal customer disputes.
 /// </summary>
-public class DisputesClient : ClientBase
+public sealed class DisputesClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="DisputesClient"/> class.

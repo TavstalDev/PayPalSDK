@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// <summary>
 /// Provides operations for creating, retrieving, listing, and deleting PayPal payment method tokens.
 /// </summary>
-public class PaymentMethodTokensClient : ClientBase
+public sealed class PaymentMethodTokensClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="PaymentMethodTokensClient"/> class.

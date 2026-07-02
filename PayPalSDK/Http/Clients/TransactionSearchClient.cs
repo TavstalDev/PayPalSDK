@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Http.Clients;
 /// Provides access to PayPal Transaction Search endpoints, including transaction listing
 /// and account balance retrieval.
 /// </summary>
-public class TransactionSearchClient : ClientBase
+public sealed class TransactionSearchClient : ClientBase
 {
     /// <summary>
     /// Initializes a new instance of <see cref="TransactionSearchClient"/>.
