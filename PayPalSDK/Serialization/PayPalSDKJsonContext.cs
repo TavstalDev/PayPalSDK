@@ -47,7 +47,7 @@ namespace Tavstal.PayPalSDK.Serialization;
 /// <summary>
 /// Represents a JSON serialization context for the PayPal SDK, providing serialization and deserialization capabilities for various PayPal SDK models.
 /// </summary>
-[JsonSourceGenerationOptions(DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull)]
+[JsonSourceGenerationOptions(DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, Converters = [typeof(JsonStringEnumConverter)])]
 [JsonSerializable(typeof(AccessToken))]
 [JsonSerializable(typeof(List<AccessToken>))]
 [JsonSerializable(typeof(Address))]
