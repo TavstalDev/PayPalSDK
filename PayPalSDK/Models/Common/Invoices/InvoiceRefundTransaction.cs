@@ -1,12 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
 /// <summary>
 /// Represents a transaction associated with a refund for a PayPal invoice, including refund details, type, date, amount, and method.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class InvoiceRefundTransaction
 {
     /// <summary>
@@ -15,6 +17,8 @@ public class InvoiceRefundTransaction
     /// <remarks>
     /// The refund ID must not exceed 22 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("refund_id")]
     [StringLength(22)]
     public string? RefundId { get; set; }
@@ -22,6 +26,8 @@ public class InvoiceRefundTransaction
     /// <summary>
     /// Gets or sets the type of the refund transaction.
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("type")]
     public string? Type { get; set; }
 
@@ -31,6 +37,8 @@ public class InvoiceRefundTransaction
     /// <remarks>
     /// The date must follow the format YYYY-MM-DD.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("refund_date")]
     [StringLength(10)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")]
@@ -39,6 +47,8 @@ public class InvoiceRefundTransaction
     /// <summary>
     /// Gets or sets the amount refunded in the transaction.
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("amount")]
     public Money? Amount { get; set; }
 
@@ -48,6 +58,14 @@ public class InvoiceRefundTransaction
     /// <remarks>
     /// Refer to <see cref="Tavstal.PayPalSDK.Constants.TransactionMethod"/> for valid values.
     /// </remarks>
+    [FluentMember(0)]
+    [Required]
     [JsonPropertyName("method")]
-    public required string Method { get; set; }
+    public string? Method { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(5, "Build")]
+    public void Build() { }
 }

@@ -4,35 +4,45 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Utils;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 
 /// <summary>
 /// Represents the body of a refunded payment transaction.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class RefundPaymentBody
 {
     /// <summary>
     /// The status of the payment transaction.
     /// </summary>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("status")]
     public string? Status { get; set; }
 
     /// <summary>
     /// Details about the payment status, including the reason for the status.
     /// </summary>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("status_details")]
     public StatusDetails? StatusDetails { get; set; }
 
     /// <summary>
     /// The unique identifier for the payment transaction.
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     /// <summary>
     /// The invoice ID associated with the payment transaction.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("invoice_id")]
     public string? InvoiceId { get; set; }
 
@@ -40,6 +50,8 @@ public class RefundPaymentBody
     /// A custom ID provided by the merchant for the payment transaction.
     /// Maximum length is 255 characters.
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("custom_id")]
     [StringLength(255)]
     public string? CustomId { get; set; }
@@ -48,6 +60,8 @@ public class RefundPaymentBody
     /// The acquirer reference number for the payment transaction.
     /// Maximum length is 36 characters.
     /// </summary>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("acquirer_reference_number")]
     [StringLength(36)]
     public string? AcquirerReferenceNumber { get; set; }
@@ -55,30 +69,40 @@ public class RefundPaymentBody
     /// <summary>
     /// A note provided to the payer for the payment transaction.
     /// </summary>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("note_to_payer")]
     public string? NoteToPayer { get; set; }
 
     /// <summary>
     /// Breakdown of the seller's payable amounts in the transaction.
     /// </summary>
+    [FluentMember(7)]
+    [FluentSkippable]
     [JsonPropertyName("seller_payable_breakdown")]
     public SellerPayable? SellerPayableBreakdown { get; set; }
 
     /// <summary>
     /// A list of links related to the payment transaction.
     /// </summary>
+    [FluentMember(8)]
+    [FluentSkippable]
     [JsonPropertyName("links")]
     public List<Link>? Links { get; set; }
 
     /// <summary>
     /// The monetary amount of the payment transaction.
     /// </summary>
+    [FluentMember(9)]
+    [FluentSkippable]
     [JsonPropertyName("amount")]
     public Money? Amount { get; set; }
 
     /// <summary>
     /// Information about the payer in the payment transaction.
     /// </summary>
+    [FluentMember(10)]
+    [FluentSkippable]
     [JsonPropertyName("payer")]
     public Payee? Payer { get; set; }
 
@@ -86,6 +110,8 @@ public class RefundPaymentBody
     /// The creation time of the payment transaction in ISO 8601 format.
     /// Must match the specified regular expression.
     /// </summary>
+    [FluentMember(11)]
+    [FluentSkippable]
     [JsonPropertyName("create_time")]
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -95,6 +121,8 @@ public class RefundPaymentBody
     /// The last update time of the payment transaction in ISO 8601 format.
     /// Must match the specified regular expression.
     /// </summary>
+    [FluentMember(12)]
+    [FluentSkippable]
     [JsonPropertyName("update_time")]
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -109,4 +137,10 @@ public class RefundPaymentBody
     /// Gets the last update time of the payment transaction as a nullable DateTime object.
     /// </summary>
     public DateTime? UpdateTimeAsDateTime => DateTimeHelper.FromISO8601(UpdateTime);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(13, "Build")]
+    public void Build() { }
 }

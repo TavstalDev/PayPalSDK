@@ -1,16 +1,20 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 
 /// <summary>
 /// Represents the context for configuring the PayPal payment experience.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class ExperienceContext
 {
     /// <summary>
     /// The label that overrides the business name in the PayPal account on the PayPal site.
     /// </summary>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("brand_name")]
     [StringLength(127)]
     public string? BrandName { get; set; }
@@ -19,6 +23,8 @@ public class ExperienceContext
     /// The type of landing page to show on the PayPal site for customer checkout.
     /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.LandingPages"/>.
     /// </summary>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("landing_page")]
     [StringLength(13)]
     public string? LandingPage { get; set; }
@@ -27,6 +33,8 @@ public class ExperienceContext
     /// The shipping preference for the PayPal payment experience.
     /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.ShippingPreference"/>.
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("shipping_preference")]
     [StringLength(24)]
     public string? ShippingPreference { get; set; }
@@ -35,6 +43,8 @@ public class ExperienceContext
     /// Configures the user action for the checkout flow.
     /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.UserAction"/>.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("user_action")]
     [StringLength(8)]
     public string? UserAction { get; set; }
@@ -42,18 +52,24 @@ public class ExperienceContext
     /// <summary>
     /// The URL where the customer is redirected after approving the payment.
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("return_url")]
     public string? ReturnUrl { get; set; }
 
     /// <summary>
     /// The URL where the customer is redirected after canceling the payment.
     /// </summary>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("cancel_url")]
     public string? CancelUrl { get; set; }
 
     /// <summary>
     /// The BCP 47-formatted locale of pages displayed during the PayPal payment experience.
     /// </summary>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("locale")]
     [StringLength(10)]
     [RegularExpression("^[a-z]{2}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$")]
@@ -63,6 +79,8 @@ public class ExperienceContext
     /// The merchant-preferred payment methods.
     /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.PaymentPreference"/>.
     /// </summary>
+    [FluentMember(7)]
+    [FluentSkippable]
     [JsonPropertyName("payment_method_preference")]
     [StringLength(255)]
     public string? PaymentMethodPreference { get; set; }
@@ -71,7 +89,15 @@ public class ExperienceContext
     /// The contact preference for the merchant.
     /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.ContactPreference"/>.
     /// </summary>
+    [FluentMember(8)]
+    [FluentSkippable]
     [JsonPropertyName("contact_preference")]
     [StringLength(24)]
     public string? ContactPreference { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(9, "Build")]
+    public void Build() { }
 }

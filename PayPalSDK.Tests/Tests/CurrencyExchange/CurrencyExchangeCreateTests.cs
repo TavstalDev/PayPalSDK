@@ -30,7 +30,7 @@ public class CurrencyExchangeCreateTests : TestBase
         var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
         
-        _testOutputHelper.WriteLine("Count: " + objectResponse!.ExchangeQuoteRates.Count);
+        _testOutputHelper.WriteLine("Count: " + objectResponse!.ExchangeQuoteRates!.Count);
     }
     
     [Fact(DisplayName = "Sample 2 - 400 - invalid currency amount")]

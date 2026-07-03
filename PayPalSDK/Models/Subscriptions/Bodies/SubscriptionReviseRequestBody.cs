@@ -4,12 +4,14 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
 /// <summary>
 /// Represents the body of a request to revise a subscription.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class SubscriptionReviseRequestBody
 {
     /// <summary>
@@ -18,6 +20,8 @@ public class SubscriptionReviseRequestBody
     /// <remarks>
     /// The plan ID must not exceed 26 characters.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("plan_id")]
     [StringLength(26)]
     public string? PlanId { get; set; }
@@ -28,6 +32,8 @@ public class SubscriptionReviseRequestBody
     /// <remarks>
     /// The quantity must not exceed 36 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("quantity")]
     [StringLength(36)]
     public string? Quantity { get; set; }
@@ -38,6 +44,8 @@ public class SubscriptionReviseRequestBody
     /// <remarks>
     /// The shipping amount is represented as a <see cref="Money"/> object.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("shipping_amount")]
     public Money? ShippingAmount { get; set; }
 
@@ -47,6 +55,8 @@ public class SubscriptionReviseRequestBody
     /// <remarks>
     /// The shipping address is represented as a <see cref="Shipping"/> object.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("shipping_address")]
     public Shipping? ShippingAddress { get; set; }
 
@@ -56,6 +66,8 @@ public class SubscriptionReviseRequestBody
     /// <remarks>
     /// The application context provides additional configuration for the subscription.
     /// </remarks>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("application_context")]
     public ApplicationContext? ApplicationContext { get; set; }
 
@@ -65,6 +77,14 @@ public class SubscriptionReviseRequestBody
     /// <remarks>
     /// The plan is represented as a <see cref="SubscriberPlan"/> object.
     /// </remarks>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("plan")]
     public SubscriberPlan? Plan { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(6, "Build")]
+    public void Build() { }
 }

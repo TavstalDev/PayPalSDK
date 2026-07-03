@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Utils;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.CurrencyExchange.Bodies;
 
@@ -9,18 +10,23 @@ namespace Tavstal.PayPalSDK.Models.CurrencyExchange.Bodies;
 /// Represents a PayPal currency exchange quote rate, including source/target amounts,
 /// identifiers, and timestamp metadata returned by the API.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class CurrencyExchangeQuoteRate
 {
     /// <summary>
     /// Gets or sets the exchange rate value used for the quote.
     /// </summary>
+    [FluentMember(0)]
     [JsonPropertyName("exchange_rate")]
     [StringLength(32)]
-    public required string ExchangeRate { get; set; }
+    [Required]
+    public string? ExchangeRate { get; set; }
     
     /// <summary>
     /// Gets or sets the foreign exchange identifier associated with this quote.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("fx_id")]
     [StringLength(4000)]
     public string? FxId { get; set; }
@@ -28,18 +34,24 @@ public class CurrencyExchangeQuoteRate
     /// <summary>
     /// Gets or sets the base amount (source currency amount) used to calculate the quote.
     /// </summary>
+    [FluentMember(1)]
+    [Required]
     [JsonPropertyName("base_amount")]
-    public required Money BaseAmount { get; set; }
+    public Money? BaseAmount { get; set; }
     
     /// <summary>
     /// Gets or sets the quoted amount (target currency amount) returned for the exchange.
     /// </summary>
+    [FluentMember(2)]
+    [Required]
     [JsonPropertyName("quote_amount")]
-    public required Money QuoteAmount { get; set; }
+    public Money? QuoteAmount { get; set; }
     
     /// <summary>
     /// Gets or sets the ISO-8601 timestamp string indicating when the quote expires.
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("expiry_time")]
     [StringLength(maximumLength:64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -48,6 +60,8 @@ public class CurrencyExchangeQuoteRate
     /// <summary>
     /// Gets or sets the ISO-8601 timestamp string indicating when the exchange rate should be refreshed.
     /// </summary>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("rate_refresh_time")]
     [StringLength(maximumLength:64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -56,6 +70,8 @@ public class CurrencyExchangeQuoteRate
     /// <summary>
     /// Gets or sets the ISO-8601 timestamp string indicating when this quote was last updated.
     /// </summary>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("update_time")]
     [StringLength(maximumLength:64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -75,4 +91,10 @@ public class CurrencyExchangeQuoteRate
     /// Gets the parsed <see cref="DateTime"/> representation of <see cref="UpdateTime"/>, if valid.
     /// </summary>
     public DateTime? UpdateTimeAsDateTime => DateTimeHelper.FromISO8601(UpdateTime);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(7, "Build")]
+    public void Build() { }
 }

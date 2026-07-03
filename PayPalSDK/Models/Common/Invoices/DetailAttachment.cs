@@ -1,12 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Utils;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
 /// <summary>
 /// Represents an attachment with details for an invoice, such as a file or reference URL.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class DetailAttachment
 {
     /// <summary>
@@ -15,6 +17,8 @@ public class DetailAttachment
     /// <remarks>
     /// The ID must not exceed 255 characters.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("id")]
     [StringLength(255)]
     public string? Id { get; set; }
@@ -25,6 +29,8 @@ public class DetailAttachment
     /// <remarks>
     /// The URL must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("reference_url")]
     [StringLength(2500)]
     public string? ReferenceUrl { get; set; }
@@ -32,12 +38,16 @@ public class DetailAttachment
     /// <summary>
     /// Gets or sets the content type of the attachment (e.g., MIME type).
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("content_type")]
     public string? ContentType { get; set; }
 
     /// <summary>
     /// Gets or sets the size of the attachment.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("size")]
     public string? Size { get; set; }
 
@@ -47,6 +57,8 @@ public class DetailAttachment
     /// <remarks>
     /// The creation time must be in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
     /// </remarks>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("create_time")]
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -56,4 +68,10 @@ public class DetailAttachment
     /// Gets the creation time of the attachment as a nullable DateTime object.
     /// </summary>
     public DateTime? CreateTimeAsDateTime => DateTimeHelper.FromISO8601(CreateTime);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(5, "Build")]
+    public void Build() { }
 }

@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Invoices.Breakdown;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
@@ -8,6 +9,7 @@ namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 /// Represents an invoice amount, including currency, total value,
 /// and optional amount breakdown details.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class InvoiceAmount
 {
     /// <summary>
@@ -16,6 +18,8 @@ public class InvoiceAmount
     /// <remarks>
     /// Serialized as <c>currency_code</c>. Maximum length is 3 characters.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("currency_code")]
     [StringLength(3)]
     public string? CurrencyCode { get; set; }
@@ -26,6 +30,8 @@ public class InvoiceAmount
     /// <remarks>
     /// Serialized as <c>value</c>. Maximum length is 32 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("value")]
     [StringLength(32)]
     public string? Value { get; set; }
@@ -37,6 +43,14 @@ public class InvoiceAmount
     /// <remarks>
     /// Serialized as <c>breakdown</c>.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("breakdown")]
     public InvoiceBreakdown? Breakdown { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(3, "Build")]
+    public void Build() { }
 }

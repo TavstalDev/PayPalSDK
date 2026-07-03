@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.GooglePay;
 
 /// <summary>
 /// Represents a decrypted token for Google Pay payment sources within the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class GoogleDecryptedToken
 {
     /// <summary>
@@ -14,6 +16,8 @@ public class GoogleDecryptedToken
     /// <remarks>
     /// This field is optional and has a maximum length of 250 characters.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("message_id")]
     [StringLength(250)]
     public string? MessageId { get; set; }
@@ -24,6 +28,8 @@ public class GoogleDecryptedToken
     /// <remarks>
     /// This field is optional and has a maximum length of 13 characters.
     /// </remarks>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("message_expiration")]
     [StringLength(13)]
     public string? MessageExpiration { get; set; }
@@ -34,9 +40,11 @@ public class GoogleDecryptedToken
     /// <remarks>
     /// This field is required and has a maximum length of 4 characters.
     /// </remarks>
+    [FluentMember(0)]
+    [Required]
     [JsonPropertyName("payment_method")]
     [StringLength(4)]
-    public required string PaymentMethod { get; set; }
+    public string? PaymentMethod { get; set; }
 
     /// <summary>
     /// Gets or sets the authentication method used for the transaction.
@@ -44,9 +52,11 @@ public class GoogleDecryptedToken
     /// <remarks>
     /// This field is required and has a maximum length of 50 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [Required]
     [JsonPropertyName("authentication_method")]
     [StringLength(50)]
-    public required string AuthenticationMethod { get; set; }
+    public string? AuthenticationMethod { get; set; }
 
     /// <summary>
     /// Gets or sets the cryptogram associated with the transaction.
@@ -54,6 +64,8 @@ public class GoogleDecryptedToken
     /// <remarks>
     /// This field is optional and has a maximum length of 2000 characters.
     /// </remarks>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("cryptogram")]
     [StringLength(2000)]
     public string? Cryptogram { get; set; }
@@ -64,6 +76,8 @@ public class GoogleDecryptedToken
     /// <remarks>
     /// This field is optional and has a maximum length of 256 characters.
     /// </remarks>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("eci_indicator")]
     [StringLength(256)]
     public string? EciIndicator { get; set; }
@@ -74,6 +88,14 @@ public class GoogleDecryptedToken
     /// <remarks>
     /// This field is required and represents the card used in the transaction.
     /// </remarks>
+    [FluentMember(2)]
+    [Required]
     [JsonPropertyName("card")]
-    public required Models.Common.Card Card { get; set; }
+    public Models.Common.Card? Card { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(7, "Build")]
+    public void Build() { }
 }

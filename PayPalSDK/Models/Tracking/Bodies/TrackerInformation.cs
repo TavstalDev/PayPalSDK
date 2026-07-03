@@ -2,24 +2,30 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Utils;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Tracking.Bodies;
 
 /// <summary>
 /// Represents detailed shipment tracking information associated with a PayPal transaction, including carrier details, tracking identifiers, shipment metadata, and status.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class TrackerInformation
 {
     /// <summary>
     /// Gets or sets the transaction identifier associated with this tracker.
     /// </summary>
+    [FluentMember(0)]
     [JsonPropertyName("transaction_id")]
     [StringLength(50)]
-    public required string TransactionId { get; set; }
+    [Required]
+    public string? TransactionId { get; set; }
    
     /// <summary>
     /// Gets or sets the shipment tracking number provided by the carrier.
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("tracking_number")]
     [StringLength(64)]
     public string? TrackingNumber { get; set; }
@@ -27,6 +33,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets a custom carrier name when the carrier is not covered by predefined values.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("carrier_name_other")]
     [StringLength(64)]
     public string? CarrierNameOther { get; set; }
@@ -34,6 +42,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the postage payment identifier associated with the shipment.
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("postage_payment_id")]
     [StringLength(64)]
     public string? PostagePaymentId { get; set; }
@@ -41,24 +51,32 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets a value indicating whether the buyer should be notified about tracking updates.
     /// </summary>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("notify_buyer")]
     public bool NotifyBuyer { get; set; }
     
     /// <summary>
     /// Gets or sets the quantity of items associated with this tracker.
     /// </summary>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("quantity")]
     public int Quantity { get; set; }
     
     /// <summary>
     /// Gets or sets a value indicating whether the tracking number has been validated.
     /// </summary>
+    [FluentMember(7)]
+    [FluentSkippable]
     [JsonPropertyName("tracking_number_validated")]
     public bool TrackingNumberValidated { get; set; }
     
     /// <summary>
     /// Gets or sets the shipment direction (for example, outbound or return).
     /// </summary>
+    [FluentMember(8)]
+    [FluentSkippable]
     [JsonPropertyName("shipment_direction")]
     [StringLength(50)]
     public string? ShipmentDirection { get; set; }
@@ -66,6 +84,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the name of the entity that uploaded the shipment information.
     /// </summary>
+    [FluentMember(9)]
+    [FluentSkippable]
     [JsonPropertyName("shipment_uploader")]
     [StringLength(50)]
     public string? ShipmentUploader { get; set; }
@@ -73,6 +93,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the account identifier associated with this tracker.
     /// </summary>
+    [FluentMember(10)]
+    [FluentSkippable]
     [JsonPropertyName("account_id")]
     [StringLength(13)]
     public string? AccountId { get; set; }
@@ -80,6 +102,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the URL where tracking details can be viewed.
     /// </summary>
+    [FluentMember(11)]
+    [FluentSkippable]
     [JsonPropertyName("tracking_url")]
     [StringLength(250)]
     [RegularExpression("^.*$")]
@@ -88,6 +112,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the fulfillment provider handling the shipment.
     /// </summary>
+    [FluentMember(12)]
+    [FluentSkippable]
     [JsonPropertyName("fulfillment_provider")]
     [StringLength(64)]
     public string? FulfillmentProvider { get; set; }
@@ -95,12 +121,16 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the list of links related to the tracker.
     /// </summary>
+    [FluentMember(13)]
+    [FluentSkippable]
     [JsonPropertyName("links")]
     public List<Link>? Links { get; set; }
     
     /// <summary>
     /// Gets or sets the tracking number type.
     /// </summary>
+    [FluentMember(14)]
+    [FluentSkippable]
     [JsonPropertyName("tracking_number_type")]
     [StringLength(64)]
     [RegularExpression("^[0-9A-Z_]+$")]
@@ -109,14 +139,18 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the current tracking status.
     /// </summary>
+    [FluentMember(1)]
+    [Required]
     [JsonPropertyName("status")]
     [StringLength(64)]
     [RegularExpression("^[A-Z_]+$")]
-    public required string Status { get; set; }
+    public string? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the shipment date in <c>yyyy-MM-dd</c> format.
     /// </summary>
+    [FluentMember(15)]
+    [FluentSkippable]
     [JsonPropertyName("shipment_date")]
     [StringLength(10)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")]
@@ -125,6 +159,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the carrier identifier or name.
     /// </summary>
+    [FluentMember(16)]
+    [FluentSkippable]
     [JsonPropertyName("carrier")]
     [StringLength(64)]
     [RegularExpression("^.*$")]
@@ -133,6 +169,8 @@ public class TrackerInformation
     /// <summary>
     /// Gets or sets the last tracking update time as an ISO 8601 string.
     /// </summary>
+    [FluentMember(17)]
+    [FluentSkippable]
     [JsonPropertyName("last_update_time")]
     [StringLength(maximumLength:64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -142,4 +180,10 @@ public class TrackerInformation
     /// Gets the parsed <see cref="DateTime"/> representation of <see cref="LastUpdateTime"/>, if valid.
     /// </summary>
     public DateTime? LastUpdateTimeAsDateTime => DateTimeHelper.FromISO8601(LastUpdateTime);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(18, "Build")]
+    public void Build() { }
 }

@@ -5,12 +5,14 @@ using Tavstal.PayPalSDK.Models.Common.Orders;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Utils;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 
 /// <summary>
 /// Represents the body of an order within the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class OrderBody
 {
     /// <summary>
@@ -19,6 +21,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and represents the order ID.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
@@ -28,6 +32,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and specifies how the order should be processed.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("processing_instruction")]
     public string? ProcessingInstruction { get; set; }
 
@@ -37,6 +43,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and contains details of the items or services being purchased.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("purchase_units")]
     public List<PurchaseUnit>? PurchaseUnits { get; set; }
 
@@ -46,6 +54,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and provides hyperlinks related to the order.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("links")]
     public List<Link>? Links { get; set; }
 
@@ -55,6 +65,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and specifies the payment method or source used for the transaction.
     /// </remarks>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("payment_source")]
     public PaymentSource? PaymentSource { get; set; }
 
@@ -65,6 +77,8 @@ public class OrderBody
     /// This field is optional and specifies the purpose of the order, such as "CAPTURE" or "AUTHORIZE".
     /// </remarks>
     /// <see cref="Tavstal.PayPalSDK.Constants.PayPalIntent"/>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("intent")]
     public string? Intent { get; set; }
 
@@ -74,6 +88,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and contains information about the payer.
     /// </remarks>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("payer")]
     public Payer? Payer { get; set; }
 
@@ -84,6 +100,8 @@ public class OrderBody
     /// This field is optional and represents the current status of the order.
     /// </remarks>
     /// <see cref="Tavstal.PayPalSDK.Constants.OrderStatus"/>
+    [FluentMember(7)]
+    [FluentSkippable]
     [JsonPropertyName("status")]
     [StringLength(255)]
     [RegularExpression("^[0-9A-Z_]+$")]
@@ -95,6 +113,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and must follow the ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).
     /// </remarks>
+    [FluentMember(8)]
+    [FluentSkippable]
     [JsonPropertyName("create_time")]
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -106,6 +126,8 @@ public class OrderBody
     /// <remarks>
     /// This field is optional and must follow the ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).
     /// </remarks>
+    [FluentMember(9)]
+    [FluentSkippable]
     [JsonPropertyName("update_time")]
     [StringLength(64)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -120,4 +142,10 @@ public class OrderBody
     /// Gets the last update time of the order as a nullable DateTime object.
     /// </summary>
     public DateTime? UpdateTimeAsDateTime => DateTimeHelper.FromISO8601(UpdateTime);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(10, "Build")]
+    public void Build() { }
 }

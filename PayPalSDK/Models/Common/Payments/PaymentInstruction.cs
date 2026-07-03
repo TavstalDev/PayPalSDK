@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
 
 /// <summary>
 /// Represents payment instructions in the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class PaymentInstruction
 {
     /// <summary>
@@ -14,6 +16,8 @@ public class PaymentInstruction
     /// <remarks>
     /// This field is optional and represents the fees charged by the platform.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("platform_fees")]
     public List<PlatformFee>? PlatformFees { get; set; }
 
@@ -23,6 +27,8 @@ public class PaymentInstruction
     /// <remarks>
     /// This field is optional and has a maximum length of 20 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("payee_pricing_tier_id")]
     [StringLength(20)]
     public string? PayeePricingTierId { get; set; }
@@ -33,6 +39,8 @@ public class PaymentInstruction
     /// <remarks>
     /// This field is optional and has a maximum length of 4000 characters.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("payee_receivable_fx_rate_id")]
     [StringLength(4000)]
     public string? PayeeReceivableFxRateId { get; set; }
@@ -44,8 +52,16 @@ public class PaymentInstruction
     /// This field is optional and must match the regular expression ^[A-Z_]+$.
     /// Refer to <see cref="Tavstal.PayPalSDK.Constants.DisbursementMode"/> for valid values.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("disbursement_mode")]
     [StringLength(16)]
     [RegularExpression("^[A-Z_]+$")]
     public string? DisbursementMode { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(4, "Build")]
+    public void Build() { }
 }

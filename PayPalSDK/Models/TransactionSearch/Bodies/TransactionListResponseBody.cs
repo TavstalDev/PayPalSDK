@@ -3,23 +3,29 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Transactions;
 using Tavstal.PayPalSDK.Utils;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.TransactionSearch.Bodies;
 
 /// <summary>
 /// Represents the response body for a transaction list query from the PayPal Transaction Search API.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class TransactionListResponseBody
 {
     /// <summary>
     /// Gets or sets the list of transaction detail records returned for the current page.
     /// </summary>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("transaction_details")]
     public List<TransactionDetail>? TransactionDetails { get; set; }
     
     /// <summary>
     /// Gets or sets the masked or formatted account number associated with the response context.
     /// </summary>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("account_number")]
     [StringLength(255)]
     public string? AccountNumber { get; set; }
@@ -27,24 +33,32 @@ public class TransactionListResponseBody
     /// <summary>
     /// Gets or sets the current page number in the paginated result set.
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("page")]
     public int Page { get; set; }
     
     /// <summary>
     /// Gets or sets the total number of available pages for the query.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("total_pages")]
     public int TotalPages { get; set; }
     
     /// <summary>
     /// Gets or sets HATEOAS links related to this response (for example, self/next/prev).
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("links")]
     public List<Link>? Links { get; set; }
     
     /// <summary>
     /// Gets or sets the start of the queried transaction date range in ISO 8601 format.
     /// </summary>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("start_date")]
     [StringLength(64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -53,6 +67,8 @@ public class TransactionListResponseBody
     /// <summary>
     /// Gets or sets the end of the queried transaction date range in ISO 8601 format.
     /// </summary>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("end_date")]
     [StringLength(64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -61,6 +77,8 @@ public class TransactionListResponseBody
     /// <summary>
     /// Gets or sets the timestamp indicating when this data set was last refreshed, in ISO 8601 format.
     /// </summary>
+    [FluentMember(7)]
+    [FluentSkippable]
     [JsonPropertyName("last_refreshed_date")]
     [StringLength(64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -83,4 +101,10 @@ public class TransactionListResponseBody
     /// or <see langword="null"/> if the source value is missing or invalid.
     /// </summary>
     public DateTime? LastRefreshedDateAsDateTime => DateTimeHelper.FromISO8601(LastRefreshedDate);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(8, "Build")]
+    public void Build() { }
 }

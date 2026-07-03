@@ -1,12 +1,15 @@
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Orders;
+using System.ComponentModel.DataAnnotations;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 
 /// <summary>
 /// Represents the payload used to send order update callback information to the PayPal API.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class OrderUpdateCallbackRequestBody
 {
     /// <summary>
@@ -15,6 +18,8 @@ public class OrderUpdateCallbackRequestBody
     /// <remarks>
     /// This field is optional and contains the updated shipping address information for the order.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("shipping_address")]
     public Shipping? ShippingAddress { get; set; }
     
@@ -24,6 +29,8 @@ public class OrderUpdateCallbackRequestBody
     /// <remarks>
     /// This field is optional and identifies the shipping option chosen for the order.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("shipping_option")]
     public ShippingOption? ShippingOption { get; set; }
     
@@ -35,6 +42,14 @@ public class OrderUpdateCallbackRequestBody
     /// Although the list reference itself is nullable, it is marked as required to indicate that the property
     /// should be provided when constructing the payload.
     /// </remarks>
+    [FluentMember(0)]
+    [Required]
     [JsonPropertyName("purchase_units")]
-    public required List<PurchaseUnit>? PurchaseUnits { get; set; }
+    public List<PurchaseUnit>? PurchaseUnits { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(3, "Build")]
+    public void Build() { }
 }

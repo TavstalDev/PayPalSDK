@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Webhooks;
 
 /// <summary>
 /// Represents a webhook event in the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class WebhookEvent
 {
     /// <summary>
@@ -13,6 +15,8 @@ public class WebhookEvent
     /// <remarks>
     /// The event version indicates the version of the webhook event payload.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("event_version")]
     public string? EventVersion { get; set; }
 
@@ -22,6 +26,14 @@ public class WebhookEvent
     /// <remarks>
     /// The resource version indicates the version of the resource that triggered the webhook event.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("resource_version")]
     public string? ResourceVersion { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(2, "Build")]
+    public void Build() { }
 }

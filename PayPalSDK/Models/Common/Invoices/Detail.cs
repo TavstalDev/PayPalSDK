@@ -1,12 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
 /// <summary>
 /// Represents the detailed information of an invoice, including references, notes, terms, and attachments.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class Detail
 {
     /// <summary>
@@ -15,6 +17,8 @@ public class Detail
     /// <remarks>
     /// The reference must not exceed 120 characters.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("reference")]
     [StringLength(120)]
     public string? Reference { get; set; }
@@ -25,6 +29,8 @@ public class Detail
     /// <remarks>
     /// The note must not exceed 4000 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("note")]
     [StringLength(4000)]
     public string? Note { get; set; }
@@ -32,6 +38,8 @@ public class Detail
     /// <summary>
     /// Gets or sets the terms and conditions for the invoice.
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("terms_and_conditions")]
     public string? TermsAndConditions { get; set; }
 
@@ -41,6 +49,8 @@ public class Detail
     /// <remarks>
     /// The memo must not exceed 500 characters.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("memo")]
     [StringLength(500)]
     public string? Memo { get; set; }
@@ -48,6 +58,8 @@ public class Detail
     /// <summary>
     /// Gets or sets the list of attachments associated with the invoice.
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("attachments")]
     public List<DetailAttachment>? Attachments { get; set; }
 
@@ -57,6 +69,8 @@ public class Detail
     /// <remarks>
     /// The currency code must be a 3-character ISO 4217 code.
     /// </remarks>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("currency_code")]
     [StringLength(3)]
     public string? CurrencyCode { get; set; }
@@ -67,6 +81,8 @@ public class Detail
     /// <remarks>
     /// The invoice number must not exceed 25 characters.
     /// </remarks>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("invoice_number")]
     [StringLength(25)]
     public string? InvoiceNumber { get; set; }
@@ -77,6 +93,8 @@ public class Detail
     /// <remarks>
     /// The date must be in the format YYYY-MM-DD.
     /// </remarks>
+    [FluentMember(7)]
+    [FluentSkippable]
     [JsonPropertyName("invoice_date")]
     [StringLength(10)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")]
@@ -85,12 +103,16 @@ public class Detail
     /// <summary>
     /// Gets or sets the payment term for the invoice.
     /// </summary>
+    [FluentMember(8)]
+    [FluentSkippable]
     [JsonPropertyName("payment_term")]
     public PaymentTerm? PaymentTerm { get; set; }
 
     /// <summary>
     /// Gets or sets predefined tip percentage options that can be presented for the invoice.
     /// </summary>
+    [FluentMember(9)]
+    [FluentSkippable]
     [JsonPropertyName("tip_presets")]
     public List<TipPreset>? TipPresets { get; set; }
 
@@ -100,6 +122,8 @@ public class Detail
     /// <remarks>
     /// The value must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(10)]
+    [FluentSkippable]
     [JsonPropertyName("order_details")]
     [StringLength(2500)]
     public string? OrderDetails { get; set; }
@@ -110,6 +134,8 @@ public class Detail
     /// <remarks>
     /// The value must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(11)]
+    [FluentSkippable]
     [JsonPropertyName("project_details")]
     [StringLength(2500)]
     public string? ProjectDetails { get; set; }
@@ -120,6 +146,8 @@ public class Detail
     /// <remarks>
     /// The value must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(12)]
+    [FluentSkippable]
     [JsonPropertyName("service_details")]
     [StringLength(2500)]
     public string? ServiceDetails { get; set; }
@@ -130,6 +158,8 @@ public class Detail
     /// <remarks>
     /// The value must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(13)]
+    [FluentSkippable]
     [JsonPropertyName("payment_terms")]
     [StringLength(2500)]
     public string? PaymentTerms { get; set; }
@@ -140,6 +170,8 @@ public class Detail
     /// <remarks>
     /// The value must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(14)]
+    [FluentSkippable]
     [JsonPropertyName("return_policy")]
     [StringLength(2500)]
     public string? ReturnPolicy { get; set; }
@@ -150,6 +182,8 @@ public class Detail
     /// <remarks>
     /// The value must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(15)]
+    [FluentSkippable]
     [JsonPropertyName("cancellation_policy")]
     [StringLength(2500)]
     public string? CancellationPolicy { get; set; }
@@ -160,7 +194,15 @@ public class Detail
     /// <remarks>
     /// The value must not exceed 2500 characters.
     /// </remarks>
+    [FluentMember(16)]
+    [FluentSkippable]
     [JsonPropertyName("service_agreement")]
     [StringLength(2500)]
     public string? ServiceAgreement { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(17, "Build")]
+    public void Build() { }
 }

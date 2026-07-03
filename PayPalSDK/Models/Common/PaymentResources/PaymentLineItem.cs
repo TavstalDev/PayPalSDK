@@ -2,17 +2,21 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 using Tavstal.PayPalSDK.Models.Common.Payments;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.PaymentResources;
 
 /// <summary>
 /// Represents a payment line item, including pricing, shipping, taxes, and quantity options.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class PaymentLineItem
 {
   /// <summary>
   /// Gets or sets the line item name.
   /// </summary>
+  [FluentMember(0)]
+  [FluentSkippable]
   [JsonPropertyName("name")]
   [StringLength(127)]
   public string? Name { get; set; }
@@ -20,6 +24,8 @@ public class PaymentLineItem
   /// <summary>
   /// Gets or sets the line item description.
   /// </summary>
+  [FluentMember(1)]
+  [FluentSkippable]
   [JsonPropertyName("description")]
   [StringLength(2048)]
   public string? Description { get; set; }
@@ -27,42 +33,62 @@ public class PaymentLineItem
   /// <summary>
   /// Gets or sets the list of applicable taxes for this line item.
   /// </summary>
+  [FluentMember(2)]
+  [FluentSkippable]
   [JsonPropertyName("taxes")]
   public List<PaymentLineItemTax>? Taxes { get; set; }
   
   /// <summary>
   /// Gets or sets the shipping entries associated with this line item.
   /// </summary>
+  [FluentMember(3)]
+  [FluentSkippable]
   [JsonPropertyName("shipping")]
   public List<PaymentShippingItem>? Shipping { get; set; }
   
   /// <summary>
   /// Gets or sets a value indicating whether a shipping address should be collected.
   /// </summary>
+  [FluentMember(4)]
+  [FluentSkippable]
   [JsonPropertyName("collect_shipping_address")]
   public bool CollectShippingAddress { get; set; }
   
   /// <summary>
   /// Gets or sets customer notes associated with this line item.
   /// </summary>
+  [FluentMember(5)]
+  [FluentSkippable]
   [JsonPropertyName("customer_notes")]
   public List<CustomerNote>? CustomerNotes { get; set; }
   
   /// <summary>
   /// Gets or sets the unit amount for this line item.
   /// </summary>
+  [FluentMember(6)]
+  [FluentSkippable]
   [JsonPropertyName("unit_amount")]
   public Money? UnitAmount { get; set; }
   
   /// <summary>
   /// Gets or sets the available variants for this line item.
   /// </summary>
+  [FluentMember(7)]
+  [FluentSkippable]
   [JsonPropertyName("variants")]
   public PaymentLineItemVariants? Variants { get; set; }
   
   /// <summary>
   /// Gets or sets the adjustable quantity settings for this line item.
   /// </summary>
+  [FluentMember(8)]
+  [FluentSkippable]
   [JsonPropertyName("adjustable_quantity")]
   public PaymentLineItemAdjustableQuantity? AdjustableQuantity { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(9, "Build")]
+    public void Build() { }
 }

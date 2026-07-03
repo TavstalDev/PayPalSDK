@@ -2,12 +2,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.GooglePay;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 
 /// <summary>
 /// Represents a Google Pay payment source within the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class GooglePaySource
 {
     /// <summary>
@@ -16,6 +18,8 @@ public class GooglePaySource
     /// <remarks>
     /// This field is optional and has a maximum length of 300 characters.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("name")]
     [StringLength(300)]
     public string? Name { get; set; }
@@ -26,6 +30,8 @@ public class GooglePaySource
     /// <remarks>
     /// This field is optional and has a maximum length of 254 characters.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("email_address")]
     [StringLength(254)]
     public string? EmailAddress { get; set; }
@@ -36,6 +42,8 @@ public class GooglePaySource
     /// <remarks>
     /// This field is optional and represents the phone number details.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("phone_number")]
     public PhoneNumber? PhoneNumber { get; set; }
 
@@ -45,8 +53,10 @@ public class GooglePaySource
     /// <remarks>
     /// This field is required and represents the card used in the transaction.
     /// </remarks>
+    [FluentMember(0)]
+    [Required]
     [JsonPropertyName("card")]
-    public required Models.Common.Card Card { get; set; }
+    public Models.Common.Card? Card { get; set; }
 
     /// <summary>
     /// Gets or sets the decrypted token associated with the Google Pay payment source.
@@ -54,6 +64,8 @@ public class GooglePaySource
     /// <remarks>
     /// This field is optional and represents the decrypted token details.
     /// </remarks>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("decrypted_token")]
     public GoogleDecryptedToken? DecryptedToken { get; set; }
 
@@ -63,6 +75,8 @@ public class GooglePaySource
     /// <remarks>
     /// This field is optional and provides additional assurance information.
     /// </remarks>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("assurance_details")]
     public AssuranceDetails? AssuranceDetails { get; set; }
 
@@ -72,6 +86,14 @@ public class GooglePaySource
     /// <remarks>
     /// This field is optional and provides additional configuration for the payment experience.
     /// </remarks>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("experience_context")]
     public ExperienceContext? ExperienceContext { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(7, "Build")]
+    public void Build() { }
 }

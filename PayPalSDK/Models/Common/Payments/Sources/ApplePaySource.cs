@@ -4,12 +4,14 @@ using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Common;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 
 /// <summary>
 /// Represents an Apple Pay payment source within the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class ApplePaySource
 {
     /// <summary>
@@ -18,6 +20,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and has a maximum length of 250 characters.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("id")]
     [StringLength(250)]
     public string? Id { get; set; }
@@ -28,6 +32,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and represents card-related stored credentials.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("stored_credential")]
     public CardStoredCredentials? StoredCredential { get; set; }
 
@@ -37,6 +43,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and represents additional metadata for the payment source.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("attributes")]
     public SourceAttributes? Attributes { get; set; }
 
@@ -46,6 +54,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and has a maximum length of 300 characters.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("name")]
     [StringLength(300)]
     public string? Name { get; set; }
@@ -56,6 +66,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and must be a valid email address format with a maximum length of 254 characters.
     /// </remarks>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("email_address")]
     [StringLength(254)]
     [RegularExpression("^(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$")]
@@ -67,6 +79,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and represents the phone number details.
     /// </remarks>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("phone_number")]
     public PhoneNumber? PhoneNumber { get; set; }
 
@@ -76,6 +90,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and represents the decrypted token details.
     /// </remarks>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("decrypted_token")]
     public AppleDecryptedToken? DecryptedToken { get; set; }
 
@@ -85,6 +101,8 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and must match the regular expression pattern: ^[0-9a-zA-Z_-]+$.
     /// </remarks>
+    [FluentMember(7)]
+    [FluentSkippable]
     [JsonPropertyName("vault_id")]
     [StringLength(255)]
     [RegularExpression("^[0-9a-zA-Z_-]+$")]
@@ -96,6 +114,14 @@ public class ApplePaySource
     /// <remarks>
     /// This field is optional and provides additional configuration for the payment experience.
     /// </remarks>
+    [FluentMember(8)]
+    [FluentSkippable]
     [JsonPropertyName("experience_context")]
     public ExperienceContext? ExperienceContext { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(9, "Build")]
+    public void Build() { }
 }

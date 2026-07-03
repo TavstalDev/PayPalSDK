@@ -1,29 +1,38 @@
 using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Auth;
 
 /// <summary>
 /// Represents an access token used for authentication with the PayPal API.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class AccessToken
 {
     /// <summary>
     /// The access token string provided by the PayPal API.
     /// </summary>
+    [FluentMember(0)]
     [JsonPropertyName("access_token")]
-    public required string Token { get; init; }
+    [Required]
+    public string? Token { get; init; }
 
     /// <summary>
     /// The type of the token (e.g., Bearer).
     /// </summary>
+    [FluentMember(1)]
+    [Required]
     [JsonPropertyName("token_type")]
-    public required string TokenType { get; init; }
+    public string? TokenType { get; init; }
 
     /// <summary>
     /// The duration in seconds until the token expires.
     /// </summary>
+    [FluentMember(2)]
+    [Required]
     [JsonPropertyName("expires_in")]
-    public required int ExpiresIn { get; init; }
+    public int ExpiresIn { get; init; }
 
     /// <summary>
     /// Gets the date and time when the access token was created.
@@ -36,4 +45,10 @@ public class AccessToken
     /// </summary>
     /// <returns><c>true</c> if the token has expired; otherwise, <c>false</c>.</returns>
     public bool IsExpired() => DateTime.UtcNow >= CreatedAt.AddSeconds(ExpiresIn - 60);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(3, "Build")]
+    public void Build() { }
 }

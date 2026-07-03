@@ -1,10 +1,13 @@
 using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common;
 
 /// <summary>
 /// Represents an update operation for modifying resources in the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class UpdateOperation
 {
     /// <summary>
@@ -13,8 +16,10 @@ public class UpdateOperation
     /// <remarks>
     /// Examples include "add", "remove", "replace", etc.
     /// </remarks>
+    [FluentMember(0)]
     [JsonPropertyName("op")]
-    public required string Op { get; set; }
+    [Required]
+    public string? Op { get; set; }
 
     /// <summary>
     /// Gets or sets the JSON Pointer path to the target field.
@@ -22,6 +27,8 @@ public class UpdateOperation
     /// <remarks>
     /// Specifies the location in the resource where the operation is applied.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("path")]
     public string? Path { get; set; }
 
@@ -31,6 +38,8 @@ public class UpdateOperation
     /// <remarks>
     /// This field is optional and depends on the type of operation being performed.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("value")]
     public object? Value { get; set; }
 
@@ -40,6 +49,14 @@ public class UpdateOperation
     /// <remarks>
     /// This field is optional and is used only for "move" operations to specify the source location.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("from")]
     public string? From { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(4, "Build")]
+    public void Build() { }
 }

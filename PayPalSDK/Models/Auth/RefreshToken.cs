@@ -1,33 +1,44 @@
 using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Auth;
 
 /// <summary>
 /// Represents a refresh token response from the PayPal authentication API.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class RefreshToken
 {
     /// <summary>
     /// The refresh token string.
     /// </summary>
+    [FluentMember(0)]
     [JsonPropertyName("refresh_token")]
-    public required string Token { get; init; }
+    [Required]
+    public string? Token { get; init; }
 
     /// <summary>
     /// The type of the token.
     /// </summary>
+    [FluentMember(1)]
+    [Required]
     [JsonPropertyName("token_type")]
-    public required string TokenType { get; init; }
+    public string? TokenType { get; init; }
 
     /// <summary>
     /// The expiration time of the token in seconds.
     /// </summary>
+    [FluentMember(2)]
+    [Required]
     [JsonPropertyName("expires_in")]
-    public required string ExpiresIn { get; init; }
+    public string? ExpiresIn { get; init; }
 
     /// <summary>
     /// The ID token.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("id_token")]
     public string? IdToken { get; init; }
     
@@ -47,4 +58,10 @@ public class RefreshToken
             ExpiresIn = int.TryParse(ExpiresIn, out var expiresIn) ? expiresIn : 0
         };
     }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(4, "Build")]
+    public void Build() { }
 }

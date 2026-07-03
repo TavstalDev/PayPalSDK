@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 
 /// <summary>
 /// Represents a vault configuration in the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class Vault
 {
     /// <summary>
@@ -14,8 +16,16 @@ public class Vault
     /// <remarks>
     /// This field is optional, has a maximum length of 255 characters, and must match the regular expression ^[0-9A-Z_]+$.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("store_in_vault")]
     [StringLength(255)]
     [RegularExpression("^[0-9A-Z_]+$")]
     public string? StoreInVault { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(1, "Build")]
+    public void Build() { }
 }

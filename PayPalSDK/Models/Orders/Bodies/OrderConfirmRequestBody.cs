@@ -1,12 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Payments;
+using System.ComponentModel.DataAnnotations;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 
 /// <summary>
 /// Represents the request body for confirming an order within the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class OrderConfirmRequestBody
 {
     /// <summary>
@@ -15,6 +18,8 @@ public class OrderConfirmRequestBody
     /// <remarks>
     /// This field is optional and provides additional details about the transaction, such as branding and URLs.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("application_context")]
     public ApplicationContext? ApplicationContext { get; set; }
 
@@ -24,6 +29,14 @@ public class OrderConfirmRequestBody
     /// <remarks>
     /// This field is required and specifies the payment method or source used for the transaction.
     /// </remarks>
+    [FluentMember(0)]
+    [Required]
     [JsonPropertyName("payment_source")]
-    public required PaymentSource PaymentSource { get; set; }
+    public PaymentSource? PaymentSource { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(2, "Build")]
+    public void Build() { }
 }

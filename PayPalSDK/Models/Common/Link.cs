@@ -1,10 +1,13 @@
 using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common;
 
 /// <summary>
 /// Represents a hyperlink object used within the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class Link
 {
     /// <summary>
@@ -13,8 +16,10 @@ public class Link
     /// <remarks>
     /// This field is required and specifies the target URL of the link.
     /// </remarks>
+    [FluentMember(0)]
     [JsonPropertyName("href")]
-    public required string Href { get; set; }
+    [Required]
+    public string? Href { get; set; }
 
     /// <summary>
     /// Gets or sets the relationship of the link to the resource.
@@ -22,8 +27,10 @@ public class Link
     /// <remarks>
     /// This field is required and describes the type of relationship the link has with the resource.
     /// </remarks>
+    [FluentMember(1)]
+    [Required]
     [JsonPropertyName("rel")]
-    public required string Rel { get; set; }
+    public string? Rel { get; set; }
 
     /// <summary>
     /// Gets or sets the HTTP method to be used with the link.
@@ -31,6 +38,8 @@ public class Link
     /// <remarks>
     /// This field is optional and specifies the HTTP method (e.g., GET, POST) for the link.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("method")]
     public string? Method { get; set; }
     
@@ -41,4 +50,10 @@ public class Link
     {
         return $"Link: [Href: {Href}, Rel: {Rel}, Method: {Method}]";
     }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(3, "Build")]
+    public void Build() { }
 }

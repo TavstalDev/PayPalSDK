@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
 
 /// <summary>
 /// Represents the frequency of a billing cycle in the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class BillingFrequency
 {
     /// <summary>
@@ -14,9 +16,11 @@ public class BillingFrequency
     /// <remarks>
     /// This field is required and represents the unit of time (e.g., day, week, month) for the interval.
     /// </remarks>
+    [FluentMember(0)]
     [JsonPropertyName("interval_unit")]
     [StringLength(24)]
-    public required string IntervalUnit { get; set; }
+    [Required]
+    public string? IntervalUnit { get; set; }
 
     /// <summary>
     /// Gets or sets the count of intervals for the billing frequency.
@@ -24,6 +28,14 @@ public class BillingFrequency
     /// <remarks>
     /// This field is optional and defaults to 1. It represents the number of intervals for the frequency.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("interval_count")]
     public int IntervalCount { get; set; } = 1;
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(2, "Build")]
+    public void Build() { }
 }

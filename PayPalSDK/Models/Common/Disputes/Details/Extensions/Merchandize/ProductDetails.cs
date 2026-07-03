@@ -1,17 +1,21 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Utils;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandize;
 
 /// <summary>
 /// Represents the details of a product in a PayPal dispute, including description, product received status, sub-reasons, purchase URL, product received time, expected delivery date, and return details.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class ProductDetails
 {
     /// <summary>
     /// Gets or sets the description of the product in the dispute.
     /// </summary>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("description")]
     [StringLength(2000)]
     public string? Description { get; set; }
@@ -19,6 +23,8 @@ public class ProductDetails
     /// <summary>
     /// Gets or sets a value indicating whether the product was received in the dispute.
     /// </summary>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("product_received")]
     [StringLength(255)]
     public string? ProductReceived { get; set; }
@@ -26,18 +32,24 @@ public class ProductDetails
     /// <summary>
     /// Gets or sets the sub-reasons associated with the product in the dispute.
     /// </summary>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("sub_reasons")]
     public List<string>? SubReasons { get; set; }
     
     /// <summary>
     /// Gets or sets the purchase URL of the product in the dispute.
     /// </summary>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("purchase_url")]
     public string? PurchaseUrl { get; set; }
     
     /// <summary>
     /// Gets or sets the time when the product was received in the dispute, in ISO 8601 format.
     /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("product_received_time")]
     [StringLength(64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -46,6 +58,8 @@ public class ProductDetails
     /// <summary>
     /// Gets or sets the expected delivery date of the product in the dispute, in ISO 8601 format.
     /// </summary>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("expected_delivery_date")]
     [StringLength(64, MinimumLength = 20)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])[T,t]([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)([.][0-9]+)?([Zz]|[+-][0-9]{2}:[0-9]{2})$")]
@@ -54,6 +68,8 @@ public class ProductDetails
     /// <summary>
     /// Gets or sets the return details associated with the product in the dispute.
     /// </summary>
+    [FluentMember(6)]
+    [FluentSkippable]
     [JsonPropertyName("return_details")]
     public ReturnDetails? ReturnDetails { get; set; }
     
@@ -66,4 +82,10 @@ public class ProductDetails
     /// Gets the expected delivery date as a <see cref="DateTime"/> object, if valid.
     /// </summary>
     public DateTime? ExpectedDeliveryDateAsDateTime => DateTimeHelper.FromISO8601(ExpectedDeliveryDate);
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(7, "Build")]
+    public void Build() { }
 }

@@ -2,12 +2,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Common;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 
 /// <summary>
 /// Represents a Blik payment source within the PayPal SDK.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class BlikSource
 {
     /// <summary>
@@ -16,9 +18,11 @@ public class BlikSource
     /// <remarks>
     /// This field is required and has a maximum length of 300 characters.
     /// </remarks>
+    [FluentMember(0)]
     [JsonPropertyName("name")]
     [StringLength(300)]
-    public required string Name { get; set; }
+    [Required]
+    public string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the country code associated with the Blik payment source.
@@ -26,10 +30,12 @@ public class BlikSource
     /// <remarks>
     /// This field is required and must be a valid two-letter country code or "C2".
     /// </remarks>
+    [FluentMember(1)]
+    [Required]
     [JsonPropertyName("country_code")]
     [StringLength(2)]
     [RegularExpression("^([A-Z]{2}|C2)$")]
-    public required string CountryCode { get; set; }
+    public string? CountryCode { get; set; }
 
     /// <summary>
     /// Gets or sets the email address associated with the Blik payment source.
@@ -37,6 +43,8 @@ public class BlikSource
     /// <remarks>
     /// This field is optional and must be a valid email address with a maximum length of 254 characters.
     /// </remarks>
+    [FluentMember(2)]
+    [FluentSkippable]
     [JsonPropertyName("email")]
     [StringLength(254)]
     [RegularExpression("^(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$")]
@@ -48,6 +56,8 @@ public class BlikSource
     /// <remarks>
     /// This field is optional and provides additional configuration for the payment experience.
     /// </remarks>
+    [FluentMember(3)]
+    [FluentSkippable]
     [JsonPropertyName("experience_context")]
     public ExperienceContext? ExperienceContext { get; set; }
 
@@ -57,6 +67,8 @@ public class BlikSource
     /// <remarks>
     /// This field is optional and represents Level Zero payment source information.
     /// </remarks>
+    [FluentMember(4)]
+    [FluentSkippable]
     [JsonPropertyName("level_0")]
     public LevelZero? LevelZero { get; set; }
 
@@ -66,6 +78,14 @@ public class BlikSource
     /// <remarks>
     /// This field is optional and represents OneClick payment source information.
     /// </remarks>
+    [FluentMember(5)]
+    [FluentSkippable]
     [JsonPropertyName("one_click")]
     public OneClick? OneClick { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(6, "Build")]
+    public void Build() { }
 }

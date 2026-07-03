@@ -1,11 +1,13 @@
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
+using M31.FluentApi.Attributes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Orders;
 
 /// <summary>
 /// Represents supplementary card information for a PayPal order.
 /// </summary>
+[FluentApi(builderClassName: "{Name}Builder")]
 public class SupplementaryCard
 {
     /// <summary>
@@ -15,6 +17,8 @@ public class SupplementaryCard
     /// Level 2 data typically includes additional transaction details
     /// required for enhanced payment processing.
     /// </remarks>
+    [FluentMember(0)]
+    [FluentSkippable]
     [JsonPropertyName("level_2")]
     public LevelTwo? LevelTwo { get; set; }
 
@@ -25,6 +29,14 @@ public class SupplementaryCard
     /// Level 3 data provides detailed line-item information for transactions,
     /// often used for business-to-business payments.
     /// </remarks>
+    [FluentMember(1)]
+    [FluentSkippable]
     [JsonPropertyName("level_3")]
     public LevelThree? LevelThree { get; set; }
+
+    /// <summary>
+    /// Fluent build method implementation
+    /// </summary>
+    [FluentMethod(2, "Build")]
+    public void Build() { }
 }
