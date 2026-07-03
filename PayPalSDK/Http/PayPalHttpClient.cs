@@ -170,7 +170,8 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
                     _semaphore.Release();
                 }
             }
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
+            if (!string.IsNullOrEmpty(_accessToken.Token))
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
         }
 
         return await _httpClient.SendAsync(request, cancellationToken);

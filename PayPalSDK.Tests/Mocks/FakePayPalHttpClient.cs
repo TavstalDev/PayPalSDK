@@ -1,4 +1,5 @@
 using Tavstal.PayPalSDK.Http;
+using Tavstal.PayPalSDK.Http.Clients;
 
 namespace Tavstal.PayPalSDK.Tests.Mocks;
 
@@ -9,6 +10,18 @@ public class FakePayPalHttpClient : IPayPalHttpClient
     public FakePayPalHttpClient(Func<HttpRequestMessage, HttpResponseMessage> responder)
     {
         _responder = responder;
+        CurrencyExchange = new CurrencyExchangeClient(this);
+        Disputes = new DisputesClient(this);
+        Invoices = new InvoicesClient(this);
+        Orders = new OrdersClient(this);
+        PaymentMethodTokens = new PaymentMethodTokensClient(this);
+        PaymentResources = new PaymentResourcesClient(this);
+        Payments = new PaymentsClient(this);
+        ProductCatalog = new ProductCatalogClient(this);
+        Subscriptions = new SubscriptionsClient(this);
+        Tracking = new TrackingClient(this);
+        TransactionSearch = new TransactionSearchClient(this);
+        Webhooks = new WebhooksClient(this);
     }
 
     /// <summary>
@@ -20,6 +33,19 @@ public class FakePayPalHttpClient : IPayPalHttpClient
     /// <returns>A new <see cref="FakePayPalHttpClient"/> instance.</returns>
     public static FakePayPalHttpClient CreateClient(Func<HttpRequestMessage, HttpResponseMessage> responder) =>
         new(responder);
+
+    public CurrencyExchangeClient CurrencyExchange { get; }
+    public DisputesClient Disputes { get; }
+    public InvoicesClient Invoices { get; }
+    public OrdersClient Orders { get; }
+    public PaymentMethodTokensClient PaymentMethodTokens { get; }
+    public PaymentResourcesClient PaymentResources { get; }
+    public PaymentsClient Payments { get; }
+    public ProductCatalogClient ProductCatalog { get; }
+    public SubscriptionsClient Subscriptions { get; }
+    public TrackingClient Tracking { get; }
+    public TransactionSearchClient TransactionSearch { get; }
+    public WebhooksClient Webhooks { get; }
 
     public Task<HttpResponseMessage> SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default)
     {
