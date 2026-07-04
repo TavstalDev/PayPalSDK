@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Headers;
 using Tavstal.PayPalSDK.Config;
 using Tavstal.PayPalSDK.Http.Clients;
@@ -17,7 +18,7 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
     private readonly string? _refreshToken;
     private readonly EnvironmentBase _environment;
     private readonly SemaphoreSlim _semaphore = new(1, 1);
-    private readonly bool _disposeHttpClient;
+    private readonly PayPalClientOptions _options;
     
     /// <summary>
     /// Provides operations for retrieving and converting currency exchange rates.
@@ -80,18 +81,23 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
     public WebhooksClient Webhooks { get; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="PayPalHttpClient"/> using a provided <see cref="HttpClient"/>.
-    /// This constructor is useful for tests where a custom HttpMessageHandler is required.
+    /// Initializes a new instance of the <see cref="PayPalHttpClient"/> class with the specified environment and optional client options.
     /// </summary>
     /// <param name="environment">The environment configuration.</param>
-    /// <param name="httpClient">The pre-configured HttpClient to use.</param>
-    /// <param name="refreshToken">Optional refresh token.</param>
-    /// <param name="applicationName">An optional application name to include in the User-Agent header.</param>
-    public PayPalHttpClient(EnvironmentBase environment, HttpClient httpClient, string? refreshToken = null, string? applicationName = null)
+    /// <param name="options">Optional client options for configuration.</param>
+    public PayPalHttpClient(EnvironmentBase environment, PayPalClientOptions? options = null)
     {
+        _options = options ?? new PayPalClientOptions();
         _environment = environment;
-        _refreshToken = refreshToken;
-        _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+        _refreshToken = _options.RefreshToken;
+        _httpClient = new HttpClient(new SocketsHttpHandler
+        {
+            AutomaticDecompression = _options.EnableCompression ? DecompressionMethods.GZip | DecompressionMethods.Deflate : DecompressionMethods.None,
+            MaxConnectionsPerServer = _options.MaxConnectionsPerServer,
+            Proxy = _options.Proxy
+        });
+        _httpClient.MaxResponseContentBufferSize = _options.MaxResponseContentBufferSize;
+        _httpClient.Timeout = _options.Timeout;
 
         // Ensure BaseAddress and some default headers exist when not already set on the supplied HttpClient.
         if (_httpClient.BaseAddress == null)
@@ -99,10 +105,13 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
 
         if (!_httpClient.DefaultRequestHeaders.Contains("Accept"))
             _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+        
+        if (_options.EnableCompression)
+            _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
 
         if (!_httpClient.DefaultRequestHeaders.UserAgent.Any())
         {
-            var agent = applicationName != null ? UserAgent.GetUserAgentHeader(applicationName) : UserAgent.GetUserAgentHeader();
+            var agent = _options.ApplicationName != null ? UserAgent.GetUserAgentHeader(_options.ApplicationName) : UserAgent.GetUserAgentHeader();
             _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
         }
 
@@ -121,28 +130,11 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
     }
     
     /// <summary>
-    /// Initializes a new instance of the <see cref="PayPalHttpClient"/> class.
-    /// </summary>
-    /// <param name="environment">The PayPal environment configuration containing base URL and authorization details.</param>
-    /// <param name="refreshToken">An optional refresh token for obtaining access tokens.</param>
-    /// <param name="applicationName">An optional application name to include in the User-Agent header.</param>
-    public PayPalHttpClient(EnvironmentBase environment, string? refreshToken = null, string? applicationName = null) : this(environment, 
-        new HttpClient(new HttpClientHandler
-    {
-        AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
-    }), refreshToken, applicationName)
-    {
-        _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
-        _disposeHttpClient =  true;
-    }
-    
-    /// <summary>
     /// Disposes the underlying HttpClient instance.
     /// </summary>
     public void Dispose()
     {
-        if (_disposeHttpClient)
-            _httpClient.Dispose();
+        _httpClient.Dispose();
     }
 
     /// <summary>
@@ -174,7 +166,48 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
         }
 
-        return await _httpClient.SendAsync(request, cancellationToken);
+        byte[]? contentBuffer = null;
+        if (request.Content != null)
+            contentBuffer = await request.Content.ReadAsByteArrayAsync(cancellationToken);
+
+        HttpResponseMessage response = null!; // Initialize response to avoid compiler warning
+        for (int i = 0; i < _options.MaxRetries + 1; i++) // Add +1 because if the MaxRetries is 1 then only the base operation will run, and it won't retry.
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (contentBuffer != null && i > 0)
+            {
+                var newContent = new ByteArrayContent(contentBuffer);
+                if (request.Content != null)
+                    foreach (var header in request.Content.Headers)
+                        newContent.Headers.TryAddWithoutValidation(header.Key, header.Value);
+                request.Content = newContent;
+            }
+                
+            try
+            {
+                response = await _httpClient.SendAsync(request, cancellationToken);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (HttpRequestException) when (i + 1 < _options.MaxRetries)
+            {
+                await Task.Delay(_options.RetryDelay, cancellationToken);
+                continue;
+            }
+            
+            if (((response.StatusCode == HttpStatusCode.TooManyRequests && _options.RetryOnRateLimit) || (int)response.StatusCode >= 500)
+                && i + 1 < _options.MaxRetries)
+            {
+                response.Dispose();
+                await Task.Delay(_options.RetryDelay, cancellationToken);
+                continue;              
+            }
+            break;
+        }
+        return response;
     }
 
     /// <summary>
