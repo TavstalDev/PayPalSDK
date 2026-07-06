@@ -1,6 +1,5 @@
 using System.Net;
 using Tavstal.PayPalSDK.Models.Subscriptions.Plan;
-using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
 using Xunit.Abstractions;
 
@@ -20,7 +19,7 @@ public class SubscriptionPlanShowTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadJsonAsync<SubscriptionPlanBody>();
+        var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);

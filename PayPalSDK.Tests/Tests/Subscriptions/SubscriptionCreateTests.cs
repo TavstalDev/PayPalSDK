@@ -24,7 +24,7 @@ public class SubscriptionCreateTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var objectResponse = await response.Content.ReadJsonAsync<SubscriptionBody>();
+        var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);

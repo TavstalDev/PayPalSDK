@@ -1,7 +1,5 @@
 using System.Net;
-using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Orders;
-using Tavstal.PayPalSDK.Models.Orders.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
 using Xunit.Abstractions;
 
@@ -21,7 +19,7 @@ public class GetOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
+        var orderResponse = await request.GetResponseBodyAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -41,7 +39,7 @@ public class GetOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var orderResponse = await request.GetErrorResponseAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);

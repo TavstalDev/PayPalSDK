@@ -1,6 +1,5 @@
 using System.Net;
 using Tavstal.PayPalSDK.Models.Invoices;
-using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
 using Xunit.Abstractions;
 
@@ -21,7 +20,7 @@ public class InvoiceSearchTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadJsonAsync<InvoiceSearchBody>();
+        var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
 
         foreach (var item in objectResponse!.Items!)

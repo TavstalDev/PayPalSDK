@@ -60,7 +60,7 @@ public class UpdateTrackingForOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var orderResponse = await request.GetErrorResponseAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -81,7 +81,7 @@ public class UpdateTrackingForOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var orderResponse = await request.GetErrorResponseAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -102,7 +102,7 @@ public class UpdateTrackingForOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var orderResponse = await request.GetErrorResponseAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -123,7 +123,7 @@ public class UpdateTrackingForOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var orderResponse = await request.GetErrorResponseAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);
@@ -144,7 +144,7 @@ public class UpdateTrackingForOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var orderResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var orderResponse = await request.GetErrorResponseAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + orderResponse!.Name);

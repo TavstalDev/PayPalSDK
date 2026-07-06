@@ -24,7 +24,7 @@ public class WebhooksVerifyTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadJsonAsync<WebhookVerifyResponseBody>();
+        var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Status: " + objectResponse!.VerificationStatus);

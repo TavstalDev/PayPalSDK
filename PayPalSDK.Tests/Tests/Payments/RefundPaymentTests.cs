@@ -1,5 +1,4 @@
 using System.Net;
-using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Payments;
 using Tavstal.PayPalSDK.Models.Payments.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
@@ -28,7 +27,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadJsonAsync<RefundPaymentBody>();
+        var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -53,7 +52,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var objectResponse = await response.Content.ReadJsonAsync<RefundPaymentBody>();
+        var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("ID: " + objectResponse!.Id);
@@ -78,7 +77,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -99,7 +98,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -120,7 +119,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -141,7 +140,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -162,7 +161,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Conflict);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -183,7 +182,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -204,7 +203,7 @@ public class RefundPaymentTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);

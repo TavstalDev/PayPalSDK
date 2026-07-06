@@ -1,6 +1,5 @@
 using System.Net;
 using Tavstal.PayPalSDK.Models.Webhooks;
-using Tavstal.PayPalSDK.Models.Webhooks.Bodies;
 using Tavstal.PayPalSDK.Tests.Helpers;
 using Xunit.Abstractions;
 
@@ -19,7 +18,7 @@ public class WebhooksListTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var objectResponse = await response.Content.ReadJsonAsync<WebhookListResponseBody>();
+        var objectResponse = await request.GetResponseBodyAsync(response);
         objectResponse.Should().NotBeNull();
         objectResponse!.Webhooks.Should().NotBeNull();
         

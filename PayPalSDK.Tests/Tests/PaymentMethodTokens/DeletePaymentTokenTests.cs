@@ -1,5 +1,4 @@
 using System.Net;
-using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.PaymentMethodTokens;
 using Tavstal.PayPalSDK.Tests.Helpers;
 using Xunit.Abstractions;
@@ -35,7 +34,7 @@ public class DeletePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -52,7 +51,7 @@ public class DeletePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);
@@ -69,7 +68,7 @@ public class DeletePaymentTokenTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-        var objectResponse = await response.Content.ReadJsonAsync<ErrorResponse>();
+        var objectResponse = await request.GetErrorResponseAsync(response);
         objectResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Error Name: " + objectResponse!.Name);

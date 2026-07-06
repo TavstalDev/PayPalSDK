@@ -26,7 +26,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
+        var orderResponse = await request.GetResponseBodyAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -47,7 +47,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
+        var orderResponse = await request.GetResponseBodyAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -68,7 +68,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
+        var orderResponse = await request.GetResponseBodyAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -89,7 +89,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
+        var orderResponse = await request.GetResponseBodyAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
@@ -110,7 +110,7 @@ public class ReceiveUpdaterOrderTests : TestBase
 
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var orderResponse = await response.Content.ReadJsonAsync<OrderBody>();
+        var orderResponse = await request.GetResponseBodyAsync(response);
         orderResponse.Should().NotBeNull();
         
         _testOutputHelper.WriteLine("Order ID: " + orderResponse!.Id);
