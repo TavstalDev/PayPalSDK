@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
@@ -42,7 +43,7 @@ public class InvoiceTransaction
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("type")]
-    public string? Type { get; set; }
+    public EInvoiceTransactionType? Type { get; set; }
 
     /// <summary>
     /// Gets or sets the payment date for the transaction.
@@ -60,13 +61,10 @@ public class InvoiceTransaction
     /// <summary>
     /// Gets or sets the transaction method used for the payment.
     /// </summary>
-    /// <remarks>
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.TransactionMethod"/> for valid values.
-    /// </remarks>
     [FluentMember(0)]
     [Required]
     [JsonPropertyName("method")]
-    public string? Method { get; set; }
+    public EInvoicePaymentMethod Method { get; set; }
 
     /// <summary>
     /// Gets or sets the amount associated with the transaction.

@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
 
 namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.LineItem;
 
@@ -25,8 +26,7 @@ public class PaymentLineItemTax
     [FluentMember(0)]
     [Required]
     [JsonPropertyName("type")]
-    [StringLength(32)]
-    public string? Type { get; set; }
+    public EPaymentTaxType Type { get; set; }
     
     /// <summary>
     /// Gets or sets the tax value as a string representation.

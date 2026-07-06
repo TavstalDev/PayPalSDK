@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 
@@ -60,9 +61,7 @@ public class DisputeMakeOfferRequestBody
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("offer_type")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? OfferType { get; set; }
+    public EDisputeOffer OfferType { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

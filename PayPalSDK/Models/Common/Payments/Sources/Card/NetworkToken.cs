@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 
@@ -62,16 +63,10 @@ public class NetworkToken
     /// <summary>
     /// Gets or sets the Electronic Commerce Indicator (ECI) flag.
     /// </summary>
-    /// <remarks>
-    /// This field is optional, has a maximum length of 255 characters, and must match the regular expression ^[0-9A-Z_]+$.
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.EciFlags"/> for possible values.
-    /// </remarks>
     [FluentMember(4)]
     [FluentSkippable]
     [JsonPropertyName("eci_flag")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? EciFlag { get; set; }
+    public EEciFlag? EciFlag { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

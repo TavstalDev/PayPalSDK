@@ -7,6 +7,7 @@ using Tavstal.PayPalSDK.Models.Common.Plans;
 using Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Subscriptions;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
 
@@ -25,8 +26,7 @@ public class SubscriptionBody
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    [StringLength(24)]
-    public string? Status { get; set; }
+    public ESubscriptionStatus? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the note associated with a status change.

@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Subscriptions;
 
 namespace Tavstal.PayPalSDK.Models.Common.Plans;
 
@@ -15,14 +16,12 @@ public class PlanPricingSchemeData
     /// Gets or sets the pricing model type for this plan.
     /// </summary>
     /// <remarks>
-    /// This field is optional and has a maximum length of 24 characters.
-    /// It specifies the pricing strategy, such as "FIXED", "TIERED", or other model identifiers.
+    /// This field is optional.
     /// </remarks>
     [FluentMember(0)]
-    [FluentSkippable]
     [JsonPropertyName("pricing_model")]
-    [StringLength(24)]
-    public string? PricingModel { get; set; }
+    [Required]
+    public EPlanPricingModel PricingModel { get; set; }
     
     /// <summary>
     /// Gets or sets the fixed price for this plan.

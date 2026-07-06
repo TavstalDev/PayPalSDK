@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Orders;
 using System.ComponentModel.DataAnnotations;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
 
 namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 
@@ -23,14 +24,14 @@ public class OrderTrackingRequestBody
     /// Gets or sets the shipping carrier identifier.
     /// </summary>
     /// <remarks>
-    /// This field is required and should be set to a value from the <see cref="Tavstal.PayPalSDK.Constants.Carriers"/> constants.
+    /// This field is required.
     /// If the carrier is not available for your country, choose the global version of the carrier.
     /// If your carrier name is not in the list, set carrier to OTHER and set carrier name in <see cref="CarrierNameOther"/>.
     /// </remarks>
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("carrier")]
-    public string? Carrier { get; set; }
+    public ECarrier Carrier { get; set; }
     
     /// <summary>
     /// Gets or sets the name of the carrier if it is not in the standard list of carriers.

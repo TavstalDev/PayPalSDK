@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Card;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 
@@ -49,13 +50,11 @@ public class NetworkTransactionReference
 
     /// <summary>
     /// Gets or sets the name of the card network through which the transaction was routed.
-    /// <br/>Possible values are defined in <see cref="Tavstal.PayPalSDK.Constants.CardNetwork"/>.
     /// </summary>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("network")]
-    [StringLength(255)]
-    public string? Network { get; set; }
+    public ECardBrand? Network { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

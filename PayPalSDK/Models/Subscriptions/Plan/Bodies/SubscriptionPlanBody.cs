@@ -6,6 +6,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.Plans;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Subscriptions;
 
 namespace Tavstal.PayPalSDK.Models.Subscriptions.Plan.Bodies;
 
@@ -60,8 +61,7 @@ public class SubscriptionPlanBody
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    [StringLength(24)]
-    public string? Status { get; set; }
+    public EPlanStatus? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the description of the plan.

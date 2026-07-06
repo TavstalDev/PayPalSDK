@@ -4,6 +4,7 @@ using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Disputes;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 
@@ -28,9 +29,7 @@ public class DisputeAcceptClaimRequestBody
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("accept_claim_reason")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? AcceptClaimReason { get; set; }
+    public EDisputeAcceptClaimReason? AcceptClaimReason { get; set; }
     
     /// <summary>
     /// Gets or sets the merchant invoice identifier associated with the disputed transaction.

@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Card;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.PayPal;
 
@@ -12,44 +14,36 @@ public class PayPalStoredCredentials
 {
     /// <summary>
     /// Gets or sets the payment initiator.
-    /// Possible values are defined in <see cref="Tavstal.PayPalSDK.Constants.PaymentInitators"/>.
     /// </summary>
     [FluentMember(0)]
     [JsonPropertyName("payment_initiator")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
     [Required]
-    public string? PaymentInitiator { get; set; }
+    public EPaymentInitator PaymentInitiator { get; set; }
 
     /// <summary>
     /// Gets or sets the charge pattern for the stored credentials.
     /// </summary>
     [FluentMember(1)]
-    [Required]
+    [FluentSkippable]
     [JsonPropertyName("charge_pattern")]
-    [StringLength(30)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? ChargePattern { get; set; }
+    [Obsolete("This property is deprecated and may be removed in future versions.")]
+    public EChargePattern? ChargePattern { get; set; }
 
     /// <summary>
     /// Gets or sets the usage pattern for the stored credentials.
     /// </summary>
     [FluentMember(2)]
     [FluentSkippable]
-    [StringLength(30)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? UsagePattern { get; set; }
+    [JsonPropertyName("usage_pattern")]
+    public EChargePattern? UsagePattern { get; set; }
 
     /// <summary>
     /// Gets or sets the usage of the credential.
-    /// Possible values are defined in <see cref="Tavstal.PayPalSDK.Constants.CredentialUsage"/>.
     /// </summary>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("usage")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Usage { get; set; }
+    public ECardUsage? Usage { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

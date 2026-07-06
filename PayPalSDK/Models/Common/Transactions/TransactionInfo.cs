@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Transactions;
 
 namespace Tavstal.PayPalSDK.Models.Common.Transactions;
 
@@ -46,8 +47,7 @@ public class TransactionInfo
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("paypal_reference_id_type")]
-    [StringLength(3)]
-    public string? PaypalReferenceIdType { get; set; }
+    public EPaypalReferenceIdType? PaypalReferenceIdType { get; set; }
     
     /// <summary>
     /// Gets or sets the transaction event code describing the event category.
@@ -64,8 +64,7 @@ public class TransactionInfo
     [FluentMember(5)]
     [FluentSkippable]
     [JsonPropertyName("transaction_status")]
-    [StringLength(1)]
-    public string? TransactionStatus { get; set; }
+    public ETransactionSearchStatus? TransactionStatus { get; set; }
     
     /// <summary>
     /// Gets or sets the subject or title associated with the transaction.
@@ -123,6 +122,7 @@ public class TransactionInfo
     
     /// <summary>
     /// Gets or sets seller protection eligibility information.
+    /// 01. Eligible; 02. Not eligible; 03. Partially eligible.
     /// </summary>
     [FluentMember(12)]
     [FluentSkippable]

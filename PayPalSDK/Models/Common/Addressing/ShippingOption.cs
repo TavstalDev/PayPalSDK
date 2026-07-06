@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
 
 namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 
@@ -49,14 +50,10 @@ public class ShippingOption
     /// <summary>
     /// Gets or sets the type of shipping.
     /// </summary>
-    /// <remarks>
-    /// This property corresponds to one of the predefined shipping types in <see cref="Tavstal.PayPalSDK.Constants.ShippingType"/>.
-    /// It is optional and will not be emitted if its value is null or default.
-    /// </remarks>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("type")]
-    public string? Type { get; set; }
+    public EShippingType? Type { get; set; }
 
     /// <summary>
     /// Gets or sets the amount associated with the shipping option.

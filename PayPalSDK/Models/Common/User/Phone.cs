@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common.User;
 
@@ -14,12 +15,12 @@ public class Phone
     /// Gets or sets the type of the phone.
     /// </summary>
     /// <remarks>
-    /// This field is optional and represents the type of phone (e.g., mobile, home, work).
+    /// This field is optional.
     /// </remarks>
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("phone_type")]
-    public string? PhoneType { get; set; }
+    public EPhoneType? PhoneType { get; set; }
 
     /// <summary>
     /// Gets or sets the phone number details.

@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 
@@ -16,10 +17,8 @@ public class DisputeAdjudication
     /// </summary>
     [FluentMember(0)]
     [JsonPropertyName("type")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
     [Required]
-    public string? Type { get; set; }
+    public EAdjudicationType Type { get; set; }
     
     /// <summary>
     /// Gets or sets the adjudication timestamp in ISO 8601 / RFC 3339 format.
@@ -37,9 +36,7 @@ public class DisputeAdjudication
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("reason")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Reason { get; set; }
+    public EAdjudicationReason? Reason { get; set; }
     
     /// <summary>
     /// Gets or sets the dispute lifecycle stage at the time of adjudication.
@@ -47,9 +44,7 @@ public class DisputeAdjudication
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("dispute_life_cycle_stage")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? DisputeLifeCycleStage { get; set; }
+    public EDisputeLifeCycleStage? DisputeLifeCycleStage { get; set; }
     
     /// <summary>
     /// Gets the <see cref="AdjudicationTime"/> value parsed as a <see cref="DateTime"/>, if valid.

@@ -3,6 +3,8 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
+using Tavstal.PayPalSDK.Models.Enums.Shipping.Tracking;
 
 namespace Tavstal.PayPalSDK.Models.Tracking.Bodies;
 
@@ -73,13 +75,12 @@ public class TrackerInformation
     public bool TrackingNumberValidated { get; set; }
     
     /// <summary>
-    /// Gets or sets the shipment direction (for example, outbound or return).
+    /// Gets or sets the shipment direction.
     /// </summary>
     [FluentMember(8)]
     [FluentSkippable]
     [JsonPropertyName("shipment_direction")]
-    [StringLength(50)]
-    public string? ShipmentDirection { get; set; }
+    public EShippingDirection? ShipmentDirection { get; set; }
     
     /// <summary>
     /// Gets or sets the name of the entity that uploaded the shipment information.
@@ -87,8 +88,7 @@ public class TrackerInformation
     [FluentMember(9)]
     [FluentSkippable]
     [JsonPropertyName("shipment_uploader")]
-    [StringLength(50)]
-    public string? ShipmentUploader { get; set; }
+    public EShipmentUploader? ShipmentUploader { get; set; }
     
     /// <summary>
     /// Gets or sets the account identifier associated with this tracker.
@@ -132,9 +132,7 @@ public class TrackerInformation
     [FluentMember(14)]
     [FluentSkippable]
     [JsonPropertyName("tracking_number_type")]
-    [StringLength(64)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? TrackingNumberType { get; set; }
+    public ETrackingNumberType? TrackingNumberType { get; set; }
     
     /// <summary>
     /// Gets or sets the current tracking status.
@@ -142,9 +140,7 @@ public class TrackerInformation
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("status")]
-    [StringLength(64)]
-    [RegularExpression("^[A-Z_]+$")]
-    public string? Status { get; set; }
+    public ETRackingStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the shipment date in <c>yyyy-MM-dd</c> format.
@@ -162,9 +158,7 @@ public class TrackerInformation
     [FluentMember(16)]
     [FluentSkippable]
     [JsonPropertyName("carrier")]
-    [StringLength(64)]
-    [RegularExpression("^.*$")]
-    public string? Carrier { get; set; }
+    public ECarrier? Carrier { get; set; }
     
     /// <summary>
     /// Gets or sets the last tracking update time as an ISO 8601 string.

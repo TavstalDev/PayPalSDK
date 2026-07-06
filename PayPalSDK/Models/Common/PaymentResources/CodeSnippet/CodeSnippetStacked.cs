@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.PaymentTokens;
 
 namespace Tavstal.PayPalSDK.Models.Common.PaymentResources.CodeSnippet;
 
@@ -15,9 +16,8 @@ public class CodeSnippetStacked
     /// </summary>
     [FluentMember(0)]
     [JsonPropertyName("framework")]
-    [StringLength(32)]
     [Required]
-    public string? Framework { get; set; }
+    public ECodeSnippetFramework Framework { get; set; }
     
     /// <summary>
     /// Gets or sets the HTML or script content placed in the page head.

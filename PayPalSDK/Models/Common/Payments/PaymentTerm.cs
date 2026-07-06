@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -12,14 +13,11 @@ public class PaymentTerm
 {
     /// <summary>
     /// Gets or sets the type of payment term.
-    /// <para>
-    /// See <see cref="Tavstal.PayPalSDK.Constants.DueType"/> for possible values.
-    /// </para>
     /// </summary>
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("term_type")]
-    public string? TermType { get; set; }
+    public EInvoicePaymentTerm? TermType { get; set; }
 
     /// <summary>
     /// Gets or sets the due date for the payment.

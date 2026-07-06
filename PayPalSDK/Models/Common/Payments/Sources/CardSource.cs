@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Card;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 
@@ -60,6 +61,14 @@ public class CardSource
     [StringLength(7)]
     [RegularExpression("^[0-9]{4}-(0[1-9]|1[0-2])$")]
     public string? Expiry { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the card brand (e.g., Visa, MasterCard).
+    /// </summary>
+    [FluentMember(4)]
+    [FluentSkippable]
+    [JsonPropertyName("brand")]
+    public ECardBrand? Brand { get; set; }
 
     /// <summary>
     /// Gets or sets the billing address associated with the card.
@@ -67,7 +76,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents the address details for billing.
     /// </remarks>
-    [FluentMember(4)]
+    [FluentMember(5)]
     [FluentSkippable]
     [JsonPropertyName("billing_address")]
     public Address? BillingAddress { get; set; }
@@ -78,7 +87,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents metadata or extra information.
     /// </remarks>
-    [FluentMember(5)]
+    [FluentMember(6)]
     [FluentSkippable]
     [JsonPropertyName("attributes")]
     public CardAttributes? Attributes { get; set; }
@@ -89,7 +98,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents saved payment details.
     /// </remarks>
-    [FluentMember(6)]
+    [FluentMember(7)]
     [FluentSkippable]
     [JsonPropertyName("stored_credential")]
     public CardStoredCredentials? StoredCredential { get; set; }
@@ -100,7 +109,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional, has a maximum length of 255 characters, and must match the regular expression ^[0-9a-zA-Z_-]+$.
     /// </remarks>
-    [FluentMember(7)]
+    [FluentMember(8)]
     [FluentSkippable]
     [JsonPropertyName("vault_id")]
     [StringLength(255)]
@@ -113,7 +122,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional, has a maximum length of 255 characters, and must match the regular expression ^[0-9a-zA-Z_-]+$.
     /// </remarks>
-    [FluentMember(8)]
+    [FluentMember(9)]
     [FluentSkippable]
     [JsonPropertyName("single_use_token")]
     [StringLength(255)]
@@ -126,7 +135,7 @@ public class CardSource
     /// <remarks>
     /// This field is optional and represents tokenized payment details.
     /// </remarks>
-    [FluentMember(9)]
+    [FluentMember(10)]
     [FluentSkippable]
     [JsonPropertyName("network_token")]
     public NetworkToken? NetworkToken { get; set; }
@@ -134,6 +143,6 @@ public class CardSource
     /// <summary>
     /// Fluent build method implementation
     /// </summary>
-    [FluentMethod(10, "Build")]
+    [FluentMethod(11, "Build")]
     public void Build() { }
 }

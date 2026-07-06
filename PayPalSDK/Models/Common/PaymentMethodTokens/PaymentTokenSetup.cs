@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.User;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.PaymentTokens;
 
 namespace Tavstal.PayPalSDK.Models.Common.PaymentMethodTokens;
 
@@ -28,9 +29,7 @@ public class PaymentTokenSetup
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Status { get; set; }
+    public EPaymentTokenSetupStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the payment source details associated with this token.

@@ -4,6 +4,7 @@ using Tavstal.PayPalSDK.Models.Common.Addressing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 
@@ -57,9 +58,7 @@ public class InvoiceRecordPaymentRequestBody
     [FluentMember(0)]
     [Required]
     [JsonPropertyName("method")]
-    [StringLength(255)]
-    [RegularExpression("^[\\S\\s]*$")]
-    public string? Method { get; set; }
+    public EInvoicePaymentMethod Method { get; set; }
     
     /// <summary>
     /// Gets or sets the payment amount.

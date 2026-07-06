@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Common.Orders.Supplementary;
 
@@ -122,13 +123,12 @@ public class LineItem
     /// Gets or sets the unit of measure for the item.
     /// </summary>
     /// <remarks>
-    /// The unit of measure is optional and is limited to 12 characters.
+    /// The unit of measure is optional.
     /// </remarks>
     [FluentMember(10)]
     [FluentSkippable]
     [JsonPropertyName("unit_of_measure")]
-    [StringLength(12)]
-    public string? UnitOfMeasure { get; set; }
+    public EMeasureUnit? UnitOfMeasure { get; set; }
 
     /// <summary>
     /// Gets or sets the unit amount for the item.

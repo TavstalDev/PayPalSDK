@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 
@@ -17,8 +18,7 @@ public class DisputeHistory
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("actor")]
-    [StringLength(255)]
-    public string? Actor { get; set; }
+    public EDisputeActor? Actor { get; set; }
     
     /// <summary>
     /// Gets or sets the event type describing the history entry.
@@ -26,8 +26,7 @@ public class DisputeHistory
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("event_type")]
-    [StringLength(255)]
-    public string? EventType { get; set; }
+    public EDisputeEventType? EventType { get; set; }
     
     /// <summary>
     /// Gets or sets optional notes associated with the event.
@@ -54,9 +53,7 @@ public class DisputeHistory
     [FluentMember(4)]
     [FluentSkippable]
     [JsonPropertyName("offer_type")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? OfferType { get; set; }
+    public EDisputeOffer? OfferType { get; set; }
     
     /// <summary>
     /// Gets or sets the monetary offer amount associated with the event.
@@ -72,9 +69,7 @@ public class DisputeHistory
     [FluentMember(6)]
     [FluentSkippable]
     [JsonPropertyName("dispute_life_cycle_stage")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? DisputeLifeCycleStage { get; set; }
+    public EDisputeLifeCycleStage? DisputeLifeCycleStage { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

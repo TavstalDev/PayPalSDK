@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 
@@ -26,13 +27,12 @@ public class AppleDecryptedToken
     /// Gets or sets the type of payment data associated with the decrypted token.
     /// </summary>
     /// <remarks>
-    /// This field is optional and has a maximum length of 16 characters.
+    /// This field is optional.
     /// </remarks>
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("payment_data_type")]
-    [StringLength(16)]
-    public string? PaymentDataType { get; set; }
+    public EPaymentDataType? PaymentDataType { get; set; }
 
     /// <summary>
     /// Gets or sets the transaction amount associated with the decrypted token.

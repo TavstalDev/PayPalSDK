@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandize;
 
@@ -34,8 +35,7 @@ public class CancellationDetails
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("cancellation_mode")]
-    [StringLength(255)]
-    public string? CancellationMode { get; set; }
+    public EDisputeCancellationMode? CancellationMode { get; set; }
     
     /// <summary>
     /// Gets or sets the cancellation date associated with the cancellation in the dispute, in ISO 8601 format.

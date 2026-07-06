@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Subscriptions;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
 
@@ -18,9 +19,8 @@ public class BillingFrequency
     /// </remarks>
     [FluentMember(0)]
     [JsonPropertyName("interval_unit")]
-    [StringLength(24)]
     [Required]
-    public string? IntervalUnit { get; set; }
+    public EIntervalUnit IntervalUnit { get; set; }
 
     /// <summary>
     /// Gets or sets the count of intervals for the billing frequency.

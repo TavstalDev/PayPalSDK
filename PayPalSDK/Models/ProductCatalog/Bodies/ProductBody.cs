@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Products;
 
 namespace Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 
@@ -39,24 +40,19 @@ public class ProductBody
 
     /// <summary>
     /// Gets or sets the type of the product.
-    /// <see cref="Tavstal.PayPalSDK.Constants.ProductType"/>
     /// </summary>
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("type")]
-    [StringLength(24)]
-    public string? Type { get; set; }
+    public EProductType Type { get; set; }
 
     /// <summary>
     /// Gets or sets the category of the product.
-    /// <see cref="Tavstal.PayPalSDK.Constants.ProductCategories"/>
     /// </summary>
     [FluentMember(4)]
     [FluentSkippable]
     [JsonPropertyName("category")]
-    [StringLength(256)]
-    [RegularExpression("^[A-Z_]+$")]
-    public string? Category { get; set; }
+    public EProductCategory? Category { get; set; }
 
     /// <summary>
     /// Gets or sets the URL of the product image.

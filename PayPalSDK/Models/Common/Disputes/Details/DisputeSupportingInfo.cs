@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 
@@ -34,8 +35,7 @@ public class DisputeSupportingInfo
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("source")]
-    [StringLength(255)]
-    public string? Source { get; set; }
+    public EDisputeSupportingSource? Source { get; set; }
     
     /// <summary>
     /// Gets or sets the timestamp when supporting information was provided, in ISO 8601 / RFC 3339 format.
@@ -53,9 +53,7 @@ public class DisputeSupportingInfo
     [FluentMember(4)]
     [FluentSkippable]
     [JsonPropertyName("dispute_life_cycle_stage")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? DisputeLifeCycleStage { get; set; }
+    public EDisputeLifeCycleStage? DisputeLifeCycleStage { get; set; }
     
     /// <summary>
     /// Gets the <see cref="ProvidedTime"/> value parsed as a <see cref="DateTime"/>, if valid.

@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.GooglePay;
 
@@ -38,25 +39,23 @@ public class GoogleDecryptedToken
     /// Gets or sets the payment method used in the transaction.
     /// </summary>
     /// <remarks>
-    /// This field is required and has a maximum length of 4 characters.
+    /// This field is required.
     /// </remarks>
     [FluentMember(0)]
     [Required]
     [JsonPropertyName("payment_method")]
-    [StringLength(4)]
-    public string? PaymentMethod { get; set; }
+    public EGooglePaymentMethod PaymentMethod { get; set; }
 
     /// <summary>
     /// Gets or sets the authentication method used for the transaction.
     /// </summary>
     /// <remarks>
-    /// This field is required and has a maximum length of 50 characters.
+    /// This field is required.
     /// </remarks>
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("authentication_method")]
-    [StringLength(50)]
-    public string? AuthenticationMethod { get; set; }
+    public EGoogleAuthenticationMethod AuthenticationMethod { get; set; }
 
     /// <summary>
     /// Gets or sets the cryptogram associated with the transaction.

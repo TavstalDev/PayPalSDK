@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 
@@ -54,9 +55,7 @@ public class Dispute
     [FluentMember(4)]
     [FluentSkippable]
     [JsonPropertyName("reason")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Reason { get; set; }
+    public EDisputeReason? Reason { get; set; }
     
     /// <summary>
     /// Gets or sets the current dispute status code.
@@ -64,9 +63,7 @@ public class Dispute
     [FluentMember(5)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Status { get; set; }
+    public EDisputeStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the broader dispute state classification.
@@ -74,9 +71,7 @@ public class Dispute
     [FluentMember(6)]
     [FluentSkippable]
     [JsonPropertyName("dispute_state")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? DisputeState { get; set; }
+    public EDisputeState? DisputeState { get; set; }
     
     /// <summary>
     /// Gets or sets the monetary amount currently in dispute.
@@ -100,9 +95,7 @@ public class Dispute
     [FluentMember(9)]
     [FluentSkippable]
     [JsonPropertyName("dispute_life_cycle_stage")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? LifeCycleStage { get; set; }
+    public EDisputeLifeCycleStage? LifeCycleStage { get; set; }
     
     /// <summary>
     /// Gets or sets the channel through which the dispute was raised.
@@ -110,9 +103,7 @@ public class Dispute
     [FluentMember(10)]
     [FluentSkippable]
     [JsonPropertyName("dispute_channel")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? DisputeChannel { get; set; }
+    public EDisputeChannel? DisputeChannel { get; set; }
     
     /// <summary>
     /// Gets or sets the buyer response due date in ISO 8601 / RFC 3339 format.

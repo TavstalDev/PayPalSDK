@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
@@ -73,7 +74,7 @@ public class InvoiceConfig
     [FluentMember(7)]
     [FluentSkippable]
     [JsonPropertyName("discount_mode_preference")]
-    public bool DiscountModePreference { get; set; }
+    public EDiscountModePreference? DiscountModePreference { get; set; }
 
     /// <summary>
     /// Gets or sets the visual theme configuration applied to the invoice.

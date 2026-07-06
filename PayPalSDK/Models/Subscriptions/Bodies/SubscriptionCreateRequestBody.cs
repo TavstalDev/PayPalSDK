@@ -44,6 +44,7 @@ public class SubscriptionCreateRequestBody
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("auto_renewal")]
+    [Obsolete]
     public bool AutoRenewal { get; set; }
 
     /// <summary>
@@ -93,6 +94,7 @@ public class SubscriptionCreateRequestBody
     [FluentMember(7)]
     [FluentSkippable]
     [JsonPropertyName("application_context")]
+    [Obsolete]
     public ApplicationContext? ApplicationContext { get; set; }
 
     /// <summary>

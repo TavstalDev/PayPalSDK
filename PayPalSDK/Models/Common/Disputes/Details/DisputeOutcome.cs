@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 
@@ -17,9 +17,7 @@ public class DisputeOutcome
    [FluentMember(0)]
    [FluentSkippable]
    [JsonPropertyName("outcome_code")]
-   [StringLength(255)]
-   [RegularExpression("^[A-Z0-9_]+$")]
-   public string? OutcomeCode { get; set; }
+   public EDisputeOutcomeCode? OutcomeCode { get; set; }
    
    /// <summary>
    /// Gets or sets the outcome reason of the dispute, providing additional context for the outcome code.
@@ -27,9 +25,7 @@ public class DisputeOutcome
    [FluentMember(1)]
    [FluentSkippable]
    [JsonPropertyName("outcome_reason")]
-   [StringLength(255)]
-   [RegularExpression("^[A-Z0-9_]+$")]
-   public string? OutcomeReason { get; set; }
+   public EAdjudicationReason? OutcomeReason { get; set; }
    
    /// <summary>
    /// Gets or sets the amount refunded as a result of the dispute resolution, if applicable.

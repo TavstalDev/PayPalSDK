@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 
@@ -15,7 +16,7 @@ public class EligibleConstraint
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("constraint_type")]
-    public string? ConstraintType { get; set; }
+    public EPaymentConstraintType? ConstraintType { get; set; }
     
     /// <summary>
     /// Gets or sets the payment sources affected by this constraint.
@@ -23,7 +24,7 @@ public class EligibleConstraint
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("payment_sources")]
-    public List<string>? PaymentSources { get; set; }
+    public List<EPaymentConstraintSource>? PaymentSources { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

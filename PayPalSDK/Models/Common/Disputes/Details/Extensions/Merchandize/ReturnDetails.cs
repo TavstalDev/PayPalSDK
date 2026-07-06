@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandize;
 
@@ -12,13 +13,12 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandiz
 public class ReturnDetails
 {
     /// <summary>
-    /// Gets or sets the mode of the return in the dispute, indicating how the item was returned (e.g., mail, in-person).
+    /// Gets or sets the mode of the return in the dispute, indicating how the item was returned.
     /// </summary>
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("mode")]
-    [StringLength(255)]
-    public string?  Mode { get; set; }
+    public EDisputeReturnMode? Mode { get; set; }
     
     /// <summary>
     /// Gets or sets a value indicating whether a receipt was provided for the return in the dispute.

@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 
@@ -57,13 +58,13 @@ public class DisputeItem
     public string? PartnerTransactionId { get; set; }
     
     /// <summary>
-    /// Gets or sets the reason for the dispute. This property can be null and has a maximum length of 255 characters.
+    /// Gets or sets the reason for the dispute. This property can be null.
     /// </summary>
     [FluentMember(5)]
     [FluentSkippable]
     [JsonPropertyName("reason")]
     [StringLength(255)]
-    public string? Reason { get; set; }
+    public EDisputeReason? Reason { get; set; }
     
     /// <summary>
     /// Gets or sets additional notes related to the disputed item. This property can be null and has a maximum length of 2000 characters.
@@ -75,14 +76,12 @@ public class DisputeItem
     public string? Notes { get; set; }
     
      /// <summary>
-     /// Gets or sets the type of the disputed item. This property can be null, has a maximum length of 255 characters, and must match the specified regular expression pattern (only uppercase letters, digits, and underscores are allowed).
+     /// Gets or sets the type of the disputed item. This property can be null.
      /// </summary>
      [FluentMember(7)]
      [FluentSkippable]
      [JsonPropertyName("item_type")]
-     [StringLength(255)]
-     [RegularExpression("^[0-9A-Z_]+$")]
-     public string? ItemType { get; set; }
+     public EDisputeItemType? ItemType { get; set; }
      
      /// <summary>
      /// Gets or sets the amount disputed for the item. This property can be null and represents the monetary value of the dispute.

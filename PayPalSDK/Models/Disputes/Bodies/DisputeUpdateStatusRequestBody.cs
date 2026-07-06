@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 
@@ -12,13 +13,12 @@ public class DisputeUpdateStatusRequestBody
 {
     /// <summary>
     /// Gets or sets the action to be performed on the dispute.
-    /// This property is required and has a maximum length of 255 characters.
+    /// This property is required.
     /// </summary>
     [FluentMember(0)]
     [JsonPropertyName("action")]
-    [StringLength(255)]
     [Required]
-    public string? Action { get; set; }
+    public EDisputeUpdateAction Action { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

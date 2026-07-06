@@ -14,9 +14,6 @@ public class FailedPayment
     /// <summary>
     /// Gets or sets the reason code for the payment failure.
     /// </summary>
-    /// <remarks>
-    /// The reason code must match one of the values defined in <see cref="Tavstal.PayPalSDK.Constants.PaymentReasonCode"/>.
-    /// </remarks>
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("reason_code")]

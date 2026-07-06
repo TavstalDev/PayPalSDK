@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Billing;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Orders;
 
 namespace Tavstal.PayPalSDK.Models.Common.Orders;
 
@@ -75,15 +76,10 @@ public class Item
     /// <summary>
     /// Gets or sets the category of the item.
     /// </summary>
-    /// <remarks>
-    /// The category corresponds to one of the predefined item categories in <see cref="Tavstal.PayPalSDK.Constants.ItemCategory"/>.
-    /// This field is optional and has a maximum length of 20 characters.
-    /// </remarks>
     [FluentMember(6)]
     [FluentSkippable]
     [JsonPropertyName("category")]
-    [StringLength(20)]
-    public string? Category { get; set; }
+    public EOrderItemCategory? Category { get; set; }
 
     /// <summary>
     /// Gets or sets the image URL of the item.

@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Plans;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
 
@@ -20,7 +21,7 @@ public class BillingCycle
     [FluentMember(0)]
     [JsonPropertyName("tenure_type")]
     [Required]
-    public string? TenureType { get; set; }
+    public ETenureType TenureType { get; set; }
 
     /// <summary>
     /// Gets or sets the total number of cycles in the billing cycle.

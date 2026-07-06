@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
 
 namespace Tavstal.PayPalSDK.Models.Common.PaymentResources;
 
@@ -15,9 +16,8 @@ public class PaymentShippingItem
     /// </summary>
     [FluentMember(0)]
     [JsonPropertyName("type")]
-    [StringLength(32)]
     [Required]
-    public string? Type { get; set; }
+    public EShippingCostType Type { get; set; }
     
     /// <summary>
     /// Gets or sets the shipping value.

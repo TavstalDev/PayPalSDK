@@ -6,6 +6,8 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
+using Tavstal.PayPalSDK.Models.Enums.Orders;
 
 namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 
@@ -74,13 +76,12 @@ public class OrderBody
     /// Gets or sets the intent of the order.
     /// </summary>
     /// <remarks>
-    /// This field is optional and specifies the purpose of the order, such as "CAPTURE" or "AUTHORIZE".
+    /// This field is optional.
     /// </remarks>
-    /// <see cref="Tavstal.PayPalSDK.Constants.PayPalIntent"/>
     [FluentMember(5)]
     [FluentSkippable]
     [JsonPropertyName("intent")]
-    public string? Intent { get; set; }
+    public EIntent? Intent { get; set; }
 
     /// <summary>
     /// Gets or sets the payer details for the order.
@@ -97,15 +98,12 @@ public class OrderBody
     /// Gets or sets the status of the order.
     /// </summary>
     /// <remarks>
-    /// This field is optional and represents the current status of the order.
+    /// This field is optional.
     /// </remarks>
-    /// <see cref="Tavstal.PayPalSDK.Constants.OrderStatus"/>
     [FluentMember(7)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Status { get; set; }
+    public EOrderStatus? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the creation time of the order.

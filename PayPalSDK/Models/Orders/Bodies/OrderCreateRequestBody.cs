@@ -3,6 +3,7 @@ using Tavstal.PayPalSDK.Models.Common.Orders;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using System.ComponentModel.DataAnnotations;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Orders.Bodies;
 
@@ -27,12 +28,12 @@ public class OrderCreateRequestBody
     /// Gets or sets the intent of the order.
     /// </summary>
     /// <remarks>
-    /// This field is required and specifies the purpose of the order, such as "CAPTURE" or "AUTHORIZE".
+    /// This field is required.
     /// </remarks>
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("intent")]
-    public string? Intent { get; set; }
+    public EIntent Intent { get; set; }
 
     /// <summary>
     /// Gets or sets the payment source for the order.

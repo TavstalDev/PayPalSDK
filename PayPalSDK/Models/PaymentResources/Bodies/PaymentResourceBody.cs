@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.PaymentResources;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.PaymentResources;
 
 namespace Tavstal.PayPalSDK.Models.PaymentResources.Bodies;
 
@@ -46,9 +47,7 @@ public class PaymentResourceBody
     [FluentMember(5)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    [StringLength(20)]
-    [RegularExpression("^[A-Z0-9_]+$")]
-    public string? Status { get; set; }
+    public EPaymentResourceStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the creation timestamp in ISO 8601 / RFC 3339 format.
@@ -76,9 +75,7 @@ public class PaymentResourceBody
     [FluentMember(0)]
     [Required]
     [JsonPropertyName("integration_mode")]
-    [StringLength(20)]
-    [RegularExpression("^[A-Z0-9_]+$")]
-    public string? IntegrationMode { get; set; }
+    public EPaymentResourceIntegration IntegrationMode { get; set; }
     
     /// <summary>
     /// Gets or sets the payment resource type.
@@ -86,9 +83,7 @@ public class PaymentResourceBody
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("type")]
-    [StringLength(20)]
-    [RegularExpression("^[A-Z0-9_]+$")]
-    public string? Type { get; set; }
+    public EPaymentResourceType Type { get; set; }
     
     /// <summary>
     /// Gets or sets a value indicating whether the payment resource can be reused.

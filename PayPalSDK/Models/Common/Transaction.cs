@@ -4,6 +4,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common;
 
@@ -19,7 +20,7 @@ public class Transaction
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    public string? Status { get; set; }
+    public ECaptureStatus? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the unique identifier of the transaction.

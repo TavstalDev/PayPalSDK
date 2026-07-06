@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 
@@ -11,14 +12,12 @@ namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 public class Evidence
 {
     /// <summary>
-    /// Gets or sets the type of evidence. This property can be null, has a maximum length of 255 characters, and must match the specified regular expression pattern (only uppercase letters, digits, and underscores are allowed).
+    /// Gets or sets the type of evidence. This property can be null.
     /// </summary>
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("evidence_type")]
-    [StringLength(255)]
-    [RegularExpression("^[A-Z0-9_]+$")]
-    public string? EvidenceType { get; set; }
+    public EDisputeEvidenceType? EvidenceType { get; set; }
     
     /// <summary>
     /// Gets or sets the list of evidence documents associated with the evidence. This property can be null and represents the collection of documents supporting the evidence.

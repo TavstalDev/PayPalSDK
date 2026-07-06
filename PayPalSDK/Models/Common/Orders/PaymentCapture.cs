@@ -4,6 +4,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
 
 namespace Tavstal.PayPalSDK.Models.Common.Orders;
 
@@ -123,7 +124,7 @@ public class PaymentCapture
     [FluentMember(10)]
     [FluentSkippable]
     [JsonPropertyName("disbursement_mode")]
-    public string? DisbursementMode { get; set; }
+    public EDisbursementMode? DisbursementMode { get; set; }
 
     /// <summary>
     /// Gets or sets the processor response for the payment capture.

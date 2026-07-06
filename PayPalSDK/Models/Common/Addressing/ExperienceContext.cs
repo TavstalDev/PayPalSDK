@@ -1,6 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
 
 namespace Tavstal.PayPalSDK.Models.Common.Addressing;
 
@@ -21,33 +24,27 @@ public class ExperienceContext
 
     /// <summary>
     /// The type of landing page to show on the PayPal site for customer checkout.
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.LandingPages"/>.
     /// </summary>
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("landing_page")]
-    [StringLength(13)]
-    public string? LandingPage { get; set; }
+    public EPaymentLandingPageType? LandingPage { get; set; }
 
     /// <summary>
     /// The shipping preference for the PayPal payment experience.
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.ShippingPreference"/>.
     /// </summary>
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("shipping_preference")]
-    [StringLength(24)]
-    public string? ShippingPreference { get; set; }
+    public EShippingPreference? ShippingPreference { get; set; }
 
     /// <summary>
     /// Configures the user action for the checkout flow.
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.UserAction"/>.
     /// </summary>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("user_action")]
-    [StringLength(8)]
-    public string? UserAction { get; set; }
+    public EUserAction? UserAction { get; set; }
 
     /// <summary>
     /// The URL where the customer is redirected after approving the payment.
@@ -77,23 +74,19 @@ public class ExperienceContext
 
     /// <summary>
     /// The merchant-preferred payment methods.
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.PaymentPreference"/>.
     /// </summary>
     [FluentMember(7)]
     [FluentSkippable]
     [JsonPropertyName("payment_method_preference")]
-    [StringLength(255)]
-    public string? PaymentMethodPreference { get; set; }
+    public EPaymentMethodPreference? PaymentMethodPreference { get; set; }
 
     /// <summary>
     /// The contact preference for the merchant.
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.Experience.ContactPreference"/>.
     /// </summary>
     [FluentMember(8)]
     [FluentSkippable]
     [JsonPropertyName("contact_preference")]
-    [StringLength(24)]
-    public string? ContactPreference { get; set; }
+    public EPaymentContactPreference? ContactPreference { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

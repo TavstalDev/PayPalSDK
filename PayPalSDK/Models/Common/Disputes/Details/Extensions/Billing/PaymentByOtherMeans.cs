@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 
@@ -32,8 +33,7 @@ public class PaymentByOtherMeans
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("payment_method")]
-    [StringLength(255)]
-    public string? PaymentMethod { get; set; }
+    public EDisputePaymentMethod? PaymentMethod { get; set; }
     
     /// <summary>
     /// Gets or sets the suffix of the payment instrument used for the payment made by other means in the dispute.

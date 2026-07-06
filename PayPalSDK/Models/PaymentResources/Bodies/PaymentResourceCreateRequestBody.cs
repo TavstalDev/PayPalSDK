@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.PaymentResources;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.PaymentResources;
 
 namespace Tavstal.PayPalSDK.Models.PaymentResources.Bodies;
 
@@ -16,10 +17,8 @@ public class PaymentResourceCreateRequestBody
     /// </summary>
     [FluentMember(0)]
     [JsonPropertyName("integration_mode")]
-    [StringLength(20)]
-    [RegularExpression("^[A-Z0-9_]+$")]
     [Required]
-    public string? IntegrationMode { get; set; }
+    public EPaymentResourceIntegration IntegrationMode { get; set; }
     
     /// <summary>
     /// Gets or sets the payment resource type.
@@ -27,9 +26,7 @@ public class PaymentResourceCreateRequestBody
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("type")]
-    [StringLength(20)]
-    [RegularExpression("^[A-Z0-9_]+$")]
-    public string? Type { get; set; }
+    public EPaymentResourceType Type { get; set; }
     
     /// <summary>
     /// Gets or sets a value indicating whether the payment resource can be reused.

@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common;
 
@@ -13,13 +14,10 @@ public class UpdateOperation
     /// <summary>
     /// Gets or sets the type of operation to be performed.
     /// </summary>
-    /// <remarks>
-    /// Examples include "add", "remove", "replace", etc.
-    /// </remarks>
     [FluentMember(0)]
     [JsonPropertyName("op")]
     [Required]
-    public string? Op { get; set; }
+    public EUpdateOperaton Op { get; set; }
 
     /// <summary>
     /// Gets or sets the JSON Pointer path to the target field.

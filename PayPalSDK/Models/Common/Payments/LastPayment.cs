@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -14,13 +15,10 @@ public class LastPayment
     /// <summary>
     /// Gets or sets the status of the last payment.
     /// </summary>
-    /// <remarks>
-    /// The status must match one of the values defined in <see cref="Tavstal.PayPalSDK.Constants.PaymentStatus"/>.
-    /// </remarks>
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    public string? Status { get; set; }
+    public ECaptureStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the amount of the last payment.

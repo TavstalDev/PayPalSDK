@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 
@@ -18,8 +19,7 @@ public class DisputeFundMovement
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("party")]
-    [StringLength(255)]
-    public string? Party { get; set; }
+    public EDisputeParty? Party { get; set; }
     
     /// <summary>
     /// Gets or sets the type of fund movement.
@@ -27,8 +27,7 @@ public class DisputeFundMovement
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("type")]
-    [StringLength(255)]
-    public string? Type { get; set; }
+    public EDisputeFundType? Type { get; set; }
     
     /// <summary>
     /// Gets or sets the monetary amount moved in the dispute flow.
@@ -62,9 +61,7 @@ public class DisputeFundMovement
     [FluentMember(5)]
     [FluentSkippable]
     [JsonPropertyName("reason")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Reason { get; set; }
+    public EDisputeMovementReason? Reason { get; set; }
     
     /// <summary>
     /// Gets the <see cref="InitiatedTime"/> value parsed as a <see cref="DateTime"/>, if valid.

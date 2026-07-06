@@ -5,6 +5,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
 
 namespace Tavstal.PayPalSDK.Models.Common.Orders;
 
@@ -20,7 +21,7 @@ public class PaymentAuthorization
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    public string? Status { get; set; }
+    public EAuthorizationStatus? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the details of the status for the payment authorization.

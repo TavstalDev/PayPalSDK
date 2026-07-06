@@ -33,7 +33,7 @@ public class SubscriptionCaptureRequestBody
     [Required]
     [JsonPropertyName("capture_type")]
     [StringLength(24)]
-    public string? CaptureType { get; set; }
+    public string? CaptureType { get; set; } = "OUTSTANDING_BALANCE";
 
     /// <summary>
     /// Gets or sets the amount to be captured for the subscription payment.

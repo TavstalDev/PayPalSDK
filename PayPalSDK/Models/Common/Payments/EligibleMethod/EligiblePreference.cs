@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Payment;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 
@@ -15,7 +16,7 @@ public class EligiblePreference
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("payment_flow")]
-    public string? PaymentFlow { get; set; }
+    public EPaymentFlow? PaymentFlow { get; set; }
     
     /// <summary>
     /// Gets or sets a value indicating whether account details should be included.

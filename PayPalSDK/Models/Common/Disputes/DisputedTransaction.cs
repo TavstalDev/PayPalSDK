@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 
@@ -45,8 +46,7 @@ public class DisputedTransaction
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("transaction_status")]
-    [StringLength(255)]
-    public string? TransactionStatus { get; set; }
+    public EDisputeTransactionStatus? TransactionStatus { get; set; }
     
     /// <summary>
     /// Gets or sets the merchant invoice number linked to the transaction.

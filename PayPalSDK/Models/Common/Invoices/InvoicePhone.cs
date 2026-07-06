@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
@@ -48,12 +49,12 @@ public class InvoicePhone
     /// Gets or sets the type of the phone.
     /// </summary>
     /// <remarks>
-    /// This field is optional and represents the type of phone (e.g., mobile, home, work).
+    /// This field is optional.
     /// </remarks>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("phone_type")]
-    public string? PhoneType { get; set; }
+    public EPhoneType? PhoneType { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

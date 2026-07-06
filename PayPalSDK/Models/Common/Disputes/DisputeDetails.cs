@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Disputes.Details;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes;
 
@@ -113,9 +114,7 @@ public class DisputeDetails
     [FluentMember(11)]
     [FluentSkippable]
     [JsonPropertyName("reason")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Reason { get; set; }
+    public EDisputeReason? Reason { get; set; }
     
     /// <summary>
     /// Gets or sets the current status code of the dispute.
@@ -123,9 +122,7 @@ public class DisputeDetails
     [FluentMember(12)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Status { get; set; }
+    public EDisputeStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the monetary amount currently in dispute.
@@ -163,9 +160,7 @@ public class DisputeDetails
     [FluentMember(17)]
     [FluentSkippable]
     [JsonPropertyName("dispute_life_cycle_stage")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? LifeCycleStage { get; set; }
+    public EDisputeLifeCycleStage? LifeCycleStage { get; set; }
     
     /// <summary>
     /// Gets or sets the channel through which the dispute was initiated.
@@ -173,9 +168,7 @@ public class DisputeDetails
     [FluentMember(18)]
     [FluentSkippable]
     [JsonPropertyName("dispute_channel")]
-    [StringLength(255)]
-    [RegularExpression("^[0-9A-Z_]+$")]
-    public string? Channel { get; set; }
+    public EDisputeChannel? Channel { get; set; }
     
     /// <summary>
     /// Gets or sets additional dispute extension data.

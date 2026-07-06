@@ -1,8 +1,8 @@
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Merchandize;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Common.Disputes.Details.Extensions.Billing;
 
@@ -18,8 +18,7 @@ public class CreditNotProcessed
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("issue_type")]
-    [StringLength(255)]
-    public string? IssueType { get; set; }
+    public EDisputeIssueType? IssueType { get; set; }
     
     /// <summary>
     /// Gets or sets the agreed refund details for the credit not processed in the dispute.

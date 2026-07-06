@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Disputes;
 
 namespace Tavstal.PayPalSDK.Models.Disputes.Bodies;
 
@@ -12,13 +13,12 @@ public class DisputeSettleRequestBody
 {
     /// <summary>
     /// Gets or sets the outcome of the adjudication for the dispute settlement.
-    /// This property is required and has a maximum length of 255 characters.
+    /// This property is required.
     /// </summary>
     [FluentMember(0)]
     [JsonPropertyName("adjudication_outcome")]
-    [StringLength(255)]
     [Required]
-    public string? AdjudicationOutcome { get; set; }
+    public EAdjudicationOutcome AdjudicationOutcome { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

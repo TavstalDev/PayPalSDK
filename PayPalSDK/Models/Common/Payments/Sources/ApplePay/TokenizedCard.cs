@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Addressing;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Card;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources.ApplePay;
 
@@ -52,27 +53,23 @@ public class TokenizedCard
     /// Gets or sets the type of the tokenized card.
     /// </summary>
     /// <remarks>
-    /// This field is optional and must match the regular expression pattern: ^[A-Z_]+$.
+    /// This field is optional.
     /// </remarks>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("type")]
-    [StringLength(255)]
-    [RegularExpression("^[A-Z_]+$")]
-    public string? Type { get; set; }
+    public ECardType? Type { get; set; }
 
     /// <summary>
     /// Gets or sets the brand of the tokenized card.
     /// </summary>
     /// <remarks>
-    /// This field is optional and must match the regular expression pattern: ^[A-Z_]+$.
+    /// This field is optional.
     /// </remarks>
     [FluentMember(4)]
     [FluentSkippable]
     [JsonPropertyName("brand")]
-    [StringLength(255)]
-    [RegularExpression("^[A-Z_]+$")]
-    public string? Brand { get; set; }
+    public ECardBrand? Brand { get; set; }
 
     /// <summary>
     /// Gets or sets the billing address associated with the tokenized card.

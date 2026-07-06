@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
@@ -29,7 +30,7 @@ public class InvoiceRefundTransaction
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("type")]
-    public string? Type { get; set; }
+    public ERefundType? Type { get; set; }
 
     /// <summary>
     /// Gets or sets the date of the refund transaction.
@@ -55,13 +56,10 @@ public class InvoiceRefundTransaction
     /// <summary>
     /// Gets or sets the method used for the refund transaction.
     /// </summary>
-    /// <remarks>
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.TransactionMethod"/> for valid values.
-    /// </remarks>
     [FluentMember(0)]
     [Required]
     [JsonPropertyName("method")]
-    public string? Method { get; set; }
+    public EInvoicePaymentMethod Method { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

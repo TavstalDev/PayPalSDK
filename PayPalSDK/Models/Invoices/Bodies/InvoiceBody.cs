@@ -4,6 +4,7 @@ using Tavstal.PayPalSDK.Models.Common;
 using Tavstal.PayPalSDK.Models.Common.Invoices;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Invoices.Bodies;
 
@@ -69,7 +70,7 @@ public class InvoiceBody
     [FluentMember(7)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    public string? Status { get; set; }
+    public EInvoiceStatus? Status { get; set; }
 
     /// <summary>
     /// Gets or sets the detailed information for the invoice.

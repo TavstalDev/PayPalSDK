@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Invoices;
 
 namespace Tavstal.PayPalSDK.Models.Common.Invoices;
 
@@ -90,7 +91,7 @@ public class InvoiceItem
     [FluentMember(7)]
     [FluentSkippable]
     [JsonPropertyName("unit_of_measure")]
-    public string? UnitOfMeasure { get; set; }
+    public EMeasureUnit? UnitOfMeasure { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

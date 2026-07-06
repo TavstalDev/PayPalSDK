@@ -6,6 +6,8 @@ using Tavstal.PayPalSDK.Models.Common.Payments.Sources.Card;
 using Tavstal.PayPalSDK.Models.Common.User;
 using Tavstal.PayPalSDK.Utils;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
 
 namespace Tavstal.PayPalSDK.Models.Payments.Bodies;
 
@@ -21,7 +23,7 @@ public class CapturedPaymentBody
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    public string? Status { get; set; }
+    public ECaptureStatus? Status { get; set; }
 
     /// <summary>
     /// Details about the payment status, including the reason for the status.
@@ -72,9 +74,7 @@ public class CapturedPaymentBody
     [FluentMember(6)]
     [FluentSkippable]
     [JsonPropertyName("disbursement_mode")]
-    [StringLength(16)]
-    [RegularExpression("^[A-Z_]+$")]
-    public string? DisbursementMode { get; set; }
+    public EDisbursementMode? DisbursementMode { get; set; } = EDisbursementMode.INSTANT;
 
     /// <summary>
     /// A list of links related to the payment transaction.

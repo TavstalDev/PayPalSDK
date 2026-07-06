@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common.Billing;
 
@@ -13,14 +14,10 @@ public class CycleExecution
     /// <summary>
     /// Gets or sets the type of tenure for the billing cycle.
     /// </summary>
-    /// <remarks>
-    /// The tenure type must match one of the values defined in <see cref="Tavstal.PayPalSDK.Constants.TenureType"/>.
-    /// </remarks>
     [FluentMember(0)]
     [JsonPropertyName("tenure_type")]
-    [StringLength(24)]
     [Required]
-    public string? TenureType { get; set; }
+    public ETenureType TenureType { get; set; }
 
     /// <summary>
     /// Gets or sets the sequence number of the billing cycle.

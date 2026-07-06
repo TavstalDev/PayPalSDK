@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Shipping;
 
 namespace Tavstal.PayPalSDK.Models.Common.Payments;
 
@@ -48,16 +49,10 @@ public class PaymentInstruction
     /// <summary>
     /// Gets or sets the disbursement mode.
     /// </summary>
-    /// <remarks>
-    /// This field is optional and must match the regular expression ^[A-Z_]+$.
-    /// Refer to <see cref="Tavstal.PayPalSDK.Constants.DisbursementMode"/> for valid values.
-    /// </remarks>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("disbursement_mode")]
-    [StringLength(16)]
-    [RegularExpression("^[A-Z_]+$")]
-    public string? DisbursementMode { get; set; }
+    public EDisbursementMode? DisbursementMode { get; set; } = EDisbursementMode.INSTANT;
 
     /// <summary>
     /// Fluent build method implementation

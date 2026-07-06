@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common.User;
 
@@ -11,12 +12,11 @@ public class SellerProtection
 {
     /// <summary>
     /// The status of seller protection.
-    /// Possible values are defined in <see cref="Tavstal.PayPalSDK.Constants.SellerProtectionStatus"/>.
     /// </summary>
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    public string? Status { get; set; }
+    public ESellerProtectionStatus? Status { get; set; }
 
     /// <summary>
     /// A list of dispute categories associated with the seller protection.

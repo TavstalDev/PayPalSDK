@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Common.Payments;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums.Subscriptions;
 
 namespace Tavstal.PayPalSDK.Models.Common.Plans;
 
@@ -31,8 +31,7 @@ public class PlanPaymentPreference
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("setup_fee_failure_action")]
-    [StringLength(24)]
-    public string? SetupFeeFailureAction { get; set; }
+    public ESetupFeeFailureAction? SetupFeeFailureAction { get; set; }
 
     /// <summary>
     /// Gets or sets the threshold for payment failures.

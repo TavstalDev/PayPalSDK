@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using M31.FluentApi.Attributes;
+using Tavstal.PayPalSDK.Models.Enums;
 
 namespace Tavstal.PayPalSDK.Models.Common;
 
@@ -41,7 +42,7 @@ public class Link
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("method")]
-    public string? Method { get; set; }
+    public EHttpMethod? Method { get; set; }
     
     /// <summary>
     /// Returns a string representation of the <see cref="Link"/> instance.
