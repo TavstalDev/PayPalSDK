@@ -16,7 +16,7 @@ public class RefreshToken
     [FluentMember(0)]
     [JsonPropertyName("refresh_token")]
     [Required]
-    public string? Token { get; init; }
+    public string? Token { get; set; }
 
     /// <summary>
     /// The type of the token.
@@ -24,7 +24,7 @@ public class RefreshToken
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("token_type")]
-    public string? TokenType { get; init; }
+    public string? TokenType { get; set; }
 
     /// <summary>
     /// The expiration time of the token in seconds.
@@ -32,7 +32,7 @@ public class RefreshToken
     [FluentMember(2)]
     [Required]
     [JsonPropertyName("expires_in")]
-    public string? ExpiresIn { get; init; }
+    public string? ExpiresIn { get; set; }
 
     /// <summary>
     /// The ID token.
@@ -40,7 +40,7 @@ public class RefreshToken
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("id_token")]
-    public string? IdToken { get; init; }
+    public string? IdToken { get; set; }
     
     /// <summary>
     /// Converts the current <see cref="RefreshToken"/> instance to an <see cref="AccessToken"/> instance.

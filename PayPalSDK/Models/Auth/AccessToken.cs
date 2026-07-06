@@ -16,7 +16,7 @@ public class AccessToken
     [FluentMember(0)]
     [JsonPropertyName("access_token")]
     [Required]
-    public string? Token { get; init; }
+    public string? Token { get; set; }
 
     /// <summary>
     /// The type of the token (e.g., Bearer).
@@ -24,7 +24,7 @@ public class AccessToken
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("token_type")]
-    public string? TokenType { get; init; }
+    public string? TokenType { get; set; }
 
     /// <summary>
     /// The duration in seconds until the token expires.
@@ -32,7 +32,7 @@ public class AccessToken
     [FluentMember(2)]
     [Required]
     [JsonPropertyName("expires_in")]
-    public int ExpiresIn { get; init; }
+    public int ExpiresIn { get; set; }
 
     /// <summary>
     /// Gets the date and time when the access token was created.
