@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.PayPalSDK.Models.Auth;
 using Tavstal.PayPalSDK.Models.Common;
@@ -62,6 +63,8 @@ namespace Tavstal.PayPalSDK.Serialization;
 /// Represents a JSON serialization context for the PayPal SDK, providing serialization and deserialization capabilities for various PayPal SDK models.
 /// </summary>
 [JsonSourceGenerationOptions(DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, UseStringEnumConverter = true)]
+[JsonSerializable(typeof(JsonElement))]
+[JsonSerializable(typeof(object))]
 [JsonSerializable(typeof(AccessToken))]
 [JsonSerializable(typeof(List<AccessToken>))]
 [JsonSerializable(typeof(Address))]
