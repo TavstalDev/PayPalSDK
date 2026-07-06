@@ -17,7 +17,7 @@ public class PaymentRefundRequest : HttpRequestBase<RefundPaymentBody>
     /// <param name="body">The body of the payment refund request containing refund details.</param>
     public PaymentRefundRequest(string captureId, PaymentRefundRequestBody body)
         :
-        base(HttpMethod.Get, $"/v2/payments/captures/{captureId}/refund")
+        base(HttpMethod.Post, $"/v2/payments/captures/{captureId}/refund")
     {
         // Sets the content of the HTTP request using the provided body and JSON serialization options.
         Content = JsonContent.Create(body, PayPalSDKJsonContext.Default.PaymentRefundRequestBody);
