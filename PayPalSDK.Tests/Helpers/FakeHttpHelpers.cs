@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
+using Tavstal.PayPalSDK.Config;
 using Tavstal.PayPalSDK.Http;
 using Tavstal.PayPalSDK.Serialization;
 using Tavstal.PayPalSDK.Tests.Mocks;
@@ -13,14 +14,17 @@ namespace Tavstal.PayPalSDK.Tests.Helpers;
 public static class FakeHttpHelpers
 {
     /// <summary>
-    /// Creates a new <see cref="FakePayPalHttpClient"/> with the specified responder function.
+    /// Creates a new <see cref="IPayPalHttpClient"/> with the specified responder function.
     /// </summary>
     /// <param name="responder">
     /// A function that takes an <see cref="HttpRequestMessage"/> and returns an <see cref="HttpResponseMessage"/>.
     /// </param>
-    /// <returns>A new <see cref="FakePayPalHttpClient"/> instance.</returns>
-    public static FakePayPalHttpClient CreateClient(Func<HttpRequestMessage, HttpResponseMessage> responder) =>
-        new(responder);
+    /// <returns>A new <see cref="IPayPalHttpClient"/> instance.</returns>
+    public static IPayPalHttpClient CreateClient(Func<HttpRequestMessage, HttpResponseMessage> responder)
+    {
+        var mockHandler = new MockHttpMessageHandler((request, _) => Task.FromResult(responder(request)));
+        return new PayPalHttpClient(new SandboxEnvironment("test", "123"), new HttpClient(mockHandler));
+    }
     
     /// <summary>
     /// Reads and deserializes the HTTP content using the SDK's source-generated JSON context.
