@@ -121,10 +121,10 @@ public sealed class PaymentsClient : ClientBase
     /// <param name="body">The reauthorization request payload.</param>
     /// <param name="cancellationToken">A token to cancel the asynchronous operation.</param>
     /// <returns>
-    /// A result containing <see cref="CapturedPaymentBody"/> on success,
+    /// A result containing <see cref="AuthorizedPaymentBody"/> on success,
     /// or an <see cref="ErrorResponse"/> on failure.
     /// </returns>
-    public async Task<Result<CapturedPaymentBody, ErrorResponse>> ReauthorizeAsync(string id, PaymentReauthorizeRequestBody body,
+    public async Task<Result<AuthorizedPaymentBody, ErrorResponse>> ReauthorizeAsync(string id, PaymentReauthorizeRequestBody body,
         CancellationToken cancellationToken = default)
     {
         var request = new PaymentReauthorizeRequest(id, body);
