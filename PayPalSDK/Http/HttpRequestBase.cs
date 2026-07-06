@@ -9,8 +9,28 @@ namespace Tavstal.PayPalSDK.Http;
 /// <summary>
 /// Represents the base class for HTTP requests in the PayPal SDK.
 /// </summary>
-public abstract class HttpRequestBase : HttpRequestMessage
+public abstract class HttpRequestBase
 {
+    /// <summary>
+    /// Gets the HTTP method for the request (e.g., GET, POST).
+    /// </summary>
+    public HttpMethod Method { get; }
+
+    /// <summary>
+    /// Gets or sets the request URI.
+    /// </summary>
+    public Uri RequestUri { get; protected set; }
+
+    /// <summary>
+    /// Gets the collection of HTTP headers for the request.
+    /// </summary>
+    public Dictionary<string, string> Headers { get; protected set; } = [];
+
+    /// <summary>
+    /// Gets or sets the HTTP content sent with the request.
+    /// </summary>
+    public HttpContent? Content { get; set;  }
+    
     /// <summary>
     /// Initializes a new instance of the <see cref="HttpRequestBase"/> class.
     /// </summary>
@@ -50,6 +70,21 @@ public abstract class HttpRequestBase : HttpRequestMessage
         {
             return null;
         }
+    }
+
+    /// <summary>
+    /// Converts the current request to a <see cref="HttpRequestMessage"/>.
+    /// </summary>
+    /// <returns>An <see cref="HttpRequestMessage"/> representing the current request.</returns>
+    public HttpRequestMessage ToHttpRequestMessage()
+    {
+        var requestMessage = new HttpRequestMessage();
+        requestMessage.Method = Method;
+        requestMessage.RequestUri = RequestUri;
+        requestMessage.Content = Content;
+        foreach (var header in Headers)
+            requestMessage.Headers.TryAddWithoutValidation(header.Key, header.Value);
+        return requestMessage;
     }
 }
 

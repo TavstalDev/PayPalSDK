@@ -1,4 +1,3 @@
-using System.Net.Http.Headers;
 using Tavstal.PayPalSDK.Config;
 using Tavstal.PayPalSDK.Http;
 
@@ -19,7 +18,7 @@ public class AccessTokenRequestBody : HttpRequestBase<AccessToken>
         base(HttpMethod.Post, "/v1/oauth2/token")
     {
         // Sets the Authorization header using the environment's authorization string.
-        Headers.Authorization = new AuthenticationHeaderValue("Basic", environment.AuthorizationString());
+        Headers["Authorization"] = $"Basic {environment.AuthorizationString()}";
 
         // Creates a dictionary to hold the request parameters.
         var dictionary = new Dictionary<string, string?>
