@@ -86,16 +86,29 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
     /// <param name="environment">The environment configuration.</param>
     /// <param name="options">Optional client options for configuration.</param>
     public PayPalHttpClient(EnvironmentBase environment, PayPalClientOptions? options = null)
+        : this(environment, new HttpClient(new SocketsHttpHandler
+        {
+            AutomaticDecompression = (options ?? new PayPalClientOptions()).EnableCompression
+                ? DecompressionMethods.GZip | DecompressionMethods.Deflate
+                : DecompressionMethods.None,
+            MaxConnectionsPerServer = (options ?? new PayPalClientOptions()).MaxConnectionsPerServer,
+            Proxy = (options ?? new PayPalClientOptions()).Proxy
+        }), options)
     {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PayPalHttpClient"/> class with a pre-configured HttpClient (for testing).
+    /// </summary>
+    /// <param name="environment">The environment configuration.</param>
+    /// <param name="httpClient">The pre-configured HttpClient instance (e.g. with a mock handler).</param>
+    /// <param name="options">Optional client options for configuration.</param>
+    internal PayPalHttpClient(EnvironmentBase environment, HttpClient httpClient, PayPalClientOptions? options = null)
+    {
+        _httpClient = httpClient;
         _options = options ?? new PayPalClientOptions();
         _environment = environment;
         _refreshToken = _options.RefreshToken;
-        _httpClient = new HttpClient(new SocketsHttpHandler
-        {
-            AutomaticDecompression = _options.EnableCompression ? DecompressionMethods.GZip | DecompressionMethods.Deflate : DecompressionMethods.None,
-            MaxConnectionsPerServer = _options.MaxConnectionsPerServer,
-            Proxy = _options.Proxy
-        });
         _httpClient.MaxResponseContentBufferSize = _options.MaxResponseContentBufferSize;
         _httpClient.Timeout = _options.Timeout;
 
@@ -140,38 +153,28 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
     /// <summary>
     /// Sends an asynchronous HTTP request to the PayPal API.
     /// Automatically adds an Authorization header if not already present.
+    /// Retries exactly once on 401 Unauthorized by refreshing the access token.
     /// </summary>
     /// <param name="request">The HTTP request to send.</param>
     /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
     /// <returns>A task representing the asynchronous operation, containing the HTTP response.</returns>
     public async Task<HttpResponseMessage> SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default)
     {
-        // Adds the Authorization header if missing, fetching a new access token if necessary.
-        if (!request.Headers.Contains("Authorization"))
+        if (!request.Headers.ContainsKey("Authorization"))
         {
-            if (_accessToken == null || _accessToken.IsExpired())
-            {
-                try 
-                {
-                    await _semaphore.WaitAsync(cancellationToken);
-                    if (_accessToken == null || _accessToken.IsExpired()) // Check again
-                        _accessToken = await FetchAccessTokenAsync(cancellationToken);
-                }
-                finally
-                {
-                    _semaphore.Release();
-                }
-            }
-            if (!string.IsNullOrEmpty(_accessToken.Token))
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
+            await EnsureAccessTokenAsync(cancellationToken);
+            if (!string.IsNullOrEmpty(_accessToken?.Token))
+                request.Headers["Authorization"] = $"Bearer {_accessToken.Token}";
         }
 
         byte[]? contentBuffer = null;
         if (request.Content != null)
             contentBuffer = await request.Content.ReadAsByteArrayAsync(cancellationToken);
 
-        HttpResponseMessage response = null!; // Initialize response to avoid compiler warning
-        for (int i = 0; i < _options.MaxRetries + 1; i++) // Add +1 because if the MaxRetries is 1 then only the base operation will run, and it won't retry.
+        HttpResponseMessage response = null!;
+        bool retriedOnAuth = false;
+        // Add +1 because if the MaxRetries is 1 then only the base operation will run, and it won't retry.
+        for (int i = 0; i < _options.MaxRetries + 1; i++)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -186,7 +189,7 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
                 
             try
             {
-                response = await _httpClient.SendAsync(request, cancellationToken);
+                response = await _httpClient.SendAsync(request.ToHttpRequestMessage(), cancellationToken);
             }
             catch (OperationCanceledException)
             {
@@ -197,17 +200,50 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
                 await Task.Delay(_options.RetryDelay, cancellationToken);
                 continue;
             }
-            
+
+            if (response.StatusCode == HttpStatusCode.Unauthorized && !retriedOnAuth)
+            {
+                response.Dispose();
+                retriedOnAuth = true;
+                await EnsureAccessTokenAsync(cancellationToken, forceRefresh: true);
+                if (!string.IsNullOrEmpty(_accessToken?.Token))
+                    request.Headers["Authorization"] = $"Bearer {_accessToken.Token}";
+                continue;
+            }
+
             if (((response.StatusCode == HttpStatusCode.TooManyRequests && _options.RetryOnRateLimit) || (int)response.StatusCode >= 500)
                 && i + 1 < _options.MaxRetries)
             {
                 response.Dispose();
                 await Task.Delay(_options.RetryDelay, cancellationToken);
-                continue;              
+                continue;
             }
             break;
         }
         return response;
+    }
+
+    /// <summary>
+    /// Ensures a valid (non-expired) access token is available.
+    /// Uses a semaphore to prevent concurrent token-fetch calls.
+    /// </summary>
+    /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
+    /// <param name="forceRefresh">When <c>true</c>, always fetches a new token even if the cached one is still valid.</param>
+    private async Task EnsureAccessTokenAsync(CancellationToken cancellationToken, bool forceRefresh = false)
+    {
+        if (!forceRefresh && _accessToken != null && !_accessToken.IsExpired())
+            return;
+
+        await _semaphore.WaitAsync(cancellationToken);
+        try
+        {
+            if (forceRefresh || _accessToken == null || _accessToken.IsExpired())
+                _accessToken = await FetchAccessTokenAsync(cancellationToken);
+        }
+        finally
+        {
+            _semaphore.Release();
+        }
     }
 
     /// <summary>
@@ -216,38 +252,29 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
     /// </summary>
     /// <returns>A task representing the asynchronous operation, containing the fetched access token.</returns>
     /// <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
-    /// <exception cref="InvalidOperationException">Thrown if the access token retrieval fails.</exception>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if the access token retrieval fails. The message includes the HTTP status and response body
+    /// when the server returns a non-success status code.
+    /// </exception>
     private async Task<AccessToken> FetchAccessTokenAsync(CancellationToken cancellationToken = default)
     {
-        try
+        var tokenRequest = new AccessTokenRequestBody(_environment, _refreshToken);
+        using var response = await _httpClient.SendAsync(tokenRequest.ToHttpRequestMessage(), cancellationToken);
+        var json = await response.Content.ReadAsStringAsync(cancellationToken);
+        if (!response.IsSuccessStatusCode)
         {
-            // Creates a request to obtain an access token.
-            var tokenRequest = new AccessTokenRequestBody(_environment, _refreshToken);
-            using var response = await _httpClient.SendAsync(tokenRequest, cancellationToken);
-            response.EnsureSuccessStatusCode();
+            throw new InvalidOperationException(
+                $"Failed to retrieve access token. HTTP {(int)response.StatusCode}: {response.ReasonPhrase}. Response body: {json}");
+        }
 
-            // Deserializes the response into an access token or refresh token.
-            var json = await response.Content.ReadAsStringAsync(cancellationToken);
-            var accessToken = JsonSerializer.Deserialize(json, PayPalSDKJsonContext.Default.AccessToken);
-            if (accessToken == null)
-            {
-                var refreshToken =
-                    JsonSerializer.Deserialize(json, PayPalSDKJsonContext.Default.RefreshToken);
-                if (refreshToken != null)
-                    return refreshToken.ToAccessToken();
-
-                throw new InvalidOperationException("Failed to deserialize access token response.");
-            }
-
+        var accessToken = JsonSerializer.Deserialize(json, PayPalSDKJsonContext.Default.AccessToken);
+        if (accessToken != null)
             return accessToken;
-        }
-        catch (OperationCanceledException)
-        {
-            throw;
-        }
-        catch (Exception ex)
-        {
-            throw new InvalidOperationException("Failed to retrieve access token", ex);
-        }
+
+        var refreshToken = JsonSerializer.Deserialize(json, PayPalSDKJsonContext.Default.RefreshToken);
+        if (refreshToken != null)
+            return refreshToken.ToAccessToken();
+
+        throw new InvalidOperationException("Failed to deserialize access token response. Response body: " + json);
     }
 }
