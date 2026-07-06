@@ -46,4 +46,10 @@
       <PackageReference Include="M31.FluentApi" Version="1.12.0" PrivateAssets="all" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+        <_Parameter1>Tavstal.PayPalSDK.Tests</_Parameter1>
+      </AssemblyAttribute>
+    </ItemGroup>
+
 </Project>
