@@ -113,6 +113,7 @@ jobs:
 
       - name: NuGet Login (OIDC Authentication)
         uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841
+        id: nugetlogin
         with:
           user: Tavstal
 
@@ -121,5 +122,5 @@ jobs:
         run: |
           dotnet nuget push ./nupkg/*.nupkg \
             --source https://api.nuget.org/v3/index.json \
-            --api-key ${{ env.NUGET_AUTH_TOKEN }} \
+            --api-key ${{steps.nugetlogin.outputs.NUGET_API_KEY}} \
             --skip-duplicate
