@@ -111,10 +111,14 @@ jobs:
             ./artifacts/*
             ${{ env.NUPKG_PATH }}
 
+      - name: NuGet Login (OIDC Authentication)
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841
+        with:
+          user: Tavstal
+
       - name: Publish to NuGet.org
         if: github.ref == 'refs/heads/stable'
         run: |
           dotnet nuget push ./nupkg/*.nupkg \
             --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate \
-            --interactive false
+            --skip-duplicate
