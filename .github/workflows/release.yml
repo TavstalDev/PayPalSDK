@@ -63,6 +63,16 @@ jobs:
             --no-build \
             --output ./nupkg
 
+      - name: Collect DLLs with framework names
+        run: |
+          mkdir -p ./artifacts
+          for dir in ./PayPalSDK/bin/Release/*/; do
+            framework=$(basename "$dir")
+            if [ -f "$dir/PayPalSDK.dll" ]; then
+              cp "$dir/PayPalSDK.dll" "./artifacts/PayPalSDK-$framework.dll"
+            fi
+          done
+
       - name: Get latest tag
         id: get_latest_tag
         run: |
@@ -93,7 +103,7 @@ jobs:
           prerelease: true
           body_path: /tmp/release_body.md
           files: |
-            ./PayPalSDK/bin/Release/**/${{ env.DLL_NAME }}
+            ./artifacts/*
             ${{ env.NUPKG_PATH }}
 
       - name: Publish to NuGet.org
