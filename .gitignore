@@ -1,6 +1,93 @@
-bin/
-obj/
-/packages/
+## ==========================================
+## IDEs & Editors
+## ==========================================
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vshost.exe
+*.vshost.exe.manifest
+*.manifest
+*.dbmdl
+
+# JetBrains (Rider, Resharper)
+.idea/
 riderModule.iml
 /_ReSharper.Caches/
+*.sln.DotSettings.user
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+## ==========================================
+## Build & Output Directories
+## ==========================================
+# Standard .NET build outputs
+[Bb]in/
+[Oo]bj/
+build/
+out/
+[Dd]ebug/
+[Rr]elease/
+
+# Publish output
+*.[Pp]ublish.xml
+
+## ==========================================
+## NuGet & Dependencies
+## ==========================================
+# Packages folder (if using old style or local caching)
+**/packages/*
+!**/packages/repositories.config
+
+# NuGet pack outputs
+*.nupkg
+*.snupkg
+
+## ==========================================
+## Secrets & Local Configuration
+## ==========================================
+# General secrets
 secrets.json
+.secrets
+.env
+.env.*
+!.env.example
+appsettings.Development.json
+appsettings.local.json
+
+## ==========================================
+## Testing & Diagnostics
+## ==========================================
+# Test results & coverage
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.mdurl
+
+# Crash dumps & logs
+*.dmp
+*.log
+*.apkg
+
+## ==========================================
+## OS Specific
+## ==========================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
