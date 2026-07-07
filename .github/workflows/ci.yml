@@ -1,12 +1,15 @@
 name: CI
 on:
-  pull_request:                                                                                                                                                                                                                                                    12% used
-    branches: [master]                                                                                                                                                                                                                                             $0.00 spent
+  pull_request:
+    branches: [master]
   push:
     branches: [master]
 
 env:
   SLN_NAME: PayPalSDK.sln
+
+permissions:
+  contents: read
 
 jobs:
   build:
