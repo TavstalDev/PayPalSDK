@@ -110,6 +110,7 @@ jobs:
           files: |
             ./artifacts/*
             ${{ env.NUPKG_PATH }}
+            ./nupkg/*.snupkg
 
       - name: NuGet Login (OIDC Authentication)
         uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841
@@ -121,6 +122,10 @@ jobs:
         if: github.ref == 'refs/heads/stable'
         run: |
           dotnet nuget push ./nupkg/*.nupkg \
+            --source https://api.nuget.org/v3/index.json \
+            --api-key ${{steps.nugetlogin.outputs.NUGET_API_KEY}} \
+            --skip-duplicate
+          dotnet nuget push ./nupkg/*.snupkg \
             --source https://api.nuget.org/v3/index.json \
             --api-key ${{steps.nugetlogin.outputs.NUGET_API_KEY}} \
             --skip-duplicate
