@@ -5,11 +5,11 @@ namespace Tavstal.PayPalSDK.Models.Enums.Shipping.Tracking;
 /// <summary>
 /// The tracking status of a shipment.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter<ETRackingStatus>))]
-public enum ETRackingStatus
+[JsonConverter(typeof(JsonStringEnumConverter<ETrackingStatus>))]
+public enum ETrackingStatus
 {
     /// <summary>
-    /// The operation was cancelled.
+    /// The operation was canceled.
     /// </summary>
     CANCELLED = 0,
     /// <summary>

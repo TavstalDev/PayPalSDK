@@ -90,7 +90,7 @@ public class Tracker
     [FluentMember(8)]
     [FluentSkippable]
     [JsonPropertyName("status")]
-    public ETRackingStatus? Status { get; set; }
+    public ETrackingStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the shipment date in <c>yyyy-MM-dd</c> format.

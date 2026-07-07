@@ -140,7 +140,7 @@ public class TrackerInformation
     [FluentMember(1)]
     [Required]
     [JsonPropertyName("status")]
-    public ETRackingStatus? Status { get; set; }
+    public ETrackingStatus? Status { get; set; }
     
     /// <summary>
     /// Gets or sets the shipment date in <c>yyyy-MM-dd</c> format.

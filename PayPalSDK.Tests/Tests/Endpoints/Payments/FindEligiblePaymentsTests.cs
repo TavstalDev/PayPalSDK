@@ -8,8 +8,8 @@ namespace Tavstal.PayPalSDK.Tests.Tests.Endpoints.Payments;
 
 public class FindEligiblePaymentsTests : TestBase
 {
-    public FindEligiblePaymentsTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper, ["Resources/Payments/EligableList/sample1.json", "Resources/Payments/EligableList/sample2.json", 
-        "Resources/Payments/EligableList/sample3.json", "Resources/Payments/EligableList/sample4.json", "Resources/Payments/EligableList/sample5.json", "Resources/Payments/EligableList/sample6.json"]) { }
+    public FindEligiblePaymentsTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper, ["Resources/Payments/EligibleList/sample1.json", "Resources/Payments/EligibleList/sample2.json", 
+        "Resources/Payments/EligibleList/sample3.json", "Resources/Payments/EligibleList/sample4.json", "Resources/Payments/EligibleList/sample5.json", "Resources/Payments/EligibleList/sample6.json"]) { }
     
     
     [Fact(DisplayName = "Sample 1 - 200 - Eligible Payment Methods - Exclude listed payment methods")]
