@@ -106,8 +106,11 @@ The client manages login tokens automatically. It gets and saves a Bearer token 
 
 When the client is ready, you can create a new PayPal order:
 
+<details>
+<summary><b>Object initializer example</b> (click to expand)</summary>
+
 ```csharp
-using PayPalSDK.Models.Orders;
+using Tavstal.PayPalSDK.Models.Orders;
 
 var orderRequestBody = new OrderCreateRequestBody
 {
@@ -191,6 +194,61 @@ if (!response.IsSuccessStatusCode)
 var orderResponse = await orderRequest.GetResponseBodyAsync(response);
 Console.WriteLine($"Order ID: {orderResponse?.Id}");
 ```
+</details>
+
+<details>
+<summary><b>Fluent API alternative</b> (click to expand)</summary>
+
+```csharp
+using Tavstal.PayPalSDK.Models.Orders.Bodies;
+using Tavstal.PayPalSDK.Models.Common.Orders;
+using Tavstal.PayPalSDK.Models.Common.Payments;
+using Tavstal.PayPalSDK.Models.Common.Addressing;
+using Tavstal.PayPalSDK.Models.Enums.Orders;
+using Tavstal.PayPalSDK.Models.Common;
+
+var body = OrderCreateRequestBodyBuilder
+    .WithPurchaseUnits([
+        PurchaseUnitBuilder
+            .WithDescription("Test Order")
+            .WithCustomId("CustomId123")
+            .WithItems([
+                ItemBuilder
+                    .WithName("Test Item")
+                    .WithQuantity("1")
+                    .WithUnitAmount(MoneyBuilder
+                        .WithCurrencyCode("EUR")
+                        .WithValue("10.00")
+                        .Build())
+                    .WithDescription("This is a test item")
+                    .WithSku("ITEM123")
+                    .WithCategory(EOrderItemCategory.DIGITAL_GOODS)
+                    .WithTax(MoneyBuilder
+                        .WithCurrencyCode("EUR")
+                        .WithValue("0.00")
+                        .Build())
+                    .Build()
+            ])
+            .WithAmount(MoneyBreakdownBuilder
+                .WithCurrencyCode("EUR")
+                .WithValue("10.00")
+                .WithBreakdown(BreakdownBuilder
+                    .WithItemTotal(MoneyBuilder
+                        .WithCurrencyCode("EUR")
+                        .WithValue("10.00")
+                        .Build())
+                    .Build())
+                .Build())
+            .WithPayee(PayeeBuilder
+                .WithEmailAddress("sdk-merchant@business.example.com")
+                .Build())
+            .Build()
+    ])
+    .WithIntent(EIntent.CAPTURE)
+    .Build();
+```
+
+</details>
 
 ### 3. High-Level Pattern (Recommended)
 
@@ -223,7 +281,7 @@ A new order will start with a CREATED status. To finish the payment, the buyer m
 | Sandbox (testing) | SandboxEnvironment | PayPal Developer Dashboard → Sandbox app |
 | Live (production) | LiveEnvironment   | PayPal Developer Dashboard → Live app    |
 
-When using Sandbox, you are not using real money. You can use PayPal's [Sandbox test accounts]((https://developer.paypal.com/developer/accounts)) to test buyer and seller actions.
+When using Sandbox, you are not using real money. You can use PayPal's [Sandbox test accounts](https://developer.paypal.com/developer/accounts) to test buyer and seller actions.
 
 ---
 
