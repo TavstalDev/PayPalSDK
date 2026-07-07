@@ -87,11 +87,16 @@ jobs:
             echo "## Changelog"
             echo "Changes pushed to branch \`${{ github.ref_name }}\`"
             echo ""
+            echo "<details>"
+            echo "<summary>Click to expand commit list</summary>"
+            echo ""
             if [ "$LATEST_TAG" = "none" ]; then
               git log HEAD --pretty=format:"- [%h](https://github.com/${{ github.repository }}/commit/%h) - %s"
             else
               git log "$LATEST_TAG..HEAD" --pretty=format:"- [%h](https://github.com/${{ github.repository }}/commit/%h) - %s"
             fi
+            echo ""
+            echo "</details>"
           } > /tmp/release_body.md
 
       - name: Create GitHub Release and Upload Assets
@@ -111,4 +116,5 @@ jobs:
         run: |
           dotnet nuget push ./nupkg/*.nupkg \
             --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate
+            --skip-duplicate \
+            --interactive false
