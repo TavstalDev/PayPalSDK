@@ -8,19 +8,19 @@
         <RootNamespace>Tavstal.PayPalSDK</RootNamespace>
         <AssemblyName>PayPalSDK</AssemblyName>
         <AssemblyTitle>PayPalSDK</AssemblyTitle>
-        <ApplicationId>PayPalSDK</ApplicationId>
         <Product>PayPalSDK</Product>
         <Description>A modern PayPal SDK for .NET, designed to simplify payment integration.</Description>
         <Company>Tavstal</Company>
         <Authors>Tavstal</Authors>
-        <Copyright>Copyright © 2026 Tavstal</Copyright>
-        <Guid>84CE83F4-C74C-4F49-B476-E9F366E4E7EF</Guid>
+        <Copyright>Copyright © 2025-2026 Tavstal</Copyright>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
         <Version>1.0.0</Version>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 
         <PackageTags>api sdk client paypal payments orders subscriptions invoicing</PackageTags>
+        <PackageProjectUrl>https://github.com/TavstalDev/PayPalSDK</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/TavstalDev/PayPalSDK/releases</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/TavstalDev/PayPalSDK</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -30,6 +30,7 @@
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <DebugType>portable</DebugType>
         <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <IsTrimmable>true</IsTrimmable>
