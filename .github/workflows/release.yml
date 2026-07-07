@@ -121,4 +121,5 @@ jobs:
         run: |
           dotnet nuget push ./nupkg/*.nupkg \
             --source https://api.nuget.org/v3/index.json \
+            --api-key ${{ env.NUGET_AUTH_TOKEN }} \
             --skip-duplicate
