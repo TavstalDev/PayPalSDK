@@ -102,7 +102,7 @@ var body = new DisputeMakeOfferRequestBody
         CurrencyCode = "USD",
         Value = "50.00"
     },
-    OfferType = "REFUND"
+    OfferType = EDisputeOffer.REFUND
 };
 
 // Create a request to make an offer for the dispute
@@ -139,7 +139,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 var body = new DisputeAcceptClaimRequestBody
 {
     Note = "Item was not received. Refund accepted.",
-    AcceptClaimReason = "BUYER_COMPLAINT",
+    AcceptClaimReason = EDisputeAcceptClaimReason.DID_NOT_SHIP_ITEM,
     RefundAmount = new Money
     {
         CurrencyCode = "USD",
@@ -402,7 +402,7 @@ using Tavstal.PayPalSDK.Models.Disputes.Bodies;
 // Create the request body with settlement details
 var body = new DisputeSettleRequestBody
 {
-    AdjudicationOutcome = "BUYER_FAVOR"
+    AdjudicationOutcome = EAdjudicationOutcome.BUYER_FAVOR
 };
 
 // Create a request to settle the dispute
@@ -498,7 +498,7 @@ using Tavstal.PayPalSDK.Models.Disputes.Bodies;
 // Create the request body
 var body = new DisputeUpdateStatusRequestBody
 {
-    Action = "BUYER_EVIDENCE"
+    Action = EDisputeUpdateAction.BUYER_EVIDENCE
 };
 
 // Create a request to update dispute status

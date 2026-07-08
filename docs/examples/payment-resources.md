@@ -15,8 +15,8 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 // Create payment resource request body
 var body = new PaymentResourceCreateRequestBody
 {
-    IntegrationMode = "PAYPAL_BUTTON",
-    Type = "PAYMENT",
+    IntegrationMode = EPaymentResourceIntegration.LINK,
+    Type = EPaymentResourceType.BUY_NOW,
     Reusable = "true",
     ReturnUrl = "https://example.com/return",
     LineItems =
@@ -139,8 +139,8 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 // Create replacement body
 var body = new PaymentResourceReplaceRequestBody
 {
-    IntegrationMode = "PAYPAL_BUTTON",
-    Type = "PAYMENT",
+    IntegrationMode = EPaymentResourceIntegration.LINK,
+    Type = EPaymentResourceType.BUY_NOW,
     Reusable = "false",
     ReturnUrl = "https://example.com/new-return",
     LineItems =

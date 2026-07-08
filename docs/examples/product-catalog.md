@@ -14,8 +14,8 @@ using Tavstal.PayPalSDK.Models.ProductCatalog.Bodies;
 var body = new ProductBody
 {
     Name = "Laptop",
-    Type = "PHYSICAL",
-    Category = "ELECTRONICS",
+    Type = EProductType.PHYSICAL,
+    Category = EProductCategory.HOME_ELECTRONICS,
     Description = "High-performance laptop"
 };
 

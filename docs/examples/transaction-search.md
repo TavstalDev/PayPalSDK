@@ -11,7 +11,7 @@ using Tavstal.PayPalSDK.Models.TransactionSearch;
 using Tavstal.PayPalSDK.Models.TransactionSearch.Bodies;
 
 // Search transactions
-var request = new TransactionListRequest("2022-04-25T00:00:00-07:00", "2022-05-10T23:59:59:59-07:00", transactionId: "03A84379GE3808324",
+var request = new TransactionListRequest("2022-04-25T00:00:00-07:00", "2022-05-10T23:59:59-07:00", transactionId: "03A84379GE3808324",
     fields: "all");
 var response = await client.SendAsync(request);
 
@@ -32,7 +32,7 @@ if (transactions?.TransactionDetails != null)
 > using Tavstal.PayPalSDK.Http.Clients;
 > 
 > var result = await client.TransactionSearch.ListAsync(
->     "2022-04-25T00:00:00-07:00", "2022-05-10T23:59:59:59-07:00",
+>     "2022-04-25T00:00:00-07:00", "2022-05-10T23:59:59-07:00",
 >     transactionId: "03A84379GE3808324", fields: "all");
 > if (result.IsSuccess && result.Value.TransactionDetails != null)
 >     foreach (var transaction in result.Value.TransactionDetails)

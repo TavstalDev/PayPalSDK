@@ -25,7 +25,7 @@ var purchaseUnit = new PurchaseUnit
 // Create the order request body
 var body = new OrderCreateRequestBody
 {
-    Intent = PayPalIntent.CAPTURE,
+    Intent = EIntent.CAPTURE,
     PurchaseUnits = [purchaseUnit]
 };
 
@@ -178,6 +178,10 @@ Confirm an order and complete authorization.
 ```csharp
 using Tavstal.PayPalSDK.Models.Orders;
 using Tavstal.PayPalSDK.Models.Orders.Bodies;
+using Tavstal.PayPalSDK.Models.Common.Payments;
+using Tavstal.PayPalSDK.Models.Common.Payments.Sources;
+using Tavstal.PayPalSDK.Models.Common.User;
+using Tavstal.PayPalSDK.Models.Common.Addressing;
 
 // Confirm the order with payment source details
 var body = new OrderConfirmRequestBody
@@ -194,12 +198,12 @@ var body = new OrderConfirmRequestBody
             EmailAddress = "johndoe@example.com",
             ExperienceContext = new ExperienceContext
             {
-                PaymentMethodPreference = PaymentPreference.IMMEDIATE_PAYMENT_REQUIRED,
+                PaymentMethodPreference = EPaymentMethodPreference.IMMEDIATE_PAYMENT_REQUIRED,
                 BrandName = "EXAMPLE INC",
                 Locale = "en-US",
-                LandingPage = "LOGIN",
-                ShippingPreference = ShippingPreference.SET_PROVIDED_ADDRESS,
-                UserAction = UserAction.PAY_NOW,
+                LandingPage = EPaymentLandingPageType.LOGIN,
+                ShippingPreference = EShippingPreference.SET_PROVIDED_ADDRESS,
+                UserAction = EUserAction.PAY_NOW,
                 ReturnUrl = "https://example.com/returnUrl",
                 CancelUrl =  "https://example.com/cancelUrl", 
             }
@@ -239,7 +243,7 @@ using Tavstal.PayPalSDK.Models.Common.Tracking;
 var body = new OrderTrackingRequestBody
 {
     CaptureId = "8MC585209K746392H",
-    Carrier = "FEDEX",
+    Carrier = ECarrier.FEDEX,
     TrackingNumber = "123456789",
     Items = [ 
             new TrackingItem
@@ -249,7 +253,7 @@ var body = new OrderTrackingRequestBody
                 Quantity = "1",
                 UPC = new UPC 
                 {
-                    Type = "UPC-A",
+                    Type = EUpcType.UPC_A,
                     Code = "12345678901"
                 },
                 ImageUrl = "https://www.example.com/example.jpg",

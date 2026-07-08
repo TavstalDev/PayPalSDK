@@ -115,7 +115,7 @@ Retrieve token setup details.
 using Tavstal.PayPalSDK.Models.PaymentMethodTokens;
 
 // Get token setup details
-var request = newPaymentTokenSetupRetrieveRequest("setup-id-123");
+var request = new PaymentTokenSetupRetrieveRequest("setup-id-123");
 var response = await client.SendAsync(request);
 
 // Parse the response

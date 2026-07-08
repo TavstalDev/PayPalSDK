@@ -92,7 +92,7 @@ This document tracks the completeness of this SDK against the official PayPal RE
 | Send Message About Dispute To Other Party  | `/v1/customer/disputes/{id}/send-message`            |  🟢 Supported  |                |
 | Settle Dispute                             | `/v1/customer/disputes/{id}/adjudicate`              |  🟢 Supported  | Sandbox only.  |
 | Make Offer To Resolve Dispute              | `/v1/customer/disputes/{id}/make-offer`              |  🟢 Supported  |                |
-| Update dispute status                      | `/v1/customer/disputes/{id}/require-evidence`        |  🟢 Supported  | Sandbox only.  |
+| Update Dispute Status                      | `/v1/customer/disputes/{id}/require-evidence`        |  🟢 Supported  | Sandbox only.  |
 | Accept Claim                               | `/v1/customer/disputes/{id}/accept-claim`            |  🟢 Supported  |                |
 | Provide Evidence                           | `/v1/customer/disputes/{id}/provide-evidence`        |  🟢 Supported  |                |
 | Acknowledge Returned Item                  | `/v1/customer/disputes/{id}/acknowledge-return-item` |  🟢 Supported  |                |

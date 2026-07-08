@@ -64,7 +64,7 @@ var body = new InvoiceCreateDraftRequestBody
                 {
                     CountryCode    = "001",
                     NationalNumber = "4085551234",
-                    PhoneType      = "MOBILE"
+                    PhoneType      = EPhoneType.MOBILE
                 }
             ],
         Website         = "www.test.com",
@@ -98,10 +98,10 @@ var body = new InvoiceCreateDraftRequestBody
                    {
                        CountryCode    = "001",
                        NationalNumber = "4884551234",
-                       PhoneType      = "HOME"
-                   }
-               ],
-                AdditionalInfo = "add-info"
+                    PhoneType      = EPhoneType.HOME
+                    }
+                ],
+                 AdditionalInfo = "add-info"
             },
             ShippingInfo = new ShippingInfo
             {
@@ -347,9 +347,9 @@ using Tavstal.PayPalSDK.Models.Invoices.Bodies;
 // Create updated invoice body
 var body = new InvoiceUpdateRequestBody
 {     
-    Detail = new  Detail
+    Detail = new Detail
     {
-        Reference    = "deal-refernce-update",
+        Reference    = "deal-reference-update",
         InvoiceDate  = "2025-01-15",
         CurrencyCode = "USD",
         Note         = "Thank you for your business.",
@@ -397,7 +397,7 @@ var body = new InvoiceUpdateRequestBody
                 {
                     CountryCode    = "001",
                     NationalNumber = "4085551234",
-                    PhoneType      = "MOBILE"
+                    PhoneType      = EPhoneType.MOBILE
                 }
             ],
         Website         = "www.test.com",
@@ -431,9 +431,9 @@ var body = new InvoiceUpdateRequestBody
                             {
                                 CountryCode    = "001",
                                 NationalNumber = "4884551234",
-                                PhoneType      = "HOME"
-                            }
-                        ],
+                    PhoneType      = EPhoneType.HOME
+                    }
+                ],
                     AdditionalInfo = "add-info"
                 },
                 ShippingInfo = new ShippingInfo
@@ -601,7 +601,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 // Create payment record
 var body = new InvoiceRecordPaymentRequestBody
 {
-    Method = "BANK_TRANSFER",
+    Method = EInvoicePaymentMethod.BANK_TRANSFER,
     Amount = new Money
     {
         CurrencyCode = "USD",
@@ -638,7 +638,7 @@ using Tavstal.PayPalSDK.Models.Common.Payments;
 // Create refund record
 var body = new InvoiceRecordRefundRequestBody
 {
-    Method = "BANK_TRANSFER",
+    Method = EInvoicePaymentMethod.BANK_TRANSFER,
     Amount = new Money
     {
         CurrencyCode = "USD",

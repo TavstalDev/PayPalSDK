@@ -79,7 +79,7 @@ Console.WriteLine($"Status: {refund?.Status}");
 
 > **High-level alternative:**
 > ```csharp
-> var result = await client.Payments.RefundPaymentAsync("0K35355239430361V", body);
+> var result = await client.Payments.RefundAsync("0K35355239430361V", body);
 > if (result.IsSuccess)
 >     Console.WriteLine($"Refund ID: {result.Value.Id}");
 > else
@@ -253,8 +253,8 @@ var body = new PaymentFindEligibleMethodsRequestBody
     {
         PaymentSourceConstraint = new EligibleConstraint
         {
-            ConstraintType = "EXCLUDE",
-            PaymentSources = [ "PAYPAL" ]
+            ConstraintType = EPaymentConstraintType.EXCLUDE,
+            PaymentSources = [ EPaymentConstraintSource.PAYPAL ]
         }
     },
     PurchaseUnits = 

@@ -101,7 +101,7 @@ public async Task<Order> CreateOrderAsync(CreateOrderRequest request)
 ### Comments in PayPalSDK.Tests
 
 You do not need XML comments in the test project. However, if a test is long or complicated, please add a short comment to explain what it does and why.
-```C#
+```csharp
 // Arrange a sandbox order with a minimal item list to verify
 // that capture returns a COMPLETED status on success.
 var order = await _client.CreateOrderAsync(...);

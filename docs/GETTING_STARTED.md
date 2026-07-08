@@ -145,10 +145,16 @@ When the client is ready, you can create a new PayPal request:
 
 ```csharp
 using Tavstal.PayPalSDK.Models.Orders;
+using Tavstal.PayPalSDK.Models.Orders.Bodies;
+using Tavstal.PayPalSDK.Models.Common.Orders;
+using Tavstal.PayPalSDK.Models.Common.Payments;
+using Tavstal.PayPalSDK.Models.Common.Addressing;
+using Tavstal.PayPalSDK.Models.Enums.Orders;
+using Tavstal.PayPalSDK.Models.Common;
 
 var orderRequestBody = new OrderCreateRequestBody
 {
-    Intent = PayPalIntent.CAPTURE, // Specifies the intent of the order (e.g., capture payment).
+    Intent = EIntent.CAPTURE, // Specifies the intent of the order (e.g., capture payment).
     PurchaseUnits = 
     [
         new PurchaseUnit
@@ -172,7 +178,7 @@ var orderRequestBody = new OrderCreateRequestBody
             [
                 new Item
                 {
-                    Category = ItemCategory.DIGITAL_GOODS, // Specifies the category of the item.
+                    Category = EOrderItemCategory.DIGITAL_GOODS, // Specifies the category of the item.
                     Name = "Test Item", // Name of the item.
                     Description = "This is a test item", // Description of the item.
                     Sku = "ITEM123", // Stock keeping unit identifier for the item.

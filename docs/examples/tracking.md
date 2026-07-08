@@ -15,7 +15,7 @@ var trackingInfo = new Tracker
 {
     TransactionId = "ABC123DEF456",
     TrackingNumber = "1Z999AA10123456784",
-    Carrier = "FEDEX"
+    Carrier = ECarrier.FEDEX
 };
 
 // Create the request to add tracking
@@ -87,8 +87,8 @@ var updatedTracker = new Tracker
 {
     TransactionId = "ABC123DEF456",
     TrackingNumber = "1Z999AA10123456784",
-    Carrier = "FEDEX",
-    Status = "SHIPPED"
+    Carrier = ECarrier.FEDEX,
+    Status = ETrackingStatus.SHIPPED
 };
 
 // Update the tracking
