@@ -14,7 +14,7 @@ public static class DateTimeHelper
     /// <param name="dateTime">The date and time value to convert.</param>
     /// <returns>A string representation of the specified date and time in ISO 8601 format.</returns>
     public static string ToISO8601(DateTime dateTime) => 
-        dateTime.ToUniversalTime().ToString("yyyy-MM-dd'T'HH:mm:ss.FFFFFFFK");
+        dateTime.ToUniversalTime().ToString("yyyy-MM-dd'T'HH:mm:ss.O");
     
     /// <summary>
     /// Parses an ISO 8601 date/time string into a nullable <see cref="DateTime"/> value.
