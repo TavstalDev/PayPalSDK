@@ -40,7 +40,7 @@ public sealed class InvoicesClient : ClientBase
     /// A result containing the requested <see cref="InvoiceBody"/> on success,
     /// or an <see cref="ErrorResponse"/> on failure.
     /// </returns>
-    public async Task<Result<InvoiceBody, ErrorResponse>> ShowAsync(string invoiceId,
+    public async Task<Result<InvoiceBody, ErrorResponse>> GetAsync(string invoiceId,
         CancellationToken cancellationToken = default)
     {
         var request = new InvoiceShowRequest(invoiceId);
