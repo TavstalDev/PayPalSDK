@@ -19,7 +19,7 @@ public class Taxes
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("inclusive")]
-    public bool Inclusive { get; set; }
+    public bool? Inclusive { get; set; }
 
     /// <summary>
     /// Gets or sets the percentage of the tax.

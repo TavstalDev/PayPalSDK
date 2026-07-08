@@ -47,7 +47,7 @@ public class Tracker
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("notify_buyer")]
-    public bool NotifyBuyer { get; set; }
+    public bool? NotifyBuyer { get; set; }
     
     /// <summary>
     /// Gets or sets the shipment direction.

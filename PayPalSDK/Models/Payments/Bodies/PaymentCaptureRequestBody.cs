@@ -35,7 +35,7 @@ public class PaymentCaptureRequestBody
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("final_capture")]
-    public bool FinalCapture { get; set; }
+    public bool? FinalCapture { get; set; }
 
     /// <summary>
     /// Instructions for processing the payment.

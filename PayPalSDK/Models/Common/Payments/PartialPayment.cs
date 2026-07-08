@@ -15,7 +15,7 @@ public class PartialPayment
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("allow_partial_payment")]
-    public bool AllowPartialPayment { get; set; }
+    public bool? AllowPartialPayment { get; set; }
 
     /// <summary>
     /// Gets or sets the minimum amount due for a partial payment.
@@ -23,7 +23,7 @@ public class PartialPayment
     [FluentMember(1)]
     [FluentSkippable]
     [JsonPropertyName("minimum_amount_due")]
-    public Money? MinimalAmountDue { get; set; }
+    public Money? MinimumAmountDue { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

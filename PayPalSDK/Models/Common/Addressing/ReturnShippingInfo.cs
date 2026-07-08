@@ -15,7 +15,7 @@ public class ReturnShippingInfo
     [FluentMember(0)]
     [FluentSkippable]
     [JsonPropertyName("save_to_profile")]
-    public bool SaveToProfile { get; set; }
+    public bool? SaveToProfile { get; set; }
     
     /// <summary>
     /// Gets or sets the return shipping address.
