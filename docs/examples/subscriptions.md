@@ -9,6 +9,7 @@ Create a subscription for a billing plan.
 ```csharp
 using Tavstal.PayPalSDK.Models.Subscriptions;
 using Tavstal.PayPalSDK.Models.Subscriptions.Bodies;
+using Tavstal.PayPalSDK.Models.Common.Plans;
 
 // Create subscription
 var body = new SubscriptionCreateRequestBody

@@ -28,7 +28,7 @@ Console.WriteLine($"Reason: {dispute.Reason}");
 > ```csharp
 > using Tavstal.PayPalSDK.Http.Clients;
 > 
-> var result = await client.Disputes.ShowDetailsAsync("PP-D-4012");
+> var result = await client.Disputes.GetAsync("PP-D-4012");
 > if (result.IsSuccess)
 > {
 >     Console.WriteLine($"Dispute ID: {result.Value.DisputeId}");
@@ -175,7 +175,7 @@ Submit evidence to defend against a dispute.
 ```csharp
 using Tavstal.PayPalSDK.Models.Disputes;
 using Tavstal.PayPalSDK.Models.Disputes.Bodies;
-using Tavstal.PayPalSDK.Models.Common.Disputes;
+using Tavstal.PayPalSDK.Models.Common.Addressing;
 
 // Create the request body with evidence
 var body = new DisputeProvideEvidenceRequestBody

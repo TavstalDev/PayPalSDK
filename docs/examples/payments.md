@@ -236,6 +236,8 @@ Find payments that are eligible for processing.
 
 ```csharp
 using Tavstal.PayPalSDK.Models.Payments;
+using Tavstal.PayPalSDK.Models.Payments.Bodies;
+using Tavstal.PayPalSDK.Models.Common.Payments.EligibleMethod;
 
 var body = new PaymentFindEligibleMethodsRequestBody
 {

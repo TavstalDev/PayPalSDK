@@ -24,7 +24,7 @@ var body = new PaymentTokenCreateRequestBody
 };
 
 // Create the token
-var request = new PaymentMethodTokenCreateRequest(body);
+var request = new PaymentTokenCreateRequest(body);
 var response = await client.SendAsync(request);
 
 // Parse the response

@@ -168,6 +168,7 @@ Verify the authenticity of a webhook notification.
 ```csharp
 using Tavstal.PayPalSDK.Models.Webhooks;
 using Tavstal.PayPalSDK.Models.Webhooks.Bodies;
+using Tavstal.PayPalSDK.Models.Common.Webhooks;
 
 // Prepare verification data
 var body = new WebhookVerifyRequestBody
