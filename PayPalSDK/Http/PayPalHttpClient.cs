@@ -263,7 +263,11 @@ public sealed class PayPalHttpClient : IPayPalHttpClient, IDisposable
     /// </summary>
     public void Dispose()
     {
-        try { _httpClient.Dispose(); }catch { /* ignored */}
+        try
+        {
+            _semaphore.Dispose();
+            _httpClient.Dispose(); 
+        }catch { /* ignored */}
     }
 
     /// <summary>
