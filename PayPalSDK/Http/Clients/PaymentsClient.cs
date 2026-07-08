@@ -43,7 +43,7 @@ public sealed class PaymentsClient : ClientBase
     /// A result containing <see cref="RefundPaymentBody"/> on success,
     /// or an <see cref="ErrorResponse"/> on failure.
     /// </returns>
-    public async Task<Result<RefundPaymentBody, ErrorResponse>> RefundPaymentAsync(string id,
+    public async Task<Result<RefundPaymentBody, ErrorResponse>> RefundAsync(string id,
         PaymentRefundRequestBody body, CancellationToken cancellationToken = default)
     {
         var request = new PaymentRefundRequest(id, body);
