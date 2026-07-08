@@ -52,7 +52,7 @@ public class PaymentSource
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("bancontact")]
-    public BanContactSource? BanContact { get; set; }
+    public BancontactSource? Bancontact { get; set; }
 
     /// <summary>
     /// Gets or sets the Blik payment source.

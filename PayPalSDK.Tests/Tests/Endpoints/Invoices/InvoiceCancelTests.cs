@@ -26,6 +26,6 @@ public class InvoiceCancelTests : TestBase
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NoContent);
 
-        _testOutputHelper.WriteLine("Successfully cancelled Invoices.");
+        _testOutputHelper.WriteLine("Successfully canceled Invoices.");
     }
 }

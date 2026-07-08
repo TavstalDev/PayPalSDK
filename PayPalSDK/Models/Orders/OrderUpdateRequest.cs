@@ -26,7 +26,7 @@ public class OrderUpdateRequest : HttpRequestBase
     /// </summary>
     /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
     /// <returns>The current instance of <see cref="OrderUpdateRequest"/> for method chaining.</returns>
-    public OrderUpdateRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    public OrderUpdateRequest PayPalPartnerAttributionId(string paypalPartnerAttributionId)
     {
         Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
         return this;

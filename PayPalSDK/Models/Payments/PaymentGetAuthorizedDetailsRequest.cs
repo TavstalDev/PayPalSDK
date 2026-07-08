@@ -26,7 +26,7 @@ public class PaymentGetAuthorizedDetailsRequest : HttpRequestBase<AuthorizedPaym
     /// </summary>
     /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
     /// <returns>The current instance of <see cref="PaymentGetAuthorizedDetailsRequest"/> for method chaining.</returns>
-    public PaymentGetAuthorizedDetailsRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    public PaymentGetAuthorizedDetailsRequest PayPalPartnerAttributionId(string paypalPartnerAttributionId)
     {
         Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
         return this;

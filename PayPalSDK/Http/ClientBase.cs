@@ -114,7 +114,7 @@ public abstract class ClientBase : IClient
         {
             return Result<T, ErrorResponse>.Failure(new ErrorResponse
             {
-                Name = $"HTTP Error, Status Code: {ex.StatusCode}",
+                Name = $"HTTP Error, Status Code: {ex.StatusCode ?? 0}",
                 Message = ex.Message,
             });
         }

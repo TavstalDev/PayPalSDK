@@ -25,7 +25,7 @@ public enum ESubscriptionStatus
     /// </summary>
     SUSPENDED = 3,
     /// <summary>
-    /// The operation was cancelled.
+    /// The operation was canceled.
     /// </summary>
     CANCELLED = 4,
     /// <summary>

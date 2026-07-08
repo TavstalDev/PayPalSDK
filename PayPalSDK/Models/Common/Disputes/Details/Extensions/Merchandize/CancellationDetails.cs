@@ -26,7 +26,7 @@ public class CancellationDetails
     /// </summary>
     [FluentMember(1)]
     [FluentSkippable]
-    [JsonPropertyName("cancelled")]
+    [JsonPropertyName("canceled")]
     public bool Cancelled { get; set; }
     
     /// <summary>

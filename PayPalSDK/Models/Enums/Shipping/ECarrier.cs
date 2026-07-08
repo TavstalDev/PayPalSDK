@@ -526,7 +526,7 @@ public enum ECarrier
     GLOBAL_IPARCEL = 257,
     /// <summary>Yurtici Kargo.</summary>
     YURTICI_KARGO = 258,
-    /// <summary>CN Paypal Package.</summary>
+    /// <summary>CN PayPal Package.</summary>
     CN_PAYPAL_PACKAGE = 259,
     /// <summary>Parcel 2 Post.</summary>
     PARCEL_2_POST = 260,

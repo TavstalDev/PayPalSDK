@@ -6,13 +6,13 @@ using M31.FluentApi.Attributes;
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 
 /// <summary>
-/// Represents a BanContact payment source within the PayPal SDK.
+/// Represents a Bancontact payment source within the PayPal SDK.
 /// </summary>
 [FluentApi(builderClassName: "{Name}Builder")]
-public class BanContactSource
+public class BancontactSource
 {
     /// <summary>
-    /// Gets or sets the name associated with the BanContact payment source.
+    /// Gets or sets the name associated with the Bancontact payment source.
     /// </summary>
     /// <remarks>
     /// This field is required and has a maximum length of 300 characters.
@@ -24,7 +24,7 @@ public class BanContactSource
     public string? Name { get; set; }
 
     /// <summary>
-    /// Gets or sets the country code associated with the BanContact payment source.
+    /// Gets or sets the country code associated with the Bancontact payment source.
     /// </summary>
     /// <remarks>
     /// This field is required and must be a valid two-letter country code or "C2".
@@ -37,7 +37,7 @@ public class BanContactSource
     public string? CountryCode { get; set; }
 
     /// <summary>
-    /// Gets or sets the experience context for configuring the BanContact payment experience.
+    /// Gets or sets the experience context for configuring the Bancontact payment experience.
     /// </summary>
     [FluentMember(2)]
     [FluentSkippable]

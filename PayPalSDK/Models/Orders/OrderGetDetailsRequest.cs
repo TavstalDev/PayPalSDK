@@ -23,7 +23,7 @@ public class OrderGetDetailsRequest : HttpRequestBase<OrderBody>
     /// </summary>
     /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
     /// <returns>The current instance of <see cref="OrderGetDetailsRequest"/> for method chaining.</returns>
-    public OrderGetDetailsRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    public OrderGetDetailsRequest PayPalPartnerAttributionId(string paypalPartnerAttributionId)
     {
         Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
         return this;

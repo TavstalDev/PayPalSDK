@@ -34,7 +34,7 @@ public class TransactionCartInfo
    [FluentSkippable]
    [JsonPropertyName("paypal_invoice_id")]
    [StringLength(127)]
-   public string? PaypalInvoiceId { get; set; }
+   public string? PayPalInvoiceId { get; set; }
 
     /// <summary>
     /// Fluent build method implementation

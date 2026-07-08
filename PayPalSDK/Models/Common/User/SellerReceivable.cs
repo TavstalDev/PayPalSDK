@@ -33,7 +33,7 @@ public class SellerReceivable
     [FluentMember(2)]
     [FluentSkippable]
     [JsonPropertyName("paypal_fee")]
-    public Money? PaypalFee { get; set; }
+    public Money? PayPalFee { get; set; }
 
     /// <summary>
     /// The PayPal fee in the receivable currency.
@@ -41,7 +41,7 @@ public class SellerReceivable
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("paypal_fee_in_receivable_currency")]
-    public Money? PaypalFeeInReceivableCurrency { get; set; }
+    public Money? PayPalFeeInReceivableCurrency { get; set; }
 
     /// <summary>
     /// The net amount after deductions.

@@ -21,7 +21,7 @@ public class TransactionInfo
     [FluentSkippable]
     [JsonPropertyName("paypal_account_id")]
     [StringLength(24)]
-    public string? PaypalAccountId { get; set; }
+    public string? PayPalAccountId { get; set; }
     
     /// <summary>
     /// Gets or sets the unique PayPal transaction identifier.
@@ -39,15 +39,15 @@ public class TransactionInfo
     [FluentSkippable]
     [JsonPropertyName("paypal_reference_id")]
     [StringLength(24)]
-    public string? PaypalReferenceId { get; set; }
+    public string? PayPalReferenceId { get; set; }
     
     /// <summary>
-    /// Gets or sets the type code for <see cref="PaypalReferenceId"/>.
+    /// Gets or sets the type code for <see cref="PayPalReferenceId"/>.
     /// </summary>
     [FluentMember(3)]
     [FluentSkippable]
     [JsonPropertyName("paypal_reference_id_type")]
-    public EPaypalReferenceIdType? PaypalReferenceIdType { get; set; }
+    public EPayPalReferenceIdType? PayPalReferenceIdType { get; set; }
     
     /// <summary>
     /// Gets or sets the transaction event code describing the event category.

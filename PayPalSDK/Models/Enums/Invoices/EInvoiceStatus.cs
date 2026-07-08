@@ -29,7 +29,7 @@ public enum EInvoiceStatus
     /// </summary>
     MARKED_AS_PAID = 4,
     /// <summary>
-    /// The operation was cancelled.
+    /// The operation was canceled.
     /// </summary>
     CANCELLED = 5,
     /// <summary>
@@ -57,7 +57,7 @@ public enum EInvoiceStatus
     /// </summary>
     PAYMENT_PENDING = 11,
     /// <summary>
-    /// Invoice was automatically cancelled.
+    /// Invoice was automatically canceled.
     /// </summary>
     AUTO_CANCELLED = 12,
     /// <summary>

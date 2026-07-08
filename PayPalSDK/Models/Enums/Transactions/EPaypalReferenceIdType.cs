@@ -5,8 +5,8 @@ namespace Tavstal.PayPalSDK.Models.Enums.Transactions;
 /// <summary>
 /// The type of PayPal reference identifier.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter<EPaypalReferenceIdType>))]
-public enum EPaypalReferenceIdType
+[JsonConverter(typeof(JsonStringEnumConverter<EPayPalReferenceIdType>))]
+public enum EPayPalReferenceIdType
 {
     /// <summary>Reference is an order ID.</summary>
     ODR = 0,

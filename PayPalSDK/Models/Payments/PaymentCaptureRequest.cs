@@ -28,7 +28,7 @@ public class PaymentCaptureRequest : HttpRequestBase<CapturedPaymentBody>
     /// </summary>
     /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
     /// <returns>The current instance of <see cref="PaymentCaptureRequest"/> for method chaining.</returns>
-    public PaymentCaptureRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    public PaymentCaptureRequest PayPalPartnerAttributionId(string paypalPartnerAttributionId)
     {
         Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
         return this;

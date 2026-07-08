@@ -20,6 +20,6 @@ public class SubscriptionCancelTests : TestBase
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.NoContent);
 
-        _testOutputHelper.WriteLine("Subscription cancelled successfully.");
+        _testOutputHelper.WriteLine("Subscription canceled successfully.");
     }
 }

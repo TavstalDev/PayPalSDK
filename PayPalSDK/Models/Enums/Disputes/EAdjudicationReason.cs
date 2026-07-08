@@ -22,9 +22,9 @@ public enum EAdjudicationReason
     BUYER_ATTEMPTED_RETURN = 5,
     /// <summary>Buyer was billed only once.</summary>
     BUYER_BILLED_ONLY_ONCE = 6,
-    /// <summary>Buyer cancelled the case.</summary>
+    /// <summary>Buyer canceled the case.</summary>
     BUYER_CANCELLED_CASE = 7,
-    /// <summary>Buyer cancelled the service.</summary>
+    /// <summary>Buyer canceled the service.</summary>
     BUYER_CANCELLED_SERVICE = 8,
     /// <summary>Buyer failed to describe the issue.</summary>
     BUYER_FAILED_TO_DESCRIBE_ISSUE = 9,
@@ -210,9 +210,9 @@ public enum EAdjudicationReason
     TRACKING_PROOF_NOT_ENOUGH = 99,
     /// <summary>Transaction authorized by cardholder.</summary>
     TRANSACTION_AUTHORIZED_BY_CARDHOLDER = 100,
-    /// <summary>Transaction cancelled after authorization date.</summary>
+    /// <summary>Transaction canceled after authorization date.</summary>
     TRANSACTION_CANCELLED_AFTER_AUTHORIZATION_DATE = 101,
-    /// <summary>Transaction cancelled before shipment or service date.</summary>
+    /// <summary>Transaction canceled before shipment or service date.</summary>
     TRANSACTION_CANCELLED_BEFORE_SHIPMENT_SERVICE_DATE = 102,
     /// <summary>Transaction matches buyer spending pattern.</summary>
     TRANSACTION_MATCHES_BUYER_SPENDING_PATTERN = 103,

@@ -45,7 +45,7 @@ public enum EDisputeTransactionStatus
     /// </summary>
     REVERSED = 8,
     /// <summary>
-    /// The operation was cancelled.
+    /// The operation was canceled.
     /// </summary>
     CANCELLED = 9
 }

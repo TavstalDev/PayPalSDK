@@ -8,7 +8,7 @@ namespace Tavstal.PayPalSDK.Models.Enums.Payment;
 [JsonConverter(typeof(JsonStringEnumConverter<ERefundStatus>))]
 public enum ERefundStatus
 {
-    /// <summary>The operation was cancelled.</summary>
+    /// <summary>The operation was canceled.</summary>
     CANCELLED = 0,
     /// <summary>The operation failed.</summary>
     FAILED = 1,

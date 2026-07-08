@@ -109,7 +109,7 @@ public class UpdateTrackingForOrderTests : TestBase
         _testOutputHelper.WriteLine("Error Message: " + orderResponse.Message);
     }
     
-    [Fact(DisplayName = "Sample 6 - 422 - Patch Tracking Information - 422 UNPROCESSABLE ENTITY Error - Cannot patch cancelled tracker.")]
+    [Fact(DisplayName = "Sample 6 - 422 - Patch Tracking Information - 422 UNPROCESSABLE ENTITY Error - Cannot patch canceled tracker.")]
     public async Task UpdateTrackingForOrder_Sample6()
     {
         var resource = _resources[5];

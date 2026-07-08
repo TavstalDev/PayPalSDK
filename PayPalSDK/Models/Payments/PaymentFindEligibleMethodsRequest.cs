@@ -27,7 +27,7 @@ public class PaymentFindEligibleMethodsRequest : HttpRequestBase<EligibleMethodR
     /// </summary>
     /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
     /// <returns>The current instance of <see cref="PaymentFindEligibleMethodsRequest"/> for method chaining.</returns>
-    public PaymentFindEligibleMethodsRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    public PaymentFindEligibleMethodsRequest PayPalPartnerAttributionId(string paypalPartnerAttributionId)
     {
         Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
         return this;

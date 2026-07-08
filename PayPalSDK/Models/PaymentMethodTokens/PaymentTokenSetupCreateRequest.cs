@@ -27,7 +27,7 @@ public class PaymentTokenSetupCreateRequest : HttpRequestBase<PaymentTokenSetup>
     /// </summary>
     /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
     /// <returns>The current instance of <see cref="PaymentTokenSetupCreateRequest"/> for method chaining.</returns>
-    public PaymentTokenSetupCreateRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    public PaymentTokenSetupCreateRequest PayPalPartnerAttributionId(string paypalPartnerAttributionId)
     {
         Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
         return this;

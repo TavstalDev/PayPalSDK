@@ -24,7 +24,7 @@ public class PaymentVoidRequest : HttpRequestBase<AuthorizedPaymentBody>
     /// </summary>
     /// <param name="paypalPartnerAttributionId">The PayPal Partner Attribution ID to be added.</param>
     /// <returns>The current instance of <see cref="PaymentVoidRequest"/> for method chaining.</returns>
-    public PaymentVoidRequest PaypalPartnerAttributionId(string paypalPartnerAttributionId)
+    public PaymentVoidRequest PayPalPartnerAttributionId(string paypalPartnerAttributionId)
     {
         Headers.Add("PayPal-Partner-Attribution-Id", paypalPartnerAttributionId);
         return this;
