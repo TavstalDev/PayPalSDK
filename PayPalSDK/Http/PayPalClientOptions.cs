@@ -7,7 +7,7 @@ namespace Tavstal.PayPalSDK.Http;
 /// Configuration options for <see cref="PayPalHttpClient"/>.
 /// All properties are optional with sensible defaults.
 /// </summary>
-[FluentApi]
+[FluentApi(builderClassName: "{Name}Builder")]
 public class PayPalClientOptions
 {
     /// <summary>
