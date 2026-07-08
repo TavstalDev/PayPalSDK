@@ -17,7 +17,7 @@ public class UpdateOperation
     [FluentMember(0)]
     [JsonPropertyName("op")]
     [Required]
-    public EUpdateOperaton Op { get; set; }
+    public EUpdateOperation Op { get; set; }
 
     /// <summary>
     /// Gets or sets the JSON Pointer path to the target field.

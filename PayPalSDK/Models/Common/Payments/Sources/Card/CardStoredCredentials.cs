@@ -18,7 +18,7 @@ public class CardStoredCredentials
     [FluentMember(0)]
     [JsonPropertyName("payment_initiator")]
     [Required]
-    public EPaymentInitator PaymentInitiator { get; set; }
+    public EPaymentInitiator PaymentInitiator { get; set; }
 
     /// <summary>
     /// Gets or sets the type of payment.

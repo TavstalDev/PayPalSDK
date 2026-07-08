@@ -6,8 +6,8 @@ namespace Tavstal.PayPalSDK.Models.Enums;
 /// <summary>
 /// The type of JSON Patch (RFC 6902) update operation.
 /// </summary>
-[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EUpdateOperaton>))]
-public enum EUpdateOperaton
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EUpdateOperation>))]
+public enum EUpdateOperation
 {
     /// <summary>
     /// Adds a value to an object or array.

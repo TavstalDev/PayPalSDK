@@ -18,7 +18,7 @@ public class PayPalStoredCredentials
     [FluentMember(0)]
     [JsonPropertyName("payment_initiator")]
     [Required]
-    public EPaymentInitator PaymentInitiator { get; set; }
+    public EPaymentInitiator PaymentInitiator { get; set; }
 
     /// <summary>
     /// Gets or sets the charge pattern for the stored credentials.

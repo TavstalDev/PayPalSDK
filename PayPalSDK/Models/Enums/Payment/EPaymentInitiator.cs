@@ -5,8 +5,8 @@ namespace Tavstal.PayPalSDK.Models.Enums.Payment;
 /// <summary>
 /// The initiator of a payment.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter<EPaymentInitator>))]
-public enum EPaymentInitator
+[JsonConverter(typeof(JsonStringEnumConverter<EPaymentInitiator>))]
+public enum EPaymentInitiator
 {
     /// <summary>Payment initiated by the customer.</summary>
     CUSTOMER = 0,
