@@ -54,9 +54,9 @@ public sealed class SubscriptionsClient : ClientBase
     /// </summary>
     /// <param name="planIds">Optional comma-separated plan identifiers to filter by.</param>
     /// <param name="statuses">Optional comma-separated subscription statuses to filter by.</param>
-    /// <param name="createdAfet">Optional lower bound for creation time filter.</param>
+    /// <param name="createdAfter">Optional lower bound for creation time filter.</param>
     /// <param name="createdBefore">Optional upper bound for creation time filter.</param>
-    /// <param name="updatedAfet">Optional lower bound for update time filter.</param>
+    /// <param name="updatedAfter">Optional lower bound for update time filter.</param>
     /// <param name="updatedBefore">Optional upper bound for update time filter.</param>
     /// <param name="filter">Optional custom filter expression.</param>
     /// <param name="pageSize">The number of records per page.</param>
@@ -67,11 +67,11 @@ public sealed class SubscriptionsClient : ClientBase
     /// A result containing <see cref="SubscriptionListResponse"/> on success,
     /// or an <see cref="ErrorResponse"/> on failure.
     /// </returns>
-    public async Task<Result<SubscriptionListResponse, ErrorResponse>> ListAsync(string? planIds = null, string? statuses = null, string? createdAfet = null, string? createdBefore = null, 
-        string? updatedAfet = null, string? updatedBefore = null, string? filter = null, int pageSize = 10, int page = 1, string[]? customerIds = null, 
+    public async Task<Result<SubscriptionListResponse, ErrorResponse>> ListAsync(string? planIds = null, string? statuses = null, string? createdAfter = null, string? createdBefore = null, 
+        string? updatedAfter = null, string? updatedBefore = null, string? filter = null, int pageSize = 10, int page = 1, string[]? customerIds = null, 
         CancellationToken cancellationToken = default)
     {
-        var request = new SubscriptionListRequest(planIds, statuses, createdAfet, createdBefore, updatedAfet, updatedBefore, filter, pageSize, page, customerIds);
+        var request = new SubscriptionListRequest(planIds, statuses, createdAfter, createdBefore, updatedAfter, updatedBefore, filter, pageSize, page, customerIds);
         return await ExecuteAsync(request, cancellationToken);
     }
 
