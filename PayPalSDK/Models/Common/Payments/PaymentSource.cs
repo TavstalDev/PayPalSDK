@@ -132,15 +132,15 @@ public class PaymentSource
     public SofortSource? Sofort { get; set; }
 
     /// <summary>
-    /// Gets or sets the Trustuly payment source.
+    /// Gets or sets the Trustly payment source.
     /// </summary>
     /// <remarks>
-    /// This field is optional and represents payment details using Trustuly.
+    /// This field is optional and represents payment details using Trustly.
     /// </remarks>
     [FluentMember(11)]
     [FluentSkippable]
-    [JsonPropertyName("trustuly")]
-    public TrustulySource? Trustuly { get; set; }
+    [JsonPropertyName("trustly")]
+    public TrustlySource? Trustly { get; set; }
 
     /// <summary>
     /// Gets or sets the Apple Pay payment source.

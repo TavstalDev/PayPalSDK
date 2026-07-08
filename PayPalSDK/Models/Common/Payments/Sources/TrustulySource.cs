@@ -6,13 +6,13 @@ using M31.FluentApi.Attributes;
 namespace Tavstal.PayPalSDK.Models.Common.Payments.Sources;
 
 /// <summary>
-/// Represents a Trustuly payment source within the PayPal SDK.
+/// Represents a Trustly payment source within the PayPal SDK.
 /// </summary>
 [FluentApi(builderClassName: "{Name}Builder")]
-public class TrustulySource
+public class TrustlySource
 {
     /// <summary>
-    /// Gets or sets the name associated with the Trustuly payment source.
+    /// Gets or sets the name associated with the Trustly payment source.
     /// </summary>
     /// <remarks>
     /// This field is required and has a maximum length of 300 characters.
@@ -24,7 +24,7 @@ public class TrustulySource
     public string? Name { get; set; }
 
     /// <summary>
-    /// Gets or sets the country code associated with the Trustuly payment source.
+    /// Gets or sets the country code associated with the Trustly payment source.
     /// </summary>
     /// <remarks>
     /// This field is required and must be a valid two-letter country code or "C2".
@@ -37,7 +37,7 @@ public class TrustulySource
     public string? CountryCode { get; set; }
 
     /// <summary>
-    /// Gets or sets the email address associated with the Trustuly payment source.
+    /// Gets or sets the email address associated with the Trustly payment source.
     /// </summary>
     /// <remarks>
     /// This field is required and must be a valid email address with a maximum length of 254 characters.
@@ -50,7 +50,7 @@ public class TrustulySource
     public string? Email { get; set; }
 
     /// <summary>
-    /// Gets or sets the experience context for configuring the Trustuly payment experience.
+    /// Gets or sets the experience context for configuring the Trustly payment experience.
     /// </summary>
     /// <remarks>
     /// This field is optional and provides additional configuration for the payment experience.
