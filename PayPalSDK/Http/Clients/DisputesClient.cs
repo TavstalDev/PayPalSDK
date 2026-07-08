@@ -25,7 +25,7 @@ public sealed class DisputesClient : ClientBase
     /// A result containing <see cref="DisputeDetails"/> on success,
     /// or an <see cref="ErrorResponse"/> on failure.
     /// </returns>
-    public async Task<Result<DisputeDetails, ErrorResponse>> ShowDetailsAsync(string id, CancellationToken cancellationToken = default)
+    public async Task<Result<DisputeDetails, ErrorResponse>> GetAsync(string id, CancellationToken cancellationToken = default)
     {
         var request = new DisputeShowDetailsRequest(id);
         return await ExecuteAsync(request, cancellationToken);
