@@ -18,7 +18,7 @@ This guide will help you install, configure, and use PayPalSDK to make your firs
 
 Before you start, make sure you have:
 
-- [.NET 9.0 SDK](https://dotnet.microsoft.com/download) or a newer version
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download) or a newer version
 - A [PayPal Developer account](https://developer.paypal.com/)
 - A PayPal REST API application with a **Client ID** and **Client Secret**
     - You can create one on the [PayPal Developer Dashboard](https://developer.paypal.com/developer/applications)
@@ -28,7 +28,19 @@ Before you start, make sure you have:
 
 ## Installation
 
-> **Note:** Packages for NuGet and GitHub Releases will be available with the `1.0.0` release. For now, please build the project from the source code.
+### NuGet
+
+Install the package via NuGet:
+
+```bash
+dotnet add package PayPalSDK
+```
+
+Or search for `PayPalSDK` in the NuGet Package Manager in your IDE.
+
+### GitHub Releases
+
+Download the latest package from the [GitHub Releases page](https://github.com/TavstalDev/PayPalSDK/releases/tag/v1.0.0).
 
 ### Build from Source
 
