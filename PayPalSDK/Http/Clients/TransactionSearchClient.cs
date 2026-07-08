@@ -73,7 +73,7 @@ public sealed class TransactionSearchClient : ClientBase
     public async Task<Result<TransactionListBalanceResponseBody, ErrorResponse>> ListBalancesAsync(string? asOfTime = null, string? currencyCode = null,
         CancellationToken cancellationToken = default)
     {
-        var request = new TransactionListBalanceRequest();
+        var request = new TransactionListBalanceRequest(asOfTime, currencyCode);
         return await ExecuteAsync(request, cancellationToken);
     }
 }
