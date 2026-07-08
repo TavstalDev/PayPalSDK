@@ -42,7 +42,11 @@ public abstract class ClientBase : IClient
         {
             var responseBody = await requestBase.GetResponseBodyAsync(response, cancellationToken);
             if (responseBody == null)
-                throw new Exception("Failed to deserialize success response body.");
+                return Result<T, ErrorResponse>.Failure(new ErrorResponse
+                {
+                    Name = "Serialization error.",
+                    Message = "Failed to deserialize success response body."
+                });
 
             return Result<T, ErrorResponse>.Success(responseBody);
         }
@@ -94,8 +98,11 @@ public abstract class ClientBase : IClient
         {
             var errorResponse = await requestBase.GetErrorResponseAsync(response, cancellationToken);
             if (errorResponse == null)
-                throw new Exception(
-                    "Failed to parse PayPal error response, the request probably did not reach PayPal's server.");
+                return Result<T, ErrorResponse>.Failure(new ErrorResponse
+                {
+                    Name = "Serialization error.",
+                    Message = "Failed to parse PayPal error response, the request probably did not reach PayPal's server."
+                });
 
             return Result<T, ErrorResponse>.Failure(errorResponse);
         }
