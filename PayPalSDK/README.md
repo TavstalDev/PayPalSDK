@@ -29,9 +29,15 @@ Or search for `PayPalSDK` in the NuGet Package Manager in your IDE.
 
 ## Quick Start
 
-### 1. Creating The Client
+### 1. Set Up the Client
+
+Create a `PayPalClient` instance using your credentials:
+
+<details>
+<summary><b>Object initializer example</b> (click to expand)</summary>
+
 ```csharp
-using Tavstal.PayPalSDK;
+using Tavstal.PayPalSDK.Http;
 
 // Example: Use sandbox for testing
 var client = new PayPalHttpClient(
@@ -44,8 +50,37 @@ var client = new PayPalHttpClient(
 );
 ```
 
-### 2. Low-Level Pattern
+</details>
+
+<details>
+<summary><b>Fluent API alternative</b> (click to expand)</summary>
+
 ```csharp
+using Tavstal.PayPalSDK.Http;
+
+PayPalHttpClientBuilder
+    // WithEnvironment, WithSandboxEnvironment Or WithLiveEnvironment:
+    .WithSandboxEnvironment("your-client-id-here", "your-client-secret-here")
+    .WithOptions(PayPalClientOptionsBuilder
+      .WithApplicationName("Test App")
+      .Build())
+    .Build();
+```
+
+</details>
+
+The client manages login tokens automatically. It gets and saves a Bearer token from PayPal before sending any requests.
+
+### 2. Create a request
+
+When the client is ready, you can create a new PayPal request:
+
+<details>
+<summary><b>Object initializer example</b> (click to expand)</summary>
+
+```csharp
+using Tavstal.PayPalSDK.Models.Orders;
+
 var orderRequestBody = new OrderCreateRequestBody
 {
     Intent = PayPalIntent.CAPTURE, // Specifies the intent of the order (e.g., capture payment).
@@ -112,11 +147,76 @@ var orderRequestBody = new OrderCreateRequestBody
             }
         }
     ]
-}; 
+};
+```
+</details>
 
+<details>
+<summary><b>Fluent API alternative</b> (click to expand)</summary>
+
+```csharp
+using Tavstal.PayPalSDK.Models.Orders.Bodies;
+using Tavstal.PayPalSDK.Models.Common.Orders;
+using Tavstal.PayPalSDK.Models.Common.Payments;
+using Tavstal.PayPalSDK.Models.Common.Addressing;
+using Tavstal.PayPalSDK.Models.Enums.Orders;
+using Tavstal.PayPalSDK.Models.Common;
+
+var orderRequestBody = OrderCreateRequestBodyBuilder
+    .WithPurchaseUnits([
+        PurchaseUnitBuilder
+            .WithDescription("Test Order")
+            .WithCustomId("CustomId123")
+            .WithItems([
+                ItemBuilder
+                    .WithName("Test Item")
+                    .WithQuantity("1")
+                    .WithUnitAmount(MoneyBuilder
+                        .WithCurrencyCode("EUR")
+                        .WithValue("10.00")
+                        .Build())
+                    .WithDescription("This is a test item")
+                    .WithSku("ITEM123")
+                    .WithCategory(EOrderItemCategory.DIGITAL_GOODS)
+                    .WithTax(MoneyBuilder
+                        .WithCurrencyCode("EUR")
+                        .WithValue("0.00")
+                        .Build())
+                    .Build()
+            ])
+            .WithAmount(MoneyBreakdownBuilder
+                .WithCurrencyCode("EUR")
+                .WithValue("10.00")
+                .WithBreakdown(BreakdownBuilder
+                    .WithItemTotal(MoneyBuilder
+                        .WithCurrencyCode("EUR")
+                        .WithValue("10.00")
+                        .Build())
+                    .Build())
+                .Build())
+            .WithPayee(PayeeBuilder
+                .WithEmailAddress("sdk-merchant@business.example.com")
+                .Build())
+            .Build()
+    ])
+    .WithIntent(EIntent.CAPTURE)
+    .Build();
+```
+
+</details>
+
+### 3. Send the request
+
+You can send requests using either the low-level pattern (directly calling `SendAsync` on the client and handling responses manually)
+or the high-level pattern (using domain-specific client wrappers like `Orders.CreateAsync` for a more streamlined experience).
+
+<details>
+<summary><b>Low-level pattern</b> (click to expand)</summary>
+
+```csharp
 // Create the order request and send it using the PayPal client.
 var orderRequest = new OrderCreateRequest(orderRequestBody);
-var response = await client.SendAsync(orderRequest);
+var response = await _client.SendAsync(orderRequest);
 
 if (!response.IsSuccessStatusCode)
 {
@@ -129,9 +229,10 @@ var orderResponse = await orderRequest.GetResponseBodyAsync(response);
 Console.WriteLine($"Order ID: {orderResponse?.Id}");
 ```
 
-### 3. High-Level Pattern (Recommended)
+</details>
 
-The SDK also provides a higher-level client pattern that wraps the request and error handling into a single call:
+<details>
+<summary><b>High-level pattern (Recommended)</b> (click to expand)</summary>
 
 ```csharp
 using Tavstal.PayPalSDK.Http.Clients;
@@ -149,6 +250,12 @@ else
 }
 ```
 
+</details>
+
+A new order will start with a CREATED status. To finish the payment, the buyer must approve the order through PayPal's checkout page. After that, you can capture the payment.
+
+---
+
 ## Documentation
 
 Full documentation is available on the [GitHub repository](https://github.com/TavstalDev/PayPalSDK):
@@ -159,6 +266,8 @@ Full documentation is available on the [GitHub repository](https://github.com/Ta
 | [Examples](https://github.com/TavstalDev/PayPalSDK/blob/stable/docs/EXAMPLES.md) | Usage examples                 |
 | [API Status](https://github.com/TavstalDev/PayPalSDK/blob/stable/docs/API_STATUS.md) | Endpoint implementation status |
 
+---
+
 ## License
 
 This project is licensed under the **MIT License**.  
@@ -166,9 +275,13 @@ See the [LICENSE](https://github.com/TavstalDev/PayPalSDK/blob/stable/LICENSE) f
 
 Attribution is appreciated but not required. If you use this SDK, please consider mentioning `TavstalDev/PayPalSDK` in your documentation.
 
+---
+
 ## Issues & Support
 
 For bug reports or feature requests, please use the [GitHub issue tracker](https://github.com/TavstalDev/PayPalSDK/issues).
+
+---
 
 ## Disclaimer
 
