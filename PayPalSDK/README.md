@@ -4,6 +4,8 @@ A C# SDK for interacting with the PayPal API. It provides a clean, type-safe int
 
 ## Installation
 
+### NuGet
+
 Install the package via NuGet:
 
 ```bash
@@ -11,6 +13,10 @@ dotnet add package PayPalSDK
 ```
 
 Or search for `PayPalSDK` in the NuGet Package Manager in your IDE.
+
+### GitHub Releases
+
+Download the latest package from the [GitHub Releases page](https://github.com/TavstalDev/PayPalSDK/releases/tag/v1.0.0).
 
 ## Features
 
