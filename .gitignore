@@ -62,6 +62,8 @@ secrets.json
 !.env.example
 appsettings.Development.json
 appsettings.local.json
+*.sln.DotSettings
+*.sln.DotSettings.user
 
 ## ==========================================
 ## Testing & Diagnostics
