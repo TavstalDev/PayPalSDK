@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 </details>
 
+## [1.0.1] - 2026-07-08
+
+<details>
+<summary>NuGet republish</summary>
+
+### Changed
+- Bumped version numbers to 1.0.1 and republished the package to fix the NuGet release for 1.0.0
+
+</details>
+
 ## [1.0.0] - 2026-07-07
 
 <details>
@@ -88,5 +98,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 </details>
 
-[unreleased]: https://github.com/TavstalDev/PayPalSDK/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/TavstalDev/PayPalSDK/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/TavstalDev/PayPalSDK/releases/tag/v1.0.1
 [1.0.0]: https://github.com/TavstalDev/PayPalSDK/releases/tag/v1.0.0
