@@ -12,6 +12,7 @@ Thank you for wanting to help out! PayPalSDK is a simple, lightweight C# library
 - [Suggesting Features](#suggesting-features)
 - [Submitting a Pull Request](#submitting-a-pull-request)
 - [Coding Standards](#coding-standards)
+- [AI Usage](#ai-usage)
 
 ---
 
@@ -106,6 +107,49 @@ You do not need XML comments in the test project. However, if a test is long or 
 // that capture returns a COMPLETED status on success.
 var order = await _client.CreateOrderAsync(...);
 ```
+
+## AI Usage
+
+This policy applies to pull requests from external contributors.
+
+AI-assisted contributions are welcome. AI is treated as a tool, like an IDE feature: you are
+responsible for everything you submit, AI or not.
+
+Rules:
+
+- **Review** - you must read, understand, and be able to explain every line you submit. Adjust and
+  improve AI output instead of pasting it as-is.
+- **Test** - the full test suite must pass. Add new tests when it makes sense.
+- **Disclose** - mention your AI usage in the PR description (see template below).
+
+Accepted:
+
+- Implementing a feature or fix with AI help, then reviewing, adjusting, and testing it yourself.
+- Inline autocomplete and small AI suggestions (up to roughly one method).
+- AI-generated documentation, comments, commit messages, and PR descriptions, after a human review.
+- AI help with tests, as long as you run them and verify they actually fail without the fix.
+
+Not accepted:
+
+- Pasting whole files, classes, or features from a chatbot without reviewing them.
+- Submitting code you cannot explain or debug.
+- Opening PRs generated end-to-end by an AI agent with little or no human review.
+- Committing AI-hallucinated content: fake APIs, invented dependencies, or placeholder secrets.
+
+Disclosure template (add to your PR description):
+
+```markdown
+### AI usage
+- Tool: e.g. GitHub Copilot, ChatGPT, Claude
+- Used for: e.g. drafted the retry logic in `X`, autocompleted small edits
+- Verification: reviewed manually, ran the full test suite locally
+```
+
+Reviewer guidance:
+
+- Reviewers may ask you to explain any part of your PR. If you cannot, it will not be merged.
+- PRs with unreviewed bulk AI code or missing disclosure may be closed.
+- When in doubt, over-disclose. Disclosure never counts against you.
 
 ## Questions?
 
